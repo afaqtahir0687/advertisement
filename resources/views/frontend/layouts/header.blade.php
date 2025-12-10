@@ -16,7 +16,7 @@
                                     <li><a href="blog.html">Blog</a></li>
                                     <li><a href="wishlist.html">My Wishlist</a></li>
                                     <li><a href="cart.html">Cart</a></li>
-                                    <li><a href="login.html" class="login-link">Log In</a></li>
+                                    <li><a href="{{ route('login') }}" >Log In</a></li>
                                 </ul>
                             </div>
                             <!-- End .header-menu -->
@@ -361,7 +361,7 @@
                                         </ul>
                                     </li>
                                     <li><a href="contact.html">Contact Us</a></li>
-                                    <li><a href="login.html">Login</a></li>
+                                    <li><a href="{{ route('login') }}">Login</a></li>
                                     <li><a href="forgot-password.html">Forgot Password</a></li>
                                 </ul>
                             </li>

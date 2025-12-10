@@ -28,6 +28,7 @@
 
     <link rel="stylesheet" href="{{ asset('assets/assets/css/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/assets/css/demo4.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/assets/css/style.min.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/assets/vendor/fontawesome-free/css/all.min.css') }}">
 </head>
 
