@@ -38,7 +38,7 @@ class AuthController extends Controller
     // Show registration form
     public function create()
     {
-        return view('frontend.auth.login'); // Same view as login since both forms are on one page
+        return view('frontend.auth.register');
     }
 
     // Handle registration form submission
@@ -54,11 +54,12 @@ class AuthController extends Controller
             'name' => $validated['name'],
             'email' => $validated['email'],
             'password' => Hash::make($validated['password']),
+            'status' => 1, // Assuming 1 means active user
         ]);
 
         Auth::login($user);
 
-        return redirect()->route('dashboard')->with('success', 'Registration successful! You are now logged in.');
+        return redirect()->intended(route('dashboard'))->with('success', 'Registration successful! You are now logged in.');
     }
 
     // Logout user
