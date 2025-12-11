@@ -11,7 +11,7 @@
                             <a href="#">Links</a>
                             <div class="header-menu">
                                 <ul>
-                                    <li><a href="dashboard.html">My Account</a></li>
+                                    <li><a href="{{route('dashboard')}}">My Account</a></li>
                                     <li><a href="about.html">About Us</a></li>
                                     <li><a href="blog.html">Blog</a></li>
                                     <li><a href="wishlist.html">My Wishlist</a></li>

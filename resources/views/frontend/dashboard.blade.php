@@ -57,8 +57,14 @@
 								<a class="nav-link" href="wishlist.html">Wishlist</a>
 							</li>
 							<li class="nav-item">
-								<a class="nav-link" href="login.html">Logout</a>
+								<form action="{{ route('logout') }}" method="POST">
+									@csrf
+									<button type="submit" class="nav-link btn btn-link p-0" style="cursor:pointer;">
+										Logout
+									</button>
+								</form>
 							</li>
+
 						</ul>
 					</div>
 					<div class="col-lg-9 order-lg-last order-1 tab-content">
