@@ -207,10 +207,10 @@
         <div class="container">
             <nav class="main-nav w-100">
                 <ul class="menu">
-                    <li class="{{ request()->routeIs('home') ? 'active' : '' }}">
+                    <li class="active">
                         <a href="{{ route('home') }}">Home</a>
                     </li>
-                    <li class="{{ request()->routeIs('category.*') ? 'active' : '' }}">
+                    <li>
                         <a href="{{ route('category.index') }}">Categories</a>
                         <div class="megamenu megamenu-fixed-width megamenu-3cols">
                             <div class="row">
@@ -266,7 +266,7 @@
                             </div>
                         </div>
                     </li>
-                    <li class="{{ request()->routeIs('products.*') ? 'active' : '' }}">
+                    <li>
                         <a href="{{ route('products.index') }}">Products</a>
                         <div class="megamenu megamenu-fixed-width">
                             <div class="row">
@@ -317,7 +317,7 @@
                             </div>
                         </div>
                     </li>
-                    <li class="{{ request()->is('pages/*') || request()->routeIs('about.*', 'contact.*') ? 'active' : '' }}">
+                    <li>
                         <a href="#">Pages</a>
                         <ul>
                             <li><a href="{{route('wishlist.index')}}">Wishlist</a></li>
@@ -336,9 +336,9 @@
                             <li><a href="{{ route('login') }}">Login</a></li>
                             <li><a href="forgot-password.html">Forgot Password</a></li>
                         </ul>
-                    <li class="{{ request()->routeIs('blogs.*') ? 'active' : '' }}">
-                        <a href="{{ route('blogs.index') }}">Blog</a></li>
-                    <li class="{{ request()->is('elements*') ? 'active' : '' }}">
+                    </li>
+                    <li><a href="{{ route('blogs.index') }}">Blog</a></li>
+                    <li>
                         <a href="#">Elements</a>
                         <ul class="custom-scrollbar">
                             <li><a href="element-accordions.html">Accordion</a></li>
@@ -358,8 +358,8 @@
                             <li><a href="element-tabs.html">Tabs</a></li>
                             <li><a href="element-testimonial.html">Testimonials</a></li>
                         </ul>
-                    <li class="{{ request()->routeIs('contact') ? 'active' : '' }}">
-                        <a href="{{ route('contact.index') }}">Contact Us</a></li>
+                    </li>
+                    <li><a href="{{ route('contact.index') }}">Contact Us</a></li>
                     <li class="float-right"><a href="https://1.envato.market/DdLk5" rel="noopener" class="pl-5"
                             target="_blank">Buy Porto!</a></li>
                     <li class="float-right"><a href="#" class="pl-5">Special Offer!</a></li>
