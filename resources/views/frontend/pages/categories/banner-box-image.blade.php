@@ -13,7 +13,7 @@
             <div class="row">
                 <div class="col-lg-9">
                     <div class="category-banner banner text-uppercase"
-                        style="background: no-repeat 60%/cover url('assets/images/banners/banner-top.jpg');">
+                        style="background: no-repeat 60%/cover url('{{ asset('assets/images/banners/banner-top.jpg') }}');">
                         <div class="row">
                             <div class="pb-5 pb-md-0 col-sm-5 col-lg-5 offset-1">
                                 <h3 class="mb-2 ls-10">Electronic<br>Deals</h3>
@@ -98,10 +98,10 @@
                         <div class="col-6 col-sm-4">
                             <div class="product-default">
                                 <figure>
-                                    <a href="product.html">
-                                        <img src="assets/images/products/product-1.jpg" width="280" height="280"
+                                    <a href="{{route('products.index')}}">
+                                        <img src="{{ asset('assets/images/products/product-1.jpg') }}" width="280" height="280"
                                             alt="product" />
-                                        <img src="assets/images/products/product-1-2.jpg" width="280" height="280"
+                                        <img src="{{ asset('assets/images/products/product-1-2.jpg') }}" width="280" height="280"
                                             alt="product" />
                                     </a>
 
@@ -118,7 +118,7 @@
                                         </div>
                                     </div>
 
-                                    <h3 class="product-title"> <a href="product.html">Ultimate 3D Bluetooth
+                                    <h3 class="product-title"> <a href="{{route('products.index')}}">Ultimate 3D Bluetooth
                                             Speaker</a> </h3>
 
                                     <div class="ratings-container">
@@ -136,7 +136,7 @@
                                     <div class="product-action">
                                         <a href="wishlist.html" class="btn-icon-wish" title="wishlist"><i
                                                 class="icon-heart"></i></a>
-                                        <a href="product.html" class="btn-icon btn-add-cart"><i
+                                        <a href="{{route('products.index')}}" class="btn-icon btn-add-cart"><i
                                                 class="fa fa-arrow-right"></i><span>SELECT
                                                 OPTIONS</span></a>
                                         <a href="ajax/product-quick-view.html" class="btn-quickview"
@@ -149,10 +149,10 @@
                         <div class="col-6 col-sm-4">
                             <div class="product-default">
                                 <figure>
-                                    <a href="product.html">
-                                        <img src="assets/images/products/product-2.jpg" width="280" height="280"
+                                    <a href="{{route('products.index')}}">
+                                        <img src="{{ asset('assets/images/products/product-2.jpg') }}" width="280" height="280"
                                             alt="product" />
-                                        <img src="assets/images/products/product-2-2.jpg" width="280" height="280"
+                                        <img src="{{ asset('assets/images/products/product-2-2.jpg') }}" width="280" height="280"
                                             alt="product" />
                                     </a>
                                 </figure>
@@ -164,7 +164,7 @@
                                         </div>
                                     </div>
 
-                                    <h3 class="product-title"> <a href="product.html">Brown Women Casual HandBag</a>
+                                    <h3 class="product-title"> <a href="{{route('products.index')}}">Brown Women Casual HandBag</a>
                                     </h3>
 
                                     <div class="ratings-container">
@@ -181,7 +181,7 @@
                                     <div class="product-action">
                                         <a href="wishlist.html" class="btn-icon-wish" title="wishlist"><i
                                                 class="icon-heart"></i></a>
-                                        <a href="product.html" class="btn-icon btn-add-cart"><i
+                                        <a href="{{route('products.index')}}" class="btn-icon btn-add-cart"><i
                                                 class="fa fa-arrow-right"></i><span>SELECT
                                                 OPTIONS</span></a>
                                         <a href="ajax/product-quick-view.html" class="btn-quickview"
@@ -194,10 +194,10 @@
                         <div class="col-6 col-sm-4">
                             <div class="product-default">
                                 <figure>
-                                    <a href="product.html">
-                                        <img src="assets/images/products/product-3.jpg" width="280" height="280"
+                                    <a href="{{route('products.index')}}">
+                                        <img src="{{ asset('assets/images/products/product-3.jpg') }}" width="280" height="280"
                                             alt="product" />
-                                        <img src="assets/images/products/product-3-2.jpg" width="280" height="280"
+                                        <img src="{{ asset('assets/images/products/product-3-2.jpg') }}" width="280" height="280"
                                             alt="product" />
                                     </a>
 
@@ -213,7 +213,7 @@
                                         </div>
                                     </div>
 
-                                    <h3 class="product-title"> <a href="product.html">Circled Ultimate 3D
+                                    <h3 class="product-title"> <a href="{{route('products.index')}}">Circled Ultimate 3D
                                             Speaker</a> </h3>
 
                                     <div class="ratings-container">
@@ -243,10 +243,10 @@
                         <div class="col-6 col-sm-4">
                             <div class="product-default">
                                 <figure>
-                                    <a href="product.html">
-                                        <img src="assets/images/products/product-4.jpg" width="280" height="280"
+                                    <a href="{{route('products.index')}}">
+                                        <img src="{{ asset('assets/images/products/product-4.jpg') }}" width="280" height="280"
                                             alt="product" />
-                                        <img src="assets/images/products/product-4-2.jpg" width="280" height="280"
+                                        <img src="{{ asset('assets/images/products/product-4-2.jpg') }}" width="280" height="280"
                                             alt="product">
                                     </a>
 
@@ -262,7 +262,7 @@
                                         </div>
                                     </div>
 
-                                    <h3 class="product-title"> <a href="product.html">Blue Backpack for the Young -
+                                    <h3 class="product-title"> <a href="{{route('products.index')}}">Blue Backpack for the Young -
                                             S</a> </h3>
 
                                     <div class="ratings-container">
@@ -280,7 +280,7 @@
                                     <div class="product-action">
                                         <a href="wishlist.html" class="btn-icon-wish" title="wishlist"><i
                                                 class="icon-heart"></i></a>
-                                        <a href="product.html" class="btn-icon btn-add-cart"><i
+                                        <a href="{{route('products.index')}}" class="btn-icon btn-add-cart"><i
                                                 class="fa fa-arrow-right"></i><span>SELECT
                                                 OPTIONS</span></a>
                                         <a href="ajax/product-quick-view.html" class="btn-quickview"
@@ -293,10 +293,10 @@
                         <div class="col-6 col-sm-4">
                             <div class="product-default">
                                 <figure>
-                                    <a href="product.html">
-                                        <img src="assets/images/products/product-5.jpg" width="280" height="280"
+                                    <a href="{{route('products.index')}}">
+                                        <img src="{{ asset('assets/images/products/product-5.jpg') }}" width="280" height="280"
                                             alt="product" />
-                                        <img src="assets/images/products/product-5-2.jpg" width="280" height="280"
+                                        <img src="{{ asset('assets/images/products/product-5-2.jpg') }}" width="280" height="280"
                                             alt="product" />
                                     </a>
 
@@ -312,7 +312,7 @@
                                         </div>
                                     </div>
 
-                                    <h3 class="product-title"> <a href="product.html">Casual Spring Blue Shoes</a>
+                                    <h3 class="product-title"> <a href="{{route('products.index')}}">Casual Spring Blue Shoes</a>
                                     </h3>
 
                                     <div class="ratings-container">
@@ -342,10 +342,10 @@
                         <div class="col-6 col-sm-4">
                             <div class="product-default">
                                 <figure>
-                                    <a href="product.html">
-                                        <img src="assets/images/products/product-6.jpg" width="280" height="280"
+                                    <a href="{{route('products.index')}}">
+                                        <img src="{{ asset('assets/images/products/product-6.jpg') }}" width="280" height="280"
                                             alt="product">
-                                        <img src="assets/images/products/product-6-2.jpg" width="280" height="280"
+                                        <img src="{{ asset('assets/images/products/product-6-2.jpg') }}" width="280" height="280"
                                             alt="product" />
                                     </a>
 
@@ -361,7 +361,7 @@
                                         </div>
                                     </div>
 
-                                    <h3 class="product-title"> <a href="product.html">Men Black Gentle Belt</a>
+                                    <h3 class="product-title"> <a href="{{route('products.index')}}">Men Black Gentle Belt</a>
                                     </h3>
 
                                     <div class="ratings-container">
@@ -391,10 +391,10 @@
                         <div class="col-6 col-sm-4">
                             <div class="product-default">
                                 <figure>
-                                    <a href="product.html">
-                                        <img src="assets/images/products/product-7.jpg" width="280" height="280"
+                                    <a href="{{route('products.index')}}">
+                                        <img src="{{ asset('assets/images/products/product-7.jpg') }}" width="280" height="280"
                                             alt="product" />
-                                        <img src="assets/images/products/product-7-2.jpg" width="280" height="280"
+                                        <img src="{{ asset('assets/images/products/product-7-2.jpg') }}" width="280" height="280"
                                             alt="product" />
                                     </a>
 
@@ -410,7 +410,7 @@
                                         </div>
                                     </div>
 
-                                    <h3 class="product-title"> <a href="product.html">Brown-Black Men Casual
+                                    <h3 class="product-title"> <a href="{{route('products.index')}}">Brown-Black Men Casual
                                             Glasses</a> </h3>
 
                                     <div class="ratings-container">
@@ -440,10 +440,10 @@
                         <div class="col-6 col-sm-4">
                             <div class="product-default">
                                 <figure>
-                                    <a href="product.html">
-                                        <img src="assets/images/products/product-8.jpg" width="280" height="280"
+                                    <a href="{{route('products.index')}}">
+                                        <img src="{{ asset('assets/images/products/product-8.jpg') }}" width="280" height="280"
                                             alt="product" />
-                                        <img src="assets/images/products/product-8-2.jpg" width="280" height="280"
+                                        <img src="{{ asset('assets/images/products/product-8-2.jpg') }}" width="280" height="280"
                                             alt="product" />
                                     </a>
 
@@ -459,7 +459,7 @@
                                         </div>
                                     </div>
 
-                                    <h3 class="product-title"> <a href="product.html">Brown-Black Men Casual
+                                    <h3 class="product-title"> <a href="{{route('products.index')}}">Brown-Black Men Casual
                                             Glasses</a> </h3>
 
                                     <div class="ratings-container">
@@ -489,10 +489,10 @@
                         <div class="col-6 col-sm-4">
                             <div class="product-default">
                                 <figure>
-                                    <a href="product.html">
-                                        <img src="assets/images/products/product-9.jpg" width="280" height="280"
+                                    <a href="{{route('products.index')}}">
+                                        <img src="{{ asset('assets/images/products/product-9.jpg') }}" width="280" height="280"
                                             alt="product" />
-                                        <img src="assets/images/products/product-9-2.jpg" width="280" height="280"
+                                        <img src="{{ asset('assets/images/products/product-9-2.jpg') }}" width="280" height="280"
                                             alt="product" />
                                     </a>
                                 </figure>
@@ -504,7 +504,7 @@
                                         </div>
                                     </div>
 
-                                    <h3 class="product-title"> <a href="product.html">Black Men Casual Glasses</a>
+                                    <h3 class="product-title"> <a href="{{route('products.index')}}">Black Men Casual Glasses</a>
                                     </h3>
 
                                     <div class="ratings-container">
@@ -522,7 +522,7 @@
                                     <div class="product-action">
                                         <a href="wishlist.html" class="btn-icon-wish" title="wishlist"><i
                                                 class="icon-heart"></i></a>
-                                        <a href="product.html" class="btn-icon btn-add-cart"><i
+                                        <a href="{{route('products.index')}}" class="btn-icon btn-add-cart"><i
                                                 class="fa fa-arrow-right"></i><span>SELECT
                                                 OPTIONS</span></a>
                                         <a href="ajax/product-quick-view.html" class="btn-quickview"
@@ -535,10 +535,10 @@
                         <div class="col-6 col-sm-4">
                             <div class="product-default">
                                 <figure>
-                                    <a href="product.html">
-                                        <img src="assets/images/products/product-10.jpg" width="280" height="280"
+                                    <a href="{{route('products.index')}}">
+                                        <img src="{{ asset('assets/images/products/product-10.jpg') }}" width="280" height="280"
                                             alt="product" />
-                                        <img src="assets/images/products/product-10-2.jpg" width="280" height="280"
+                                        <img src="{{ asset('assets/images/products/product-10-2.jpg') }}" width="280" height="280"
                                             alt="product" />
                                     </a>
 
@@ -554,7 +554,7 @@
                                         </div>
                                     </div>
 
-                                    <h3 class="product-title"> <a href="product.html">Basketball Sports Blue
+                                    <h3 class="product-title"> <a href="{{route('products.index')}}">Basketball Sports Blue
                                             Shoes</a> </h3>
 
                                     <div class="ratings-container">
@@ -584,10 +584,10 @@
                         <div class="col-6 col-sm-4">
                             <div class="product-default">
                                 <figure>
-                                    <a href="product.html">
-                                        <img src="assets/images/products/product-11.jpg" width="280" height="280"
+                                    <a href="{{route('products.index')}}">
+                                        <img src="{{ asset('assets/images/products/product-11.jpg') }}" width="280" height="280"
                                             alt="product" />
-                                        <img src="assets/images/products/product-11-2.jpg" width="280" height="280"
+                                        <img src="{{ asset('assets/images/products/product-11-2.jpg') }}" width="280" height="280"
                                             alt="product" />
                                     </a>
                                 </figure>
@@ -599,7 +599,7 @@
                                         </div>
                                     </div>
 
-                                    <h3 class="product-title"> <a href="product.html">Men Sports Travel Bag</a>
+                                    <h3 class="product-title"> <a href="{{route('products.index')}}">Men Sports Travel Bag</a>
                                     </h3>
 
                                     <div class="ratings-container">
@@ -629,10 +629,10 @@
                         <div class="col-6 col-sm-4">
                             <div class="product-default">
                                 <figure>
-                                    <a href="product.html">
-                                        <img src="assets/images/products/product-12.jpg" width="280" height="280"
+                                    <a href="{{route('products.index')}}">
+                                        <img src="{{ asset('assets/images/products/product-12.jpg') }}" width="280" height="280"
                                             alt="product" />
-                                        <img src="assets/images/products/product-12-2.jpg" width="280" height="280"
+                                        <img src="{{ asset('assets/images/products/product-12-2.jpg') }}" width="280" height="280"
                                             alt="product" />
                                     </a>
 
@@ -648,7 +648,7 @@
                                         </div>
                                     </div>
 
-                                    <h3 class="product-title"> <a href="product.html">Brown HandBag</a> </h3>
+                                    <h3 class="product-title"> <a href="{{route('products.index')}}">Brown HandBag</a> </h3>
 
                                     <div class="ratings-container">
                                         <div class="product-ratings">
@@ -859,15 +859,15 @@
                                     <div class="featured-col">
                                         <div class="product-default left-details product-widget">
                                             <figure>
-                                                <a href="product.html">
-                                                    <img src="assets/images/products/small/product-4.jpg" width="75"
+                                                <a href="{{route('products.index')}}">
+                                                    <img src="{{ asset('assets/images/products/small/product-4.jpg') }}" width="75"
                                                         height="75" alt="product" />
-                                                    <img src="assets/images/products/small/product-4-2.jpg"
+                                                    <img src="{{ asset('assets/images/products/small/product-4-2.jpg') }}"
                                                         width="75" height="75" alt="product" />
                                                 </a>
                                             </figure>
                                             <div class="product-details">
-                                                <h3 class="product-title"> <a href="product.html">Blue Backpack for
+                                                <h3 class="product-title"> <a href="{{route('products.index')}}">Blue Backpack for
                                                         the Young - S</a> </h3>
                                                 <div class="ratings-container">
                                                     <div class="product-ratings">
@@ -883,15 +883,15 @@
                                         </div>
                                         <div class="product-default left-details product-widget">
                                             <figure>
-                                                <a href="product.html">
-                                                    <img src="assets/images/products/small/product-5.jpg" width="75"
+                                                <a href="{{route('products.index')}}">
+                                                    <img src="{{ asset('assets/images/products/small/product-5.jpg') }}" width="75"
                                                         height="75" alt="product" />
-                                                    <img src="assets/images/products/small/product-5-2.jpg"
+                                                    <img src="{{ asset('assets/images/products/small/product-5-2.jpg') }}"
                                                         width="75" height="75" alt="product" />
                                                 </a>
                                             </figure>
                                             <div class="product-details">
-                                                <h3 class="product-title"> <a href="product.html">Casual Spring Blue
+                                                <h3 class="product-title"> <a href="{{route('products.index')}}">Casual Spring Blue
                                                         Shoes</a> </h3>
                                                 <div class="ratings-container">
                                                     <div class="product-ratings">
@@ -907,15 +907,15 @@
                                         </div>
                                         <div class="product-default left-details product-widget">
                                             <figure>
-                                                <a href="product.html">
-                                                    <img src="assets/images/products/small/product-6.jpg" width="75"
+                                                <a href="{{route('products.index')}}">
+                                                    <img src="{{ asset('assets/images/products/small/product-6.jpg') }}" width="75"
                                                         height="75" alt="product" />
-                                                    <img src="assets/images/products/small/product-6-2.jpg"
+                                                    <img src="{{ asset('assets/images/products/small/product-6-2.jpg') }}"
                                                         width="75" height="75" alt="product" />
                                                 </a>
                                             </figure>
                                             <div class="product-details">
-                                                <h3 class="product-title"> <a href="product.html">Men Black Gentle
+                                                <h3 class="product-title"> <a href="{{route('products.index')}}">Men Black Gentle
                                                         Belt</a> </h3>
                                                 <div class="ratings-container">
                                                     <div class="product-ratings">
@@ -934,15 +934,15 @@
                                     <div class="featured-col">
                                         <div class="product-default left-details product-widget">
                                             <figure>
-                                                <a href="product.html">
-                                                    <img src="assets/images/products/small/product-1.jpg" width="75"
+                                                <a href="{{route('products.index')}}">
+                                                    <img src="{{ asset('assets/images/products/small/product-1.jpg') }}" width="75"
                                                         height="75" alt="product" />
-                                                    <img src="assets/images/products/small/product-1-2.jpg"
+                                                    <img src="{{ asset('assets/images/products/small/product-1-2.jpg') }}"
                                                         width="75" height="75" alt="product" />
                                                 </a>
                                             </figure>
                                             <div class="product-details">
-                                                <h3 class="product-title"> <a href="product.html">Ultimate 3D
+                                                <h3 class="product-title"> <a href="{{route('products.index')}}">Ultimate 3D
                                                         Bluetooth Speaker</a> </h3>
                                                 <div class="ratings-container">
                                                     <div class="product-ratings">
@@ -958,15 +958,15 @@
                                         </div>
                                         <div class="product-default left-details product-widget">
                                             <figure>
-                                                <a href="product.html">
-                                                    <img src="assets/images/products/small/product-2.jpg" width="75"
+                                                <a href="{{route('products.index')}}">
+                                                    <img src="{{ asset('assets/images/products/small/product-2.jpg') }}" width="75"
                                                         height="75" alt="product" />
-                                                    <img src="assets/images/products/small/product-2-2.jpg"
+                                                    <img src="{{ asset('assets/images/products/small/product-2-2.jpg') }}"
                                                         width="75" height="75" alt="product" />
                                                 </a>
                                             </figure>
                                             <div class="product-details">
-                                                <h3 class="product-title"> <a href="product.html">Brown Women Casual
+                                                <h3 class="product-title"> <a href="{{route('products.index')}}">Brown Women Casual
                                                         HandBag</a> </h3>
                                                 <div class="ratings-container">
                                                     <div class="product-ratings">
@@ -982,15 +982,15 @@
                                         </div>
                                         <div class="product-default left-details product-widget">
                                             <figure>
-                                                <a href="product.html">
-                                                    <img src="assets/images/products/small/product-3.jpg" width="75"
+                                                <a href="{{route('products.index')}}">
+                                                    <img src="{{ asset('assets/images/products/small/product-3.jpg') }}" width="75"
                                                         height="75" alt="product" />
-                                                    <img src="assets/images/products/small/product-3-2.jpg"
+                                                    <img src="{{ asset('assets/images/products/small/product-3-2.jpg') }}"
                                                         width="75" height="75" alt="product" />
                                                 </a>
                                             </figure>
                                             <div class="product-details">
-                                                <h3 class="product-title"> <a href="product.html">Circled Ultimate
+                                                <h3 class="product-title"> <a href="{{route('products.index')}}">Circled Ultimate
                                                         3D Speaker</a> </h3>
                                                 <div class="ratings-container">
                                                     <div class="product-ratings">

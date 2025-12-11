@@ -256,9 +256,9 @@
                             <div class="product-default">
                                 <figure>
                                     <a href="{{ route('products.index') }}">
-                                        <img src="assets/images/products/product-4.jpg" width="280" height="280"
+                                        <img src="{{ asset('assets/images/products/product-4.jpg') }}" width="280" height="280"
                                             alt="product" />
-                                        <img src="assets/images/products/product-4-2.jpg" width="280" height="280"
+                                        <img src="{{ asset('assets/images/products/product-4-2.jpg') }}" width="280" height="280"
                                             alt="product">
                                     </a>
 
@@ -306,9 +306,9 @@
                             <div class="product-default">
                                 <figure>
                                     <a href="{{ route('products.index') }}">
-                                        <img src="assets/images/products/product-5.jpg" width="280" height="280"
+                                        <img src="{{ asset('assets/images/products/product-5.jpg') }}" width="280" height="280"
                                             alt="product" />
-                                        <img src="assets/images/products/product-5-2.jpg" width="280" height="280"
+                                        <img src="{{ asset('assets/images/products/product-5-2.jpg') }}" width="280" height="280"
                                             alt="product" />
                                     </a>
 
@@ -355,9 +355,9 @@
                             <div class="product-default">
                                 <figure>
                                     <a href="{{ route('products.index') }}">
-                                        <img src="assets/images/products/product-6.jpg" width="280" height="280"
+                                        <img src="{{ asset('assets/images/products/product-6.jpg') }}" width="280" height="280"
                                             alt="product">
-                                        <img src="assets/images/products/product-6-2.jpg" width="280" height="280"
+                                        <img src="{{ asset('assets/images/products/product-6-2.jpg') }}" width="280" height="280"
                                             alt="product" />
                                     </a>
 
@@ -404,9 +404,9 @@
                             <div class="product-default">
                                 <figure>
                                     <a href="{{ route('products.index') }}">
-                                        <img src="assets/images/products/product-7.jpg" width="280" height="280"
+                                        <img src="{{ asset('assets/images/products/product-7.jpg') }}" width="280" height="280"
                                             alt="product" />
-                                        <img src="assets/images/products/product-7-2.jpg" width="280" height="280"
+                                        <img src="{{ asset('assets/images/products/product-7-2.jpg') }}" width="280" height="280"
                                             alt="product" />
                                     </a>
 
@@ -453,9 +453,9 @@
                             <div class="product-default">
                                 <figure>
                                     <a href="{{ route('products.index') }}">
-                                        <img src="assets/images/products/product-8.jpg" width="280" height="280"
+                                        <img src="{{ asset('assets/images/products/product-8.jpg') }}" width="280" height="280"
                                             alt="product" />
-                                        <img src="assets/images/products/product-8-2.jpg" width="280" height="280"
+                                        <img src="{{ asset('assets/images/products/product-8-2.jpg') }}" width="280" height="280"
                                             alt="product" />
                                     </a>
 
@@ -502,9 +502,9 @@
                             <div class="product-default">
                                 <figure>
                                     <a href="{{ route('products.index') }}">
-                                        <img src="assets/images/products/product-9.jpg" width="280" height="280"
+                                        <img src="{{ asset('assets/images/products/product-9.jpg') }}" width="280" height="280"
                                             alt="product" />
-                                        <img src="assets/images/products/product-9-2.jpg" width="280" height="280"
+                                        <img src="{{ asset('assets/images/products/product-9-2.jpg') }}" width="280" height="280"
                                             alt="product" />
                                     </a>
                                 </figure>
@@ -548,9 +548,9 @@
                             <div class="product-default">
                                 <figure>
                                     <a href="{{ route('products.index') }}">
-                                        <img src="assets/images/products/product-10.jpg" width="280" height="280"
+                                        <img src="{{ asset('assets/images/products/product-10.jpg') }}" width="280" height="280"
                                             alt="product" />
-                                        <img src="assets/images/products/product-10-2.jpg" width="280" height="280"
+                                        <img src="{{ asset('assets/images/products/product-10-2.jpg') }}" width="280" height="280"
                                             alt="product" />
                                     </a>
 
@@ -597,9 +597,9 @@
                             <div class="product-default">
                                 <figure>
                                     <a href="{{ route('products.index') }}">
-                                        <img src="assets/images/products/product-11.jpg" width="280" height="280"
+                                        <img src="{{ asset('assets/images/products/product-11.jpg') }}" width="280" height="280"
                                             alt="product" />
-                                        <img src="assets/images/products/product-11-2.jpg" width="280" height="280"
+                                        <img src="{{ asset('assets/images/products/product-11-2.jpg') }}" width="280" height="280"
                                             alt="product" />
                                     </a>
                                 </figure>
@@ -642,9 +642,9 @@
                             <div class="product-default">
                                 <figure>
                                     <a href="{{ route('products.index') }}">
-                                        <img src="assets/images/products/product-12.jpg" width="280" height="280"
+                                        <img src="{{ asset('assets/images/products/product-12.jpg') }}" width="280" height="280"
                                             alt="product" />
-                                        <img src="assets/images/products/product-12-2.jpg" width="280" height="280"
+                                        <img src="{{ asset('assets/images/products/product-12-2.jpg') }}" width="280" height="280"
                                             alt="product" />
                                     </a>
 
@@ -872,9 +872,9 @@
                                         <div class="product-default left-details product-widget">
                                             <figure>
                                                 <a href="{{ route('products.index') }}">
-                                                    <img src="assets/images/products/small/product-4.jpg" width="75"
+                                                    <img src="{{ asset('assets/images/products/small/product-4.jpg') }}" width="75"
                                                         height="75" alt="product" />
-                                                    <img src="assets/images/products/small/product-4-2.jpg"
+                                                    <img src="{{ asset('assets/images/products/small/product-4-2.jpg') }}"
                                                         width="75" height="75" alt="product" />
                                                 </a>
                                             </figure>
@@ -896,9 +896,9 @@
                                         <div class="product-default left-details product-widget">
                                             <figure>
                                                 <a href="{{ route('products.index') }}">
-                                                    <img src="assets/images/products/small/product-5.jpg" width="75"
+                                                    <img src="{{ asset('assets/images/products/small/product-5.jpg') }}" width="75"
                                                         height="75" alt="product" />
-                                                    <img src="assets/images/products/small/product-5-2.jpg"
+                                                    <img src="{{ asset('assets/images/products/small/product-5-2.jpg') }}"
                                                         width="75" height="75" alt="product" />
                                                 </a>
                                             </figure>
@@ -920,9 +920,9 @@
                                         <div class="product-default left-details product-widget">
                                             <figure>
                                                 <a href="{{ route('products.index') }}">
-                                                    <img src="assets/images/products/small/product-6.jpg" width="75"
+                                                    <img src="{{ asset('assets/images/products/small/product-6.jpg') }}" width="75"
                                                         height="75" alt="product" />
-                                                    <img src="assets/images/products/small/product-6-2.jpg"
+                                                    <img src="{{ asset('assets/images/products/small/product-6-2.jpg') }}"
                                                         width="75" height="75" alt="product" />
                                                 </a>
                                             </figure>
@@ -947,9 +947,9 @@
                                         <div class="product-default left-details product-widget">
                                             <figure>
                                                 <a href="{{ route('products.index') }}">
-                                                    <img src="assets/images/products/small/product-1.jpg" width="75"
+                                                    <img src="{{ asset('assets/images/products/small/product-1.jpg') }}" width="75"
                                                         height="75" alt="product" />
-                                                    <img src="assets/images/products/small/product-1-2.jpg"
+                                                    <img src="{{ asset('assets/images/products/small/product-1-2.jpg') }}"
                                                         width="75" height="75" alt="product" />
                                                 </a>
                                             </figure>
@@ -971,9 +971,9 @@
                                         <div class="product-default left-details product-widget">
                                             <figure>
                                                 <a href="{{ route('products.index') }}">
-                                                    <img src="assets/images/products/small/product-2.jpg" width="75"
+                                                    <img src="{{ asset('assets/images/products/small/product-2.jpg') }}" width="75"
                                                         height="75" alt="product" />
-                                                    <img src="assets/images/products/small/product-2-2.jpg"
+                                                    <img src="{{ asset('assets/images/products/small/product-2-2.jpg') }}"
                                                         width="75" height="75" alt="product" />
                                                 </a>
                                             </figure>
@@ -995,9 +995,9 @@
                                         <div class="product-default left-details product-widget">
                                             <figure>
                                                 <a href="{{ route('products.index') }}">
-                                                    <img src="assets/images/products/small/product-3.jpg" width="75"
+                                                    <img src="{{ asset('assets/images/products/small/product-3.jpg') }}" width="75"
                                                         height="75" alt="product" />
-                                                    <img src="assets/images/products/small/product-3-2.jpg"
+                                                    <img src="{{ asset('assets/images/products/small/product-3-2.jpg') }}"
                                                         width="75" height="75" alt="product" />
                                                 </a>
                                             </figure>
