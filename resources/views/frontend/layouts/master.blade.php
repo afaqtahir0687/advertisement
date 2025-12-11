@@ -9,7 +9,7 @@
     <meta name="keywords" content="HTML5 Template" />
     <meta name="description" content="Porto - Bootstrap eCommerce Template">
     <meta name="author" content="SW-THEMES">
-    <link rel="icon" type="image/x-icon" href="{{ asset('assets/assets/images/icons/favicon.png') }}">
+    <link rel="icon" type="image/x-icon" href="{{ asset('assets/images/icons/favicon.png') }}">
 
     <script>
         WebFontConfig = {
@@ -26,10 +26,10 @@
         })(document);
     </script>
 
-    <link rel="stylesheet" href="{{ asset('assets/assets/css/bootstrap.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('assets/assets/css/demo4.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('assets/assets/css/style.min.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('assets/assets/vendor/fontawesome-free/css/all.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/demo4.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/style.min.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/vendor/fontawesome-free/css/all.min.css') }}">
 </head>
 
 <body>
@@ -274,11 +274,11 @@
 
     <a id="scroll-top" href="#top" title="Top" role="button"><i class="icon-angle-up"></i></a>
 
-    <script src="{{ asset('assets/assets/js/jquery.min.js') }}"></script>
-    <script src="{{ asset('assets/assets/js/bootstrap.bundle.min.js') }}"></script>
-    <script src="{{ asset('assets/assets/js/optional/isotope.pkgd.min.js') }}"></script>
-    <script src="{{ asset('assets/assets/js/plugins.min.js') }}"></script>
-    <script src="{{ asset('assets/assets/js/jquery.appear.min.js') }}"></script>
-    <script src="{{ asset('assets/assets/js/main.min.js') }}"></script>
+    <script src="{{ asset('assets/js/jquery.min.js') }}"></script>
+    <script src="{{ asset('assets/js/bootstrap.bundle.min.js') }}"></script>
+    <script src="{{ asset('assets/js/optional/isotope.pkgd.min.js') }}"></script>
+    <script src="{{ asset('assets/js/plugins.min.js') }}"></script>
+    <script src="{{ asset('assets/js/jquery.appear.min.js') }}"></script>
+    <script src="{{ asset('assets/js/main.min.js') }}"></script>
 </body>
 </html>

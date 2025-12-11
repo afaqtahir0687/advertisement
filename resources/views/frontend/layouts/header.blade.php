@@ -72,7 +72,7 @@
 							<i class="fas fa-bars"></i>
 						</button>
                         <a href="{{url('/')}}" class="logo">
-                            <img src="{{ asset('assets/assets/images/logo.png') }}" width="111" height="44" alt="Porto Logo">
+                            <img src="{{ asset('assets/images/logo.png') }}" width="111" height="44" alt="Porto Logo">
                         </a>
                     </div>
                     <!-- End .header-left -->
@@ -113,7 +113,7 @@
                         <!-- End .header-search -->
 
                         <div class="header-contact d-none d-lg-flex pl-4 pr-4">
-                            <img alt="phone" src="{{ asset('assets/assets/images/phone.png') }}" width="30" height="30" class="pb-1">
+                            <img alt="phone" src="{{ asset('assets/images/phone.png') }}" width="30" height="30" class="pb-1">
                             <h6><span>Call us now</span><a href="tel:#" class="text-dark font1">+123 5678 890</a></h6>
                         </div>
 
@@ -151,7 +151,7 @@
 
                                             <figure class="product-image-container">
                                                 <a href="#" class="product-image">
-                                                    <img src="{{ asset('assets/assets/images/products/product-1.jpg') }}" alt="product" width="80" height="80">
+                                                    <img src="{{ asset('assets/images/products/product-1.jpg') }}" alt="product" width="80" height="80">
                                                 </a>
 
                                                 <a href="#" class="btn-remove" title="Remove Product"><span>×</span></a>
@@ -173,7 +173,7 @@
 
                                             <figure class="product-image-container">
                                                 <a href="#" class="product-image">
-                                                    <img src="{{ asset('assets/assets/images/products/product-2.jpg') }}" alt="product" width="80" height="80">
+                                                    <img src="{{ asset('assets/images/products/product-2.jpg') }}" alt="product" width="80" height="80">
                                                 </a>
 
                                                 <a href="#" class="btn-remove" title="Remove Product"><span>×</span></a>
@@ -195,7 +195,7 @@
 
                                             <figure class="product-image-container">
                                                 <a href="#" class="product-image">
-                                                    <img src="{{ asset('assets/assets/images/products/product-3.jpg') }}" alt="product" width="80" height="80">
+                                                    <img src="{{ asset('assets/images/products/product-3.jpg') }}" alt="product" width="80" height="80">
                                                 </a>
                                                 <a href="#" class="btn-remove" title="Remove Product"><span>×</span></a>
                                             </figure>
@@ -235,10 +235,10 @@
                     <nav class="main-nav w-100">
                         <ul class="menu">
                             <li class="active">
-                                <a href="demo4.html">Home</a>
+                                <a href="{{ url('/') }}">Home</a>
                             </li>
                             <li>
-                                <a href="category.html">Categories</a>
+                                <a href="{{ route('category.index') }}">Categories</a>
                                 <div class="megamenu megamenu-fixed-width megamenu-3cols">
                                     <div class="row">
                                         <div class="col-lg-4">
@@ -275,7 +275,7 @@
                                         <div class="col-lg-4 p-0">
                                             <div class="menu-banner">
                                                 <figure>
-                                                    <img src="{{ asset('assets/assets/images/menu-banner.jpg') }}" width="192" height="313" alt="Menu banner">
+                                                    <img src="{{ asset('assets/images/menu-banner.jpg') }}" width="192" height="313" alt="Menu banner">
                                                 </figure>
                                                 <div class="banner-content">
                                                     <h4>
@@ -328,7 +328,7 @@
                                         <div class="col-lg-4 p-0">
                                             <div class="menu-banner menu-banner-2">
                                                 <figure>
-                                                    <img src="{{ asset('assets/assets/images/menu-banner-1.jpg') }}" width="182" height="317" alt="Menu banner" class="product-promo">
+                                                    <img src="{{ asset('assets/images/menu-banner-1.jpg') }}" width="182" height="317" alt="Menu banner" class="product-promo">
                                                 </figure>
                                                 <i>OFF</i>
                                                 <div class="banner-content">

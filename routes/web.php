@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Frontend\CategoryController;
 use App\Http\Controllers\Frontend\HomeController;
 use App\Http\Controllers\Frontend\AuthController;
 use App\Http\Controllers\Frontend\DashboardController;
@@ -21,3 +22,5 @@ Route::middleware('auth')->group(function () {
     Route::post('/logout', [AuthController::class, 'destroy'])->name('logout');
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 });
+
+    Route::get('/category', [CategoryController::class, 'index'])->name('category.index');
