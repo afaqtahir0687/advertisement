@@ -10,15 +10,6 @@ use Illuminate\Support\Facades\Route;
 // Homepage
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
-// Static Pages
-Route::controller(HomeController::class)->group(function () {
-    Route::get('/about-us', 'aboutUs')->name('about.index');
-    Route::get('/blogs', 'blogs')->name('blogs.index');
-    Route::get('/single', 'single')->name('single.index'); // SEO Friendly
-    Route::get('/wishlist', 'wishlist')->name('wishlist.index');
-    Route::get('/cart', 'cart')->name('cart.index');
-    Route::get('/contact-us', 'contactUs')->name('contact.index');
-});
 
 // Authentication Routes
 Route::middleware('guest')->group(function () {
@@ -53,3 +44,4 @@ Route::get('/single', [HomeController::class, 'single'])->name('single.index');
 Route::get('/wishlist', [HomeController::class, 'wishlist'])->name('wishlist.index');
 Route::get('/cart', [HomeController::class, 'cart'])->name('cart.index');
 Route::get('/contact-us', [HomeController::class, 'contactUs'])->name('contact.index');
+Route::get('/track-order', [HomeController::class, 'trackOrder'])->name('track.order');

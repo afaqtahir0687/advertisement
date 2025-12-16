@@ -4,8 +4,10 @@
         <div class="container">
             <nav aria-label="breadcrumb" class="breadcrumb-nav">
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="demo4.html"><i class="icon-home"></i></a></li>
-                    <li class="breadcrumb-item"><a href="#">Products</a></li>
+                    <li class="breadcrumb-item"><a href="{{route('home')}}"><i class="icon-home"></i></a></li>
+                    <li class="breadcrumb-item"><a href="#">Most Popular</a></li>
+                    <li class="breadcrumb-item"><a href="#">Business Cards</a></li>
+                    <li class="breadcrumb-item"><a href="#">Business Cards</a></li>
                 </ol>
             </nav>
 
@@ -28,32 +30,27 @@
 
                             <div class="product-single-carousel owl-carousel owl-theme show-nav-hover">
                                 <div class="product-item">
-                                    <img class="product-single-image"
-                                        src="assets/images/products/zoom/product-1-big.jpg"
+                                    <img class="product-single-image" src="assets/images/products/zoom/product-1-big.jpg"
                                         data-zoom-image="assets/images/products/zoom/product-1-big.jpg" width="468"
                                         height="468" alt="product" />
                                 </div>
                                 <div class="product-item">
-                                    <img class="product-single-image"
-                                        src="assets/images/products/zoom/product-2-big.jpg"
+                                    <img class="product-single-image" src="assets/images/products/zoom/product-2-big.jpg"
                                         data-zoom-image="assets/images/products/zoom/product-2-big.jpg" width="468"
                                         height="468" alt="product" />
                                 </div>
                                 <div class="product-item">
-                                    <img class="product-single-image"
-                                        src="assets/images/products/zoom/product-3-big.jpg"
+                                    <img class="product-single-image" src="assets/images/products/zoom/product-3-big.jpg"
                                         data-zoom-image="assets/images/products/zoom/product-3-big.jpg" width="468"
                                         height="468" alt="product" />
                                 </div>
                                 <div class="product-item">
-                                    <img class="product-single-image"
-                                        src="assets/images/products/zoom/product-4-big.jpg"
+                                    <img class="product-single-image" src="assets/images/products/zoom/product-4-big.jpg"
                                         data-zoom-image="assets/images/products/zoom/product-4-big.jpg" width="468"
                                         height="468" alt="product" />
                                 </div>
                                 <div class="product-item">
-                                    <img class="product-single-image"
-                                        src="assets/images/products/zoom/product-5-big.jpg"
+                                    <img class="product-single-image" src="assets/images/products/zoom/product-5-big.jpg"
                                         data-zoom-image="assets/images/products/zoom/product-5-big.jpg" width="468"
                                         height="468" alt="product" />
                                 </div>
@@ -89,7 +86,7 @@
                     </div><!-- End .product-single-gallery -->
 
                     <div class="col-lg-7 col-md-6 product-single-details">
-                        <h1 class="product-title">Men Black Sports Shoes</h1>
+                        <h1 class="product-title">Business Cards Standard - Digital</h1>
 
                         <div class="product-nav">
                             <div class="product-prev">
@@ -99,8 +96,7 @@
                                     <span class="product-popup">
                                         <span class="box-content">
                                             <img alt="product" width="150" height="150"
-                                                src="assets/images/products/product-3.jpg"
-                                                style="padding-top: 0px;">
+                                                src="assets/images/products/product-3.jpg" style="padding-top: 0px;">
 
                                             <span>Circled Ultimate 3D Speaker</span>
                                         </span>
@@ -115,8 +111,7 @@
                                     <span class="product-popup">
                                         <span class="box-content">
                                             <img alt="product" width="150" height="150"
-                                                src="assets/images/products/product-4.jpg"
-                                                style="padding-top: 0px;">
+                                                src="assets/images/products/product-4.jpg" style="padding-top: 0px;">
 
                                             <span>Blue Backpack for the Young</span>
                                         </span>
@@ -125,107 +120,390 @@
                             </div>
                         </div>
 
-                        <div class="ratings-container">
-                            <div class="product-ratings">
-                                <span class="ratings" style="width:60%"></span><!-- End .ratings -->
-                                <span class="tooltiptext tooltip-top"></span>
-                            </div><!-- End .product-ratings -->
+                        <div class="product-customization">
+                            <h4 class="customization-title">Customize Your Product</h4>
 
-                            <a href="#" class="rating-link">( 6 Reviews )</a>
-                        </div><!-- End .ratings-container -->
+                            <form id="product-customization-form">
+                                <!-- Side 1 Color Label -->
+                                <div class="form-group">
+                                    <label for="side1Color">Side 1 Color Label</label>
+                                    <select class="form-control" id="side1Color" required>
+                                        <option value="" disabled selected>Select a color</option>
+                                        <option value="red">Red</option>
+                                        <option value="blue">Blue</option>
+                                        <option value="green">Green</option>
+                                        <option value="black">Black</option>
+                                        <option value="white">White</option>
+                                    </select>
+                                </div>
 
-                        <hr class="short-divider">
+                                <!-- Size Dropdown -->
+                                <div class="form-group">
+                                    <label for="size">Size</label>
+                                    <select class="form-control" id="size" required>
+                                        <option value="" disabled selected>Select size</option>
+                                        <option value="small">Small (3.5" x 2")</option>
+                                        <option value="medium">Medium (3.75" x 2.25")</option>
+                                        <option value="large">Large (4" x 2.5")</option>
+                                        <option value="xlarge">X-Large (4.25" x 3")</option>
+                                    </select>
+                                </div>
 
-                        <div class="price-box">
-                            <span class="old-price">$1,999.00</span>
-                            <span class="new-price">$1,699.00</span>
-                        </div><!-- End .price-box -->
+                                <!-- Sides Dropdown -->
+                                <div class="form-group">
+                                    <label for="sides">Sides</label>
+                                    <select class="form-control" id="sides" required>
+                                        <option value="" disabled selected>Select number of sides</option>
+                                        <option value="single">Single Sided</option>
+                                        <option value="double">Double Sided</option>
+                                    </select>
+                                </div>
 
-                        <div class="product-desc">
-                            <p>
-                                Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis
-                                egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet,
-                                ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est.
-                                Mauris placerat eleifend leo.
-                            </p>
-                        </div><!-- End .product-desc -->
+                                <!-- Selected Material Dropdown -->
+                                <div class="form-group">
+                                    <label for="material">Selected Material</label>
+                                    <select class="form-control" id="material" required>
+                                        <option value="" disabled selected>Select material</option>
+                                        <option value="standard">Standard Cardstock (14pt)</option>
+                                        <option value="premium">Premium Cardstock (16pt)</option>
+                                        <option value="ultra">Ultra Premium (18pt)</option>
+                                        <option value="recycled">Recycled Paper</option>
+                                    </select>
+                                </div>
 
-                        <ul class="single-info-list">
+                                <!-- Sides in Material Dropdown -->
+                                <div class="form-group">
+                                    <label for="materialSides">Sides in Selected Material</label>
+                                    <select class="form-control" id="materialSides" required>
+                                        <option value="" disabled selected>Select sides for material</option>
+                                        <option value="matte">Matte Finish</option>
+                                        <option value="glossy">Glossy Finish</option>
+                                        <option value="soft-touch">Soft Touch</option>
+                                        <option value="uncoated">Uncoated</option>
+                                    </select>
+                                </div>
 
-                            <li>
-                                SKU: <strong>654613612</strong>
-                            </li>
+                                <!-- Product Memo -->
+                                <div class="form-group">
+                                    <label for="productMemo">Product Memo</label>
+                                    <input type="text" class="form-control" id="productMemo"
+                                        placeholder="Enter product memo (optional)">
+                                </div>
 
-                            <li>
-                                CATEGORY: <strong><a href="#" class="product-category">SHOES</a></strong>
-                            </li>
+                                <!-- Finish Options -->
+                                <div class="form-group">
+                                    <label for="finish">Finish</label>
+                                    <select class="form-control" id="finish" required>
+                                        <option value="" disabled selected>Select finish</option>
+                                        <option value="matte">Matte</option>
+                                        <option value="glossy">Glossy</option>
+                                        <option value="soft-touch">Soft Touch</option>
+                                    </select>
+                                </div>
+                            </form>
+                        </div>
 
-                            <li>
-                                TAGs: <strong><a href="#" class="product-category">CLOTHES</a></strong>,
-                                <strong><a href="#" class="product-category">SWEATER</a></strong>
-                            </li>
-                        </ul>
+                        <style>
+                            .product-customization {
+                                background: #fff;
+                                padding: 20px;
+                                border-radius: 5px;
+                                box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+                            }
 
-                        <div class="product-action">
-                            <div class="product-single-qty">
-                                <input class="horizontal-quantity form-control" type="text">
-                            </div><!-- End .product-single-qty -->
+                            .customization-title {
+                                font-size: 1.5rem;
+                                margin-bottom: 1.5rem;
+                                padding-bottom: 10px;
+                                border-bottom: 1px solid #eee;
+                            }
 
-                            <a href="javascript:;" class="btn btn-dark add-cart mr-2" title="Add to Cart">Add to
-                                Cart</a>
+                            .form-group {
+                                margin-bottom: 1.5rem;
+                            }
 
-                            <a href="cart.html" class="btn btn-gray view-cart d-none">View cart</a>
-                        </div><!-- End .product-action -->
+                            .form-group label {
+                                font-weight: 600;
+                                margin-bottom: 0.5rem;
+                                display: block;
+                            }
 
-                        <hr class="divider mb-0 mt-0">
+                            .form-control {
+                                height: 45px;
+                                border-radius: 4px;
+                                border: 1px solid #ddd;
+                                padding: 0.5rem 1rem;
+                                width: 100%;
+                            }
 
-                        <div class="product-single-share mb-3">
-                            <label class="sr-only">Share:</label>
+                            .form-control:focus {
+                                border-color: #80bdff;
+                                box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+                            }
 
-                            <div class="social-icons mr-2">
-                                <a href="#" class="social-icon social-facebook icon-facebook" target="_blank"
-                                    title="Facebook"></a>
-                                <a href="#" class="social-icon social-twitter icon-twitter" target="_blank"
-                                    title="Twitter"></a>
-                                <a href="#" class="social-icon social-linkedin fab fa-linkedin-in" target="_blank"
-                                    title="Linkedin"></a>
-                                <a href="#" class="social-icon social-gplus fab fa-google-plus-g" target="_blank"
-                                    title="Google +"></a>
-                                <a href="#" class="social-icon social-mail icon-mail-alt" target="_blank"
-                                    title="Mail"></a>
-                            </div><!-- End .social-icons -->
-
-                            <a href="wishlist.html" class="btn-icon-wish add-wishlist" title="Add to Wishlist"><i
-                                    class="icon-wishlist-2"></i><span>Add to
-                                    Wishlist</span></a>
-                        </div><!-- End .product single-share -->
+                            select.form-control {
+                                -webkit-appearance: none;
+                                -moz-appearance: none;
+                                appearance: none;
+                                background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='%23333' viewBox='0 0 16 16'%3E%3Cpath d='M7.247 11.14L2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.658l-4.796 5.48a1 1 0 0 1-1.506 0z'/%3E%3C/svg%3E");
+                                background-repeat: no-repeat;
+                                background-position: right 1rem center;
+                                background-size: 12px;
+                                padding-right: 2.5rem;
+                            }
+                        </style>
                     </div><!-- End .product-single-details -->
                 </div><!-- End .row -->
             </div><!-- End .product-single-container -->
 
+            <div class="order-box">
+    <div class="order-header">
+        <h5>Your Order Details</h5>
+    </div>
+
+    <div class="order-content container-fluid">
+        <div class="row">
+            <!-- LEFT SIDE -->
+            <div class="col-md-8">
+                <div class="left-box">
+                    <div class="row mb-4">
+                        <div class="col-md-6">
+                            <label class="label-title">Number of Designs:</label>
+                            <input type="number" class="form-control" value="1">
+                        </div>
+
+                        <div class="col-md-6">
+                            <label class="label-title">Quantity:</label>
+                            <select class="form-control">
+                                <option>100</option>
+                                <option>200</option>
+                                <option>300</option>
+                                <option>500</option>
+                                <option>1000</option>
+                            </select>
+
+                            <div class="mt-1 custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input" id="customQuantity">
+                                <label class="custom-control-label" for="customQuantity">Custom</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- TABLE -->
+                    <div class="table-responsive">
+                        <table class="table table-order">
+                            <thead>
+                                <tr>
+                                    <th></th>
+                                    <th>Urgency</th>
+                                    <th>Price</th>
+                                    <th>Production day(s)</th>
+                                    <th>Delivery day(s)</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <div class="custom-control custom-radio">
+                                            <input type="radio" id="regular" name="urgency" class="custom-control-input" checked>
+                                            <label class="custom-control-label" for="regular"></label>
+                                        </div>
+                                    </td>
+                                    <td>Regular</td>
+                                    <td>95.00</td>
+                                    <td>3 working day(s)</td>
+                                    <td>01</td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="custom-control custom-radio">
+                                            <input type="radio" id="flexible" name="urgency" class="custom-control-input">
+                                            <label class="custom-control-label" for="flexible"></label>
+                                        </div>
+                                    </td>
+                                    <td>Flexible</td>
+                                    <td>87.96</td>
+                                    <td>5 working day(s)</td>
+                                    <td>01</td>
+                                </tr>
+
+                                   <tr>
+                                    <td>
+                                        <div class="custom-control custom-radio">
+                                            <input type="radio" id="flexible" name="urgency" class="custom-control-input">
+                                            <label class="custom-control-label" for="flexible"></label>
+                                        </div>
+                                    </td>
+                                    <td>Urgent</td>
+                                    <td>100.96</td>
+                                    <td>1 working day</td>
+                                    <td>01</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- RIGHT SIDE -->
+            <div class="col-md-4">
+                <div class="right-box">
+                    <p class="mb-2"><strong>Before discount:</strong> <span class="float-right">82.61</span></p>
+                    <p class="mb-2"><strong>Total discount:</strong> <span class="float-right">0.00</span></p>
+                    <p class="mb-3"><strong>Total tax (15.00%):</strong> <span class="float-right">12.39</span></p>
+                    <div class="divider mb-3"></div>
+                    <p class="mb-3 total-price"><strong>Price:</strong> <span class="float-right">95.00</span></p>
+
+                    <button class="btn btn-primary btn-block btn-lg">Add to cart</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+.order-box {
+    border: 1px solid #e7e7e7;
+    border-radius: 5px;
+    overflow: hidden;
+    margin-bottom: 2rem;
+    background: #fff;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+}
+
+.order-header {
+    background: #f4f4f4;
+    padding: 1.5rem 2rem;
+    border-bottom: 1px solid #e7e7e7;
+}
+
+.order-header h5 {
+    margin: 0;
+    font-size: 1.6rem;
+    font-weight: 600;
+    color: #333;
+}
+
+.order-content {
+    padding: 2rem;
+}
+
+/* LEFT BOX */
+.left-box {
+    background: #f9f9f9;
+    padding: 2rem;
+    border-radius: 5px;
+    height: 100%;
+}
+
+.label-title {
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: #333;
+    font-size: 1.3rem;
+}
+
+.form-control {
+    height: 4rem;
+    border-radius: 4px;
+    border: 1px solid #e7e7e7;
+    font-size: 1.4rem;
+}
+
+/* TABLE */
+.table {
+    margin-bottom: 0;
+    font-size: 1.3rem;
+}
+
+.table th {
+    font-weight: 600;
+    color: #333;
+    text-transform: uppercase;
+    font-size: 1.2rem;
+    border-top: none;
+    padding: 1rem 0.75rem;
+}
+
+.table td {
+    padding: 1.5rem 0.75rem;
+    vertical-align: middle;
+    border-color: #e7e7e7;
+}
+
+/* RIGHT BOX */
+.right-box {
+    background: #f9f9f9;
+    padding: 2rem;
+    border-radius: 5px;
+    height: 100%;
+}
+
+.right-box p {
+    margin-bottom: 0.8rem;
+    font-size: 1.3rem;
+    color: #666;
+}
+
+.right-box .total-price {
+    font-size: 1.6rem;
+    color: #333;
+    font-weight: 700;
+}
+
+/* Responsive adjustments */
+@media (max-width: 767.98px) {
+    .left-box, .right-box {
+        margin-bottom: 2rem;
+    }
+    
+    .order-content {
+        padding: 1.5rem;
+    }
+}
+
+/* Custom radio and checkbox */
+.custom-control-input:checked ~ .custom-control-label::before {
+    background-color: #08C;
+    border-color: #08C;
+}
+
+.custom-radio .custom-control-input:checked ~ .custom-control-label::after {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='%23fff'/%3e%3c/svg%3e");
+}
+
+.custom-checkbox .custom-control-input:checked ~ .custom-control-label::after {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3e%3cpath fill='%23fff' d='M6.564.75l-3.59 3.612-1.538-1.55L0 4.26 2.974 7.25 8 2.193z'/%3e%3c/svg%3e");
+}
+
+/* Divider */
+.divider {
+    height: 1px;
+    background-color: #e7e7e7;
+    margin: 1.5rem 0;
+}
+</style>
             <div class="product-single-tabs">
                 <ul class="nav nav-tabs" role="tablist">
                     <li class="nav-item">
-                        <a class="nav-link active" id="product-tab-desc" data-toggle="tab"
-                            href="#product-desc-content" role="tab" aria-controls="product-desc-content"
-                            aria-selected="true">Description</a>
+                        <a class="nav-link active" id="product-tab-desc" data-toggle="tab" href="#product-desc-content"
+                            role="tab" aria-controls="product-desc-content" aria-selected="true">Description</a>
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" id="product-tab-size" data-toggle="tab" href="#product-size-content"
-                            role="tab" aria-controls="product-size-content" aria-selected="true">Size Guide</a>
+                        <a class="nav-link" id="product-tab-size" data-toggle="tab" href="#product-size-content" role="tab"
+                            aria-controls="product-size-content" aria-selected="true">Size Guide</a>
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" id="product-tab-tags" data-toggle="tab" href="#product-tags-content"
-                            role="tab" aria-controls="product-tags-content" aria-selected="false">Additional
+                        <a class="nav-link" id="product-tab-tags" data-toggle="tab" href="#product-tags-content" role="tab"
+                            aria-controls="product-tags-content" aria-selected="false">Additional
                             Information</a>
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" id="product-tab-reviews" data-toggle="tab"
-                            href="#product-reviews-content" role="tab" aria-controls="product-reviews-content"
-                            aria-selected="false">Reviews (1)</a>
+                        <a class="nav-link" id="product-tab-reviews" data-toggle="tab" href="#product-reviews-content"
+                            role="tab" aria-controls="product-reviews-content" aria-selected="false">Reviews (1)</a>
                     </li>
                 </ul>
 
@@ -233,213 +511,276 @@
                     <div class="tab-pane fade show active" id="product-desc-content" role="tabpanel"
                         aria-labelledby="product-tab-desc">
                         <div class="product-desc-content">
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                                incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, nostrud ipsum
-                                consectetur sed do, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-                                commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-                                cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat.</p>
+                            <h5 class="section-title">Benefits of Business Cards</h5>
                             <ul>
-                                <li>Any Product types that You want - Simple,
-                                    Configurable</li>
-                                <li>Downloadable/Digital Products, Virtual
-                                    Products</li>
-                                <li>Inventory Management with Backordered items
+                                <li>Superior Quality Business Cards</li>
+                                <li>Make A Good First Impression</li>
+                                <li>Available In A Range Of Stunning Paper Finishings
                                 </li>
                             </ul>
-                            <p>Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-                                veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                                consequat. </p>
+
+                            <p>
+                                Are you an aspiring entrepreneur or launching a new business? Start building your
+                                professional network with attention-grabbing name cards that leave a lasting impression.
+                                They’re a simple yet powerful way to share your contact details with business partners and
+                                potential clients, helping you make meaningful connections effortlessly.
+                            </p>
+                            <p>
+                                Gogoprint offers a variety of business card printing options and combinations so you can
+                                customise it the way you want. Choose between different paper thicknesses, and add a nice
+                                finishing touch with glossy, matte or soft/velvet lamination. Place your order today to
+                                enjoy a free & fast delivery at your doorsteps.
+                            </p>
+                            <h5 class="fs-1">Why Choose Us for Name Cards & Business Cards?</h5>
+                            <p>
+                                <span style="font-weight: bold;">Premium Quality Printing:</span> Crisp text, vibrant
+                                colors, and high-quality materials ensure a professional finish.<br>
+
+                                <span style="font-weight: bold;">Customizable Designs:</span> Choose from various sizes,
+                                paper types, and finishes to match your brand’s identity.<br>
+
+                                <span style="font-weight: bold;">Fast & Reliable Delivery:</span> Get your business cards
+                                printed and delivered quickly with our fast turnaround and free shipping.<br>
+
+                                <span style="font-weight: bold;">Make a Lasting Impression:</span> Stand out with sleek,
+                                attention-grabbing business cards that leave a memorable impact.<br>
+
+                                <span style="font-weight: bold;">Professional Name Card Design Services:</span> Our graphic
+                                designers create clean, brand-aligned designs that represent your business effectively.
+                            </p>
+
+                            <h5 class="fs-1">Best Use Cases For Name Cards & Business Cards</h5>
+                            <p>
+                                <span style="font-weight: bold;">Networking & Client Meetings:</span> Make a strong first
+                                impression by sharing your details professionally at events, conferences, and meetings.<br>
+
+                                <span style="font-weight: bold;">Branding & Marketing:</span> Reinforce your brand identity
+                                with well-designed business cards that reflect your company’s personality.<br>
+
+                                <span style="font-weight: bold;">Sales & Lead Generation:</span> Keep potential clients
+                                engaged by handing out cards that make it easy for them to reach you.<br>
+
+                                <span style="font-weight: bold;">Partnership & Collaboration Opportunities:</span> Open
+                                doors to new business ventures by leaving a lasting connection with partners and investors.
+                            </p>
+
+
                         </div><!-- End .product-desc-content -->
                     </div><!-- End .tab-pane -->
 
-                    <div class="tab-pane fade" id="product-size-content" role="tabpanel"
-                        aria-labelledby="product-tab-size">
+                    <div class="tab-pane fade" id="product-size-content" role="tabpanel" aria-labelledby="product-tab-size">
                         <div class="product-size-content">
-                            <div class="row">
-                                <div class="col-md-4">
-                                    <img src="assets/images/products/single/body-shape.png" alt="body shape"
-                                        width="217" height="398">
-                                </div><!-- End .col-md-4 -->
+                            <div class="accordion artwork-accordion" id="artworkAccordion">
 
-                                <div class="col-md-8">
-                                    <table class="table table-size">
-                                        <thead>
-                                            <tr>
-                                                <th>SIZE</th>
-                                                <th>CHEST(in.)</th>
-                                                <th>WAIST(in.)</th>
-                                                <th>HIPS(in.)</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td>XS</td>
-                                                <td>34-36</td>
-                                                <td>27-29</td>
-                                                <td>34.5-36.5</td>
-                                            </tr>
-                                            <tr>
-                                                <td>S</td>
-                                                <td>36-38</td>
-                                                <td>29-31</td>
-                                                <td>36.5-38.5</td>
-                                            </tr>
-                                            <tr>
-                                                <td>M</td>
-                                                <td>38-40</td>
-                                                <td>31-33</td>
-                                                <td>38.5-40.5</td>
-                                            </tr>
-                                            <tr>
-                                                <td>L</td>
-                                                <td>40-42</td>
-                                                <td>33-36</td>
-                                                <td>40.5-43.5</td>
-                                            </tr>
-                                            <tr>
-                                                <td>XL</td>
-                                                <td>42-45</td>
-                                                <td>36-40</td>
-                                                <td>43.5-47.5</td>
-                                            </tr>
-                                            <tr>
-                                                <td>XXL</td>
-                                                <td>45-48</td>
-                                                <td>40-44</td>
-                                                <td>47.5-51.5</td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
+                                <!-- Item 1 – Open by default -->
+                                <div class="card">
+                                    <div class="card-header" id="headingOne">
+                                        <h2 class="mb-0">
+                                            <button class="accordion-btn" type="button" data-toggle="collapse"
+                                                data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                                1. Add 3 mm of bleed
+                                                <span class="icon">−</span>
+                                            </button>
+                                        </h2>
+                                    </div>
+
+                                    <div id="collapseOne" class="collapse show" aria-labelledby="headingOne"
+                                        data-parent="#artworkAccordion">
+                                        <div class="card-body">
+                                            During the production of paper products, slight cutting imperfections are
+                                            expected.
+                                            To avoid this, you should add 3 mm of bleed to all edges of your artwork.
+                                            Make sure all colors and elements extend to the edge of the bleed area.
+                                        </div>
+                                    </div>
                                 </div>
-                            </div><!-- End .row -->
+
+                                <!-- Item 2 -->
+                                <div class="card">
+                                    <div class="card-header" id="headingTwo">
+                                        <h2 class="mb-0">
+                                            <button class="accordion-btn collapsed" type="button" data-toggle="collapse"
+                                                data-target="#collapseTwo" aria-expanded="false"
+                                                aria-controls="collapseTwo">
+                                                2. Keep your content within a 3 mm safety margin
+                                                <span class="icon">+</span>
+                                            </button>
+                                        </h2>
+                                    </div>
+
+                                    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo"
+                                        data-parent="#artworkAccordion">
+                                        <div class="card-body">
+                                            Dummy text: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                            Nulla facilisi. Phasellus elementum sapien nec tortor viverra.
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Item 3 -->
+                                <div class="card">
+                                    <div class="card-header" id="headingThree">
+                                        <h2 class="mb-0">
+                                            <button class="accordion-btn collapsed" type="button" data-toggle="collapse"
+                                                data-target="#collapseThree" aria-expanded="false"
+                                                aria-controls="collapseThree">
+                                                3. Use CMYK colour mode
+                                                <span class="icon">+</span>
+                                            </button>
+                                        </h2>
+                                    </div>
+
+                                    <div id="collapseThree" class="collapse" aria-labelledby="headingThree"
+                                        data-parent="#artworkAccordion">
+                                        <div class="card-body">
+                                            Dummy text: Suspendisse eget justo vitae arcu fermentum bibendum.
+                                            Integer euismod mauris non sem facilisis.
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+
                         </div><!-- End .product-size-content -->
                     </div><!-- End .tab-pane -->
+                    <style>
+                        .artwork-accordion .card {
+                            border: none;
+                            border-bottom: 1px solid #e5e5e5;
+                            border-radius: 0;
+                        }
 
-                    <div class="tab-pane fade" id="product-tags-content" role="tabpanel"
-                        aria-labelledby="product-tab-tags">
-                        <table class="table table-striped mt-2">
-                            <tbody>
-                                <tr>
-                                    <th>Weight</th>
-                                    <td>23 kg</td>
-                                </tr>
+                        .artwork-accordion .card-header {
+                            background: transparent;
+                            border: none;
+                            padding: 0;
+                        }
 
-                                <tr>
-                                    <th>Dimensions</th>
-                                    <td>12 × 24 × 35 cm</td>
-                                </tr>
+                        .accordion-btn {
+                            width: 100%;
+                            text-align: left;
+                            background: none;
+                            border: none;
+                            padding: 15px;
+                            font-size: 14px;
+                            color: #000;
+                            font-weight: 600;
+                            position: relative;
+                        }
 
-                                <tr>
-                                    <th>Color</th>
-                                    <td>Black, Green, Indigo</td>
-                                </tr>
+                        .accordion-btn .icon {
+                            position: absolute;
+                            right: 10px;
+                            font-size: 22px;
+                            font-weight: bold;
+                        }
 
-                                <tr>
-                                    <th>Size</th>
-                                    <td>Large, Medium, Small</td>
-                                </tr>
-                            </tbody>
-                        </table>
+                        .collapse.show+.icon {
+                            content: "−";
+                        }
+
+                        /* Blue highlight for active item */
+                        #collapseOne.show,
+                        #artworkAccordion .collapse.show {
+                            background: #d8ecf7;
+                            border-left: 4px solid #3aaede;
+                        }
+
+                        #artworkAccordion .card-body {
+                            padding: 15px 20px;
+                            font-size: 15px;
+                            color: #555;
+                        }
+
+                        /* Minus icon logic */
+                        .accordion-btn[aria-expanded="true"] .icon {
+                            content: "−";
+                        }
+
+                        .accordion-btn[aria-expanded="false"] .icon {
+                            content: "+";
+                        }
+                    </style>
+
+                    <div class="tab-pane fade" id="product-tags-content" role="tabpanel" aria-labelledby="product-tab-tags">
+                        <p>
+                            Our free templates provide you with all the information you need to correctly prepare your
+                            artwork files for printing. Simply download the template that matches your desired product
+                            configuration.
+                        </p>
                     </div><!-- End .tab-pane -->
 
                     <div class="tab-pane fade" id="product-reviews-content" role="tabpanel"
                         aria-labelledby="product-tab-reviews">
-                        <div class="product-reviews-content">
-                            <h3 class="reviews-title">1 review for Men Black Sports Shoes</h3>
+                        <div class="accordion artwork-accordion" id="artworkAccordion">
 
-                            <div class="comment-list">
-                                <div class="comments">
-                                    <figure class="img-thumbnail">
-                                        <img src="assets/images/blog/author.jpg" alt="author" width="80"
-                                            height="80">
-                                    </figure>
+                            <!-- Item 1 – Open by default -->
+                            <div class="card">
+                                <div class="card-header" id="headingOne">
+                                    <h2 class="mb-0">
+                                        <button class="accordion-btn" type="button" data-toggle="collapse"
+                                            data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                            1. Add 3 mm of bleed
+                                            <span class="icon">−</span>
+                                        </button>
+                                    </h2>
+                                </div>
 
-                                    <div class="comment-block">
-                                        <div class="comment-header">
-                                            <div class="comment-arrow"></div>
-
-                                            <div class="ratings-container float-sm-right">
-                                                <div class="product-ratings">
-                                                    <span class="ratings" style="width:60%"></span>
-                                                    <!-- End .ratings -->
-                                                    <span class="tooltiptext tooltip-top"></span>
-                                                </div><!-- End .product-ratings -->
-                                            </div>
-
-                                            <span class="comment-by">
-                                                <strong>Joe Doe</strong> – April 12, 2018
-                                            </span>
-                                        </div>
-
-                                        <div class="comment-content">
-                                            <p>Excellent.</p>
-                                        </div>
+                                <div id="collapseOne" class="collapse show" aria-labelledby="headingOne"
+                                    data-parent="#artworkAccordion">
+                                    <div class="card-body">
+                                        During the production of paper products, slight cutting imperfections are expected.
+                                        To avoid this, you should add 3 mm of bleed to all edges of your artwork.
+                                        Make sure all colors and elements extend to the edge of the bleed area.
                                     </div>
                                 </div>
                             </div>
 
-                            <div class="divider"></div>
+                            <!-- Item 2 -->
+                            <div class="card">
+                                <div class="card-header" id="headingTwo">
+                                    <h2 class="mb-0">
+                                        <button class="accordion-btn collapsed" type="button" data-toggle="collapse"
+                                            data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                            2. Keep your content within a 3 mm safety margin
+                                            <span class="icon">+</span>
+                                        </button>
+                                    </h2>
+                                </div>
 
-                            <div class="add-product-review">
-                                <h3 class="review-title">Add a review</h3>
-
-                                <form action="#" class="comment-form m-0">
-                                    <div class="rating-form">
-                                        <label for="rating">Your rating <span class="required">*</span></label>
-                                        <span class="rating-stars">
-                                            <a class="star-1" href="#">1</a>
-                                            <a class="star-2" href="#">2</a>
-                                            <a class="star-3" href="#">3</a>
-                                            <a class="star-4" href="#">4</a>
-                                            <a class="star-5" href="#">5</a>
-                                        </span>
-
-                                        <select name="rating" id="rating" required="" style="display: none;">
-                                            <option value="">Rate…</option>
-                                            <option value="5">Perfect</option>
-                                            <option value="4">Good</option>
-                                            <option value="3">Average</option>
-                                            <option value="2">Not that bad</option>
-                                            <option value="1">Very poor</option>
-                                        </select>
+                                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo"
+                                    data-parent="#artworkAccordion">
+                                    <div class="card-body">
+                                        Dummy text: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                        Nulla facilisi. Phasellus elementum sapien nec tortor viverra.
                                     </div>
+                                </div>
+                            </div>
 
-                                    <div class="form-group">
-                                        <label>Your review <span class="required">*</span></label>
-                                        <textarea cols="5" rows="6" class="form-control form-control-sm"></textarea>
-                                    </div><!-- End .form-group -->
+                            <!-- Item 3 -->
+                            <div class="card">
+                                <div class="card-header" id="headingThree">
+                                    <h2 class="mb-0">
+                                        <button class="accordion-btn collapsed" type="button" data-toggle="collapse"
+                                            data-target="#collapseThree" aria-expanded="false"
+                                            aria-controls="collapseThree">
+                                            3. Use CMYK colour mode
+                                            <span class="icon">+</span>
+                                        </button>
+                                    </h2>
+                                </div>
 
-
-                                    <div class="row">
-                                        <div class="col-md-6 col-xl-12">
-                                            <div class="form-group">
-                                                <label>Name <span class="required">*</span></label>
-                                                <input type="text" class="form-control form-control-sm" required>
-                                            </div><!-- End .form-group -->
-                                        </div>
-
-                                        <div class="col-md-6 col-xl-12">
-                                            <div class="form-group">
-                                                <label>Email <span class="required">*</span></label>
-                                                <input type="text" class="form-control form-control-sm" required>
-                                            </div><!-- End .form-group -->
-                                        </div>
-
-                                        <div class="col-md-12">
-                                            <div class="custom-control custom-checkbox">
-                                                <input type="checkbox" class="custom-control-input"
-                                                    id="save-name" />
-                                                <label class="custom-control-label mb-0" for="save-name">Save my
-                                                    name, email, and website in this browser for the next time I
-                                                    comment.</label>
-                                            </div>
-                                        </div>
+                                <div id="collapseThree" class="collapse" aria-labelledby="headingThree"
+                                    data-parent="#artworkAccordion">
+                                    <div class="card-body">
+                                        Dummy text: Suspendisse eget justo vitae arcu fermentum bibendum.
+                                        Integer euismod mauris non sem facilisis.
                                     </div>
+                                </div>
+                            </div>
 
-                                    <input type="submit" class="btn btn-primary" value="Submit">
-                                </form>
-                            </div><!-- End .add-product-review -->
-                        </div><!-- End .product-reviews-content -->
+                        </div>
+
                     </div><!-- End .tab-pane -->
                 </div><!-- End .tab-content -->
             </div><!-- End .product-single-tabs -->
@@ -451,10 +792,8 @@
                     <div class="product-default">
                         <figure>
                             <a href="{{ route('products.index') }}">
-                                <img src="assets/images/products/product-1.jpg" width="280" height="280"
-                                    alt="product">
-                                <img src="assets/images/products/product-1-2.jpg" width="280" height="280"
-                                    alt="product">
+                                <img src="assets/images/products/product-1.jpg" width="280" height="280" alt="product">
+                                <img src="assets/images/products/product-1-2.jpg" width="280" height="280" alt="product">
                             </a>
                             <div class="label-group">
                                 <div class="product-label label-hot">HOT</div>
@@ -493,10 +832,8 @@
                     <div class="product-default">
                         <figure>
                             <a href="{{ route('products.index') }}">
-                                <img src="assets/images/products/product-3.jpg" width="280" height="280"
-                                    alt="product">
-                                <img src="assets/images/products/product-3-2.jpg" width="280" height="280"
-                                    alt="product">
+                                <img src="assets/images/products/product-3.jpg" width="280" height="280" alt="product">
+                                <img src="assets/images/products/product-3-2.jpg" width="280" height="280" alt="product">
                             </a>
                             <div class="label-group">
                                 <div class="product-label label-hot">HOT</div>
@@ -535,10 +872,8 @@
                     <div class="product-default">
                         <figure>
                             <a href="{{ route('products.index') }}">
-                                <img src="assets/images/products/product-7.jpg" width="280" height="280"
-                                    alt="product">
-                                <img src="assets/images/products/product-7-2.jpg" width="280" height="280"
-                                    alt="product">
+                                <img src="assets/images/products/product-7.jpg" width="280" height="280" alt="product">
+                                <img src="assets/images/products/product-7-2.jpg" width="280" height="280" alt="product">
                             </a>
                             <div class="label-group">
                                 <div class="product-label label-hot">HOT</div>
@@ -577,10 +912,8 @@
                     <div class="product-default">
                         <figure>
                             <a href="{{ route('products.index') }}">
-                                <img src="assets/images/products/product-6.jpg" width="280" height="280"
-                                    alt="product">
-                                <img src="assets/images/products/product-6-2.jpg" width="280" height="280"
-                                    alt="product">
+                                <img src="assets/images/products/product-6.jpg" width="280" height="280" alt="product">
+                                <img src="assets/images/products/product-6-2.jpg" width="280" height="280" alt="product">
                             </a>
                             <div class="label-group">
                                 <div class="product-label label-hot">HOT</div>
@@ -619,10 +952,8 @@
                     <div class="product-default">
                         <figure>
                             <a href="{{ route('products.index') }}">
-                                <img src="assets/images/products/product-4.jpg" width="280" height="280"
-                                    alt="product">
-                                <img src="assets/images/products/product-4-2.jpg" width="280" height="280"
-                                    alt="product">
+                                <img src="assets/images/products/product-4.jpg" width="280" height="280" alt="product">
+                                <img src="assets/images/products/product-4-2.jpg" width="280" height="280" alt="product">
                             </a>
                             <div class="label-group">
                                 <div class="product-label label-hot">HOT</div>
@@ -668,15 +999,15 @@
                     <div class="product-default left-details product-widget">
                         <figure>
                             <a href="{{ route('products.index') }}">
-                                <img src="assets/images/products/small/product-1.jpg" width="74" height="74"
-                                    alt="product">
+                                <img src="assets/images/products/small/product-1.jpg" width="74" height="74" alt="product">
                                 <img src="assets/images/products/small/product-1-2.jpg" width="74" height="74"
                                     alt="product">
                             </a>
                         </figure>
 
                         <div class="product-details">
-                            <h3 class="product-title"> <a href="{{ route('products.index') }}">Ultimate 3D Bluetooth Speaker</a>
+                            <h3 class="product-title"> <a href="{{ route('products.index') }}">Ultimate 3D Bluetooth
+                                    Speaker</a>
                             </h3>
 
                             <div class="ratings-container">
@@ -695,15 +1026,15 @@
                     <div class="product-default left-details product-widget">
                         <figure>
                             <a href="{{ route('products.index') }}">
-                                <img src="assets/images/products/small/product-2.jpg" width="74" height="74"
-                                    alt="product">
+                                <img src="assets/images/products/small/product-2.jpg" width="74" height="74" alt="product">
                                 <img src="assets/images/products/small/product-2-2.jpg" width="74" height="74"
                                     alt="product">
                             </a>
                         </figure>
 
                         <div class="product-details">
-                            <h3 class="product-title"> <a href="{{ route('products.index') }}">Brown Women Casual HandBag</a> </h3>
+                            <h3 class="product-title"> <a href="{{ route('products.index') }}">Brown Women Casual
+                                    HandBag</a> </h3>
 
                             <div class="ratings-container">
                                 <div class="product-ratings">
@@ -721,15 +1052,15 @@
                     <div class="product-default left-details product-widget">
                         <figure>
                             <a href="{{ route('products.index') }}">
-                                <img src="assets/images/products/small/product-3.jpg" width="74" height="74"
-                                    alt="product">
+                                <img src="assets/images/products/small/product-3.jpg" width="74" height="74" alt="product">
                                 <img src="assets/images/products/small/product-3-2.jpg" width="74" height="74"
                                     alt="product">
                             </a>
                         </figure>
 
                         <div class="product-details">
-                            <h3 class="product-title"> <a href="{{ route('products.index') }}">Circled Ultimate 3D Speaker</a> </h3>
+                            <h3 class="product-title"> <a href="{{ route('products.index') }}">Circled Ultimate 3D
+                                    Speaker</a> </h3>
 
                             <div class="ratings-container">
                                 <div class="product-ratings">
@@ -750,15 +1081,15 @@
                     <div class="product-default left-details product-widget">
                         <figure>
                             <a href="{{ route('products.index') }}">
-                                <img src="assets/images/products/small/product-4.jpg" width="74" height="74"
-                                    alt="product">
+                                <img src="assets/images/products/small/product-4.jpg" width="74" height="74" alt="product">
                                 <img src="assets/images/products/small/product-4-2.jpg" width="74" height="74"
                                     alt="product">
                             </a>
                         </figure>
 
                         <div class="product-details">
-                            <h3 class="product-title"> <a href="{{ route('products.index') }}">Blue Backpack for the Young - S</a>
+                            <h3 class="product-title"> <a href="{{ route('products.index') }}">Blue Backpack for the Young -
+                                    S</a>
                             </h3>
 
                             <div class="ratings-container">
@@ -777,15 +1108,15 @@
                     <div class="product-default left-details product-widget">
                         <figure>
                             <a href="{{ route('products.index') }}">
-                                <img src="assets/images/products/small/product-5.jpg" width="74" height="74"
-                                    alt="product">
+                                <img src="assets/images/products/small/product-5.jpg" width="74" height="74" alt="product">
                                 <img src="assets/images/products/small/product-5-2.jpg" width="74" height="74"
                                     alt="product">
                             </a>
                         </figure>
 
                         <div class="product-details">
-                            <h3 class="product-title"> <a href="{{ route('products.index') }}">Casual Spring Blue Shoes</a> </h3>
+                            <h3 class="product-title"> <a href="{{ route('products.index') }}">Casual Spring Blue Shoes</a>
+                            </h3>
 
                             <div class="ratings-container">
                                 <div class="product-ratings">
@@ -803,15 +1134,15 @@
                     <div class="product-default left-details product-widget">
                         <figure>
                             <a href="{{ route('products.index') }}">
-                                <img src="assets/images/products/small/product-6.jpg" width="74" height="74"
-                                    alt="product">
+                                <img src="assets/images/products/small/product-6.jpg" width="74" height="74" alt="product">
                                 <img src="assets/images/products/small/product-6-2.jpg" width="74" height="74"
                                     alt="product">
                             </a>
                         </figure>
 
                         <div class="product-details">
-                            <h3 class="product-title"> <a href="{{ route('products.index') }}">Men Black Gentle Belt</a> </h3>
+                            <h3 class="product-title"> <a href="{{ route('products.index') }}">Men Black Gentle Belt</a>
+                            </h3>
 
                             <div class="ratings-container">
                                 <div class="product-ratings">
@@ -832,15 +1163,15 @@
                     <div class="product-default left-details product-widget">
                         <figure>
                             <a href="{{ route('products.index') }}">
-                                <img src="assets/images/products/small/product-7.jpg" width="74" height="74"
-                                    alt="product">
+                                <img src="assets/images/products/small/product-7.jpg" width="74" height="74" alt="product">
                                 <img src="assets/images/products/small/product-7-2.jpg" width="74" height="74"
                                     alt="product">
                             </a>
                         </figure>
 
                         <div class="product-details">
-                            <h3 class="product-title"> <a href="{{ route('products.index') }}">Men Black Sports Shoes</a> </h3>
+                            <h3 class="product-title"> <a href="{{ route('products.index') }}">Men Black Sports Shoes</a>
+                            </h3>
 
                             <div class="ratings-container">
                                 <div class="product-ratings">
@@ -858,15 +1189,15 @@
                     <div class="product-default left-details product-widget">
                         <figure>
                             <a href="{{ route('products.index') }}">
-                                <img src="assets/images/products/small/product-8.jpg" width="74" height="74"
-                                    alt="product">
+                                <img src="assets/images/products/small/product-8.jpg" width="74" height="74" alt="product">
                                 <img src="assets/images/products/small/product-8-2.jpg" width="74" height="74"
                                     alt="product">
                             </a>
                         </figure>
 
                         <div class="product-details">
-                            <h3 class="product-title"> <a href="{{ route('products.index') }}">Brown-Black Men Casual Glasses</a>
+                            <h3 class="product-title"> <a href="{{ route('products.index') }}">Brown-Black Men Casual
+                                    Glasses</a>
                             </h3>
 
                             <div class="ratings-container">
@@ -885,15 +1216,15 @@
                     <div class="product-default left-details product-widget">
                         <figure>
                             <a href="{{ route('products.index') }}">
-                                <img src="assets/images/products/small/product-9.jpg" width="74" height="74"
-                                    alt="product">
+                                <img src="assets/images/products/small/product-9.jpg" width="74" height="74" alt="product">
                                 <img src="assets/images/products/small/product-9-2.jpg" width="74" height="74"
                                     alt="product">
                             </a>
                         </figure>
 
                         <div class="product-details">
-                            <h3 class="product-title"> <a href="{{ route('products.index') }}">Black Men Casual Glasses</a> </h3>
+                            <h3 class="product-title"> <a href="{{ route('products.index') }}">Black Men Casual Glasses</a>
+                            </h3>
 
                             <div class="ratings-container">
                                 <div class="product-ratings">
@@ -914,15 +1245,15 @@
                     <div class="product-default left-details product-widget">
                         <figure>
                             <a href="{{ route('products.index') }}">
-                                <img src="assets/images/products/small/product-10.jpg" width="74" height="74"
-                                    alt="product">
+                                <img src="assets/images/products/small/product-10.jpg" width="74" height="74" alt="product">
                                 <img src="assets/images/products/small/product-10-2.jpg" width="74" height="74"
                                     alt="product">
                             </a>
                         </figure>
 
                         <div class="product-details">
-                            <h3 class="product-title"> <a href="{{ route('products.index') }}">Basketball Sports Blue Shoes</a> </h3>
+                            <h3 class="product-title"> <a href="{{ route('products.index') }}">Basketball Sports Blue
+                                    Shoes</a> </h3>
 
                             <div class="ratings-container">
                                 <div class="product-ratings">
@@ -940,15 +1271,15 @@
                     <div class="product-default left-details product-widget">
                         <figure>
                             <a href="{{ route('products.index') }}">
-                                <img src="assets/images/products/small/product-11.jpg" width="74" height="74"
-                                    alt="product">
+                                <img src="assets/images/products/small/product-11.jpg" width="74" height="74" alt="product">
                                 <img src="assets/images/products/small/product-11-2.jpg" width="74" height="74"
                                     alt="product">
                             </a>
                         </figure>
 
                         <div class="product-details">
-                            <h3 class="product-title"> <a href="{{ route('products.index') }}">Men Sports Travel Bag</a> </h3>
+                            <h3 class="product-title"> <a href="{{ route('products.index') }}">Men Sports Travel Bag</a>
+                            </h3>
 
                             <div class="ratings-container">
                                 <div class="product-ratings">
@@ -966,8 +1297,7 @@
                     <div class="product-default left-details product-widget">
                         <figure>
                             <a href="{{ route('products.index') }}">
-                                <img src="assets/images/products/small/product-12.jpg" width="74" height="74"
-                                    alt="product">
+                                <img src="assets/images/products/small/product-12.jpg" width="74" height="74" alt="product">
                                 <img src="assets/images/products/small/product-12-2.jpg" width="74" height="74"
                                     alt="product">
                             </a>

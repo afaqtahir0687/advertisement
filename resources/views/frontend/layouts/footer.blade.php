@@ -43,9 +43,9 @@
                             <li><a href="#">Shipping & Delivery</a></li>
                             <li><a href="#">Orders History</a></li>
                             <li><a href="#">Advanced Search</a></li>
-                            <li><a href="dashboard.html">My Account</a></li>
+                            <li><a href="#">My Account</a></li>
                             <li><a href="#">Careers</a></li>
-                            <li><a href="about.html">About Us</a></li>
+                            <li><a href="#">About Us</a></li>
                             <li><a href="#">Corporate Sales</a></li>
                             <li><a href="#">Privacy</a></li>
                         </ul>

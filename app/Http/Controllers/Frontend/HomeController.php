@@ -35,4 +35,9 @@ class HomeController extends Controller
     {
         return view('frontend.pages.contacts.contact-us');
     }
+
+    public function trackOrder()
+    {
+        return view('frontend.pages.track-order');
+    }
 }

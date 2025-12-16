@@ -14,21 +14,20 @@
                             <li><a href="{{ route('blogs.index') }}">Blog</a></li>
                             <li><a href="{{route('wishlist.index')}}">My Wishlist</a></li>
                             <li><a href="{{ route('cart.index') }}">Cart</a></li>
-                            <li><a href="{{ route('login') }}">Log In</a></li>
+                            <li><a href="{{ route('track.order') }}">Track Order</a></li>
                             <li><a href="{{ route('register') }}">Register</a></li>
                         </ul>
                     </div>
                 </div>
-
                 <span class="separator"></span>
-
                 <div class="header-dropdown">
                     <a href="#"><i class="flag-us flag"></i>ENG</a>
                     <div class="header-menu">
                         <ul>
-                            <li><a href="#"><i class="flag-us flag mr-2"></i>ENG</a>
+                            <li><a href="#"><i class="flag-us flag mr-2"></i>English</a>
                             </li>
-                            <li><a href="#"><i class="flag-fr flag mr-2"></i>FRA</a></li>
+                            <li><a href="#"><i class="flag-sa flag mr-2"></i>العربية</a></li>
+                            <li><a href="#"><i class="flag-pk flag mr-2"></i>اردو</a></li>
                         </ul>
                     </div>
                 </div>
@@ -37,8 +36,9 @@
                     <a href="#">USD</a>
                     <div class="header-menu">
                         <ul>
-                            <li><a href="#">EUR</a></li>
+                            <li><a href="#">SAR</a></li>
                             <li><a href="#">USD</a></li>
+                            <li><a href="#">PKR</a></li>
                         </ul>
                     </div>
                 </div>
@@ -100,12 +100,12 @@
 
                 <div class="header-contact d-none d-lg-flex pl-4 pr-4">
                     <img alt="phone" src="{{ asset('assets/images/phone.png') }}" width="30" height="30" class="pb-1">
-                    <h6><span>Call us now</span><a href="tel:#" class="text-dark font1">+123 5678 890</a></h6>
+                    <h6><span>Call us now</span><a href="tel:#" class="text-dark font1">+966 50 345 7554</a></h6>
                 </div>
 
-                <a href="login.html" class="header-icon" title="login"><i class="icon-user-2"></i></a>
+                <a href="#" class="header-icon" title="login"><i class="icon-user-2"></i></a>
 
-                <a href="{{ route('wishlist.index') }}" class="header-icon" title="wishlist"><i class="icon-wishlist-2"></i></a>
+                <a href="#" class="header-icon" title="wishlist"><i class="icon-wishlist-2"></i></a>
 
                 <div class="dropdown cart-dropdown">
                     <a href="#" title="Cart" class="dropdown-toggle dropdown-arrow cart-toggle" role="button"
@@ -192,9 +192,9 @@
                             </div>
 
                             <div class="dropdown-cart-action">
-                                <a href="{{ route('cart.index') }}" class="btn btn-gray btn-block view-cart">View
+                                <a href="#" class="btn btn-gray btn-block view-cart">View
                                     Cart</a>
-                                <a href="checkout.html" class="btn btn-dark btn-block">Checkout</a>
+                                <a href="#" class="btn btn-dark btn-block">Checkout</a>
                             </div>
                         </div>
                     </div>
@@ -208,42 +208,69 @@
             <nav class="main-nav w-100">
                 <ul class="menu">
                     <li class="active">
-                        <a href="{{ route('home') }}">Home</a>
-                    </li>
-                    <li>
                         <a href="{{ route('category.index') }}">Categories</a>
                         <div class="megamenu megamenu-fixed-width megamenu-3cols">
                             <div class="row">
                                 <div class="col-lg-4">
-                                    <a href="#" class="nolink">VARIATION 1</a>
+                                    <a href="#" class="nolink">Categories</a>
                                     <ul class="submenu">
-                                        <li><a href="{{ route('category.index') }}">Fullwidth Banner</a>
-                                        </li>
-                                        <li><a href="{{ route('category.bannerBoxSlider') }}">Boxed Slider Banner</a>
-                                        </li>
-                                        <li><a href="{{ route('category.bannerBoxImg') }}">Boxed Image Banner</a>
-                                        </li>
-                                        <li><a href="{{ route('category.index') }}">Left Sidebar</a></li>
-                                        <li><a href="{{ route('category.rightSidebar') }}">Right Sidebar</a></li>
-                                        <li><a href="{{ route('category.offCanvas') }}">Off Canvas Filter</a></li>
-                                        <li><a href="category-horizontal-filter1.html">Horizontal Filter1</a>
-                                        </li>
-                                        <li><a href="category-horizontal-filter2.html">Horizontal Filter2</a>
-                                        </li>
+                                        <li><a href="{{ route('category.index') }}">Categories</a></li>
+                                    </ul>
+                                </div>
+
+                                <div class="col-lg-4 p-0">
+                                    <div class="menu-banner">
+                                        <figure>
+                                            <img src="{{ asset('assets/images/menu-banner.jpg') }}" width="192"
+                                                height="313" alt="Menu banner">
+                                        </figure>
+                                        <div class="banner-content">
+                                            <h4>
+                                                <span class="">UP TO</span><br />
+                                                <b class="">50%</b>
+                                                <i>OFF</i>
+                                            </h4>
+                                            <a href="{{ route('category.index') }}" class="btn btn-sm btn-dark">SHOP
+                                                NOW</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <a href="{{ route('category.index') }}">Most Popular</a>
+                        <div class="megamenu megamenu-fixed-width megamenu-3cols">
+                            <div class="row">
+                                <div class="col-lg-4">
+                                    <a href="#" class="nolink">Business Cards</a>
+                                    <ul class="submenu">
+                                        <li><a href="{{ route('category.index') }}">Business Cards</a></li>
+                                        <li><a href="#">Standard Cards</a></li>
+                                        <li><a href="#">Premium Cards</a></li>
+                                        <li><a href="#">Special Finishes</a></li>
+                                        <li><a href="#">NFC Cards</a></li>
+                                        <li><a href="#">Special offers</a></li>
+                                        <li><a href="#">Smooth finish</a></li>
+                                        <li><a href="#">Textured finish</a></li>
+                                        <li><a href="#">Specialty textured</a></li>
+                                        <li><a href="#">Holders & More</a></li>
                                     </ul>
                                 </div>
                                 <div class="col-lg-4">
-                                    <a href="#" class="nolink">VARIATION 2</a>
+                                    <a href="#" class="nolink">Letterheads</a>
                                     <ul class="submenu">
-                                        <li><a href="category-list.html">List Types</a></li>
-                                        <li><a href="category-infinite-scroll.html">Ajax Infinite Scroll</a>
-                                        </li>
-                                        <li><a href="{{ route('category.index') }}">3 Columns Products</a></li>
-                                        <li><a href="category-4col.html">4 Columns Products</a></li>
-                                        <li><a href="category-5col.html">5 Columns Products</a></li>
-                                        <li><a href="category-6col.html">6 Columns Products</a></li>
-                                        <li><a href="category-7col.html">7 Columns Products</a></li>
-                                        <li><a href="category-8col.html">8 Columns Products</a></li>
+                                        <li><a href="#">Standard letterhead</a></li>
+                                        <li><a href="#">Textured Finish LH</a></li>
+                                        <li><a href="#">Smooth Finish LH</a></li>
+                                        <li><a href="#">Specialty Textured LH</a></li>
+                                        <li><a href="#">Special offers LH</a></li>
+                                        <li><a href="#">♻️Recycled LH</a></li>
+                                        <a href="#" class="nolink">NFC Business Cards</a>
+                                        <a href="#" class="nolink">Folders</a>
+                                        <li><a href="#">Standard</a></li>
+                                        <li><a href="#">Premium</a></li>
+                                        <li><a href="#">Special offers.</a></li>
                                     </ul>
                                 </div>
                                 <div class="col-lg-4 p-0">
@@ -266,103 +293,279 @@
                             </div>
                         </div>
                     </li>
+
                     <li>
-                        <a href="{{ route('products.index') }}">Products</a>
-                        <div class="megamenu megamenu-fixed-width">
+                        <a href="{{ route('category.index') }}">Markete Materials</a>
+                        <div class="megamenu megamenu-fixed-width megamenu-3cols">
                             <div class="row">
                                 <div class="col-lg-4">
-                                    <a href="#" class="nolink">PRODUCT PAGES</a>
+                                    <a href="#" class="nolink">Flyers</a>
                                     <ul class="submenu">
-                                        <li><a href="{{ route('products.index') }}">SIMPLE PRODUCT</a></li>
-                                        <li><a href="product-variable.html">VARIABLE PRODUCT</a></li>
-                                        <li><a href="{{ route('products.index') }}">SALE PRODUCT</a></li>
-                                        <li><a href="{{ route('products.index') }}">FEATURED & ON SALE</a></li>
-                                        <li><a href="product-custom-tab.html">WITH CUSTOM TAB</a></li>
-                                        <li><a href="product-sidebar-left.html">WITH LEFT SIDEBAR</a></li>
-                                        <li><a href="product-sidebar-right.html">WITH RIGHT SIDEBAR</a></li>
-                                        <li><a href="product-addcart-sticky.html">ADD CART STICKY</a></li>
+                                        <li><a href="#">Standard-</a></li>
+                                        <li><a href="#">Smooth finish-</a></li>
+                                        <li><a href="#">Special Finishes-</a></li>
+                                        <li><a href="#">Textured finish-</a></li>
+                                        <li><a href="#">Specialty textured-</a></li>
+                                        <li><a href="#">Special offers-</a></li>
+                                        <li><a href="#">♻️Recycled.</a></li>
+                                        <a href="#" class="nolink">Brochures</a>
+                                        <li><a href="#">Standard</a></li>
+                                        <li><a href="#">Premium</a></li>
+                                        <a href="#" class="nolink">Stickers/Labels</a>
+                                        <li><a href="#">Vinyl Labels</a></li>
+                                        <li><a href="#">Paper Lables</a></li>
+                                        <li><a href="#">Roll Lables</a></li>
                                     </ul>
                                 </div>
-
                                 <div class="col-lg-4">
-                                    <a href="#" class="nolink">PRODUCT LAYOUTS</a>
+                                    <a href="#" class="nolink">Letterheads</a>
                                     <ul class="submenu">
-                                        <li><a href="product-extended-layout.html">EXTENDED LAYOUT</a></li>
-                                        <li><a href="product-grid-layout.html">GRID IMAGE</a></li>
-                                        <li><a href="product-full-width.html">FULL WIDTH LAYOUT</a></li>
-                                        <li><a href="product-sticky-info.html">STICKY INFO</a></li>
-                                        <li><a href="product-sticky-both.html">LEFT & RIGHT STICKY</a></li>
-                                        <li><a href="product-transparent-image.html">TRANSPARENT IMAGE</a></li>
-                                        <li><a href="product-center-vertical.html">CENTER VERTICAL</a></li>
-                                        <li><a href="#">BUILD YOUR OWN</a></li>
+                                        <li><a href="#">Standard letterhead</a></li>
+                                        <li><a href="#">Textured Finish LH</a></li>
+                                        <li><a href="#">Smooth Finish LH</a></li>
+                                        <li><a href="#">Specialty Textured LH</a></li>
+                                        <li><a href="#">Special offers LH</a></li>
+                                        <li><a href="#">♻️Recycled LH</a></li>
+                                        <a href="#" class="nolink">NFC Business Cards</a>
+                                        <a href="#" class="nolink">Folders</a>
+                                        <li><a href="#">Standard</a></li>
+                                        <li><a href="#">Premium</a></li>
+                                        <li><a href="#">Special offers.</a></li>
                                     </ul>
                                 </div>
-
                                 <div class="col-lg-4 p-0">
-                                    <div class="menu-banner menu-banner-2">
+                                    <div class="menu-banner">
                                         <figure>
-                                            <img src="{{ asset('assets/images/menu-banner-1.jpg') }}" width="182"
-                                                height="317" alt="Menu banner" class="product-promo">
+                                            <img src="{{ asset('assets/images/menu-banner.jpg') }}" width="192"
+                                                height="313" alt="Menu banner">
                                         </figure>
-                                        <i>OFF</i>
                                         <div class="banner-content">
                                             <h4>
                                                 <span class="">UP TO</span><br />
                                                 <b class="">50%</b>
+                                                <i>OFF</i>
                                             </h4>
+                                            <a href="{{ route('category.index') }}" class="btn btn-sm btn-dark">SHOP
+                                                NOW</a>
                                         </div>
-                                        <a href="{{ route('category.index') }}" class="btn btn-sm btn-dark">SHOP NOW</a>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </li>
-                    <li>
-                        <a href="#">Pages</a>
-                        <ul>
-                            <li><a href="{{route('wishlist.index')}}">Wishlist</a></li>
-                            <li><a href="{{ route('cart.index') }}">Shopping Cart</a></li>
-                            <li><a href="checkout.html">Checkout</a></li>
-                            <li><a href="{{route('dashboard')}}">Dashboard</a></li>
 
-                            <li><a href="{{ route('about.index') }}">About Us</a></li>
-                            <li><a href="{{ route('blogs.index') }}">Blog</a>
-                                <ul>
-                                    <li><a href="{{ route('blogs.index') }}">Blog</a></li>
-                                    <li><a href="{{ route('single.index') }}">Blog Post</a></li>
-                                </ul>
-                            </li>
-                            <li><a href="{{ route('contact.index') }}">Contact Us</a></li>
-                            <li><a href="{{ route('login') }}">Login</a></li>
-                            <li><a href="forgot-password.html">Forgot Password</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="{{ route('blogs.index') }}">Blog</a></li>
                     <li>
-                        <a href="#">Elements</a>
-                        <ul class="custom-scrollbar">
-                            <li><a href="element-accordions.html">Accordion</a></li>
-                            <li><a href="element-alerts.html">Alerts</a></li>
-                            <li><a href="element-animations.html">Animations</a></li>
-                            <li><a href="element-banners.html">Banners</a></li>
-                            <li><a href="element-buttons.html">Buttons</a></li>
-                            <li><a href="element-call-to-action.html">Call to Action</a></li>
-                            <li><a href="element-countdown.html">Count Down</a></li>
-                            <li><a href="element-counters.html">Counters</a></li>
-                            <li><a href="element-headings.html">Headings</a></li>
-                            <li><a href="element-icons.html">Icons</a></li>
-                            <li><a href="element-info-box.html">Info box</a></li>
-                            <li><a href="element-posts.html">Posts</a></li>
-                            <li><a href="element-products.html">Products</a></li>
-                            <li><a href="element-product-categories.html">Product Categories</a></li>
-                            <li><a href="element-tabs.html">Tabs</a></li>
-                            <li><a href="element-testimonial.html">Testimonials</a></li>
-                        </ul>
+                        <a href="{{ route('category.index') }}">Formate Printing</a>
+                        <div class="megamenu megamenu-fixed-width megamenu-3cols">
+                            <div class="row">
+                                <div class="col-lg-4">
+                                    <a href="#" class="nolink">Posters & Banners</a>
+                                    <ul class="submenu">
+                                        <li><a href="#">Posters</a></li>
+                                        <li><a href="#">3M Vinyl Graphics</a></li>
+                                        <li><a href="#">One Way Vision Film</a></li>
+                                        <li><a href="#">Flex Banners</a></li>
+                                        <li><a href="#">Backlit Prints</a></li>
+                                        <li><a href="#">Whiteboard Film</a></li>
+                                        <a href="#" class="nolink">Wallpapers</a>
+                                        <a href="#" class="nolink">Canvas Printing</a>
+                                        <li><a href="#">Canvas Prints</a></li>
+                                        <li><a href="#">Canvas With Frame</a></li>
+                                        <a href="#" class="nolink">Rollups</a>
+                                        <li><a href="#">Standard</a></li>
+                                        <li><a href="#">Premium</a></li>
+                                        <li><a href="#">X-Stand Banner</a></li>
+                                    </ul>
+                                </div>
+                                <div class="col-lg-4">
+                                    <a href="#" class="nolink">Popups</a>
+                                    <ul class="submenu">
+                                        <li><a href="#">Pop-Up Display Straight</a></li>
+                                        <li><a href="#">Pop-Up Display Curved</a></li>
+                                        <li><a href="#">Promotional Table</a></li>
+                                        <a href="#" class="nolink">Displays</a>
+                                        <li><a href="#">Acrylic Sign Holders</a></li>
+                                        <li><a href="#">Acrylic Name Plates & Desk Stands</a></li>
+                                    </ul>
+                                </div>
+                                <div class="col-lg-4 p-0">
+                                    <div class="menu-banner">
+                                        <figure>
+                                            <img src="{{ asset('assets/images/menu-banner.jpg') }}" width="192"
+                                                height="313" alt="Menu banner">
+                                        </figure>
+                                        <div class="banner-content">
+                                            <h4>
+                                                <span class="">UP TO</span><br />
+                                                <b class="">50%</b>
+                                                <i>OFF</i>
+                                            </h4>
+                                            <a href="{{ route('category.index') }}" class="btn btn-sm btn-dark">SHOP
+                                                NOW</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </li>
-                    <li><a href="{{ route('contact.index') }}">Contact Us</a></li>
-                    <li class="float-right"><a href="https://1.envato.market/DdLk5" rel="noopener" class="pl-5"
-                            target="_blank">Buy Porto!</a></li>
-                    <li class="float-right"><a href="#" class="pl-5">Special Offer!</a></li>
+
+                    <li>
+                        <a href="{{ route('category.index') }}">Packing & Box</a>
+                        <div class="megamenu megamenu-fixed-width megamenu-3cols">
+                            <div class="row">
+                                <div class="col-lg-4">
+                                    <ul class="submenu">
+                                        <li><a href="#">Fancy Boxes</a></li>
+                                        <li><a href="#">Corrugated Boxes</a></li>
+                                        <li><a href="#">Gift Box</a></li>
+                                        <li><a href="#">Fancy Gift Sets</a></li>
+                                        <li><a href="#">Cube Boxes</a></li>
+                                        <li><a href="#">Soft Boxes</a></li>
+                                    </ul>
+                                </div>
+                                <!-- <div class="col-lg-4 p-0"></div> -->
+                                <div class="col-lg-4 p-0">
+                                    <div class="menu-banner">
+                                        <figure>
+                                            <img src="{{ asset('assets/images/menu-banner.jpg') }}" width="192"
+                                                height="313" alt="Menu banner">
+                                        </figure>
+                                        <div class="banner-content">
+                                            <h4>
+                                                <span class="">UP TO</span><br />
+                                                <b class="">50%</b>
+                                                <i>OFF</i>
+                                            </h4>
+                                            <a href="{{ route('category.index') }}" class="btn btn-sm btn-dark">SHOP
+                                                NOW</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+
+                    <li>
+                        <a href="#">Promo Products</a>
+                        <div class="megamenu megamenu-fixed-width megamenu-3cols">
+                            <div class="row">
+                                <div class="col-lg-4">
+                                    <a href="#" class="nolink">Mouse Pads</a>
+                                    <ul class="submenu">
+                                        <li><a href="#">Sublimation</a>
+                                        </li>
+                                        <li><a href="">Leather</a>
+                                        </li>
+                                        <li><a href="">Wireless</a>
+                                        </li>
+                                        <a href="#" class="nolink">Mugs</a>
+                                        <li><a href="category-list.html">Water Bottles</a></li>
+                                        <li><a href="category-infinite-scroll.html">Travel Mugs & Tumblers</a>
+                                        </li>
+                                        <li><a href="#">Mugs</a></li>
+                                        <li><a href="#">Glassware</a></li>
+                                        <a href="#" class="nolink">Pillows</a>
+                                        <a href="#" class="nolink">Diaries/Agendas</a>
+                                        <a href="#" class="nolink">Pens</a>
+                                        <a href="#" class="nolink">USB Flash Drives</a>
+                                        <a href="#" class="nolink">Powerbanks</a>
+                                        <a href="#" class="nolink">Stress Balls</a>
+                                    </ul>
+                                </div>
+                                <div class="col-lg-4">
+                                    <ul class="submenu">
+                                        <li><a href="category-list.html">Balloons</a></li>
+                                        <li><a href="category-infinite-scroll.html">Ribbons</a>
+                                        </li>
+                                        <li><a href="#">Thermal Mugs and Bottles</a></li>
+                                        <li><a href="#">Tea Coaster</a></li>
+                                        <li><a href="#">Mobile Accessories</a></li>
+                                        <li><a href="#">Business Cards Cases</a></li>
+                                    </ul>
+                                </div>
+                                <div class="col-lg-4 p-0">
+                                    <div class="menu-banner">
+                                        <figure>
+                                            <img src="{{ asset('assets/images/menu-banner.jpg') }}" width="192"
+                                                height="313" alt="Menu banner">
+                                        </figure>
+                                        <div class="banner-content">
+                                            <h4>
+                                                <span class="">UP TO</span><br />
+                                                <b class="">50%</b>
+                                                <i>OFF</i>
+                                            </h4>
+                                            <a href="{{ route('category.index') }}" class="btn btn-sm btn-dark">SHOP
+                                                NOW</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+
+                    <li>
+                        <a href="#">Apparel & Wearables</a>
+                        <div class="megamenu megamenu-fixed-width megamenu-3cols">
+                            <div class="row">
+                                <div class="col-lg-4">
+                                    <a href="#" class="nolink">Safety Products</a>
+                                    <a href="#" class="nolink">Shirts</a>
+                                    <a href="#" class="nolink">Caps</a>
+                                    <a href="#" class="nolink">Badges</a>
+                                    <a href="#" class="nolink">Lanyard</a>
+                                </div>
+                                <div class="col-lg-4 p-0">
+                                    <div class="menu-banner">
+                                        <figure>
+                                            <img src="{{ asset('assets/images/menu-banner.jpg') }}" width="192"
+                                                height="313" alt="Menu banner">
+                                        </figure>
+                                        <div class="banner-content">
+                                            <h4>
+                                                <span class="">UP TO</span><br />
+                                                <b class="">50%</b>
+                                                <i>OFF</i>
+                                            </h4>
+                                            <a href="{{ route('category.index') }}" class="btn btn-sm btn-dark">SHOP
+                                                NOW</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+
+                    <li>
+                        <a href="#">Event Brand</a>
+                        <div class="megamenu megamenu-fixed-width megamenu-3cols">
+                            <div class="row">
+                                <div class="col-lg-4">
+                                    <a href="#" class="nolink">Photobooks</a>
+                                    <a href="#" class="nolink">Trophy Awards & Mementos</a>
+                                    <a href="#" class="nolink">Promotional Bags</a>
+                                    <a href="#" class="nolink">Exhibition & Events</a>
+                                </div>
+                                <div class="col-lg-4 p-0">
+                                    <div class="menu-banner">
+                                        <figure>
+                                            <img src="{{ asset('assets/images/menu-banner.jpg') }}" width="192"
+                                                height="313" alt="Menu banner">
+                                        </figure>
+                                        <div class="banner-content">
+                                            <h4>
+                                                <span class="">UP TO</span><br />
+                                                <b class="">50%</b>
+                                                <i>OFF</i>
+                                            </h4>
+                                            <a href="{{ route('category.index') }}" class="btn btn-sm btn-dark">SHOP
+                                                NOW</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
                 </ul>
             </nav>
         </div>
