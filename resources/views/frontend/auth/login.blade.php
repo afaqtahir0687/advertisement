@@ -11,7 +11,7 @@
                             Login
                         </li>
                     </ol>
-                </div>
+                </div> 
             </nav>
             <h1>Login to Your Account</h1>
         </div>
