@@ -4,7 +4,7 @@
         <div class="container">
             <nav aria-label="breadcrumb" class="breadcrumb-nav">
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="{{route('home')}}"><i class="icon-home"></i></a></li>
+                    <li class="breadcrumb-item"><a href="{{ route('home') }}"><i class="icon-home"></i></a></li>
                     <li class="breadcrumb-item"><a href="#">Most Popular</a></li>
                     <li class="breadcrumb-item"><a href="#">Business Cards</a></li>
                     <li class="breadcrumb-item"><a href="#">Business Cards</a></li>
@@ -126,14 +126,10 @@
                             <form id="product-customization-form">
                                 <!-- Side 1 Color Label -->
                                 <div class="form-group">
-                                    <label for="side1Color">Side 1 Color Label</label>
+                                    <label for="side1Color">Side 1 Color</label>
                                     <select class="form-control" id="side1Color" required>
-                                        <option value="" disabled selected>Select a color</option>
-                                        <option value="red">Red</option>
-                                        <option value="blue">Blue</option>
-                                        <option value="green">Green</option>
-                                        <option value="black">Black</option>
-                                        <option value="white">White</option>
+                                        <!-- <option value="" disabled selected>Select a color</option> -->
+                                        <option value="cmyk">CMYK</option>
                                     </select>
                                 </div>
 
@@ -141,11 +137,7 @@
                                 <div class="form-group">
                                     <label for="size">Size</label>
                                     <select class="form-control" id="size" required>
-                                        <option value="" disabled selected>Select size</option>
-                                        <option value="small">Small (3.5" x 2")</option>
-                                        <option value="medium">Medium (3.75" x 2.25")</option>
-                                        <option value="large">Large (4" x 2.5")</option>
-                                        <option value="xlarge">X-Large (4.25" x 3")</option>
+                                        <option value="b-cards">B-Cards</option>
                                     </select>
                                 </div>
 
@@ -153,9 +145,8 @@
                                 <div class="form-group">
                                     <label for="sides">Sides</label>
                                     <select class="form-control" id="sides" required>
-                                        <option value="" disabled selected>Select number of sides</option>
-                                        <option value="single">Single Sided</option>
-                                        <option value="double">Double Sided</option>
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
                                     </select>
                                 </div>
 
@@ -164,23 +155,105 @@
                                     <label for="material">Selected Material</label>
                                     <select class="form-control" id="material" required>
                                         <option value="" disabled selected>Select material</option>
-                                        <option value="standard">Standard Cardstock (14pt)</option>
-                                        <option value="premium">Premium Cardstock (16pt)</option>
-                                        <option value="ultra">Ultra Premium (18pt)</option>
-                                        <option value="recycled">Recycled Paper</option>
+                                        <option value="standard">200 coated Matt--</option>
+                                        <option value="standard">200 coated Gloss--</option>
+                                        <option value="standard">250 coated Matt--</option>
+                                        <option value="standard">250 coated Gloss--</option>
+                                        <option value="standard">300 coated Matt--</option>
+                                        <option value="standard">300 coated Gloss--</option>
+                                        <option value="standard">350 coated Matt--</option>
+                                        <option value="standard">350 coated Gloss--</option>
+                                        <option value="standard">400 invercote (lvory Board)</option>
                                     </select>
                                 </div>
 
-                                <!-- Sides in Material Dropdown -->
-                                <div class="form-group">
-                                    <label for="materialSides">Sides in Selected Material</label>
-                                    <select class="form-control" id="materialSides" required>
-                                        <option value="" disabled selected>Select sides for material</option>
-                                        <option value="matte">Matte Finish</option>
-                                        <option value="glossy">Glossy Finish</option>
-                                        <option value="soft-touch">Soft Touch</option>
-                                        <option value="uncoated">Uncoated</option>
-                                    </select>
+                                <!-- Lamination Toggle -->
+
+                                <!-- Round Corner Toggle -->
+                                <div class="toggle-box">
+                                    <div class="toggle-header">
+                                        <span class="toggle-label">
+                                            Round Corners
+                                            <span id="roundStatus" class="toggle-status">✓</span>
+                                        </span>
+                                        <div class="custom-control custom-switch">
+                                            <input type="checkbox" class="custom-control-input" id="roundToggle">
+                                            <label class="custom-control-label" for="roundToggle"></label>
+                                        </div>
+                                    </div>
+
+                                    <div id="roundOptions" class="mt-3 d-none">
+                                        <div class="row">
+                                            <div class="col-6">
+                                                <div class="option-box">
+                                                    Upper Left
+                                                    <span class="check-icon">✓</span>
+                                                </div>
+                                            </div>
+                                            <div class="col-6">
+                                                <div class="option-box">
+                                                    Upper Right
+                                                    <span class="check-icon">✓</span>
+                                                </div>
+                                            </div>
+                                            <div class="col-6 mt-2">
+                                                <div class="option-box">
+                                                    Lower Left
+                                                    <span class="check-icon">✓</span>
+                                                </div>
+                                            </div>
+                                            <div class="col-6 mt-2">
+                                                <div class="option-box">
+                                                    Lower Right
+                                                    <span class="check-icon">✓</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="toggle-box">
+                                    <div class="toggle-header">
+                                        <span class="toggle-label">
+                                            Lamination (Coated Papers Only)
+                                            <span id="laminationStatus" class="toggle-status">✓</span>
+                                        </span>
+                                        <div class="custom-control custom-switch">
+                                            <input type="checkbox" class="custom-control-input" id="laminationToggle">
+                                            <label class="custom-control-label" for="laminationToggle"></label>
+                                        </div>
+                                    </div>
+
+                                    <div id="laminationOptions" class="mt-3 d-none">
+                                        <select class="form-control">
+                                            <option value="">Select Lamination</option>
+                                            <option>Matte Lamination (DGTL)</option>
+                                            <option>Gloss Lamination (DGTL)</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+
+                                <!-- Die Cutting Toggle -->
+                                <div class="toggle-box">
+                                    <div class="toggle-header">
+                                        <span class="toggle-label">
+                                            Die Cutting
+                                            <span id="dieStatus" class="toggle-status">✓</span>
+                                        </span>
+                                        <div class="custom-control custom-switch">
+                                            <input type="checkbox" class="custom-control-input" id="dieToggle">
+                                            <label class="custom-control-label" for="dieToggle"></label>
+                                        </div>
+                                    </div>
+
+                                    <div id="dieOptions" class="mt-3 d-none">
+                                        <select class="form-control">
+                                            <option value="">Select Die Cutting</option>
+                                            <option>Die Cutting with Ready Die (DGTL)</option>
+                                            <option>Custom Die Cut</option>
+                                        </select>
+                                    </div>
                                 </div>
 
                                 <!-- Product Memo -->
@@ -189,300 +262,141 @@
                                     <input type="text" class="form-control" id="productMemo"
                                         placeholder="Enter product memo (optional)">
                                 </div>
+                                <div class="toggle-box clickable-box" id="shareLinkBox">
+                                    <div class="toggle-header">
+                                        <strong>Share A Link</strong>
 
-                                <!-- Finish Options -->
-                                <div class="form-group">
-                                    <label for="finish">Finish</label>
-                                    <select class="form-control" id="finish" required>
-                                        <option value="" disabled selected>Select finish</option>
-                                        <option value="matte">Matte</option>
-                                        <option value="glossy">Glossy</option>
-                                        <option value="soft-touch">Soft Touch</option>
-                                    </select>
+                                        <div class="custom-control custom-switch">
+                                            <input type="checkbox" class="custom-control-input" id="shareLinkToggle">
+                                            <label class="custom-control-label" for="shareLinkToggle"></label>
+                                        </div>
+                                    </div>
+
+                                    <div id="shareLinkOptions" class="mt-3 d-none">
+                                        <label>Paste your file / design URL</label>
+                                        <input type="url" class="form-control"
+                                            placeholder="https://example.com/your-design-link">
+                                    </div>
                                 </div>
                             </form>
                         </div>
-
-                        <style>
-                            .product-customization {
-                                background: #fff;
-                                padding: 20px;
-                                border-radius: 5px;
-                                box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
-                            }
-
-                            .customization-title {
-                                font-size: 1.5rem;
-                                margin-bottom: 1.5rem;
-                                padding-bottom: 10px;
-                                border-bottom: 1px solid #eee;
-                            }
-
-                            .form-group {
-                                margin-bottom: 1.5rem;
-                            }
-
-                            .form-group label {
-                                font-weight: 600;
-                                margin-bottom: 0.5rem;
-                                display: block;
-                            }
-
-                            .form-control {
-                                height: 45px;
-                                border-radius: 4px;
-                                border: 1px solid #ddd;
-                                padding: 0.5rem 1rem;
-                                width: 100%;
-                            }
-
-                            .form-control:focus {
-                                border-color: #80bdff;
-                                box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
-                            }
-
-                            select.form-control {
-                                -webkit-appearance: none;
-                                -moz-appearance: none;
-                                appearance: none;
-                                background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='%23333' viewBox='0 0 16 16'%3E%3Cpath d='M7.247 11.14L2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.658l-4.796 5.48a1 1 0 0 1-1.506 0z'/%3E%3C/svg%3E");
-                                background-repeat: no-repeat;
-                                background-position: right 1rem center;
-                                background-size: 12px;
-                                padding-right: 2.5rem;
-                            }
-                        </style>
                     </div><!-- End .product-single-details -->
                 </div><!-- End .row -->
             </div><!-- End .product-single-container -->
 
             <div class="order-box">
-    <div class="order-header">
-        <h5>Your Order Details</h5>
-    </div>
+                <div class="order-header">
+                    <h5>Your Order Details</h5>
+                </div>
 
-    <div class="order-content container-fluid">
-        <div class="row">
-            <!-- LEFT SIDE -->
-            <div class="col-md-8">
-                <div class="left-box">
-                    <div class="row mb-4">
-                        <div class="col-md-6">
-                            <label class="label-title">Number of Designs:</label>
-                            <input type="number" class="form-control" value="1">
+                <div class="order-content container-fluid">
+                    <div class="row">
+                        <!-- LEFT SIDE -->
+                        <div class="col-md-8">
+                            <div class="left-box">
+                                <div class="row mb-4">
+                                    <div class="col-md-6">
+                                        <label class="label-title">Number of Designs:</label>
+                                        <input type="number" class="form-control" value="1">
+                                    </div>
+
+                                    <div class="col-md-6">
+                                        <label class="label-title">Quantity:</label>
+                                        <select class="form-control">
+                                            <option>100</option>
+                                            <option>200</option>
+                                            <option>300</option>
+                                            <option>500</option>
+                                            <option>1000</option>
+                                        </select>
+
+                                        <div class="mt-1 custom-control custom-checkbox">
+                                            <input type="checkbox" class="custom-control-input" id="customQuantity">
+                                            <label class="custom-control-label" for="customQuantity">Custom</label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- TABLE -->
+                                <div class="table-responsive">
+                                    <table class="table table-order">
+                                        <thead>
+                                            <tr>
+                                                <th></th>
+                                                <th>Urgency</th>
+                                                <th>Price</th>
+                                                <th>Production day(s)</th>
+                                                <th>Delivery day(s)</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>
+                                                    <div class="custom-control custom-radio">
+                                                        <input type="radio" id="regular" name="urgency"
+                                                            class="custom-control-input" checked>
+                                                        <label class="custom-control-label" for="regular"></label>
+                                                    </div>
+                                                </td>
+                                                <td>Regular</td>
+                                                <td>95.00</td>
+                                                <td>3 working day(s)</td>
+                                                <td>01</td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <div class="custom-control custom-radio">
+                                                        <input type="radio" id="flexible" name="urgency"
+                                                            class="custom-control-input">
+                                                        <label class="custom-control-label" for="flexible"></label>
+                                                    </div>
+                                                </td>
+                                                <td>Flexible</td>
+                                                <td>87.96</td>
+                                                <td>5 working day(s)</td>
+                                                <td>01</td>
+                                            </tr>
+
+                                            <tr>
+                                                <td>
+                                                    <div class="custom-control custom-radio">
+                                                        <input type="radio" id="flexible" name="urgency"
+                                                            class="custom-control-input">
+                                                        <label class="custom-control-label" for="flexible"></label>
+                                                    </div>
+                                                </td>
+                                                <td>Urgent</td>
+                                                <td>100.96</td>
+                                                <td>1 working day</td>
+                                                <td>01</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
                         </div>
 
-                        <div class="col-md-6">
-                            <label class="label-title">Quantity:</label>
-                            <select class="form-control">
-                                <option>100</option>
-                                <option>200</option>
-                                <option>300</option>
-                                <option>500</option>
-                                <option>1000</option>
-                            </select>
+                        <!-- RIGHT SIDE -->
+                        <div class="col-md-4">
+                            <div class="right-box">
+                                <p class="mb-2"><strong>Before discount:</strong> <span class="float-right">82.61</span>
+                                </p>
+                                <p class="mb-2"><strong>Total discount:</strong> <span class="float-right">0.00</span>
+                                </p>
+                                <p class="mb-3"><strong>Total tax (15.00%):</strong> <span
+                                        class="float-right">12.39</span>
+                                </p>
+                                <div class="divider mb-3"></div>
+                                <p class="mb-3 total-price"><strong>Price:</strong> <span class="float-right">95.00</span>
+                                </p>
 
-                            <div class="mt-1 custom-control custom-checkbox">
-                                <input type="checkbox" class="custom-control-input" id="customQuantity">
-                                <label class="custom-control-label" for="customQuantity">Custom</label>
+                                <button class="btn btn-primary btn-block btn-lg">Add to cart</button>
                             </div>
                         </div>
                     </div>
-
-                    <!-- TABLE -->
-                    <div class="table-responsive">
-                        <table class="table table-order">
-                            <thead>
-                                <tr>
-                                    <th></th>
-                                    <th>Urgency</th>
-                                    <th>Price</th>
-                                    <th>Production day(s)</th>
-                                    <th>Delivery day(s)</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>
-                                        <div class="custom-control custom-radio">
-                                            <input type="radio" id="regular" name="urgency" class="custom-control-input" checked>
-                                            <label class="custom-control-label" for="regular"></label>
-                                        </div>
-                                    </td>
-                                    <td>Regular</td>
-                                    <td>95.00</td>
-                                    <td>3 working day(s)</td>
-                                    <td>01</td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <div class="custom-control custom-radio">
-                                            <input type="radio" id="flexible" name="urgency" class="custom-control-input">
-                                            <label class="custom-control-label" for="flexible"></label>
-                                        </div>
-                                    </td>
-                                    <td>Flexible</td>
-                                    <td>87.96</td>
-                                    <td>5 working day(s)</td>
-                                    <td>01</td>
-                                </tr>
-
-                                   <tr>
-                                    <td>
-                                        <div class="custom-control custom-radio">
-                                            <input type="radio" id="flexible" name="urgency" class="custom-control-input">
-                                            <label class="custom-control-label" for="flexible"></label>
-                                        </div>
-                                    </td>
-                                    <td>Urgent</td>
-                                    <td>100.96</td>
-                                    <td>1 working day</td>
-                                    <td>01</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
                 </div>
             </div>
 
-            <!-- RIGHT SIDE -->
-            <div class="col-md-4">
-                <div class="right-box">
-                    <p class="mb-2"><strong>Before discount:</strong> <span class="float-right">82.61</span></p>
-                    <p class="mb-2"><strong>Total discount:</strong> <span class="float-right">0.00</span></p>
-                    <p class="mb-3"><strong>Total tax (15.00%):</strong> <span class="float-right">12.39</span></p>
-                    <div class="divider mb-3"></div>
-                    <p class="mb-3 total-price"><strong>Price:</strong> <span class="float-right">95.00</span></p>
-
-                    <button class="btn btn-primary btn-block btn-lg">Add to cart</button>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-<style>
-.order-box {
-    border: 1px solid #e7e7e7;
-    border-radius: 5px;
-    overflow: hidden;
-    margin-bottom: 2rem;
-    background: #fff;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
-}
-
-.order-header {
-    background: #f4f4f4;
-    padding: 1.5rem 2rem;
-    border-bottom: 1px solid #e7e7e7;
-}
-
-.order-header h5 {
-    margin: 0;
-    font-size: 1.6rem;
-    font-weight: 600;
-    color: #333;
-}
-
-.order-content {
-    padding: 2rem;
-}
-
-/* LEFT BOX */
-.left-box {
-    background: #f9f9f9;
-    padding: 2rem;
-    border-radius: 5px;
-    height: 100%;
-}
-
-.label-title {
-    font-weight: 600;
-    margin-bottom: 0.5rem;
-    color: #333;
-    font-size: 1.3rem;
-}
-
-.form-control {
-    height: 4rem;
-    border-radius: 4px;
-    border: 1px solid #e7e7e7;
-    font-size: 1.4rem;
-}
-
-/* TABLE */
-.table {
-    margin-bottom: 0;
-    font-size: 1.3rem;
-}
-
-.table th {
-    font-weight: 600;
-    color: #333;
-    text-transform: uppercase;
-    font-size: 1.2rem;
-    border-top: none;
-    padding: 1rem 0.75rem;
-}
-
-.table td {
-    padding: 1.5rem 0.75rem;
-    vertical-align: middle;
-    border-color: #e7e7e7;
-}
-
-/* RIGHT BOX */
-.right-box {
-    background: #f9f9f9;
-    padding: 2rem;
-    border-radius: 5px;
-    height: 100%;
-}
-
-.right-box p {
-    margin-bottom: 0.8rem;
-    font-size: 1.3rem;
-    color: #666;
-}
-
-.right-box .total-price {
-    font-size: 1.6rem;
-    color: #333;
-    font-weight: 700;
-}
-
-/* Responsive adjustments */
-@media (max-width: 767.98px) {
-    .left-box, .right-box {
-        margin-bottom: 2rem;
-    }
-    
-    .order-content {
-        padding: 1.5rem;
-    }
-}
-
-/* Custom radio and checkbox */
-.custom-control-input:checked ~ .custom-control-label::before {
-    background-color: #08C;
-    border-color: #08C;
-}
-
-.custom-radio .custom-control-input:checked ~ .custom-control-label::after {
-    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='%23fff'/%3e%3c/svg%3e");
-}
-
-.custom-checkbox .custom-control-input:checked ~ .custom-control-label::after {
-    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3e%3cpath fill='%23fff' d='M6.564.75l-3.59 3.612-1.538-1.55L0 4.26 2.974 7.25 8 2.193z'/%3e%3c/svg%3e");
-}
-
-/* Divider */
-.divider {
-    height: 1px;
-    background-color: #e7e7e7;
-    margin: 1.5rem 0;
-}
-</style>
             <div class="product-single-tabs">
                 <ul class="nav nav-tabs" role="tablist">
                     <li class="nav-item">
@@ -491,13 +405,13 @@
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" id="product-tab-size" data-toggle="tab" href="#product-size-content" role="tab"
-                            aria-controls="product-size-content" aria-selected="true">Size Guide</a>
+                        <a class="nav-link" id="product-tab-size" data-toggle="tab" href="#product-size-content"
+                            role="tab" aria-controls="product-size-content" aria-selected="true">Size Guide</a>
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" id="product-tab-tags" data-toggle="tab" href="#product-tags-content" role="tab"
-                            aria-controls="product-tags-content" aria-selected="false">Additional
+                        <a class="nav-link" id="product-tab-tags" data-toggle="tab" href="#product-tags-content"
+                            role="tab" aria-controls="product-tags-content" aria-selected="false">Additional
                             Information</a>
                     </li>
 
@@ -568,7 +482,8 @@
                         </div><!-- End .product-desc-content -->
                     </div><!-- End .tab-pane -->
 
-                    <div class="tab-pane fade" id="product-size-content" role="tabpanel" aria-labelledby="product-tab-size">
+                    <div class="tab-pane fade" id="product-size-content" role="tabpanel"
+                        aria-labelledby="product-tab-size">
                         <div class="product-size-content">
                             <div class="accordion artwork-accordion" id="artworkAccordion">
 
@@ -577,7 +492,8 @@
                                     <div class="card-header" id="headingOne">
                                         <h2 class="mb-0">
                                             <button class="accordion-btn" type="button" data-toggle="collapse"
-                                                data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                                data-target="#collapseOne" aria-expanded="true"
+                                                aria-controls="collapseOne">
                                                 1. Add 3 mm of bleed
                                                 <span class="icon">−</span>
                                             </button>
@@ -702,7 +618,8 @@
                         }
                     </style>
 
-                    <div class="tab-pane fade" id="product-tags-content" role="tabpanel" aria-labelledby="product-tab-tags">
+                    <div class="tab-pane fade" id="product-tags-content" role="tabpanel"
+                        aria-labelledby="product-tab-tags">
                         <p>
                             Our free templates provide you with all the information you need to correctly prepare your
                             artwork files for printing. Simply download the template that matches your desired product
@@ -792,8 +709,10 @@
                     <div class="product-default">
                         <figure>
                             <a href="{{ route('products.index') }}">
-                                <img src="assets/images/products/product-1.jpg" width="280" height="280" alt="product">
-                                <img src="assets/images/products/product-1-2.jpg" width="280" height="280" alt="product">
+                                <img src="assets/images/products/product-1.jpg" width="280" height="280"
+                                    alt="product">
+                                <img src="assets/images/products/product-1-2.jpg" width="280" height="280"
+                                    alt="product">
                             </a>
                             <div class="label-group">
                                 <div class="product-label label-hot">HOT</div>
@@ -832,8 +751,10 @@
                     <div class="product-default">
                         <figure>
                             <a href="{{ route('products.index') }}">
-                                <img src="assets/images/products/product-3.jpg" width="280" height="280" alt="product">
-                                <img src="assets/images/products/product-3-2.jpg" width="280" height="280" alt="product">
+                                <img src="assets/images/products/product-3.jpg" width="280" height="280"
+                                    alt="product">
+                                <img src="assets/images/products/product-3-2.jpg" width="280" height="280"
+                                    alt="product">
                             </a>
                             <div class="label-group">
                                 <div class="product-label label-hot">HOT</div>
@@ -872,8 +793,10 @@
                     <div class="product-default">
                         <figure>
                             <a href="{{ route('products.index') }}">
-                                <img src="assets/images/products/product-7.jpg" width="280" height="280" alt="product">
-                                <img src="assets/images/products/product-7-2.jpg" width="280" height="280" alt="product">
+                                <img src="assets/images/products/product-7.jpg" width="280" height="280"
+                                    alt="product">
+                                <img src="assets/images/products/product-7-2.jpg" width="280" height="280"
+                                    alt="product">
                             </a>
                             <div class="label-group">
                                 <div class="product-label label-hot">HOT</div>
@@ -912,8 +835,10 @@
                     <div class="product-default">
                         <figure>
                             <a href="{{ route('products.index') }}">
-                                <img src="assets/images/products/product-6.jpg" width="280" height="280" alt="product">
-                                <img src="assets/images/products/product-6-2.jpg" width="280" height="280" alt="product">
+                                <img src="assets/images/products/product-6.jpg" width="280" height="280"
+                                    alt="product">
+                                <img src="assets/images/products/product-6-2.jpg" width="280" height="280"
+                                    alt="product">
                             </a>
                             <div class="label-group">
                                 <div class="product-label label-hot">HOT</div>
@@ -952,8 +877,10 @@
                     <div class="product-default">
                         <figure>
                             <a href="{{ route('products.index') }}">
-                                <img src="assets/images/products/product-4.jpg" width="280" height="280" alt="product">
-                                <img src="assets/images/products/product-4-2.jpg" width="280" height="280" alt="product">
+                                <img src="assets/images/products/product-4.jpg" width="280" height="280"
+                                    alt="product">
+                                <img src="assets/images/products/product-4-2.jpg" width="280" height="280"
+                                    alt="product">
                             </a>
                             <div class="label-group">
                                 <div class="product-label label-hot">HOT</div>
@@ -999,7 +926,8 @@
                     <div class="product-default left-details product-widget">
                         <figure>
                             <a href="{{ route('products.index') }}">
-                                <img src="assets/images/products/small/product-1.jpg" width="74" height="74" alt="product">
+                                <img src="assets/images/products/small/product-1.jpg" width="74" height="74"
+                                    alt="product">
                                 <img src="assets/images/products/small/product-1-2.jpg" width="74" height="74"
                                     alt="product">
                             </a>
@@ -1026,7 +954,8 @@
                     <div class="product-default left-details product-widget">
                         <figure>
                             <a href="{{ route('products.index') }}">
-                                <img src="assets/images/products/small/product-2.jpg" width="74" height="74" alt="product">
+                                <img src="assets/images/products/small/product-2.jpg" width="74" height="74"
+                                    alt="product">
                                 <img src="assets/images/products/small/product-2-2.jpg" width="74" height="74"
                                     alt="product">
                             </a>
@@ -1052,7 +981,8 @@
                     <div class="product-default left-details product-widget">
                         <figure>
                             <a href="{{ route('products.index') }}">
-                                <img src="assets/images/products/small/product-3.jpg" width="74" height="74" alt="product">
+                                <img src="assets/images/products/small/product-3.jpg" width="74" height="74"
+                                    alt="product">
                                 <img src="assets/images/products/small/product-3-2.jpg" width="74" height="74"
                                     alt="product">
                             </a>
@@ -1081,14 +1011,16 @@
                     <div class="product-default left-details product-widget">
                         <figure>
                             <a href="{{ route('products.index') }}">
-                                <img src="assets/images/products/small/product-4.jpg" width="74" height="74" alt="product">
+                                <img src="assets/images/products/small/product-4.jpg" width="74" height="74"
+                                    alt="product">
                                 <img src="assets/images/products/small/product-4-2.jpg" width="74" height="74"
                                     alt="product">
                             </a>
                         </figure>
 
                         <div class="product-details">
-                            <h3 class="product-title"> <a href="{{ route('products.index') }}">Blue Backpack for the Young -
+                            <h3 class="product-title"> <a href="{{ route('products.index') }}">Blue Backpack for the
+                                    Young -
                                     S</a>
                             </h3>
 
@@ -1108,14 +1040,16 @@
                     <div class="product-default left-details product-widget">
                         <figure>
                             <a href="{{ route('products.index') }}">
-                                <img src="assets/images/products/small/product-5.jpg" width="74" height="74" alt="product">
+                                <img src="assets/images/products/small/product-5.jpg" width="74" height="74"
+                                    alt="product">
                                 <img src="assets/images/products/small/product-5-2.jpg" width="74" height="74"
                                     alt="product">
                             </a>
                         </figure>
 
                         <div class="product-details">
-                            <h3 class="product-title"> <a href="{{ route('products.index') }}">Casual Spring Blue Shoes</a>
+                            <h3 class="product-title"> <a href="{{ route('products.index') }}">Casual Spring Blue
+                                    Shoes</a>
                             </h3>
 
                             <div class="ratings-container">
@@ -1134,7 +1068,8 @@
                     <div class="product-default left-details product-widget">
                         <figure>
                             <a href="{{ route('products.index') }}">
-                                <img src="assets/images/products/small/product-6.jpg" width="74" height="74" alt="product">
+                                <img src="assets/images/products/small/product-6.jpg" width="74" height="74"
+                                    alt="product">
                                 <img src="assets/images/products/small/product-6-2.jpg" width="74" height="74"
                                     alt="product">
                             </a>
@@ -1163,7 +1098,8 @@
                     <div class="product-default left-details product-widget">
                         <figure>
                             <a href="{{ route('products.index') }}">
-                                <img src="assets/images/products/small/product-7.jpg" width="74" height="74" alt="product">
+                                <img src="assets/images/products/small/product-7.jpg" width="74" height="74"
+                                    alt="product">
                                 <img src="assets/images/products/small/product-7-2.jpg" width="74" height="74"
                                     alt="product">
                             </a>
@@ -1189,7 +1125,8 @@
                     <div class="product-default left-details product-widget">
                         <figure>
                             <a href="{{ route('products.index') }}">
-                                <img src="assets/images/products/small/product-8.jpg" width="74" height="74" alt="product">
+                                <img src="assets/images/products/small/product-8.jpg" width="74" height="74"
+                                    alt="product">
                                 <img src="assets/images/products/small/product-8-2.jpg" width="74" height="74"
                                     alt="product">
                             </a>
@@ -1216,14 +1153,16 @@
                     <div class="product-default left-details product-widget">
                         <figure>
                             <a href="{{ route('products.index') }}">
-                                <img src="assets/images/products/small/product-9.jpg" width="74" height="74" alt="product">
+                                <img src="assets/images/products/small/product-9.jpg" width="74" height="74"
+                                    alt="product">
                                 <img src="assets/images/products/small/product-9-2.jpg" width="74" height="74"
                                     alt="product">
                             </a>
                         </figure>
 
                         <div class="product-details">
-                            <h3 class="product-title"> <a href="{{ route('products.index') }}">Black Men Casual Glasses</a>
+                            <h3 class="product-title"> <a href="{{ route('products.index') }}">Black Men Casual
+                                    Glasses</a>
                             </h3>
 
                             <div class="ratings-container">
@@ -1245,7 +1184,8 @@
                     <div class="product-default left-details product-widget">
                         <figure>
                             <a href="{{ route('products.index') }}">
-                                <img src="assets/images/products/small/product-10.jpg" width="74" height="74" alt="product">
+                                <img src="assets/images/products/small/product-10.jpg" width="74" height="74"
+                                    alt="product">
                                 <img src="assets/images/products/small/product-10-2.jpg" width="74" height="74"
                                     alt="product">
                             </a>
@@ -1271,7 +1211,8 @@
                     <div class="product-default left-details product-widget">
                         <figure>
                             <a href="{{ route('products.index') }}">
-                                <img src="assets/images/products/small/product-11.jpg" width="74" height="74" alt="product">
+                                <img src="assets/images/products/small/product-11.jpg" width="74" height="74"
+                                    alt="product">
                                 <img src="assets/images/products/small/product-11-2.jpg" width="74" height="74"
                                     alt="product">
                             </a>
@@ -1297,7 +1238,8 @@
                     <div class="product-default left-details product-widget">
                         <figure>
                             <a href="{{ route('products.index') }}">
-                                <img src="assets/images/products/small/product-12.jpg" width="74" height="74" alt="product">
+                                <img src="assets/images/products/small/product-12.jpg" width="74" height="74"
+                                    alt="product">
                                 <img src="assets/images/products/small/product-12-2.jpg" width="74" height="74"
                                     alt="product">
                             </a>
@@ -1322,4 +1264,62 @@
             </div><!-- End .row -->
         </div><!-- End .container -->
     </main><!-- End .main -->
+
+    @push('scripts')
+        <script>
+            function toggleSection(toggleId, optionsId, statusId) {
+                const toggle = document.getElementById(toggleId);
+                const options = document.getElementById(optionsId);
+                const status = document.getElementById(statusId);
+
+                toggle.addEventListener('change', function() {
+                    if (this.checked) {
+                        options.classList.remove('d-none');
+                        status.classList.add('active');
+                    } else {
+                        options.classList.add('d-none');
+                        status.classList.remove('active');
+
+                        // Reset selected options
+                        options.querySelectorAll('.option-box').forEach(box => {
+                            box.classList.remove('active');
+                        });
+                    }
+                });
+            }
+
+            toggleSection('roundToggle', 'roundOptions', 'roundStatus');
+            toggleSection('laminationToggle', 'laminationOptions', 'laminationStatus');
+            toggleSection('dieToggle', 'dieOptions', 'dieStatus');
+
+            // Option box selection
+            document.querySelectorAll('.option-box').forEach(box => {
+                box.addEventListener('click', function() {
+                    this.classList.toggle('active');
+                });
+            });
+        </script>
+
+        <script>
+            const shareBox = document.getElementById('shareLinkBox');
+            const shareToggle = document.getElementById('shareLinkToggle');
+            const shareOptions = document.getElementById('shareLinkOptions');
+
+            /* Toggle change */
+            shareToggle.addEventListener('change', function() {
+                shareOptions.classList.toggle('d-none', !this.checked);
+            });
+
+            /* Full box click (except input) */
+            shareBox.addEventListener('click', function(e) {
+                if (
+                    e.target.tagName !== 'INPUT' &&
+                    e.target.tagName !== 'LABEL'
+                ) {
+                    shareToggle.checked = !shareToggle.checked;
+                    shareToggle.dispatchEvent(new Event('change'));
+                }
+            });
+        </script>
+    @endpush
 @endsection

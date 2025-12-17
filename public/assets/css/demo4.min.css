@@ -4218,9 +4218,7 @@ form h2{
     height:4.6rem;
     padding:0.8rem 1.2rem
 }
-select.form-control:not([size]):not([multiple]){
-    height:6rem
-}
+
 select.form-control-sm:not([size]):not([multiple]){
     padding:0;
     padding-left:1.2rem;
@@ -13878,3 +13876,269 @@ section{
         left:32%
     }
 }
+
+
+.order-box {
+    border: 1px solid #e7e7e7;
+    border-radius: 5px;
+    overflow: hidden;
+    margin-bottom: 2rem;
+    background: #fff;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+}
+
+.order-header {
+    background: #f4f4f4;
+    padding: 1.5rem 2rem;
+    border-bottom: 1px solid #e7e7e7;
+}
+
+.order-header h5 {
+    margin: 0;
+    font-size: 1.6rem;
+    font-weight: 600;
+    color: #333;
+}
+
+.order-content {
+    padding: 2rem;
+}
+
+/* LEFT BOX */
+.left-box {
+    background: #f9f9f9;
+    padding: 2rem;
+    border-radius: 5px;
+    height: 100%;
+}
+
+.label-title {
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: #333;
+    font-size: 1.3rem;
+}
+
+.form-control {
+    height: 4rem;
+    border-radius: 4px;
+    border: 1px solid #e7e7e7;
+    font-size: 1.4rem;
+}
+
+/* TABLE */
+.table {
+    margin-bottom: 0;
+    font-size: 1.3rem;
+}
+
+.table th {
+    font-weight: 600;
+    color: #333;
+    text-transform: uppercase;
+    font-size: 1.2rem;
+    border-top: none;
+    padding: 1rem 0.75rem;
+}
+
+.table td {
+    padding: 1.5rem 0.75rem;
+    vertical-align: middle;
+    border-color: #e7e7e7;
+}
+
+/* RIGHT BOX */
+.right-box {
+    background: #f9f9f9;
+    padding: 2rem;
+    border-radius: 5px;
+    height: 100%;
+}
+
+.right-box p {
+    margin-bottom: 0.8rem;
+    font-size: 1.3rem;
+    color: #666;
+}
+
+.right-box .total-price {
+    font-size: 1.6rem;
+    color: #333;
+    font-weight: 700;
+}
+
+/* Responsive adjustments */
+@media (max-width: 767.98px) {
+    .left-box, .right-box {
+        margin-bottom: 2rem;
+    }
+
+    .order-content {
+        padding: 1.5rem;
+    }
+}
+
+/* Custom radio and checkbox */
+.custom-control-input:checked ~ .custom-control-label::before {
+    background-color: #08C;
+    border-color: #08C;
+}
+
+.custom-radio .custom-control-input:checked ~ .custom-control-label::after {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='%23fff'/%3e%3c/svg%3e");
+}
+
+.custom-checkbox .custom-control-input:checked ~ .custom-control-label::after {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3e%3cpath fill='%23fff' d='M6.564.75l-3.59 3.612-1.538-1.55L0 4.26 2.974 7.25 8 2.193z'/%3e%3c/svg%3e");
+}
+
+/* Divider */
+.divider {
+    height: 1px;
+    background-color: #e7e7e7;
+    margin: 1.5rem 0;
+}
+.product-customization {
+                                background: #fff;
+                                padding: 20px;
+                                border-radius: 5px;
+                                box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+                            }
+
+                            .customization-title {
+                                font-size: 1.5rem;
+                                margin-bottom: 1.5rem;
+                                padding-bottom: 10px;
+                                border-bottom: 1px solid #eee;
+                            }
+
+                            .form-group {
+                                margin-bottom: 1.5rem;
+                            }
+
+                            .form-group label {
+                                font-weight: 600;
+                                margin-bottom: 0.5rem;
+                                display: block;
+                            }
+
+                            .form-control {
+                                height: 45px;
+                                border-radius: 4px;
+                                border: 1px solid #ddd;
+                                padding: 0.5rem 1rem;
+                                width: 100%;
+                            }
+
+                            .form-control:focus {
+                                border-color: #80bdff;
+                                box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+                            }
+
+                            /* Toggle Switch Styles */
+                            .toggle-group {
+                                margin-bottom: 1.5rem;
+                                background-color: #f8f9fa;
+                                transition: all 0.3s ease;
+                            }
+
+                            .toggle-group:hover {
+                                box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+                            }
+
+                            .toggle-options {
+                                padding: 10px;
+                                background-color: #f8f9fa;
+                                border-radius: 5px;
+                                margin-top: 10px;
+                            }
+
+                            .corner-option {
+                                display: flex;
+                                align-items: center;
+                                padding: 5px 0;
+                            }
+
+                            .corner-option input[type="checkbox"] {
+                                margin-right: 8px;
+                            }
+
+                            .custom-switch .custom-control-label::before {
+                                background-color: #adb5bd;
+                            }
+
+                            .custom-switch .custom-control-input:checked~.custom-control-label::before {
+                                background-color: #007bff;
+                            }
+
+                            select.form-control {
+                                -webkit-appearance: none;
+                                -moz-appearance: none;
+                                appearance: none;
+                                background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='%23333' viewBox='0 0 16 16'%3E%3Cpath d='M7.247 11.14L2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.658l-4.796 5.48a1 1 0 0 1-1.506 0z'/%3E%3C/svg%3E");
+                                background-repeat: no-repeat;
+                                background-position: right 1rem center;
+                                background-size: 12px;
+                                padding-right: 2.5rem;
+                            }
+
+                             .toggle-box {
+                                        border: 1px solid #ddd;
+                                        border-radius: 8px;
+                                        padding: 15px;
+                                        margin-bottom: 15px;
+                                        background: #fff;
+                                    }
+
+                                    .toggle-header {
+                                        display: flex;
+                                        justify-content: space-between;
+                                        align-items: center;
+                                    }
+
+                                    .toggle-label {
+                                        font-weight: 600;
+                                    }
+
+                                    /* Option Boxes */
+                                    .option-box {
+                                        border: 1px solid #ccc;
+                                        padding: 12px;
+                                        text-align: center;
+                                        cursor: pointer;
+                                        border-radius: 6px;
+                                        position: relative;
+                                        transition: all 0.2s ease;
+                                    }
+
+                                    .option-box.active {
+                                        border-color: #e91d8e;
+                                        background: #f0f7ff;
+                                        color: #e91d8e;
+                                        font-weight: 600;
+                                    }
+
+                                    /* Check Icon */
+                                    .option-box .check-icon {
+                                        position: absolute;
+                                        top: 6px;
+                                        right: 8px;
+                                        color: #e91d8e;
+                                        display: none;
+                                        font-size: 14px;
+                                    }
+
+                                    .option-box.active .check-icon {
+                                        display: block;
+                                    }
+
+                                    /* Toggle Status Icon */
+                                    .toggle-status {
+                                        color: #28a745;
+                                        font-size: 14px;
+                                        display: none;
+                                    }
+
+                                    .toggle-status.active {
+                                        display: inline;
+                                    }
