@@ -196,6 +196,77 @@
                                         <option value="soft-touch">Soft Touch</option>
                                     </select>
                                 </div>
+
+                                <!-- Lamination Toggle -->
+                                <div class="form-group toggle-group border p-3 mb-3 rounded">
+                                    <div class="custom-control custom-switch">
+                                        <input type="checkbox" class="custom-control-input" id="laminationToggle" name="lamination_toggle">
+                                        <label class="custom-control-label" for="laminationToggle">1 Lamination (Coated Papers only)</label>
+                                    </div>
+                                    <div id="laminationOptions" class="toggle-options mt-3" style="display: none;">
+                                        <div class="form-group">
+                                            <label for="laminationType">Lamination Type</label>
+                                            <select class="form-control" id="laminationType" name="lamination_type">
+                                                <option value="sf-matt">SF Matt Lamination</option>
+                                                <option value="gloss">Gloss Lamination</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Round Corner Toggle -->
+                                <div class="form-group toggle-group border p-3 mb-3 rounded">
+                                    <div class="custom-control custom-switch">
+                                        <input type="checkbox" class="custom-control-input" id="roundCornerToggle" name="round_corner_toggle">
+                                        <label class="custom-control-label" for="roundCornerToggle">2 Round Corner</label>
+                                    </div>
+                                    <div id="roundCornerOptions" class="toggle-options mt-3" style="display: none;">
+                                        <div class="row">
+                                            <div class="col-6 mb-2">
+                                                <div class="custom-control custom-checkbox">
+                                                    <input type="checkbox" class="custom-control-input" id="upperLeft" name="corner[]" value="upper-left">
+                                                    <label class="custom-control-label" for="upperLeft">Upper Left DGTL</label>
+                                                </div>
+                                            </div>
+                                            <div class="col-6 mb-2">
+                                                <div class="custom-control custom-checkbox">
+                                                    <input type="checkbox" class="custom-control-input" id="upperRight" name="corner[]" value="upper-right">
+                                                    <label class="custom-control-label" for="upperRight">Upper Right DGTL</label>
+                                                </div>
+                                            </div>
+                                            <div class="col-6">
+                                                <div class="custom-control custom-checkbox">
+                                                    <input type="checkbox" class="custom-control-input" id="lowerLeft" name="corner[]" value="lower-left">
+                                                    <label class="custom-control-label" for="lowerLeft">Lower Left DGTL</label>
+                                                </div>
+                                            </div>
+                                            <div class="col-6">
+                                                <div class="custom-control custom-checkbox">
+                                                    <input type="checkbox" class="custom-control-input" id="lowerRight" name="corner[]" value="lower-right">
+                                                    <label class="custom-control-label" for="lowerRight">Lower Right DGTL</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Die Cutting Toggle -->
+                                <div class="form-group toggle-group border p-3 mb-3 rounded">
+                                    <div class="custom-control custom-switch">
+                                        <input type="checkbox" class="custom-control-input" id="dieCuttingToggle" name="die_cutting_toggle">
+                                        <label class="custom-control-label" for="dieCuttingToggle">3 Die Cutting</label>
+                                    </div>
+                                    <div id="dieCuttingOptions" class="toggle-options mt-3" style="display: none;">
+                                        <div class="form-group">
+                                            <label for="dieCuttingType">Die Cutting Type</label>
+                                            <select class="form-control" id="dieCuttingType" name="die_cutting_type">
+                                                <option value="standard">Standard Die Cut</option>
+                                                <option value="custom">Custom Shape</option>
+                                                <option value="rounded">Rounded Corners</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
                             </form>
                         </div>
 
@@ -235,6 +306,42 @@
                             .form-control:focus {
                                 border-color: #80bdff;
                                 box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+                            }
+                            
+                            /* Toggle Switch Styles */
+                            .toggle-group {
+                                margin-bottom: 1.5rem;
+                                background-color: #f8f9fa;
+                                transition: all 0.3s ease;
+                            }
+                            
+                            .toggle-group:hover {
+                                box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+                            }
+                            
+                            .toggle-options {
+                                padding: 10px;
+                                background-color: #f8f9fa;
+                                border-radius: 5px;
+                                margin-top: 10px;
+                            }
+                            
+                            .corner-option {
+                                display: flex;
+                                align-items: center;
+                                padding: 5px 0;
+                            }
+                            
+                            .corner-option input[type="checkbox"] {
+                                margin-right: 8px;
+                            }
+                            
+                            .custom-switch .custom-control-label::before {
+                                background-color: #adb5bd;
+                            }
+                            
+                            .custom-switch .custom-control-input:checked~.custom-control-label::before {
+                                background-color: #007bff;
                             }
 
                             select.form-control {
@@ -1201,4 +1308,62 @@
             </div><!-- End .row -->
         </div><!-- End .container -->
     </main><!-- End .main -->
+
+    @push('scripts')
+    <script>
+        (function($) {
+            'use strict';
+            
+            $(document).ready(function() {
+                // Lamination Toggle
+                const laminationToggle = $('#laminationToggle');
+                const laminationOptions = $('#laminationOptions');
+                
+                laminationToggle.on('change', function() {
+                    if ($(this).is(':checked')) {
+                        laminationOptions.slideDown(200);
+                    } else {
+                        laminationOptions.slideUp(200);
+                    }
+                });
+
+                // Round Corner Toggle
+                const roundCornerToggle = $('#roundCornerToggle');
+                const roundCornerOptions = $('#roundCornerOptions');
+                
+                roundCornerToggle.on('change', function() {
+                    if ($(this).is(':checked')) {
+                        roundCornerOptions.slideDown(200);
+                    } else {
+                        roundCornerOptions.slideUp(200);
+                        // Uncheck all corner checkboxes when toggle is off
+                        $('.corner-checkbox').prop('checked', false);
+                    }
+                });
+
+                // Die Cutting Toggle
+                const dieCuttingToggle = $('#dieCuttingToggle');
+                const dieCuttingOptions = $('#dieCuttingOptions');
+                
+                dieCuttingToggle.on('change', function() {
+                    if ($(this).is(':checked')) {
+                        dieCuttingOptions.slideDown(200);
+                    } else {
+                        dieCuttingOptions.slideUp(200);
+                    }
+                });
+
+                // Initialize toggles on page load
+                $('.custom-control-input').each(function() {
+                    const targetId = $(this).attr('id') + 'Options';
+                    if ($(this).is(':checked')) {
+                        $('#' + targetId).show();
+                    } else {
+                        $('#' + targetId).hide();
+                    }
+                });
+            });
+        })(jQuery);
+    </script>
+    @endpush
 @endsection

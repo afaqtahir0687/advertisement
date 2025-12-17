@@ -294,6 +294,7 @@
     <script src="{{ asset('assets/js/jquery.appear.min.js') }}"></script>
     <!-- Main JS File -->
     <script src="{{ asset('assets/js/main.min.js') }}"></script>
+    @stack('scripts')
 </body>
 
 </html>
