@@ -5,11 +5,16 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Advertisment</title>
+
+    <title>New Sign Advertising</title>
+
     <meta name="keywords" content="HTML5 Template" />
     <meta name="description" content="Porto - Bootstrap eCommerce Template">
     <meta name="author" content="SW-THEMES">
-    <link rel="icon" type="image/x-icon" href="{{ asset('assets/images/icons/favicon.png') }}">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="assets/images/icons/favicon.png">
+
 
     <script>
         WebFontConfig = {
@@ -26,9 +31,11 @@
         })(document);
     </script>
 
+    <!-- Plugins CSS File -->
     <link rel="stylesheet" href="{{ asset('assets/css/bootstrap.min.css') }}">
+
+    <!-- Main CSS File -->
     <link rel="stylesheet" href="{{ asset('assets/css/demo4.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('assets/css/style.min.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/vendor/fontawesome-free/css/all.min.css') }}">
 </head>
 
@@ -36,26 +43,26 @@
     <div class="page-wrapper">
         <div class="top-notice bg-primary text-white">
             <div class="container text-center">
-                <h5 class="d-inline-block">Get Up to <b>40% OFF</b> Happy New Year</h5>
-                <a href="category.html" class="category">Business Cards</a>
-                <a href="category.html" class="category ml-2 mr-3">Flyers</a>
+                <h5 class="d-inline-block">Get Up to <b>40% OFF</b> New-Season Styles</h5>
+                <a href="category.html" class="category">MEN</a>
+                <a href="category.html" class="category ml-2 mr-3">WOMEN</a>
                 <small>* Limited time only.</small>
                 <button title="Close (Esc)" type="button" class="mfp-close">×</button>
             </div>
+            <!-- End .container -->
         </div>
-        <!-- Start header -->
-       @include('frontend.layouts.header')
-        <!-- End header -->
+        <!-- End .top-notice -->
 
-        <!-- Start Main -->
-        <main class="main">
-            @yield('content')
-        </main>
+        @include('frontend.layouts.header')
+        <!-- End .header -->
+
+       @yield('content')
         <!-- End .main -->
-        <!-- Start .footer -->
-            @include('frontend.layouts.footer')
+
+        @include('frontend.layouts.footer')
         <!-- End .footer -->
     </div>
+    <!-- End .page-wrapper -->
 
     <div class="loading-overlay">
         <div class="bounce-loader">
@@ -64,7 +71,9 @@
             <div class="bounce3"></div>
         </div>
     </div>
+
     <div class="mobile-menu-overlay"></div>
+    <!-- End .mobil-menu-overlay -->
 
     <div class="mobile-menu-container">
         <div class="mobile-menu-wrapper">
@@ -194,6 +203,7 @@
                     <li><a href="login.html" class="login-link">Log In</a></li>
                 </ul>
             </nav>
+            <!-- End .mobile-nav -->
 
             <form class="search-wrapper mb-2" action="#">
                 <input type="text" class="form-control mb-0" placeholder="Search..." required />
@@ -209,8 +219,9 @@
                 </a>
             </div>
         </div>
-
+        <!-- End .mobile-menu-wrapper -->
     </div>
+    <!-- End .mobile-menu-container -->
 
     <div class="sticky-navbar">
         <div class="sticky-info">
@@ -242,9 +253,9 @@
         </div>
     </div>
 
-    <!-- <div class="newsletter-popup mfp-hide bg-img" id="newsletter-popup-form" style="background: #f1f1f1 no-repeat center/cover url(assets/images/newsletter_popup_bg.jpg)">
+    <div class="newsletter-popup mfp-hide bg-img" id="newsletter-popup-form" style="background: #f1f1f1 no-repeat center/cover url(assets/images/newsletter_popup_bg.jpg)">
         <div class="newsletter-popup-content">
-            <img src="{{ asset('assets/assets/images/logo.png') }}" width="111" height="44" alt="Logo" class="logo-newsletter">
+            <img src="assets/images/logo.png" width="111" height="44" alt="Logo" class="logo-newsletter">
             <h2>Subscribe to newsletter</h2>
 
             <p>
@@ -266,19 +277,24 @@
                 </div>
             </div>
         </div>
+        <!-- End .newsletter-popup-content -->
 
         <button title="Close (Esc)" type="button" class="mfp-close">
 			×
 		</button>
-    </div> -->
+    </div>
+    <!-- End .newsletter-popup -->
 
     <a id="scroll-top" href="#top" title="Top" role="button"><i class="icon-angle-up"></i></a>
 
+    <!-- Plugins JS File -->
     <script src="{{ asset('assets/js/jquery.min.js') }}"></script>
     <script src="{{ asset('assets/js/bootstrap.bundle.min.js') }}"></script>
     <script src="{{ asset('assets/js/optional/isotope.pkgd.min.js') }}"></script>
     <script src="{{ asset('assets/js/plugins.min.js') }}"></script>
     <script src="{{ asset('assets/js/jquery.appear.min.js') }}"></script>
+    <!-- Main JS File -->
     <script src="{{ asset('assets/js/main.min.js') }}"></script>
 </body>
+
 </html>
