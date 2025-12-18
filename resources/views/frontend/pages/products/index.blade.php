@@ -281,7 +281,7 @@
                                         <input type="url" class="form-control"
                                             placeholder="https://example.com/your-design-link">
                                     </div>
-                                </div>
+                                </div> 
                             <div class="toggle-box clickable-box" id="shareSocialBox">
                                     <div class="toggle-header">
                                         <strong>Share Social Links</strong>
