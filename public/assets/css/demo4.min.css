@@ -9361,7 +9361,7 @@ figure .porto-loading-icon {
 
 .testimonial blockquote {
     position: relative;
-    margin: 0 0 0 15px;
+    margin: 0 0 0 26px;
     padding: 1rem 2rem;
     color: #08C
 }
@@ -17586,7 +17586,7 @@ section {
 }
 
 .form-control {
-    height: 45px;
+    height: 34px;
     border-radius: 4px;
     border: 1px solid #ddd;
     padding: 0.5rem 1rem;
