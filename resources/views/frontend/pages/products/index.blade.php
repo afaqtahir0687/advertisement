@@ -175,12 +175,12 @@
                                             <span id="laminationStatus" class="toggle-status">✓</span>
                                         </span>
                                         <div class="custom-control custom-switch">
-                                            <input type="checkbox" class="custom-control-input" id="laminationToggle">
+                                            <input type="checkbox" class="custom-control-input" id="laminationToggle" checked>
                                             <label class="custom-control-label" for="laminationToggle"></label>
                                         </div>
                                     </div>
 
-                                    <div id="Sides" class="mt-3 d-none">
+                                    <div id="Sides" class="d-none">
                                          <label for="material">Sides</label>
                                         <select class="form-control">
                                             <option>1 Sides</option>
@@ -188,14 +188,13 @@
                                         </select>
                                     </div>
 
-                                    <div id="laminationOptions" class="mt-3 d-none">
+                                    <div id="laminationOptions" class="mt-2 d-none">
                                         <select class="form-control">
                                             <option>SF Matte Lamination -</option>
                                             <option>SF Gloss Lamination -</option>
                                         </select>
                                     </div>
                                 </div>
-
                                 <!-- Round Corner Toggle -->
                                 <div class="toggle-box">
                                     <div class="toggle-header">
@@ -209,7 +208,7 @@
                                         </div>
                                     </div>
 
-                                    <div id="roundOptions" class="mt-3 d-none">
+                                    <div id="roundOptions" class="d-none">
                                         <div class="row">
                                             <div class="col-6">
                                                 <div class="option-box">
@@ -252,7 +251,7 @@
                                         </div>
                                     </div>
 
-                                    <div id="dieOptions" class="mt-3 d-none">
+                                    <div id="dieOptions" class="d-none">
                                         <select class="form-control">
                                             <option value="">Select Die Cutting</option>
                                             <option>Die Cutting with Ready Die (DGTL)</option>
@@ -277,12 +276,71 @@
                                         </div>
                                     </div>
 
-                                    <div id="shareLinkOptions" class="mt-3 d-none">
+                                    <div id="shareLinkOptions" class="d-none">
                                         <label>Paste your file / design URL</label>
                                         <input type="url" class="form-control"
                                             placeholder="https://example.com/your-design-link">
                                     </div>
                                 </div>
+                            <div class="toggle-box clickable-box" id="shareSocialBox">
+                                    <div class="toggle-header">
+                                        <strong>Share Social Links</strong>
+
+                                        <div class="custom-control custom-switch">
+                                            <input type="checkbox"
+                                                class="custom-control-input"
+                                                id="shareSocialToggle">
+                                            <label class="custom-control-label"
+                                                for="shareSocialToggle"></label>
+                                        </div>
+                                    </div>
+
+                                    <div id="shareSocialOptions" class="d-none">
+                                        <div class="social-icons d-flex gap-3 mb-4">
+
+                                            <a href="#" class="social-icon social-instagram" title="Instagram">
+                                                <i class="fab fa-instagram"></i>
+                                            </a>
+
+                                            <a href="#" class="social-icon social-facebook" title="Facebook">
+                                                <i class="fab fa-facebook-f"></i>
+                                            </a>
+
+                                            <a href="#" class="social-icon social-whatsapp" title="WhatsApp">
+                                                <i class="fab fa-whatsapp"></i>
+                                            </a>
+
+                                            <a href="#" class="social-icon social-twitter" title="Twitter / X">
+                                                <i class="fab fa-twitter"></i>
+                                            </a>
+
+                                            <a href="#" class="social-icon social-snapchat" title="Snapchat">
+                                                <i class="fab fa-snapchat-ghost"></i>
+                                            </a>
+
+                                            <a href="#" class="social-icon social-linkedin" title="LinkedIn">
+                                                <i class="fab fa-linkedin-in"></i>
+                                            </a>
+
+                                            <a href="#" class="social-icon social-telegram" title="Telegram">
+                                                <i class="fab fa-telegram-plane"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="upload-design-row disabled">
+                                    <div class="upload-text">
+                                        <strong>Upload Design</strong>
+                                        <span>Select From Your Saved Designs</span>
+                                    </div>
+
+                                    <div class="upload-lock">
+                                        <span>Login for this</span>
+                                        <i class="fa fa-lock"></i>
+                                    </div>
+                                </div>
+
                             </form>
                         </div>
                     </div><!-- End .product-single-details -->
@@ -1241,44 +1299,115 @@
                     </div>
                 </div>
             </div><!-- End .row -->
-        </div><!-- End .container -->
+        </div>
+        <section class="mt-8 testimonial-section testimonial-bg bg-gray">
+                <div class="container">
+                    <div class="owl-carousel owl-theme owl-dots-simple mb-4 mb-lg-0 appear-animate" data-owl-options="{
+                'loop': false,
+                'dots': true,
+                'margin': 20,
+                'responsive': null
+            }" data-animation-name="fadeInRightShorter" data-animation-delay="200">
+                        <div class="testimonial testimonial-type1 blockquote-both inner-blockquote owner-center">
+                            <div class="testimonial-owner">
+                                <div>
+                                    <figure>
+                                        <img src="assets/images/elements/testimonial/client1.png" width="62" height="62"
+                                            alt="client">
+                                    </figure>
+                                    <blockquote class="text-gray">
+                                        <p>  We are extremely satisfied with the quality and professionalism of the service.
+                                            The team delivered exactly what we needed, on time and with great attention to detail.
+                                            Their support and communication throughout the process were excellent.
+                                            We highly recommend them for anyone looking for reliable and high-quality solutions.</p>
+                                    </blockquote>
+                                    <strong class="testimonial-title">Fazal Miran</strong>
+                                    <span>CEO</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="testimonial testimonial-type1 blockquote-both inner-blockquote owner-center">
+                            <div class="testimonial-owner">
+                                <div>
+                                    <figure>
+                                        <img src="assets/images/elements/testimonial/client1.png" width="62" height="62"
+                                            alt="client">
+                                    </figure>
+                                    <blockquote class="text-gray">
+                                        <p>   Working with this company has been a great experience from start to finish.
+                                            The quality of work exceeded our expectations and the turnaround time was impressive.
+                                            They were responsive, professional, and truly understood our requirements.
+                                            We look forward to continuing our partnership in the future.</p>
+                                    </blockquote>
+                                    <strong class="testimonial-title">Fazal Miran</strong>
+                                    <span>CEO</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        <!-- End .container -->
     </main><!-- End .main -->
 
     @push('scripts')
-        <script>
-            function toggleSection(toggleId, optionsId, statusId) {
+       <script>
+            function toggleSection(toggleId, optionsIds, statusId) {
                 const toggle = document.getElementById(toggleId);
-                const options = document.getElementById(optionsId);
                 const status = document.getElementById(statusId);
 
-                toggle.addEventListener('change', function () {
-                    if (this.checked) {
-                        options.classList.remove('d-none');
-                        status.classList.add('active');
-                    } else {
-                        options.classList.add('d-none');
-                        status.classList.remove('active');
+                // single id ko array bana do
+                if (!Array.isArray(optionsIds)) {
+                    optionsIds = [optionsIds];
+                }
 
-                        // Reset selected options
-                        options.querySelectorAll('.option-box').forEach(box => {
-                            box.classList.remove('active');
-                        });
-                    }
-                });
+                function applyState() {
+                    optionsIds.forEach(id => {
+                        const el = document.getElementById(id);
+                        if (!el) return;
+
+                        if (toggle.checked) {
+                            el.classList.remove('d-none');
+                        } else {
+                            el.classList.add('d-none');
+
+                            // reset option boxes (agar hon)
+                            el.querySelectorAll('.option-box').forEach(box => {
+                                box.classList.remove('active');
+                            });
+                        }
+                    });
+
+                    toggle.checked
+                        ? status.classList.add('active')
+                        : status.classList.remove('active');
+                }
+
+                // toggle change
+                toggle.addEventListener('change', applyState);
+
+                // page load par state apply
+                applyState();
             }
-
-            toggleSection('roundToggle', 'roundOptions', 'roundStatus');
-            toggleSection('laminationToggle', 'Sides', 'laminationOptions', 'laminationStatus');
-            toggleSection('dieToggle', 'dieOptions', 'dieStatus');
-
-            // Option box selection
-            document.querySelectorAll('.option-box').forEach(box => {
-                box.addEventListener('click', function () {
-                    this.classList.toggle('active');
-                });
-            });
         </script>
+        <script>
+        toggleSection('roundToggle', 'roundOptions', 'roundStatus');
 
+        toggleSection(
+            'laminationToggle',
+            ['Sides', 'laminationOptions'],   // 🔥 2 inputs
+            'laminationStatus'
+        );
+
+        toggleSection('dieToggle', 'dieOptions', 'dieStatus');
+
+        // Option box click
+        document.querySelectorAll('.option-box').forEach(box => {
+            box.addEventListener('click', function () {
+                this.classList.toggle('active');
+            });
+        });
+        </script>
         <script>
             const shareBox = document.getElementById('shareLinkBox');
             const shareToggle = document.getElementById('shareLinkToggle');
@@ -1300,5 +1429,30 @@
                 }
             });
         </script>
+       <script>
+const shareSocialBox = document.getElementById('shareSocialBox');
+const shareSocialToggle = document.getElementById('shareSocialToggle');
+const shareSocialOptions = document.getElementById('shareSocialOptions');
+
+/* Toggle change */
+shareSocialToggle.addEventListener('change', function () {
+    shareSocialOptions.classList.toggle('d-none', !this.checked);
+});
+
+/* Full box clickable (except icons) */
+shareSocialBox.addEventListener('click', function (e) {
+    if (
+        e.target.tagName !== 'A' &&
+        e.target.tagName !== 'I' &&
+        e.target.tagName !== 'INPUT' &&
+        e.target.tagName !== 'LABEL'
+    ) {
+        shareSocialToggle.checked = !shareSocialToggle.checked;
+        shareSocialToggle.dispatchEvent(new Event('change'));
+    }
+});
+</script>
+
+
     @endpush
 @endsection
