@@ -43,9 +43,9 @@
     <div class="page-wrapper">
         <div class="top-notice bg-primary text-white">
             <div class="container text-center">
-                <h5 class="d-inline-block">Get Up to <b>40% OFF</b> New-Season Styles</h5>
-                <a href="category.html" class="category">MEN</a>
-                <a href="category.html" class="category ml-2 mr-3">WOMEN</a>
+                <h5 class="d-inline-block">Get Up to <b>40% OFF</b> Happy New Year</h5>
+                <a href="#" class="category">MEN</a>
+                <a href="#" class="category ml-2 mr-3">WOMEN</a>
                 <small>* Limited time only.</small>
                 <button title="Close (Esc)" type="button" class="mfp-close">×</button>
             </div>
@@ -82,9 +82,9 @@
                 <ul class="mobile-menu">
                     <li><a href="demo4.html">Home</a></li>
                     <li>
-                        <a href="category.html">Categories</a>
+                        <a href="#">Categories</a>
                         <ul>
-                            <li><a href="category.html">Full Width Banner</a></li>
+                            <li><a href="#">Full Width Banner</a></li>
                             <li><a href="category-banner-boxed-slider.html">Boxed Slider Banner</a></li>
                             <li><a href="category-banner-boxed-image.html">Boxed Image Banner</a></li>
                             <li><a href="category-sidebar-left.html">Left Sidebar</a></li>
@@ -95,7 +95,7 @@
                             <li><a href="#">List Types</a></li>
                             <li><a href="category-infinite-scroll.html">Ajax Infinite Scroll<span
 										class="tip tip-new">New</span></a></li>
-                            <li><a href="category.html">3 Columns Products</a></li>
+                            <li><a href="#">3 Columns Products</a></li>
                             <li><a href="category-4col.html">4 Columns Products</a></li>
                             <li><a href="category-5col.html">5 Columns Products</a></li>
                             <li><a href="category-6col.html">6 Columns Products</a></li>
@@ -230,7 +230,7 @@
             </a>
         </div>
         <div class="sticky-info">
-            <a href="category.html" class="">
+            <a href="#" class="">
                 <i class="icon-bars"></i>Categories
             </a>
         </div>
