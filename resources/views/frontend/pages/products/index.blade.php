@@ -168,6 +168,38 @@
                                 </div>
 
                                 <!-- Lamination Toggle -->
+                                <div class="toggle-box">
+                                    <div class="toggle-header">
+                                        <span class="toggle-label">
+                                            Lamination (Coated Papers Only)
+                                        </span>
+
+                                        <div class="custom-control custom-switch">
+                                            <input type="checkbox" class="custom-control-input" id="laminationToggle"
+                                                checked>
+                                            <label class="custom-control-label" for="laminationToggle"></label>
+                                        </div>
+                                    </div>
+
+                                    <!-- SIDES -->
+                                    <div id="laminationSides" class="d-none">
+                                        <label for="lamination_side">Sides</label>
+                                        <select class="form-control" id="lamination_side" name="lamination_side">
+                                            <option value="1">1 Side</option>
+                                            <option value="2">2 Sides</option>
+                                        </select>
+                                    </div>
+
+                                    <!-- LAMINATION TYPE -->
+                                    <div id="laminationOptions" class="d-none">
+                                        <label for="lamination_type">Lamination Type</label>
+                                        <select class="form-control" id="lamination_type" name="lamination_type">
+                                            <option value="sf-matte">SF Matte Lamination</option>
+                                            <option value="sf-gloss">SF Gloss Lamination</option>
+                                        </select>
+                                    </div>
+                                </div>
+
 
                                 <!-- Round Corner Toggle -->
                                 <div class="toggle-box">
@@ -1274,11 +1306,11 @@
         <section class="mt-8 testimonial-section testimonial-bg bg-gray">
             <div class="container">
                 <div class="owl-carousel owl-theme owl-dots-simple mb-4 mb-lg-0 appear-animate" data-owl-options="{
-                    'loop': false,
-                    'dots': true,
-                    'margin': 20,
-                    'responsive': null
-                }" data-animation-name="fadeInRightShorter" data-animation-delay="200">
+                        'loop': false,
+                        'dots': true,
+                        'margin': 20,
+                        'responsive': null
+                    }" data-animation-name="fadeInRightShorter" data-animation-delay="200">
                     <div class="testimonial testimonial-type1 blockquote-both inner-blockquote owner-center">
                         <div class="testimonial-owner">
                             <div>
@@ -1326,37 +1358,78 @@
 
     @push('scripts')
         <script>
-            function toggleSection(toggleId, optionsIds, statusId) {
+            function toggleSection(toggleId, optionIds, statusId = null) {
                 const toggle = document.getElementById(toggleId);
-                const status = document.getElementById(statusId);
 
-                toggle.addEventListener('change', function () {
-                    if (this.checked) {
-                        options.classList.remove('d-none');
-                        status.classList.add('active');
-                    } else {
-                        options.classList.add('d-none');
-                        status.classList.remove('active');
+                // optionIds ko array bana do
+                if (!Array.isArray(optionIds)) {
+                    optionIds = [optionIds];
+                }
 
-                        // Reset selected options
-                        options.querySelectorAll('.option-box').forEach(box => {
-                            box.classList.remove('active');
-                        });
+                const status = statusId ? document.getElementById(statusId) : null;
+
+                function applyState() {
+                    optionIds.forEach(id => {
+                        const el = document.getElementById(id);
+                        if (!el) return;
+
+                        toggle.checked
+                            ? el.classList.remove('d-none')
+                            : el.classList.add('d-none');
+
+                        // option-box reset
+                        if (!toggle.checked) {
+                            el.querySelectorAll('.option-box').forEach(box => {
+                                box.classList.remove('active');
+                            });
+                        }
+                    });
+
+                    if (status) {
+                        toggle.checked
+                            ? status.classList.add('active')
+                            : status.classList.remove('active');
                     }
-                });
+                }
+
+                toggle.addEventListener('change', applyState);
+
+                // 🔥 page load par bhi apply
+                applyState();
             }
 
-            toggleSection('roundToggle', 'roundOptions', 'roundStatus');
-            toggleSection('laminationToggle', 'laminationOptions', 'laminationStatus');
-            toggleSection('dieToggle', 'dieOptions', 'dieStatus');
+            /* ======================
+               TOGGLE CALLS
+            ====================== */
 
-            // Option box selection
+            // Lamination → 2 dropdowns
+            toggleSection(
+                'laminationToggle',
+                ['laminationSides', 'laminationOptions']
+            );
+
+            // Round Corners
+            toggleSection(
+                'roundToggle',
+                'roundOptions',
+                'roundStatus'
+            );
+
+            // Die Cutting
+            toggleSection(
+                'dieToggle',
+                'dieOptions',
+                'dieStatus'
+            );
+
+            // Option-box click (round corners)
             document.querySelectorAll('.option-box').forEach(box => {
                 box.addEventListener('click', function () {
                     this.classList.toggle('active');
                 });
             });
         </script>
+
         <script>
             const shareBox = document.getElementById('shareLinkBox');
             const shareToggle = document.getElementById('shareLinkToggle');
@@ -1401,7 +1474,5 @@
                 }
             });
         </script>
-
-
     @endpush
 @endsection
