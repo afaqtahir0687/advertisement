@@ -168,6 +168,33 @@
                                 </div>
 
                                 <!-- Lamination Toggle -->
+                                <div class="toggle-box">
+                                    <div class="toggle-header">
+                                        <span class="toggle-label">
+                                            Lamination (Coated Papers Only)
+                                            <span id="laminationStatus" class="toggle-status">✓</span>
+                                        </span>
+                                        <div class="custom-control custom-switch">
+                                            <input type="checkbox" class="custom-control-input" id="laminationToggle">
+                                            <label class="custom-control-label" for="laminationToggle"></label>
+                                        </div>
+                                    </div>
+
+                                    <div id="Sides" class="mt-3 d-none">
+                                         <label for="material">Sides</label>
+                                        <select class="form-control">
+                                            <option>1 Sides</option>
+                                            <option>2 Sides</option>
+                                        </select>
+                                    </div>
+
+                                    <div id="laminationOptions" class="mt-3 d-none">
+                                        <select class="form-control">
+                                            <option>SF Matte Lamination -</option>
+                                            <option>SF Gloss Lamination -</option>
+                                        </select>
+                                    </div>
+                                </div>
 
                                 <!-- Round Corner Toggle -->
                                 <div class="toggle-box">
@@ -211,28 +238,6 @@
                                         </div>
                                     </div>
                                 </div>
-
-                                <div class="toggle-box">
-                                    <div class="toggle-header">
-                                        <span class="toggle-label">
-                                            Lamination (Coated Papers Only)
-                                            <span id="laminationStatus" class="toggle-status">✓</span>
-                                        </span>
-                                        <div class="custom-control custom-switch">
-                                            <input type="checkbox" class="custom-control-input" id="laminationToggle">
-                                            <label class="custom-control-label" for="laminationToggle"></label>
-                                        </div>
-                                    </div>
-
-                                    <div id="laminationOptions" class="mt-3 d-none">
-                                        <select class="form-control">
-                                            <option value="">Select Lamination</option>
-                                            <option>Matte Lamination (DGTL)</option>
-                                            <option>Gloss Lamination (DGTL)</option>
-                                        </select>
-                                    </div>
-                                </div>
-
 
                                 <!-- Die Cutting Toggle -->
                                 <div class="toggle-box">
@@ -383,8 +388,7 @@
                                 </p>
                                 <p class="mb-2"><strong>Total discount:</strong> <span class="float-right">0.00</span>
                                 </p>
-                                <p class="mb-3"><strong>Total tax (15.00%):</strong> <span
-                                        class="float-right">12.39</span>
+                                <p class="mb-3"><strong>Total tax (15.00%):</strong> <span class="float-right">12.39</span>
                                 </p>
                                 <div class="divider mb-3"></div>
                                 <p class="mb-3 total-price"><strong>Price:</strong> <span class="float-right">95.00</span>
@@ -405,13 +409,13 @@
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" id="product-tab-size" data-toggle="tab" href="#product-size-content"
-                            role="tab" aria-controls="product-size-content" aria-selected="true">Size Guide</a>
+                        <a class="nav-link" id="product-tab-size" data-toggle="tab" href="#product-size-content" role="tab"
+                            aria-controls="product-size-content" aria-selected="true">Size Guide</a>
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" id="product-tab-tags" data-toggle="tab" href="#product-tags-content"
-                            role="tab" aria-controls="product-tags-content" aria-selected="false">Additional
+                        <a class="nav-link" id="product-tab-tags" data-toggle="tab" href="#product-tags-content" role="tab"
+                            aria-controls="product-tags-content" aria-selected="false">Additional
                             Information</a>
                     </li>
 
@@ -482,8 +486,7 @@
                         </div><!-- End .product-desc-content -->
                     </div><!-- End .tab-pane -->
 
-                    <div class="tab-pane fade" id="product-size-content" role="tabpanel"
-                        aria-labelledby="product-tab-size">
+                    <div class="tab-pane fade" id="product-size-content" role="tabpanel" aria-labelledby="product-tab-size">
                         <div class="product-size-content">
                             <div class="accordion artwork-accordion" id="artworkAccordion">
 
@@ -492,8 +495,7 @@
                                     <div class="card-header" id="headingOne">
                                         <h2 class="mb-0">
                                             <button class="accordion-btn" type="button" data-toggle="collapse"
-                                                data-target="#collapseOne" aria-expanded="true"
-                                                aria-controls="collapseOne">
+                                                data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
                                                 1. Add 3 mm of bleed
                                                 <span class="icon">−</span>
                                             </button>
@@ -618,8 +620,7 @@
                         }
                     </style>
 
-                    <div class="tab-pane fade" id="product-tags-content" role="tabpanel"
-                        aria-labelledby="product-tab-tags">
+                    <div class="tab-pane fade" id="product-tags-content" role="tabpanel" aria-labelledby="product-tab-tags">
                         <p>
                             Our free templates provide you with all the information you need to correctly prepare your
                             artwork files for printing. Simply download the template that matches your desired product
@@ -709,10 +710,8 @@
                     <div class="product-default">
                         <figure>
                             <a href="{{ route('products.index') }}">
-                                <img src="assets/images/products/product-1.jpg" width="280" height="280"
-                                    alt="product">
-                                <img src="assets/images/products/product-1-2.jpg" width="280" height="280"
-                                    alt="product">
+                                <img src="assets/images/products/product-1.jpg" width="280" height="280" alt="product">
+                                <img src="assets/images/products/product-1-2.jpg" width="280" height="280" alt="product">
                             </a>
                             <div class="label-group">
                                 <div class="product-label label-hot">HOT</div>
@@ -751,10 +750,8 @@
                     <div class="product-default">
                         <figure>
                             <a href="{{ route('products.index') }}">
-                                <img src="assets/images/products/product-3.jpg" width="280" height="280"
-                                    alt="product">
-                                <img src="assets/images/products/product-3-2.jpg" width="280" height="280"
-                                    alt="product">
+                                <img src="assets/images/products/product-3.jpg" width="280" height="280" alt="product">
+                                <img src="assets/images/products/product-3-2.jpg" width="280" height="280" alt="product">
                             </a>
                             <div class="label-group">
                                 <div class="product-label label-hot">HOT</div>
@@ -793,10 +790,8 @@
                     <div class="product-default">
                         <figure>
                             <a href="{{ route('products.index') }}">
-                                <img src="assets/images/products/product-7.jpg" width="280" height="280"
-                                    alt="product">
-                                <img src="assets/images/products/product-7-2.jpg" width="280" height="280"
-                                    alt="product">
+                                <img src="assets/images/products/product-7.jpg" width="280" height="280" alt="product">
+                                <img src="assets/images/products/product-7-2.jpg" width="280" height="280" alt="product">
                             </a>
                             <div class="label-group">
                                 <div class="product-label label-hot">HOT</div>
@@ -835,10 +830,8 @@
                     <div class="product-default">
                         <figure>
                             <a href="{{ route('products.index') }}">
-                                <img src="assets/images/products/product-6.jpg" width="280" height="280"
-                                    alt="product">
-                                <img src="assets/images/products/product-6-2.jpg" width="280" height="280"
-                                    alt="product">
+                                <img src="assets/images/products/product-6.jpg" width="280" height="280" alt="product">
+                                <img src="assets/images/products/product-6-2.jpg" width="280" height="280" alt="product">
                             </a>
                             <div class="label-group">
                                 <div class="product-label label-hot">HOT</div>
@@ -877,10 +870,8 @@
                     <div class="product-default">
                         <figure>
                             <a href="{{ route('products.index') }}">
-                                <img src="assets/images/products/product-4.jpg" width="280" height="280"
-                                    alt="product">
-                                <img src="assets/images/products/product-4-2.jpg" width="280" height="280"
-                                    alt="product">
+                                <img src="assets/images/products/product-4.jpg" width="280" height="280" alt="product">
+                                <img src="assets/images/products/product-4-2.jpg" width="280" height="280" alt="product">
                             </a>
                             <div class="label-group">
                                 <div class="product-label label-hot">HOT</div>
@@ -926,8 +917,7 @@
                     <div class="product-default left-details product-widget">
                         <figure>
                             <a href="{{ route('products.index') }}">
-                                <img src="assets/images/products/small/product-1.jpg" width="74" height="74"
-                                    alt="product">
+                                <img src="assets/images/products/small/product-1.jpg" width="74" height="74" alt="product">
                                 <img src="assets/images/products/small/product-1-2.jpg" width="74" height="74"
                                     alt="product">
                             </a>
@@ -954,8 +944,7 @@
                     <div class="product-default left-details product-widget">
                         <figure>
                             <a href="{{ route('products.index') }}">
-                                <img src="assets/images/products/small/product-2.jpg" width="74" height="74"
-                                    alt="product">
+                                <img src="assets/images/products/small/product-2.jpg" width="74" height="74" alt="product">
                                 <img src="assets/images/products/small/product-2-2.jpg" width="74" height="74"
                                     alt="product">
                             </a>
@@ -981,8 +970,7 @@
                     <div class="product-default left-details product-widget">
                         <figure>
                             <a href="{{ route('products.index') }}">
-                                <img src="assets/images/products/small/product-3.jpg" width="74" height="74"
-                                    alt="product">
+                                <img src="assets/images/products/small/product-3.jpg" width="74" height="74" alt="product">
                                 <img src="assets/images/products/small/product-3-2.jpg" width="74" height="74"
                                     alt="product">
                             </a>
@@ -1011,8 +999,7 @@
                     <div class="product-default left-details product-widget">
                         <figure>
                             <a href="{{ route('products.index') }}">
-                                <img src="assets/images/products/small/product-4.jpg" width="74" height="74"
-                                    alt="product">
+                                <img src="assets/images/products/small/product-4.jpg" width="74" height="74" alt="product">
                                 <img src="assets/images/products/small/product-4-2.jpg" width="74" height="74"
                                     alt="product">
                             </a>
@@ -1040,8 +1027,7 @@
                     <div class="product-default left-details product-widget">
                         <figure>
                             <a href="{{ route('products.index') }}">
-                                <img src="assets/images/products/small/product-5.jpg" width="74" height="74"
-                                    alt="product">
+                                <img src="assets/images/products/small/product-5.jpg" width="74" height="74" alt="product">
                                 <img src="assets/images/products/small/product-5-2.jpg" width="74" height="74"
                                     alt="product">
                             </a>
@@ -1068,8 +1054,7 @@
                     <div class="product-default left-details product-widget">
                         <figure>
                             <a href="{{ route('products.index') }}">
-                                <img src="assets/images/products/small/product-6.jpg" width="74" height="74"
-                                    alt="product">
+                                <img src="assets/images/products/small/product-6.jpg" width="74" height="74" alt="product">
                                 <img src="assets/images/products/small/product-6-2.jpg" width="74" height="74"
                                     alt="product">
                             </a>
@@ -1098,8 +1083,7 @@
                     <div class="product-default left-details product-widget">
                         <figure>
                             <a href="{{ route('products.index') }}">
-                                <img src="assets/images/products/small/product-7.jpg" width="74" height="74"
-                                    alt="product">
+                                <img src="assets/images/products/small/product-7.jpg" width="74" height="74" alt="product">
                                 <img src="assets/images/products/small/product-7-2.jpg" width="74" height="74"
                                     alt="product">
                             </a>
@@ -1125,8 +1109,7 @@
                     <div class="product-default left-details product-widget">
                         <figure>
                             <a href="{{ route('products.index') }}">
-                                <img src="assets/images/products/small/product-8.jpg" width="74" height="74"
-                                    alt="product">
+                                <img src="assets/images/products/small/product-8.jpg" width="74" height="74" alt="product">
                                 <img src="assets/images/products/small/product-8-2.jpg" width="74" height="74"
                                     alt="product">
                             </a>
@@ -1153,8 +1136,7 @@
                     <div class="product-default left-details product-widget">
                         <figure>
                             <a href="{{ route('products.index') }}">
-                                <img src="assets/images/products/small/product-9.jpg" width="74" height="74"
-                                    alt="product">
+                                <img src="assets/images/products/small/product-9.jpg" width="74" height="74" alt="product">
                                 <img src="assets/images/products/small/product-9-2.jpg" width="74" height="74"
                                     alt="product">
                             </a>
@@ -1184,8 +1166,7 @@
                     <div class="product-default left-details product-widget">
                         <figure>
                             <a href="{{ route('products.index') }}">
-                                <img src="assets/images/products/small/product-10.jpg" width="74" height="74"
-                                    alt="product">
+                                <img src="assets/images/products/small/product-10.jpg" width="74" height="74" alt="product">
                                 <img src="assets/images/products/small/product-10-2.jpg" width="74" height="74"
                                     alt="product">
                             </a>
@@ -1211,8 +1192,7 @@
                     <div class="product-default left-details product-widget">
                         <figure>
                             <a href="{{ route('products.index') }}">
-                                <img src="assets/images/products/small/product-11.jpg" width="74" height="74"
-                                    alt="product">
+                                <img src="assets/images/products/small/product-11.jpg" width="74" height="74" alt="product">
                                 <img src="assets/images/products/small/product-11-2.jpg" width="74" height="74"
                                     alt="product">
                             </a>
@@ -1238,8 +1218,7 @@
                     <div class="product-default left-details product-widget">
                         <figure>
                             <a href="{{ route('products.index') }}">
-                                <img src="assets/images/products/small/product-12.jpg" width="74" height="74"
-                                    alt="product">
+                                <img src="assets/images/products/small/product-12.jpg" width="74" height="74" alt="product">
                                 <img src="assets/images/products/small/product-12-2.jpg" width="74" height="74"
                                     alt="product">
                             </a>
@@ -1272,7 +1251,7 @@
                 const options = document.getElementById(optionsId);
                 const status = document.getElementById(statusId);
 
-                toggle.addEventListener('change', function() {
+                toggle.addEventListener('change', function () {
                     if (this.checked) {
                         options.classList.remove('d-none');
                         status.classList.add('active');
@@ -1289,12 +1268,12 @@
             }
 
             toggleSection('roundToggle', 'roundOptions', 'roundStatus');
-            toggleSection('laminationToggle', 'laminationOptions', 'laminationStatus');
+            toggleSection('laminationToggle', 'Sides', 'laminationOptions', 'laminationStatus');
             toggleSection('dieToggle', 'dieOptions', 'dieStatus');
 
             // Option box selection
             document.querySelectorAll('.option-box').forEach(box => {
-                box.addEventListener('click', function() {
+                box.addEventListener('click', function () {
                     this.classList.toggle('active');
                 });
             });
@@ -1306,12 +1285,12 @@
             const shareOptions = document.getElementById('shareLinkOptions');
 
             /* Toggle change */
-            shareToggle.addEventListener('change', function() {
+            shareToggle.addEventListener('change', function () {
                 shareOptions.classList.toggle('d-none', !this.checked);
             });
 
             /* Full box click (except input) */
-            shareBox.addEventListener('click', function(e) {
+            shareBox.addEventListener('click', function (e) {
                 if (
                     e.target.tagName !== 'INPUT' &&
                     e.target.tagName !== 'LABEL'
