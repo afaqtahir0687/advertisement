@@ -360,7 +360,7 @@
                         <!-- LEFT SIDE -->
                         <div class="col-md-8">
                             <div class="left-box">
-                                <div class="row mb-4">
+                                <div class="row">
                                     <div class="col-md-6">
                                         <label class="label-title">Number of Designs:</label>
                                         <input type="number" class="form-control" value="1">
