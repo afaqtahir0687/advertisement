@@ -44,8 +44,8 @@
         <div class="top-notice bg-primary text-white">
             <div class="container text-center">
                 <h5 class="d-inline-block">Get Up to <b>40% OFF</b> Happy New Year</h5>
-                <a href="#" class="category">MEN</a>
-                <a href="#" class="category ml-2 mr-3">WOMEN</a>
+                <a href="#" class="category">Business</a>
+                <a href="#" class="category ml-2 mr-3">Cards</a>
                 <small>* Limited time only.</small>
                 <button title="Close (Esc)" type="button" class="mfp-close">×</button>
             </div>

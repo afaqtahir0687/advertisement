@@ -98,7 +98,7 @@
                                             <img alt="product" width="150" height="150"
                                                 src="assets/images/products/product-3.jpg" style="padding-top: 0px;">
 
-                                            <span>Circled Ultimate 3D Speaker</span>
+                                            <span>Business card Circled Ultimate 3D Speaker</span>
                                         </span>
                                     </span>
                                 </a>
@@ -113,7 +113,7 @@
                                             <img alt="product" width="150" height="150"
                                                 src="assets/images/products/product-4.jpg" style="padding-top: 0px;">
 
-                                            <span>Blue Backpack for the Young</span>
+                                            <span>Business card Blue Backpack for the Young</span>
                                         </span>
                                     </span>
                                 </a>
@@ -846,7 +846,7 @@
                                 <a href="category.html" class="product-category">Category</a>
                             </div>
                             <h3 class="product-title">
-                                <a href="{{ route('products.index') }}">Circled Ultimate 3D Speaker</a>
+                                <a href="{{ route('products.index') }}">Business card Circled Ultimate 3D Speaker</a>
                             </h3>
                             <div class="ratings-container">
                                 <div class="product-ratings">
@@ -1013,7 +1013,7 @@
                             <div>
                                 <figure>
                                     <img src="assets/images/elements/testimonial/client1.png" width="62"
-                                        height="62" alt="client">
+                                        height="62" alt="client" style="border-radius: 50%;">
                                 </figure>
                                 <blockquote class="text-gray">
                                     <p> We are extremely satisfied with the quality and professionalism of the service.
