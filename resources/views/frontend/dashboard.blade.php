@@ -6,8 +6,8 @@
 					<nav aria-label="breadcrumb" class="breadcrumb-nav">
 						<div class="container">
 							<ol class="breadcrumb">
-								<li class="breadcrumb-item"><a href="demo4.html">Home</a></li>
-								<li class="breadcrumb-item"><a href="category.html">Shop</a></li>
+								<li class="breadcrumb-item"><a href="#">Home</a></li>
+								<li class="breadcrumb-item"><a href="#">Shop</a></li>
 								<li class="breadcrumb-item active" aria-current="page">
 									My Account
 								</li>
@@ -19,7 +19,7 @@
 				</div>
 			</div>
 
-			<div class="container account-container custom-account-container">
+			<div class="container account-container custom-account-container mt-5">
 				<div class="row">
 					<div class="sidebar widget widget-dashboard mb-lg-0 mb-3 col-lg-3 order-0">
 						<h2 class="text-uppercase">My Account</h2>
@@ -54,16 +54,20 @@
 									aria-controls="edit" aria-selected="false">Shopping Addres</a>
 							</li>
 							<li class="nav-item">
-								<a class="nav-link" href="wishlist.html">Wishlist</a>
+								<a class="nav-link" href="#">Wishlist</a>
 							</li>
-							<li class="nav-item">
+
+                            <li class="nav-item">
+								<a class="nav-link" href="#">Logout</a>
+							</li>
+							{{-- <li class="nav-item">
 								<form action="{{ route('logout') }}" method="POST">
 									@csrf
 									<button type="submit" class="nav-link btn btn-link p-0" style="cursor:pointer;">
 										Logout
 									</button>
 								</form>
-							</li>
+							</li> --}}
 
 						</ul>
 					</div>
@@ -73,16 +77,16 @@
 								<p>
 									Hello <strong class="text-dark">Editor</strong> (not
 									<strong class="text-dark">Editor</strong>?
-									<a href="login.html" class="btn btn-link ">Log out</a>)
+									<a href="#" class="btn btn-link ">Log out</a>)
 								</p>
 
 								<p>
 									From your account dashboard you can view your
-									<a class="btn btn-link link-to-tab" href="#order">recent orders</a>,
+									<a  href="#order">recent orders</a>,
 									manage your
-									<a class="btn btn-link link-to-tab" href="#address">shipping and billing
+									<a href="#address">shipping and billing
 										addresses</a>, and
-									<a class="btn btn-link link-to-tab" href="#edit">edit your password and account
+									<a href="#edit">edit your password and account
 										details.</a>
 								</p>
 
@@ -91,8 +95,7 @@
 								<div class="row row-lg">
 									<div class="col-6 col-md-4">
 										<div class="feature-box text-center pb-4">
-											<a href="#order" class="link-to-tab"><i
-													class="sicon-social-dropbox"></i></a>
+											<a href="#order" class="link-to-tab"><i class="fab fa-first-order"></i></a>
 											<div class="feature-box-content">
 												<h3>ORDERS</h3>
 											</div>
@@ -101,8 +104,7 @@
 
 									<div class="col-6 col-md-4">
 										<div class="feature-box text-center pb-4">
-											<a href="#download" class="link-to-tab"><i
-													class="sicon-cloud-download"></i></a>
+											<a href="#download" class="link-to-tab"><i class="fas fa-cloud-download-alt"></i></a>
 											<div class=" feature-box-content">
 												<h3>DOWNLOADS</h3>
 											</div>
@@ -112,7 +114,7 @@
 									<div class="col-6 col-md-4">
 										<div class="feature-box text-center pb-4">
 											<a href="#address" class="link-to-tab"><i
-													class="sicon-location-pin"></i></a>
+										class="icon-location"></i></a>
 											<div class="feature-box-content">
 												<h3>ADDRESSES</h3>
 											</div>
@@ -130,7 +132,7 @@
 
 									<div class="col-6 col-md-4">
 										<div class="feature-box text-center pb-4">
-											<a href="wishlist.html"><i class="sicon-heart"></i></a>
+											<a href="#"><i class="far fa-heart"></i></a>
 											<div class="feature-box-content">
 												<h3>WISHLIST</h3>
 											</div>
@@ -139,7 +141,7 @@
 
 									<div class="col-6 col-md-4">
 										<div class="feature-box text-center pb-4">
-											<a href="login.html"><i class="sicon-logout"></i></a>
+											<a href="#"><i class="fas fa-sign-out-alt"></i></a>
 											<div class="feature-box-content">
 												<h3>LOGOUT</h3>
 											</div>
@@ -176,7 +178,7 @@
 									</table>
 									<hr class="mt-0 mb-3 pb-2" />
 
-									<a href="category.html" class="btn btn-dark">Go Shop</a>
+									<a href="£" class="btn btn-dark">Go Shop</a>
 								</div>
 							</div>
 						</div><!-- End .tab-pane -->
@@ -186,7 +188,7 @@
 								<h3 class="account-sub-title d-none d-md-block"><i
 										class="sicon-cloud-download align-middle mr-3"></i>Downloads</h3>
 								<div class="download-table-container">
-									<p>No downloads available yet.</p> <a href="category.html"
+									<p>No downloads available yet.</p> <a href="#"
 										class="btn btn-primary text-transform-none mb-2">GO SHOP</a>
 								</div>
 							</div>
