@@ -44,7 +44,8 @@
         <h2 style="text-align: center;">From Concept to Delivery</h2>
         <p style="text-align: center;">Fuel Your Business with Flexible Credit, Design Services, and Lightning-Quick
             Delivery!</p>
-        <div class="info-boxes-slider owl-carousel owl-theme mb-2" data-owl-options="{
+        <div class="info-boxes-slider owl-carousel owl-theme mb-2"
+            data-owl-options="{
                         'dots': false,
                         'loop': false,
                         'responsive': {
@@ -85,19 +86,19 @@
         </div>
 
         <div class="banners-container mb-2">
-            <div class="banners-slider owl-carousel owl-theme" data-owl-options="{
+            <div class="banners-slider owl-carousel owl-theme"
+                data-owl-options="{
                             'dots': false
                         }">
                 <div class="banner banner1 banner-sm-vw d-flex align-items-center appear-animate"
                     style="background-color: #ccc;" data-animation-name="fadeInLeftShorter" data-animation-delay="500">
                     <figure class="w-100">
-                        <img src="{{ asset('assets/images/demoes/demo4/banners/banner-1.jpg') }}" alt="banner" width="380"
-                            height="175" />
+                        <img src="{{ asset('assets/images/demoes/demo4/banners/banner-1.jpg') }}" alt="banner"
+                            width="380" height="175" />
                     </figure>
                     <div class="banner-layer">
-                        <h3 class="m-b-2">Porto Watches</h3>
-                        <h4 class="m-b-3 text-primary"><sup class="text-dark"><del>20%</del></sup>30%<sup>OFF</sup></h4>
-                        <a href="{{ route('category.index') }}" class="btn btn-sm btn-dark">Shop Now</a>
+                        <h3 class="m-b-2">Credit Terms</h3>
+                        <a href="{{ route('category.index') }}" class="btn btn-sm btn-dark">Check Credit</a>
                     </div>
                 </div>
 
@@ -110,11 +111,10 @@
                     <div class="banner-layer text-center">
                         <div class="row align-items-lg-center">
                             <div class="col-lg-7 text-lg-right">
-                                <h3>Deal Promos</h3>
-                                <h4 class="pb-4 pb-lg-0 mb-0 text-body">Starting at $99</h4>
+                                <h3>Design Services</h3>
                             </div>
                             <div class="col-lg-5 text-lg-left px-0 px-xl-3">
-                                <a href="{{ route('category.index') }}" class="btn btn-sm btn-dark">Shop Now</a>
+                                <a href="{{ route('category.index') }}" class="btn btn-sm btn-dark">Order Now</a>
                             </div>
                         </div>
                     </div>
@@ -123,13 +123,12 @@
                 <div class="banner banner3 banner-sm-vw d-flex align-items-center appear-animate"
                     style="background-color: #ccc;" data-animation-name="fadeInRightShorter" data-animation-delay="500">
                     <figure class="w-100">
-                        <img src="{{ asset('assets/images/demoes/demo4/banners/banner-3.jpg') }}" alt="banner" width="380"
-                            height="175" />
+                        <img src="{{ asset('assets/images/demoes/demo4/banners/banner-3.jpg') }}" alt="banner"
+                            width="380" height="175" />
                     </figure>
                     <div class="banner-layer text-right">
-                        <h3 class="m-b-2">Handbags</h3>
-                        <h4 class="m-b-2 text-secondary text-uppercase">Starting at $99</h4>
-                        <a href="{{ route('category.index') }}" class="btn btn-sm btn-dark">Shop Now</a>
+                        <h3 class="m-b-2">Express Delivery</h3>
+                        <a href="{{ route('category.index') }}" class="btn btn-sm btn-dark">See Produts</a>
                     </div>
                 </div>
             </div>
@@ -150,8 +149,8 @@
                         <a href="{{ route('products.index') }}">
                             <img src="{{ asset('assets/images/products/product-1.jpg') }}" width="280" height="280"
                                 alt="product">
-                            <img src="{{ asset('assets/images/products/product-1-2.jpg') }}" width="280" height="280"
-                                alt="product">
+                            <img src="{{ asset('assets/images/products/product-1-2.jpg') }}" width="280"
+                                height="280" alt="product">
                         </a>
                         <div class="label-group">
                             <div class="product-label label-hot">HOT</div>
@@ -180,7 +179,8 @@
                         </div>
                         <!-- End .price-box -->
                         <div class="product-action">
-                            <a href="wishlist.html" class="btn-icon-wish" title="wishlist"><i class="icon-heart"></i></a>
+                            <a href="wishlist.html" class="btn-icon-wish" title="wishlist"><i
+                                    class="icon-heart"></i></a>
                             <a href="#" class="btn-icon btn-add-cart"><i class="fa fa-arrow-right"></i><span>SELECT
                                     OPTIONS</span></a>
                             <a href="ajax/product-quick-view.html" class="btn-quickview" title="Quick View"><i
@@ -193,7 +193,7 @@
                         <a href="{{ route('products.index') }}">
                             <img src="{{ asset('assets/images/products/product-2.jpg') }}" width="280" height="280"
                                 alt="product">
-                            <img src="{{ asset('assets/images/products/product-2-2.jpg') }}" width="280" height="280"
+                            <img src="{{ asset('assets/images/products/product-2-3.jpg') }}" width="280" height="280"
                                 alt="product">
                         </a>
                         <div class="label-group">
@@ -236,8 +236,8 @@
                         <a href="{{ route('products.index') }}">
                             <img src="{{ asset('assets/images/products/product-3.jpg') }}" width="280" height="280"
                                 alt="product">
-                            <img src="{{ asset('assets/images/products/product-3-2.jpg') }}" width="280" height="280"
-                                alt="product">
+                            <img src="{{ asset('assets/images/products/product-3-2.jpg') }}" width="280"
+                                height="280" alt="product">
                         </a>
                     </figure>
                     <div class="product-details">
@@ -275,8 +275,8 @@
                         <a href="{{ route('products.index') }}">
                             <img src="{{ asset('assets/images/products/product-4.jpg') }}" width="280" height="280"
                                 alt="product">
-                            <img src="{{ asset('assets/images/products/product-4-2.jpg') }}" width="280" height="280"
-                                alt="product">
+                            <img src="{{ asset('assets/images/products/product-4-2.jpg') }}" width="280"
+                                height="280" alt="product">
                         </a>
                         <div class="label-group">
                             <div class="product-label label-hot">HOT</div>
@@ -318,8 +318,8 @@
                         <a href="{{ route('products.index') }}">
                             <img src="{{ asset('assets/images/products/product-5.jpg') }}" width="280" height="280"
                                 alt="product">
-                            <img src="{{ asset('assets/images/products/product-5-2.jpg') }}" width="280" height="280"
-                                alt="product">
+                            <img src="{{ asset('assets/images/products/product-5-2.jpg') }}" width="280"
+                                height="280" alt="product">
                         </a>
                         <div class="label-group">
                             <div class="product-label label-hot">HOT</div>
@@ -348,7 +348,8 @@
                         </div>
 
                         <div class="product-action">
-                            <a href="wishlist.html" class="btn-icon-wish" title="wishlist"><i class="icon-heart"></i></a>
+                            <a href="wishlist.html" class="btn-icon-wish" title="wishlist"><i
+                                    class="icon-heart"></i></a>
                             <a href="#" class="btn-icon btn-add-cart product-type-simple"><i
                                     class="icon-shopping-cart"></i><span>ADD TO CART</span></a>
                             <a href="ajax/product-quick-view.html" class="btn-quickview" title="Quick View"><i
@@ -382,8 +383,8 @@
                         <a href="{{ route('products.index') }}">
                             <img src="{{ asset('assets/images/products/product-6.jpg') }}" width="220" height="220"
                                 alt="product">
-                            <img src="{{ asset('assets/images/products/product-6-2.jpg') }}" width="220" height="220"
-                                alt="product">
+                            <img src="{{ asset('assets/images/products/product-6-2.jpg') }}" width="220"
+                                height="220" alt="product">
                         </a>
                         <div class="label-group">
                             <div class="product-label label-hot">HOT</div>
@@ -411,7 +412,8 @@
                         </div>
                         <!-- End .price-box -->
                         <div class="product-action">
-                            <a href="wishlist.html" class="btn-icon-wish" title="wishlist"><i class="icon-heart"></i></a>
+                            <a href="wishlist.html" class="btn-icon-wish" title="wishlist"><i
+                                    class="icon-heart"></i></a>
                             <a href="#" class="btn-icon btn-add-cart product-type-simple"><i
                                     class="icon-shopping-cart"></i><span>ADD TO CART</span></a>
                             <a href="ajax/product-quick-view.html" class="btn-quickview" title="Quick View"><i
@@ -424,8 +426,8 @@
                         <a href="{{ route('products.index') }}">
                             <img src="{{ asset('assets/images/products/product-7.jpg') }}" width="220" height="220"
                                 alt="product">
-                            <img src="{{ asset('assets/images/products/product-7-2.jpg') }}" width="220" height="220"
-                                alt="product">
+                            <img src="{{ asset('assets/images/products/product-7-2.jpg') }}" width="220"
+                                height="220" alt="product">
                         </a>
                         <div class="label-group">
                             <div class="product-label label-hot">HOT</div>
@@ -466,8 +468,8 @@
                         <a href="{{ route('products.index') }}">
                             <img src="{{ asset('assets/images/products/product-8.jpg') }}" width="220" height="220"
                                 alt="product">
-                            <img src="{{ asset('assets/images/products/product-8-2.jpg') }}" width="220" height="220"
-                                alt="product">
+                            <img src="{{ asset('assets/images/products/product-8-2.jpg') }}" width="220"
+                                height="220" alt="product">
                         </a>
                         <div class="label-group">
                             <div class="product-label label-sale">-20%</div>
@@ -508,8 +510,8 @@
                         <a href="{{ route('products.index') }}">
                             <img src="{{ asset('assets/images/products/product-9.jpg') }}" width="220" height="220"
                                 alt="product">
-                            <img src="{{ asset('assets/images/products/product-9-2.jpg') }}" width="220" height="220"
-                                alt="product">
+                            <img src="{{ asset('assets/images/products/product-9-2.jpg') }}" width="220"
+                                height="220" alt="product">
                         </a>
                         <div class="label-group">
                             <div class="product-label label-sale">-30%</div>
@@ -548,10 +550,10 @@
                 <div class="product-default appear-animate" data-animation-name="fadeInRightShorter">
                     <figure>
                         <a href="{{ route('products.index') }}">
-                            <img src="{{ asset('assets/images/products/product-10.jpg') }}" width="220" height="220"
-                                alt="product">
-                            <img src="{{ asset('assets/images/products/product-10-2.jpg') }}" width="220" height="220"
-                                alt="product">
+                            <img src="{{ asset('assets/images/products/product-10.jpg') }}" width="220"
+                                height="220" alt="product">
+                            <img src="{{ asset('assets/images/products/product-10-2.jpg') }}" width="220"
+                                height="220" alt="product">
                         </a>
                         <div class="label-group">
                             <div class="product-label label-hot">HOT</div>
@@ -590,10 +592,10 @@
                 <div class="product-default appear-animate" data-animation-name="fadeInRightShorter">
                     <figure>
                         <a href="{{ route('products.index') }}">
-                            <img src="{{ asset('assets/images/products/product-11.jpg') }}" width="220" height="220"
-                                alt="product">
-                            <img src="{{ asset('assets/images/products/product-11-2.jpg') }}" width="220" height="220"
-                                alt="product">
+                            <img src="{{ asset('assets/images/products/product-11.jpg') }}" width="220"
+                                height="220" alt="product">
+                            <img src="{{ asset('assets/images/products/product-11-2.jpg') }}" width="220"
+                                height="220" alt="product">
                         </a>
                         <div class="label-group">
                             <div class="product-label label-sale">-20%</div>
@@ -621,7 +623,8 @@
                         </div>
                         <!-- End .price-box -->
                         <div class="product-action">
-                            <a href="wishlist.html" class="btn-icon-wish" title="wishlist"><i class="icon-heart"></i></a>
+                            <a href="wishlist.html" class="btn-icon-wish" title="wishlist"><i
+                                    class="icon-heart"></i></a>
                             <a href="#" class="btn-icon btn-add-cart"><i class="fa fa-arrow-right"></i><span>SELECT
                                     OPTIONS</span></a>
                             <a href="ajax/product-quick-view.html" class="btn-quickview" title="Quick View"><i
@@ -633,7 +636,7 @@
 
             <div class="banner banner-big-sale appear-animate" data-animation-delay="200"
                 data-animation-name="fadeInUpShorter"
-                style="background: #2A95CB center/cover url(images/demoes/demo4/banners/banner-4.jpg');">
+                style="background: #2A95CB center/cover url({{ asset('assets/images/demoes/demo4/banners/banner-4.jpg') }});">
                 <div class="banner-content row align-items-center mx-0">
                     <div class="col-md-9 col-sm-8">
                         <h2 class="text-white text-uppercase text-center text-sm-left ls-n-20 mb-md-0 px-4">
@@ -660,7 +663,7 @@
                                 alt="category" width="280" height="240" />
                         </figure>
                         <div class="category-content">
-                            <h3>Dress</h3>
+                            <h3>Stationery</h3>
                             <span><mark class="count">3</mark> products</span>
                         </div>
                     </a>
@@ -673,7 +676,7 @@
                                 alt="category" width="220" height="220" />
                         </figure>
                         <div class="category-content">
-                            <h3>Watches</h3>
+                            <h3>Promotional</h3>
                             <span><mark class="count">3</mark> products</span>
                         </div>
                     </a>
@@ -686,7 +689,7 @@
                                 alt="category" width="220" height="220" />
                         </figure>
                         <div class="category-content">
-                            <h3>Machine</h3>
+                            <h3>Packaging & Boxes</h3>
                             <span><mark class="count">3</mark> products</span>
                         </div>
                     </a>
@@ -699,7 +702,7 @@
                                 alt="category" width="220" height="220" />
                         </figure>
                         <div class="category-content">
-                            <h3>Sofa</h3>
+                            <h3>Event Branding</h3>
                             <span><mark class="count">3</mark> products</span>
                         </div>
                     </a>
@@ -712,7 +715,7 @@
                                 alt="category" width="220" height="220" />
                         </figure>
                         <div class="category-content">
-                            <h3>Headphone</h3>
+                            <h3>Large Printing</h3>
                             <span><mark class="count">3</mark> products</span>
                         </div>
                     </a>
@@ -725,7 +728,7 @@
                                 alt="category" width="220" height="220" />
                         </figure>
                         <div class="category-content">
-                            <h3>Sports</h3>
+                            <h3>Marketing Materials</h3>
                             <span><mark class="count">3</mark> products</span>
                         </div>
                     </a>
