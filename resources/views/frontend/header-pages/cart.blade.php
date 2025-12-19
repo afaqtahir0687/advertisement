@@ -1,18 +1,19 @@
 @extends('frontend.layouts.master')
 @section('content')
-	<main class="main">
+    <main class="main">
         <div class="container">
             <ul class="checkout-progress-bar d-flex justify-content-center flex-wrap">
                 <li class="active">
-                    <a href="{{route('cart.index')}}">Shopping Cart</a>
+                    <a href="#">Shopping Cart</a>
                 </li>
                 <li>
-                    <a href="checkout.html">Checkout</a>
+                    <a href="#">Checkout</a>
                 </li>
                 <li class="disabled">
-                    <a href="{{route('cart.index')}}">Order Complete</a>
+                    <a href="#">Order Complete</a>
                 </li>
             </ul>
+
 
             <div class="row">
                 <div class="col-lg-8">
@@ -21,10 +22,10 @@
                             <thead>
                                 <tr>
                                     <th class="thumbnail-col"></th>
-                                    <th class="product-col">Product</th>
-                                    <th class="price-col">Price</th>
-                                    <th class="qty-col">Quantity</th>
-                                    <th class="text-right">Subtotal</th>
+                                    <th class="product-col" style="font-weight: bold; font-size: 15px;">Product</th>
+                                    <th class="price-col" style="font-weight: bold; font-size: 15px;">Price</th>
+                                    <th class="qty-col" style="font-weight: bold; font-size: 15px;">Quantity</th>
+                                    <th class="text-right" style="font-weight: bold; font-size: 15px;">Subtotal</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -34,13 +35,11 @@
                                             <a href="{{ route('products.index') }}" class="product-image">
                                                 <img src="assets/images/products/product-4.jpg" alt="product">
                                             </a>
-
-                                            <a href="#" class="btn-remove icon-cancel" title="Remove Product"></a>
                                         </figure>
                                     </td>
                                     <td class="product-col">
                                         <h5 class="product-title">
-                                            <a href="{{ route('products.index') }}">Men Watch</a>
+                                            <a href="{{ route('products.index') }}" style="color: #e91d8e">Men Watch</a>
                                         </h5>
                                     </td>
                                     <td>$17.90</td>
@@ -59,12 +58,11 @@
                                                 <img src="assets/images/products/product-3.jpg" alt="product">
                                             </a>
 
-                                            <a href="#" class="btn-remove icon-cancel" title="Remove Product"></a>
                                         </figure>
                                     </td>
                                     <td class="product-col">
                                         <h5 class="product-title">
-                                            <a href="{{ route('products.index') }}">Men Watch</a>
+                                            <a href="{{ route('products.index') }}" style="color: #e91d8e">Men Watch</a>
                                         </h5>
                                     </td>
                                     <td>$17.90</td>
@@ -83,12 +81,11 @@
                                                 <img src="assets/images/products/product-6.jpg" alt="product">
                                             </a>
 
-                                            <a href="#" class="btn-remove icon-cancel" title="Remove Product"></a>
                                         </figure>
                                     </td>
                                     <td class="product-col">
                                         <h5 class="product-title">
-                                            <a href="{{ route('products.index') }}">Men Black Gentle Belt</a>
+                                            <a href="{{ route('products.index') }}" style="color: #e91d8e">Men Black Gentle Belt</a>
                                         </h5>
                                     </td>
                                     <td>$17.90</td>
@@ -131,7 +128,6 @@
                         </table>
                     </div><!-- End .cart-table-container -->
                 </div><!-- End .col-lg-8 -->
-
                 <div class="col-lg-4">
                     <div class="cart-summary">
                         <h3>CART TOTALS</h3>
@@ -140,7 +136,7 @@
                             <tbody>
                                 <tr>
                                     <td>Subtotal</td>
-                                    <td>$17.90</td>
+                                    <td>SAR 67.20</td>
                                 </tr>
 
                                 <tr>
@@ -149,51 +145,52 @@
 
                                         <div class="form-group form-group-custom-control">
                                             <div class="custom-control custom-radio">
-                                                <input type="radio" class="custom-control-input" name="radio"
-                                                    checked>
-                                                <label class="custom-control-label">Local pickup</label>
-                                            </div><!-- End .custom-checkbox -->
-                                        </div><!-- End .form-group -->
+                                                <input type="radio" class="custom-control-input" name="shipping" checked>
+                                                <label class="custom-control-label">Free Local Delivery</label>
+                                            </div>
+                                        </div>
 
                                         <div class="form-group form-group-custom-control mb-0">
                                             <div class="custom-control custom-radio mb-0">
-                                                <input type="radio" name="radio" class="custom-control-input">
-                                                <label class="custom-control-label">Flat rate</label>
-                                            </div><!-- End .custom-checkbox -->
-                                        </div><!-- End .form-group -->
+                                                <input type="radio" name="shipping" class="custom-control-input">
+                                                <label class="custom-control-label">Standard Shipping</label>
+                                            </div>
+                                        </div>
 
                                         <form action="#">
                                             <div class="form-group form-group-sm">
-                                                <label>Shipping to <strong>NY.</strong></label>
+                                                <label>Shipping to <strong>Saudi Arabia</strong></label>
                                                 <div class="select-custom">
                                                     <select class="form-control form-control-sm">
-                                                        <option value="USA">United States (US)</option>
-                                                        <option value="Turkey">Turkey</option>
-                                                        <option value="China">China</option>
-                                                        <option value="Germany">Germany</option>
+                                                        <option value="SA" selected>Saudi Arabia</option>
+                                                        <option value="UAE">United Arab Emirates</option>
+                                                        <option value="KW">Kuwait</option>
+                                                        <option value="BH">Bahrain</option>
                                                     </select>
-                                                </div><!-- End .select-custom -->
-                                            </div><!-- End .form-group -->
+                                                </div>
+                                            </div>
 
                                             <div class="form-group form-group-sm">
                                                 <div class="select-custom">
                                                     <select class="form-control form-control-sm">
-                                                        <option value="NY">New York</option>
-                                                        <option value="CA">California</option>
-                                                        <option value="TX">Texas</option>
+                                                        <option value="Riyadh">Riyadh</option>
+                                                        <option value="Jeddah">Jeddah</option>
+                                                        <option value="Dammam">Dammam</option>
+                                                        <option value="Makkah">Makkah</option>
+                                                        <option value="Madinah">Madinah</option>
                                                     </select>
-                                                </div><!-- End .select-custom -->
-                                            </div><!-- End .form-group -->
+                                                </div>
+                                            </div>
 
                                             <div class="form-group form-group-sm">
                                                 <input type="text" class="form-control form-control-sm"
-                                                    placeholder="Town / City">
-                                            </div><!-- End .form-group -->
+                                                    placeholder="District / City Area">
+                                            </div>
 
                                             <div class="form-group form-group-sm">
                                                 <input type="text" class="form-control form-control-sm"
-                                                    placeholder="ZIP">
-                                            </div><!-- End .form-group -->
+                                                    placeholder="Postal Code">
+                                            </div>
 
                                             <button type="submit" class="btn btn-shop btn-update-total">
                                                 Update Totals
@@ -206,17 +203,20 @@
                             <tfoot>
                                 <tr>
                                     <td>Total</td>
-                                    <td>$17.90</td>
+                                    <td><strong>SAR 67.20</strong></td>
                                 </tr>
                             </tfoot>
                         </table>
 
                         <div class="checkout-methods">
-                            <a href="{{route('cart.index')}}" class="btn btn-block btn-dark">Proceed to Checkout
-                                <i class="fa fa-arrow-right"></i></a>
+                            <a href="{{ route('cart.index') }}" class="btn btn-block btn-dark">
+                                Proceed to Checkout
+                                <i class="fa fa-arrow-right"></i>
+                            </a>
                         </div>
-                    </div><!-- End .cart-summary -->
-                </div><!-- End .col-lg-4 -->
+                    </div>
+                </div>
+
             </div><!-- End .row -->
         </div><!-- End .container -->
 

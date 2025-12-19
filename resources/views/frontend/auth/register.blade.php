@@ -17,7 +17,7 @@
         </div>
     </div>
 
-    <div class="container login-container">
+    <div class="container login-container mt-5">
         <div class="row justify-content-center">
             <div class="col-lg-6">
                 @if(session('success'))
@@ -49,20 +49,20 @@
                             <p class="text-center">Create your account to get started</p>
                         </div>
 
-                        <form method="POST" action="{{ route('register.store') }}">
+                        <form method="POST" action="#">
                             @csrf
                             <div class="form-group">
                                 <label for="name">
                                     Full Name
                                     <span class="text-danger">*</span>
                                 </label>
-                                <input type="text" 
-                                       class="form-control form-control-lg @error('name') is-invalid @enderror" 
-                                       id="name" 
-                                       name="name" 
-                                       value="{{ old('name') }}" 
-                                       required 
-                                       autocomplete="name" 
+                                <input type="text"
+                                       class="form-control form-control-lg @error('name') is-invalid @enderror"
+                                       id="name"
+                                       name="name"
+                                       value="{{ old('name') }}"
+                                       required
+                                       autocomplete="name"
                                        autofocus />
                                 @error('name')
                                     <span class="invalid-feedback" role="alert">
@@ -76,12 +76,12 @@
                                     Email address
                                     <span class="text-danger">*</span>
                                 </label>
-                                <input type="email" 
-                                       class="form-control form-control-lg @error('email') is-invalid @enderror" 
-                                       id="email" 
-                                       name="email" 
-                                       value="{{ old('email') }}" 
-                                       required 
+                                <input type="email"
+                                       class="form-control form-control-lg @error('email') is-invalid @enderror"
+                                       id="email"
+                                       name="email"
+                                       value="{{ old('email') }}"
+                                       required
                                        autocomplete="email" />
                                 @error('email')
                                     <span class="invalid-feedback" role="alert">
@@ -95,11 +95,11 @@
                                     Password
                                     <span class="text-danger">*</span>
                                 </label>
-                                <input type="password" 
-                                       class="form-control form-control-lg @error('password') is-invalid @enderror" 
-                                       id="password" 
-                                       name="password" 
-                                       required 
+                                <input type="password"
+                                       class="form-control form-control-lg @error('password') is-invalid @enderror"
+                                       id="password"
+                                       name="password"
+                                       required
                                        autocomplete="new-password" />
                                 @error('password')
                                     <span class="invalid-feedback" role="alert">
@@ -113,24 +113,24 @@
                                     Confirm Password
                                     <span class="text-danger">*</span>
                                 </label>
-                                <input type="password" 
-                                       class="form-control form-control-lg" 
-                                       id="password-confirm" 
-                                       name="password_confirmation" 
-                                       required 
+                                <input type="password"
+                                       class="form-control form-control-lg"
+                                       id="password-confirm"
+                                       name="password_confirmation"
+                                       required
                                        autocomplete="new-password" />
                             </div>
 
                             <div class="form-group mt-4">
-                                <button type="submit" class="btn btn-dark btn-lg btn-block">
+                                <button type="buton" class="btn btn-dark btn-lg btn-block">
                                     Create Account
                                 </button>
                             </div>
 
                             <div class="text-center mt-3">
                                 <p class="mb-0">
-                                    Already have an account? 
-                                    <a href="{{ route('login') }}" class="text-primary font-weight-bold">Sign In</a>
+                                    Already have an account?
+                                    <a href="#" class="text-primary font-weight-bold">Sign In</a>
                                 </p>
                             </div>
                         </form>

@@ -20,17 +20,17 @@
 
         <div class="container">
             <div class="wishlist-title">
-                <h2 class="p-2">My wishlist on Porto Shop 4</h2>
+                <h2 class="p-2 pt-5 mt-2">My wishlist on Porto Shop 4</h2>
             </div>
             <div class="wishlist-table-container">
                 <table class="table table-wishlist mb-0">
                     <thead>
                         <tr>
                             <th class="thumbnail-col"></th>
-                            <th class="product-col">Product</th>
-                            <th class="price-col">Price</th>
-                            <th class="status-col">Stock Status</th>
-                            <th class="action-col">Actions</th>
+                            <th class="product-col" style="font-weight: bold; font-size: 15px;">Product</th>
+                            <th class="price-col" style="font-weight: bold; font-size: 15px;">Price</th>
+                            <th class="status-col" style="font-weight: bold; font-size: 15px;">Stock Status</th>
+                            <th class="action-col" style="font-weight: bold; font-size: 15px;">Actions</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -46,7 +46,7 @@
                             </td>
                             <td>
                                 <h5 class="product-title">
-                                    <a href="{{route('products.index')}}">Men Watch</a>
+                                    <a href="{{route('products.index')}}" style="color: #e91d8e">Men Watch</a>
                                 </h5>
                             </td>
                             <td class="price-box">$17.90</td>
@@ -54,9 +54,11 @@
                                 <span class="stock-status">In stock</span>
                             </td>
                             <td class="action">
-                                <a href="ajax/product-quick-view.html" class="btn btn-quickview mt-1 mt-md-0"
-                                    title="Quick View">Quick
-                                    View</a>
+                                 <a href="ajax/product-quick-view.html"
+                                    class="btn btn-quickview mt-1 mt-md-0 quickview-btn"
+                                    title="Quick View">
+                                    Quick View
+                                </a>
                                 <button class="btn btn-dark btn-add-cart product-type-simple btn-shop">
                                     ADD TO CART
                                 </button>
@@ -75,7 +77,7 @@
                             </td>
                             <td>
                                 <h5 class="product-title">
-                                    <a href="{{route('products.index')}}">Men Cap</a>
+                                    <a href="{{route('products.index')}}" style="color: #e91d8e">Men Cap</a>
                                 </h5>
                             </td>
                             <td class="price-box">$17.90</td>
@@ -83,9 +85,11 @@
                                 <span class="stock-status">In stock</span>
                             </td>
                             <td class="action">
-                                <a href="ajax/product-quick-view.html" class="btn btn-quickview mt-1 mt-md-0"
-                                    title="Quick View">Quick
-                                    View</a>
+                                <a href="ajax/product-quick-view.html"
+                                    class="btn btn-quickview mt-1 mt-md-0 quickview-btn"
+                                    title="Quick View">
+                                    Quick View
+                                </a>
                                 <a href="{{route('products.index')}}" class="btn btn-dark btn-add-cart btn-shop">
                                     SELECT OPTION
                                 </a>
@@ -104,7 +108,7 @@
                             </td>
                             <td>
                                 <h5 class="product-title">
-                                    <a href="{{route('products.index')}}">Men Black Gentle Belt</a>
+                                    <a href="{{route('products.index')}}" style="color: #e91d8e">Men Black Gentle Belt</a>
                                 </h5>
                             </td>
                             <td class="price-box">$17.90</td>
@@ -112,9 +116,12 @@
                                 <span class="stock-status">In stock</span>
                             </td>
                             <td class="action">
-                                <a href="ajax/product-quick-view.html" class="btn btn-quickview mt-1 mt-md-0"
-                                    title="Quick View">Quick
-                                    View</a>
+                              <a href="ajax/product-quick-view.html"
+                                    class="btn btn-quickview mt-1 mt-md-0 quickview-btn"
+                                    title="Quick View">
+                                    Quick View
+                                </a>
+
                                 <a href="{{route('products.index')}}" class="btn btn-dark btn-add-cart btn-shop">
                                     SELECT OPTION
                                 </a>

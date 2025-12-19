@@ -3404,7 +3404,7 @@ a:focus {
 .count-title {
     margin-bottom: 0;
     color: #777;
-    font: 600 1.6rem/1 "Open Sans", sans-serif
+    font: 600 1.3rem/1 "Open Sans", sans-serif
 }
 
 @media (min-width:992px) {
@@ -3421,6 +3421,7 @@ a:focus {
     padding-top: 3.5rem;
     margin-bottom: 2rem;
     border: 2px solid #e7e7e7;
+    padding: 0.5rem 2rem 0rem 1rem;
 }
 
 .feature-box i {
@@ -17810,4 +17811,212 @@ select.form-control {
 
 .social-telegram {
     color: #229ed9;
+}
+
+.count-to{
+    color: #e91d8e;
+    font-weight: bold;
+}
+/* Wishlist product image size fix */
+.table-wishlist .product-image-container {
+    width: 100px;          /* increase width */
+}
+
+.table-wishlist .product-image img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+.table-wishlist img {
+    max-width: 100px !important;
+    height: auto;
+}
+/* Reduce wishlist row height */
+.table-wishlist .product-row td {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    vertical-align: middle;
+}
+
+/* Reduce image container height */
+.table-wishlist .product-image-container {
+    margin: 0;
+}
+
+/* Reduce title spacing */
+.table-wishlist .product-title {
+    margin-bottom: 4px;
+    line-height: 1.2;
+}
+
+/* Reduce button spacing */
+.table-wishlist .action .btn {
+    padding: 10px 16px;
+    font-size: 13px;
+    line-height: 1.2;
+}
+.table-wishlist .product-row td {
+    padding: 6px 8px;
+}
+
+.table-wishlist .count-title,
+.table-wishlist .stock-status {
+    font-size: 13px;
+}
+  /* Default state */
+.quickview-btn {
+    color: #333;
+    background: #f4f4f4;
+}
+
+/* Hover state */
+.quickview-btn:hover {
+    color: #e91d8e;
+    background: #f4f4f4;
+}
+
+.product-col{
+    font-weight: bold;
+    font-size: 15px;
+}
+/* ===============================
+   CART TABLE ROW HEIGHT REDUCE
+================================ */
+.table-cart .product-row td {
+    padding: 10px 8px;
+    vertical-align: middle;
+}
+
+/* ===============================
+   PRODUCT IMAGE SIZE
+================================ */
+.table-cart .product-image-container {
+    width: 90px;
+    margin: 0;
+}
+
+.table-cart .product-image img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+/* ===============================
+   PRODUCT TITLE
+================================ */
+.table-cart .product-title {
+    margin-bottom: 4px;
+    font-size: 14px;
+    line-height: 1.2;
+}
+
+/* ===============================
+   PRICE & SUBTOTAL
+================================ */
+.table-cart td,
+.table-cart .subtotal-price {
+    font-size: 14px;
+    color: #333;
+}
+
+/* ===============================
+   QUANTITY INPUT COMPACT
+================================ */
+.table-cart .product-single-qty input {
+    height: 34px;
+    padding: 4px 6px;
+    font-size: 14px;
+}
+
+/* ===============================
+   REMOVE ICON POSITION
+================================ */
+.table-cart .btn-remove {
+    top: 4px;
+    right: 4px;
+    font-size: 14px;
+}
+
+/* ===============================
+   CART FOOTER BUTTONS
+================================ */
+.table-cart .btn-update-cart,
+.cart-summary .btn-update-total {
+    padding: 8px 14px;
+    font-size: 14px;
+}
+
+.cart-summary{
+    margin-bottom: 3.6rem;
+    padding: 2.4rem 3rem 3.4rem 34px;
+    border: 2px solid #e7e7e7;
+    background: #fff;
+}
+/* ===============================
+   CART SUMMARY TABLE
+================================ */
+.table-totals td {
+    padding: 8px 6px;
+    font-size: 14px;
+}
+
+/* ===============================
+   CHECKOUT BUTTON
+================================ */
+.checkout-methods .btn {
+    padding: 12px;
+    font-size: 15px;
+}
+.checkout-progress-bar {
+    margin: 30px 0;
+}
+
+.checkout-progress-bar li {
+    display: inline-block;
+    position: relative;
+    padding: 0 2.5rem;
+    color: #999;
+    font-family: Poppins, sans-serif;
+    font-size: 1.6rem;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    text-align: center;
+}
+.checkout-progress-bar li {
+    color: #e91d8e;
+}
+.checkout-progress-bar li.active,
+.checkout-progress-bar li.active a {
+    color: #e91d8e;
+}
+
+.checkout-progress-bar li a {
+    color: #999;
+    text-decoration: none;
+}
+
+.checkout-progress-bar li.active {
+    color: #222;
+}
+
+.checkout-progress-bar li.disabled {
+    color: #ccc;
+    pointer-events: none;
+}
+
+/* Arrow between steps */
+.checkout-progress-bar li:not(:first-child)::before {
+    content: "\e81a";
+    font-family: "porto";
+    position: absolute;
+    left: -1.6rem;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 2.2rem;
+    color: #ccc;
+}
+
+/* Arrow active color */
+.checkout-progress-bar li.active::before {
+    color: #222;
 }

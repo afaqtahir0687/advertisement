@@ -17,7 +17,7 @@
         </div>
     </div>
 
-    <div class="container login-container">
+    <div class="container login-container mt-5">
         <div class="row justify-content-center">
             <div class="col-lg-6">
                 @if(session('success'))
@@ -56,13 +56,13 @@
                                     Order Number
                                     <span class="text-danger">*</span>
                                 </label>
-                                <input type="text" 
-                                       class="form-control form-control-lg @error('order_number') is-invalid @enderror" 
-                                       id="order_number" 
-                                       name="order_number" 
-                                       value="{{ old('order_number') }}" 
-                                       required 
-                                       autocomplete="off" 
+                                <input type="text"
+                                       class="form-control form-control-lg @error('order_number') is-invalid @enderror"
+                                       id="order_number"
+                                       name="order_number"
+                                       value="{{ old('order_number') }}"
+                                       required
+                                       autocomplete="off"
                                        autofocus  placeholder="CL-0001"/>
                                 @error('order_number')
                                     <span class="invalid-feedback" role="alert">
@@ -76,12 +76,12 @@
                                     Email Address
                                     <span class="text-danger">*</span>
                                 </label>
-                                <input type="email" 
-                                       class="form-control form-control-lg @error('email') is-invalid @enderror" 
-                                       id="email" 
-                                       name="email" 
-                                       value="{{ old('email') }}" 
-                                       required 
+                                <input type="email"
+                                       class="form-control form-control-lg @error('email') is-invalid @enderror"
+                                       id="email"
+                                       name="email"
+                                       value="{{ old('email') }}"
+                                       required
                                        autocomplete="email" placeholder="Email"/>
                                 @error('email')
                                     <span class="invalid-feedback" role="alert">
