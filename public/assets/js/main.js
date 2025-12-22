@@ -215,7 +215,7 @@
 
 				var newDate;
 
-				// Split and created again for ie and edge 
+				// Split and created again for ie and edge
 				if ( !$this.data( 'relative' ) ) {
 					var untilDateArr = untilDate.split( ", " ), // data-until 2019, 10, 8 - yy,mm,dd
 						newDate = new Date( untilDateArr[ 0 ], untilDateArr[ 1 ] - 1, untilDateArr[ 2 ] );
@@ -1979,19 +1979,20 @@
 			} )
 		},
 
-		initPurchasedMinipopup: function () {
-			if ( $( '.product-single' ).length || $( '.main-content' ).length ) {
-				setInterval( function () {
-					Porto.miniPopup.open( {
-						name: 'Mobile Speaker',
-						nameLink: 'product.html',
-						imageSrc: 'assets/images/products/small/product-1.jpg',
-						content: 'Someone Purchased',
-						action: '<span class="text-primary" style="font-size: 11px;">12 MINUTES AGO</span>',
-					} );
-				}, 60000 );
-			}
-		},
+            initPurchasedMinipopup: function () {
+            if ( $('.product-single').length || $('.main-content').length ) {
+                setInterval(function () {
+                    Porto.miniPopup.open({
+                        name: 'Postcard Printing',
+                        nameLink: '#',
+                        imageSrc: '<img src="assets/images/products/product-3.jpg" width="75" height="75" alt="product">',
+                        content: 'Someone Purchased',
+                        action: '<span class="text-primary" style="font-size: 11px;">12 MINUTES AGO</span>',
+                    });
+                }, 60000);
+            }
+        },
+
 		initJqueryParallax: function () {
 			$( '.home-slider ul.scene' ).parallax();
 			$( '.bg-parallax ul.scene' ).parallax();

@@ -6,7 +6,7 @@
                 <nav aria-label="breadcrumb" class="breadcrumb-nav">
                     <div class="container">
                         <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="demo4.html">Home</a></li>
+                            <li class="breadcrumb-item"><a href="#">Home</a></li>
                             <li class="breadcrumb-item active" aria-current="page">
                                 Wishlist
                             </li>
@@ -20,7 +20,7 @@
 
         <div class="container">
             <div class="wishlist-title">
-                <h2 class="p-2 pt-5 mt-2">My wishlist on Porto Shop 4</h2>
+                <h2 class="p-2 pt-5 mt-2">My Wishlist: Favorite Printing Services & Products</h2>
             </div>
             <div class="wishlist-table-container">
                 <table class="table table-wishlist mb-0">
@@ -54,7 +54,7 @@
                                 <span class="stock-status">In stock</span>
                             </td>
                             <td class="action">
-                                 <a href="ajax/product-quick-view.html"
+                                 <a href="#"
                                     class="btn btn-quickview mt-1 mt-md-0 quickview-btn"
                                     title="Quick View">
                                     Quick View
@@ -85,7 +85,7 @@
                                 <span class="stock-status">In stock</span>
                             </td>
                             <td class="action">
-                                <a href="ajax/product-quick-view.html"
+                                <a href="#"
                                     class="btn btn-quickview mt-1 mt-md-0 quickview-btn"
                                     title="Quick View">
                                     Quick View
@@ -116,7 +116,7 @@
                                 <span class="stock-status">In stock</span>
                             </td>
                             <td class="action">
-                              <a href="ajax/product-quick-view.html"
+                              <a href="#"
                                     class="btn btn-quickview mt-1 mt-md-0 quickview-btn"
                                     title="Quick View">
                                     Quick View

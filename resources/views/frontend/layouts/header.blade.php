@@ -91,7 +91,7 @@
 
                 <div class="header-contact d-none d-lg-flex pl-4 pr-4">
                     <img alt="phone" src="{{ asset('assets/images/phone.png') }}" width="30" height="30" class="pb-1">
-                    <h6><span>Call us now</span><a href="tel:#" class="text-dark font1">+966 50 345 7554</a></h6>
+                    <h6><span>Call us now</span><a href="tel:#" class="text-dark font1">+966557834154</a></h6>
                 </div>
 
                 <a href="#" class="header-icon" title="login"><i class="icon-user-2"></i></a>
@@ -116,7 +116,7 @@
                                 <div class="product">
                                     <div class="product-details">
                                         <h4 class="product-title">
-                                            <a href="#">Ultimate 3D Bluetooth Speaker</a>
+                                            <a href="#">Business Card Front & Back</a>
                                         </h4>
 
                                         <span class="cart-product-info">
@@ -137,7 +137,7 @@
                                 <div class="product">
                                     <div class="product-details">
                                         <h4 class="product-title">
-                                            <a href="#">Brown Women Casual HandBag</a>
+                                            <a href="#">Professional Roll up Banner Design</a>
                                         </h4>
 
                                         <span class="cart-product-info">
@@ -158,7 +158,7 @@
                                 <div class="product">
                                     <div class="product-details">
                                         <h4 class="product-title">
-                                            <a href="#">Circled Ultimate 3D Speaker</a>
+                                            <a href="#">Postcard Printing</a>
                                         </h4>
 
                                         <span class="cart-product-info">

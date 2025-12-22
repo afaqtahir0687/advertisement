@@ -3357,7 +3357,7 @@ a:focus {
 }
 
 .card.card-accordion .card-header.collapsed:after {
-    content: "";
+    /*content: "";*/
     transition: 0.35s
 }
 
@@ -5545,7 +5545,7 @@ label {
     transform: translateY(-50%);
     font-family: "porto";
     font-size: 1.6rem;
-    content: "";
+    /*content: "";*/
     padding-bottom: 2px;
     font-weight: 400
 }
@@ -11762,7 +11762,7 @@ header .separator {
 }
 
 .header-dropdown>a:after {
-    content: "";
+    /*content: "";*/
     font-family: "porto";
     font-weight: 400;
     margin-left: 0.5rem
@@ -12490,7 +12490,7 @@ header .separator {
 }
 
 .menu.sf-arrows>li>.sf-with-ul:after {
-    content: "";
+    /*content: "";*/
     position: static;
     margin-left: 5px;
     font-weight: 400

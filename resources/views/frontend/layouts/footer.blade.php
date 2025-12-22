@@ -10,7 +10,7 @@
                                         <span class="contact-info-label">Address:</span>Al-Salihiyah District, Arbaeen Street, Riyadh KSA
                                     </li>
                                     <li>
-                                        <span class="contact-info-label">Phone:</span><a href="tel:">+9667834154</a>
+                                        <span class="contact-info-label">Phone:</span><a href="tel:">+966557834154</a>
                                     </li>
                                     <li>
                                         <span class="contact-info-label">Email:</span> <a href="mailto:sale@crelogices.com">sale@crelogices.com</a>
@@ -98,7 +98,7 @@
                 <div class="footer-bottom">
                     <div class="container d-sm-flex align-items-center">
                         <div class="footer-left">
-                            <span class="footer-copyright">© New Sign Advertising. 2025. All Rights Reserved</span>
+                            <span class="footer-copyright">© Crelogics. 2025. All Rights Reserved</span>
                         </div>
 
                         <div class="footer-right ml-auto mt-1 mt-sm-0">

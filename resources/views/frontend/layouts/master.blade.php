@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <title>New Sign Advertising</title>
+    <title>Crelogics</title>
 
     <meta name="keywords" content="HTML5 Template" />
     <meta name="description" content="Porto - Bootstrap eCommerce Template">
@@ -253,7 +253,7 @@
         </div>
     </div>
 
-    <!-- <div class="newsletter-popup mfp-hide bg-img" id="newsletter-popup-form" style="background: #f1f1f1 no-repeat center/cover url(assets/images/newsletter_popup_bg.jpg)">
+    <div class="newsletter-popup mfp-hide bg-img" id="newsletter-popup-form" style="background: #f1f1f1 no-repeat center/cover url(assets/images/newsletter_popup_bg.jpg)">
         <div class="newsletter-popup-content">
             <img src="assets/images/logo.png" width="111" height="44" alt="Logo" class="logo-newsletter">
             <h2>Subscribe to newsletter</h2>
@@ -281,7 +281,7 @@
         <button title="Close (Esc)" type="button" class="mfp-close">
 			×
 		</button>
-    </div> -->
+    </div>
     <!-- End .newsletter-popup -->
 
     <a id="scroll-top" href="#top" title="Top" role="button"><i class="icon-angle-up"></i></a>
