@@ -1,12 +1,15 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="{{ app()->getLocale() }}"
+      dir="{{ app()->getLocale() == 'ar' ? 'rtl' : 'ltr' }}">
+
+
 
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <title>Crelogics</title>
+        <title>{{ __('messages.site_title') }}</title>
 
     <meta name="keywords" content="HTML5 Template" />
     <meta name="description" content="Porto - Bootstrap eCommerce Template">
@@ -42,13 +45,18 @@
 <body>
     <div class="page-wrapper">
         <div class="top-notice bg-primary text-white">
-            <div class="container text-center">
-                <h5 class="d-inline-block">Get Up to <b>40% OFF</b> Happy New Year</h5>
-                <a href="#" class="category">Business</a>
-                <a href="#" class="category ml-2 mr-3">Cards</a>
-                <small>* Limited time only.</small>
-                <button title="Close (Esc)" type="button" class="mfp-close">×</button>
-            </div>
+           <div class="container text-center">
+    <h5 class="d-inline-block">
+        {{ __('messages.top_offer') }} <b>40%</b> {{ __('messages.happy_new_year') }}
+    </h5>
+
+    <a href="#" class="category">{{ __('messages.business') }}</a>
+    <a href="#" class="category ml-2 mr-3">{{ __('messages.cards') }}</a>
+    <small>* {{ __('messages.limited_time') }}</small>
+
+    <button title="Close (Esc)" type="button" class="mfp-close">×</button>
+</div>
+
             <!-- End .container -->
         </div>
         <!-- End .top-notice -->

@@ -2,11 +2,16 @@
     <div class="header-top">
         <div class="container">
             <div class="header-left d-none d-sm-block">
-                <p class="top-message text-uppercase">FREE Returns. Standard Shipping Orders $99+</p>
+                <p class="top-message text-uppercase">
+    {{ __('messages.free_returns') }}
+</p>
+
             </div>
             <div class="header-right header-dropdowns ml-0 ml-sm-auto w-sm-100">
                 <div class="header-dropdown dropdown-expanded d-none d-lg-block">
-                    <a href="#">Links</a>
+               
+                    <a href="#">{{ __('messages.links') }}</a>
+
                     <div class="header-menu">
                         <ul>
                             <li><a href="{{route('dashboard')}}">My Account</a></li>
@@ -20,17 +25,40 @@
                     </div>
                 </div>
                 <span class="separator"></span>
-                <div class="header-dropdown">
-                    <a href="#"><i class="flag-us flag"></i>ENG</a>
-                    <div class="header-menu">
-                        <ul>
-                            <li><a href="#"><i class="flag-us flag mr-2"></i>English</a>
-                            </li>
-                            <li><a href="#"><i class="flag-sa flag mr-2"></i>العربية</a></li>
-                            <li><a href="#"><i class="flag-pk flag mr-2"></i>اردو</a></li>
-                        </ul>
-                    </div>
-                </div>
+              <div class="header-dropdown">
+    <a href="#">
+        @if(app()->getLocale() == 'ar')
+            <i class="flag-sa flag"></i> العربية
+        @elseif(app()->getLocale() == 'ur')
+            <i class="flag-pk flag"></i> اردو
+        @else
+            <i class="flag-us flag"></i> ENG
+        @endif
+    </a>
+
+    <div class="header-menu">
+        <ul>
+            <li>
+                <a href="{{ route('lang.switch', 'en') }}">
+                    <i class="flag-us flag mr-2"></i> English
+                </a>
+            </li>
+
+            <li>
+                <a href="{{ route('lang.switch', 'ar') }}">
+                    <i class="flag-sa flag mr-2"></i> العربية
+                </a>
+            </li>
+
+            <li>
+                <a href="{{ route('lang.switch', 'ur') }}">
+                    <i class="flag-pk flag mr-2"></i> اردو
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>
+
 
                 <div class="header-dropdown mr-auto mr-sm-3 mr-md-0">
                     <a href="#">USD</a>
@@ -200,10 +228,14 @@
                 <ul class="menu">
                     <li class="active">
                         <a href="{{ route('category.index') }}">Categories</a>
+                        <h3>{{ __('messages.categories') }}</h3>
+
                         <div class="megamenu megamenu-fixed-width megamenu-3cols">
                             <div class="row">
                                 <div class="col-lg-4">
                                     <a href="#" class="nolink">Categories</a>
+                                    <h3>{{ __('messages.categories') }}</h3>
+
                                     <ul class="submenu">
                                         <li><a href="{{ route('category.index') }}">Categories</a></li>
                                     </ul>
