@@ -8,29 +8,29 @@
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="#">Home</a></li>
                             <li class="breadcrumb-item active" aria-current="page">
-                                Wishlist
+                                {{ __('messages.wishlist') }}
                             </li>
                         </ol>
                     </div>
                 </nav>
 
-                <h1>Wishlist</h1>
+                <h1>{{ __('messages.wishlist') }}</h1>
             </div>
         </div>
 
         <div class="container">
             <div class="wishlist-title">
-                <h2 class="p-2 pt-5 mt-2">My Wishlist: Favorite Printing Services & Products</h2>
+                <h2 class="p-2 pt-5 mt-2">{{ __('messages.my_wishlist_subtitle') }}</h2>
             </div>
             <div class="wishlist-table-container">
                 <table class="table table-wishlist mb-0">
                     <thead>
                         <tr>
                             <th class="thumbnail-col"></th>
-                            <th class="product-col" style="font-weight: bold; font-size: 15px;">Product</th>
-                            <th class="price-col" style="font-weight: bold; font-size: 15px;">Price</th>
-                            <th class="status-col" style="font-weight: bold; font-size: 15px;">Stock Status</th>
-                            <th class="action-col" style="font-weight: bold; font-size: 15px;">Actions</th>
+                            <th class="product-col" style="font-weight: bold; font-size: 15px;">{{ __('messages.product') }}</th>
+                            <th class="price-col" style="font-weight: bold; font-size: 15px;">{{ __('messages.price') }}</th>
+                            <th class="status-col" style="font-weight: bold; font-size: 15px;">{{ __('messages.stock_status') }}</th>
+                            <th class="action-col" style="font-weight: bold; font-size: 15px;">{{ __('messages.actions') }}</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -41,7 +41,7 @@
                                         <img src="assets/images/products/product-4.jpg" alt="product">
                                     </a>
 
-                                    <a href="#" class="btn-remove icon-cancel" title="Remove Product"></a>
+                                    <a href="#" class="btn-remove icon-cancel" title="{{ __('messages.remove_product') }}"></a>
                                 </figure>
                             </td>
                             <td>
@@ -51,16 +51,16 @@
                             </td>
                             <td class="price-box">$17.90</td>
                             <td>
-                                <span class="stock-status">In stock</span>
+                                <span class="stock-status">{{ __('messages.in_stock') }}</span>
                             </td>
                             <td class="action">
                                  <a href="#"
                                     class="btn btn-quickview mt-1 mt-md-0 quickview-btn"
-                                    title="Quick View">
-                                    Quick View
+                                    title="{{ __('messages.quick_view') }}">
+                                    {{ __('messages.quick_view') }}
                                 </a>
                                 <button class="btn btn-dark btn-add-cart product-type-simple btn-shop">
-                                    ADD TO CART
+                                    {{ __('messages.add_to_cart') }}
                                 </button>
                             </td>
                         </tr>
@@ -72,7 +72,7 @@
                                         <img src="assets/images/products/product-5.jpg" alt="product">
                                     </a>
 
-                                    <a href="#" class="btn-remove icon-cancel" title="Remove Product"></a>
+                                    <a href="#" class="btn-remove icon-cancel" title="{{ __('messages.remove_product') }}"></a>
                                 </figure>
                             </td>
                             <td>
@@ -82,16 +82,16 @@
                             </td>
                             <td class="price-box">$17.90</td>
                             <td>
-                                <span class="stock-status">In stock</span>
+                                <span class="stock-status">{{ __('messages.in_stock') }}</span>
                             </td>
                             <td class="action">
                                 <a href="#"
                                     class="btn btn-quickview mt-1 mt-md-0 quickview-btn"
-                                    title="Quick View">
-                                    Quick View
+                                    title="{{ __('messages.quick_view') }}">
+                                    {{ __('messages.quick_view') }}
                                 </a>
                                 <a href="{{route('products.index')}}" class="btn btn-dark btn-add-cart btn-shop">
-                                    SELECT OPTION
+                                    {{ __('messages.select_option') }}
                                 </a>
                             </td>
                         </tr>
@@ -103,7 +103,7 @@
                                         <img src="assets/images/products/product-6.jpg" alt="product">
                                     </a>
 
-                                    <a href="#" class="btn-remove icon-cancel" title="Remove Product"></a>
+                                    <a href="#" class="btn-remove icon-cancel" title="{{ __('messages.remove_product') }}"></a>
                                 </figure>
                             </td>
                             <td>
@@ -113,17 +113,17 @@
                             </td>
                             <td class="price-box">$17.90</td>
                             <td>
-                                <span class="stock-status">In stock</span>
+                                <span class="stock-status">{{ __('messages.in_stock') }}</span>
                             </td>
                             <td class="action">
                               <a href="#"
                                     class="btn btn-quickview mt-1 mt-md-0 quickview-btn"
-                                    title="Quick View">
-                                    Quick View
+                                    title="{{ __('messages.quick_view') }}">
+                                    {{ __('messages.quick_view') }}
                                 </a>
 
                                 <a href="{{route('products.index')}}" class="btn btn-dark btn-add-cart btn-shop">
-                                    SELECT OPTION
+                                    {{ __('messages.select_option') }}
                                 </a>
                             </td>
                         </tr>

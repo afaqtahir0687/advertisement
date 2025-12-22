@@ -5,15 +5,15 @@
             <nav aria-label="breadcrumb" class="breadcrumb-nav">
                 <div class="container">
                     <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="{{ route('home') }}">Home</a></li>
-                        <li class="breadcrumb-item"><a href="{{ route('login') }}">Login</a></li>
+                        <li class="breadcrumb-item"><a href="{{ route('home') }}">{{ __('messages.home') }}</a></li>
+                        <li class="breadcrumb-item"><a href="{{ route('login') }}">{{ __('messages.login') }}</a></li>
                         <li class="breadcrumb-item active" aria-current="page">
-                            Register
+                            {{ __('messages.register') }}
                         </li>
                     </ol>
                 </div>
             </nav>
-            <h1>Create an Account</h1>
+            <h1>{{ __('messages.create_account') }}</h1>
         </div>
     </div>
 
@@ -45,15 +45,15 @@
                 <div class="card shadow-sm">
                     <div class="card-body p-4">
                         <div class="heading mb-4">
-                            <h2 class="title text-center mb-3">Register</h2>
-                            <p class="text-center">Create your account to get started</p>
+                            <h2 class="title text-center mb-3">{{ __('messages.register') }}</h2>
+                            <p class="text-center">{{ __('messages.create_account_intro') }}</p>
                         </div>
 
                         <form method="POST" action="{{ route('register.store') }}">
                             @csrf
                             <div class="form-group">
                                 <label for="name">
-                                    Full Name
+                                    {{ __('messages.full_name') }}
                                     <span class="text-danger">*</span>
                                 </label>
                                 <input type="text" 
@@ -73,7 +73,7 @@
 
                             <div class="form-group">
                                 <label for="email">
-                                    Email address
+                                    {{ __('messages.email_address') }}
                                     <span class="text-danger">*</span>
                                 </label>
                                 <input type="email" 
@@ -92,7 +92,7 @@
 
                             <div class="form-group">
                                 <label for="password">
-                                    Password
+                                    {{ __('messages.password') }}
                                     <span class="text-danger">*</span>
                                 </label>
                                 <input type="password" 
@@ -110,7 +110,7 @@
 
                             <div class="form-group">
                                 <label for="password-confirm">
-                                    Confirm Password
+                                    {{ __('messages.confirm_password') }}
                                     <span class="text-danger">*</span>
                                 </label>
                                 <input type="password" 
@@ -123,14 +123,14 @@
 
                             <div class="form-group mt-4">
                                 <button type="submit" class="btn btn-dark btn-lg btn-block">
-                                    Create Account
+                                    {{ __('messages.create_account') }}
                                 </button>
                             </div>
 
                             <div class="text-center mt-3">
                                 <p class="mb-0">
-                                    Already have an account? 
-                                    <a href="{{ route('login') }}" class="text-primary font-weight-bold">Sign In</a>
+                                    {{ __('messages.already_have_account') }} 
+                                    <a href="{{ route('login') }}" class="text-primary font-weight-bold">{{ __('messages.sign_in') }}</a>
                                 </p>
                             </div>
                         </form>

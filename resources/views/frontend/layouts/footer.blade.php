@@ -4,19 +4,19 @@
                     <div class="row">
                         <div class="col-lg-3 col-sm-6">
                             <div class="widget">
-                                <h4 class="widget-title">Contact Info</h4>
+                                <h4 class="widget-title">{{ __('messages.contact_info') }}</h4>
                                 <ul class="contact-info">
                                     <li>
-                                        <span class="contact-info-label">Address:</span>Al-Salihiyah District, Arbaeen Street, Riyadh KSA
+                                        <span class="contact-info-label">{{ __('messages.address_label') }}</span>Al-Salihiyah District, Arbaeen Street, Riyadh KSA
                                     </li>
                                     <li>
-                                        <span class="contact-info-label">Phone:</span><a href="tel:">+966557834154</a>
+                                        <span class="contact-info-label">{{ __('messages.phone_label') }}</span><a href="tel:">+966557834154</a>
                                     </li>
                                     <li>
-                                        <span class="contact-info-label">Email:</span> <a href="mailto:sale@crelogices.com">sale@crelogices.com</a>
+                                        <span class="contact-info-label">{{ __('messages.email_label') }}</span> <a href="mailto:sale@crelogices.com">sale@crelogices.com</a>
                                     </li>
                                     <li>
-                                        <span class="contact-info-label">Working Days/Hours:</span> Saturday - Thursday / 9:00 AM - 9:00 PM
+                                        <span class="contact-info-label">{{ __('messages.working_days_label') }}</span> Saturday - Thursday / 9:00 AM - 9:00 PM
                                     </li>
                                 </ul>
                                 <div class="social-icons">
@@ -32,7 +32,7 @@
 
                         <div class="col-lg-3 col-sm-6">
                             <div class="widget">
-                                <h4 class="widget-title">Customer Service</h4>
+                                <h4 class="widget-title">{{ __('messages.customer_service') }}</h4>
 
                                 <ul class="links">
                                     <li><a href="#">Help & FAQs</a></li>
@@ -53,7 +53,7 @@
 
                         <div class="col-lg-3 col-sm-6">
                             <div class="widget">
-                                <h4 class="widget-title">Popular Tags</h4>
+                                <h4 class="widget-title">{{ __('messages.popular_tags') }}</h4>
 
                                 <div class="tagcloud">
                                     <a href="#">Business Cards</a>
@@ -75,13 +75,13 @@
 
                         <div class="col-lg-3 col-sm-6">
                             <div class="widget widget-newsletter">
-                                <h4 class="widget-title">Subscribe newsletter</h4>
-                                <p>Get all the latest information on events, sales and offers. Sign up for newsletter:
+                                <h4 class="widget-title">{{ __('messages.subscribe_newsletter') }}</h4>
+                                <p>{{ __('messages.subscribe_text') }}
                                 </p>
                                 <form action="#" class="mb-0">
-                                    <input type="email" class="form-control m-b-3" placeholder="Email address" required>
+                                    <input type="email" class="form-control m-b-3" placeholder="{{ __('messages.email_placeholder') }}" required>
 
-                                    <input type="submit" class="btn btn-primary shadow-none" value="Subscribe">
+                                    <input type="submit" class="btn btn-primary shadow-none" value="{{ __('messages.subscribe_btn') }}">
                                 </form>
                             </div>
                             <!-- End .widget -->
@@ -98,7 +98,7 @@
                 <div class="footer-bottom">
                     <div class="container d-sm-flex align-items-center">
                         <div class="footer-left">
-                            <span class="footer-copyright">© Crelogics. 2025. All Rights Reserved</span>
+                            <span class="footer-copyright">{{ __('messages.copyright') }}</span>
                         </div>
 
                         <div class="footer-right ml-auto mt-1 mt-sm-0">

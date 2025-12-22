@@ -8,12 +8,12 @@
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a href="{{ url('/') }}">Home</a></li>
                         <li class="breadcrumb-item active" aria-current="page">
-                            Track Order
+                            {{ __('messages.track_order') }}
                         </li>
                     </ol>
                 </div>
             </nav>
-            <h1>Track Your Order</h1>
+            <h1>{{ __('messages.track_order_title') }}</h1>
         </div>
     </div>
 
@@ -45,15 +45,15 @@
                 <div class="card shadow-sm">
                     <div class="card-body p-4">
                         <div class="heading mb-4">
-                            <h2 class="title text-center mb-3">Track Your Order</h2>
-                            <p class="text-center">Enter your order details to check the status</p>
+                            <h2 class="title text-center mb-3">{{ __('messages.track_order_title') }}</h2>
+                            <p class="text-center">{{ __('messages.track_order_intro') }}</p>
                         </div>
 
                         <form method="POST" action="{{ route('track.order') }}">
                             @csrf
                             <div class="form-group">
                                 <label for="order_number">
-                                    Order Number
+                                    {{ __('messages.order_number') }}
                                     <span class="text-danger">*</span>
                                 </label>
                                 <input type="text" 
@@ -73,7 +73,7 @@
 
                             <div class="form-group">
                                 <label for="email">
-                                    Email Address
+                                    {{ __('messages.email_address') }}
                                     <span class="text-danger">*</span>
                                 </label>
                                 <input type="email" 
@@ -82,7 +82,7 @@
                                        name="email" 
                                        value="{{ old('email') }}" 
                                        required 
-                                       autocomplete="email" placeholder="Email"/>
+                                       autocomplete="email" placeholder="{{ __('messages.email_address') }}"/>
                                 @error('email')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -92,7 +92,7 @@
 
                             <div class="form-group mt-4">
                                 <button type="submit" class="btn btn-dark btn-lg btn-block">
-                                    Track Order
+                                    {{ __('messages.track_btn') }}
                                 </button>
                             </div>
                         </form>
@@ -107,23 +107,23 @@
                 <div class="card shadow-sm">
                     <div class="card-body p-4">
                         <div class="heading mb-4">
-                            <h2 class="title text-center mb-3">Order Details</h2>
+                            <h2 class="title text-center mb-3">{{ __('messages.order_details') }}</h2>
                         </div>
                         <div class="table-responsive">
                             <table class="table table-bordered table-hover">
                                 <thead class="thead-light">
                                     <tr>
-                                        <th>Products</th>
-                                        <th>Order Date</th>
-                                        <th>Shipped To</th>
-                                        <th>Order Number</th>
+                                        <th>{{ __('messages.products') }}</th>
+                                        <th>{{ __('messages.order_date') }}</th>
+                                        <th>{{ __('messages.shipped_to') }}</th>
+                                        <th>{{ __('messages.order_number') }}</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <tr>
                                         <td colspan="4" class="text-center py-4">
                                             <i class="icon-info-circle mr-2"></i>
-                                            Enter your order details to track
+                                            {{ __('messages.enter_order_details') }}
                                         </td>
                                     </tr>
                                 </tbody>

@@ -4,9 +4,9 @@
         <div class="page-header page-header-bg text-left"
             style="background: 50%/cover #D4E1EA url('assets/images/page-header-bg.jpg');">
             <div class="container">
-                <h1><span class="font-size: 22px;">ABOUT US</span>
-                  <br>   OUR COMPANY</h1>
-                <a href="#" class="btn btn-dark">Contact</a>
+                <h1><span class="font-size: 22px;">{{ __('messages.about_us') }}</span>
+                  <br>   {{ __('messages.our_company') }}</h1>
+                <a href="#" class="btn btn-dark">{{ __('messages.contact') }}</a>
             </div><!-- End .container -->
         </div><!-- End .page-header -->
 
@@ -14,40 +14,33 @@
             <div class="container">
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="#"><i class="icon-home"></i></a></li>
-                    <li class="breadcrumb-item active" aria-current="page">About Us</li>
+                    <li class="breadcrumb-item active" aria-current="page">{{ __('messages.about_us') }}</li>
                 </ol>
             </div><!-- End .container -->
         </nav>
 
         <div class="about-section">
             <div class="container">
-                <h2 class="subtitle">OUR STORY</h2>
-                <p>Founded in 2015, our company has been committed to delivering high-quality products and exceptional
-                    customer service to clients worldwide. With a passion for innovation and excellence, we specialize in
-                    offering a wide range of fashion, lifestyle, and technology products that cater to diverse customer
-                    needs. Our team of dedicated professionals works tirelessly to ensure every product meets the highest
-                    standards of quality, style, and sustainability.</p>
+                <h2 class="subtitle">{{ __('messages.our_story') }}</h2>
+                <p>{{ __('messages.about_us_story_1') }}</p>
 
-                <p>At our core, we believe in building lasting relationships with our customers by providing transparent,
-                    reliable, and personalized service. We continuously strive to improve our offerings, embrace
-                    cutting-edge trends, and adapt to the evolving market to bring the best experience to our clients.</p>
+                <p>{{ __('messages.about_us_story_2') }}</p>
 
-                <p class="lead">“Our mission is to make quality and style accessible to everyone, while maintaining
-                    integrity, trust, and a customer-first approach in everything we do.”</p>
+                <p class="lead">{{ __('messages.about_us_mission') }}</p>
 
             </div><!-- End .container -->
         </div><!-- End .about-section -->
 
         <div class="features-section bg-gray pt-5 mt-5">
             <div class="container">
-                <h2 class="subtitle">WHY CHOOSE US</h2>
+                <h2 class="subtitle">{{ __('messages.why_choose_us') }}</h2>
                 <div class="row">
                     <div class="col-lg-4">
                         <div class="feature-box bg-white">
                             <i class="icon-shipped"></i>
 
                             <div class="feature-box-content p-0">
-                                <h3>Free Shipping</h3>
+                                <h3>{{ __('messages.free_shipping') }}</h3>
                                 <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
                                     Ipsum has been the industr.</p>
                             </div><!-- End .feature-box-content -->
@@ -59,7 +52,7 @@
                             <i class="icon-us-dollar"></i>
 
                             <div class="feature-box-content p-0">
-                                <h3>100% Money Back Guarantee</h3>
+                                <h3>{{ __('messages.money_back_guarantee') }}</h3>
                                 <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
                                     Ipsum has been the industr.</p>
                             </div><!-- End .feature-box-content -->
@@ -71,7 +64,7 @@
                             <i class="icon-online-support"></i>
 
                             <div class="feature-box-content p-0">
-                                <h3>Online Support 24/7</h3>
+                                <h3>{{ __('messages.online_support') }}</h3>
                                 <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
                                     Ipsum has been the industr.</p>
                             </div><!-- End .feature-box-content -->
@@ -83,7 +76,7 @@
 
         <div class="testimonials-section pt-5 mt-3">
             <div class="container">
-                <h2 class="subtitle text-center">HAPPY CLIENTS</h2>
+                <h2 class="subtitle text-center">{{ __('messages.happy_clients') }}</h2>
 
                 <div class="testimonials-carousel owl-carousel owl-theme images-left"
                     data-owl-options="{
@@ -165,7 +158,7 @@
                             <span class="count-to" data-from="0" data-to="200" data-speed="2000"
                                 data-refresh-interval="50">200+</span>
                         </div><!-- End .count-wrapper -->
-                        <h4 class="count-title">MILLION CUSTOMERS</h4>
+                        <h4 class="count-title">{{ __('messages.million_customers') }}</h4>
                     </div><!-- End .col-md-4 -->
 
                     <div class="col count-container">
@@ -173,15 +166,15 @@
                             <span class="count-to" data-from="0" data-to="1800" data-speed="2000"
                                 data-refresh-interval="50">1800+</span>
                         </div><!-- End .count-wrapper -->
-                        <h4 class="count-title">TEAM MEMBERS</h4>
+                        <h4 class="count-title">{{ __('messages.team_members') }}</h4>
                     </div><!-- End .col-md-4 -->
 
                     <div class="col count-container">
                         <div class="count-wrapper line-height-1">
                             <span class="count-to" data-from="0" data-to="24" data-speed="2000"
-                                data-refresh-interval="50">24 HR</span>
+                                data-refresh-interval="50">{{ __('messages.hours_24') }}</span>
                         </div><!-- End .count-wrapper -->
-                        <h4 class="count-title">SUPPORT AVAILABLE</h4>
+                        <h4 class="count-title">{{ __('messages.support_available') }}</h4>
                     </div><!-- End .col-md-4 -->
 
                     <div class="col count-container">
@@ -189,7 +182,7 @@
                             <span class="count-to" data-from="0" data-to="265" data-speed="2000"
                                 data-refresh-interval="50">265+</span>
                         </div><!-- End .count-wrapper -->
-                        <h4 class="count-title">SUPPORT AVAILABLE</h4>
+                        <h4 class="count-title">{{ __('messages.support_available') }}</h4>
                     </div><!-- End .col-md-4 -->
 
                     <div class="col count-container">
@@ -197,7 +190,7 @@
                             <span class="count-to" data-from="0" data-to="99" data-speed="2000"
                                 data-refresh-interval="50">99%</span>
                         </div><!-- End .count-wrapper -->
-                        <h4 class="count-title">SUPPORT AVAILABLE</h4>
+                        <h4 class="count-title">{{ __('messages.support_available') }}</h4>
                     </div><!-- End .col-md-4 -->
                 </div><!-- End .row -->
             </div><!-- End .container -->

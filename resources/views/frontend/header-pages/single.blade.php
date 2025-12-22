@@ -5,7 +5,7 @@
             <div class="container">
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="demo4.html"><i class="icon-home"></i></a></li>
-                    <li class="breadcrumb-item active" aria-current="page">Blog Post</li>
+                    <li class="breadcrumb-item active" aria-current="page">{{ __('messages.blog_post') }}</li>
                 </ol>
             </div><!-- End .container -->
         </nav>
@@ -27,7 +27,7 @@
                             <h2 class="post-title">Top New Collection</h2>
 
                             <div class="post-meta">
-                                <a href="#" class="hash-scroll">0 Comments</a>
+                                <a href="#" class="hash-scroll">0 {{ __('messages.comments') }}</a>
                             </div><!-- End .post-meta -->
 
                             <div class="post-content">
@@ -57,7 +57,7 @@
                             <div class="post-share">
                                 <h3 class="d-flex align-items-center">
                                     <i class="fas fa-share"></i>
-                                    Share this post
+                                    {{ __('messages.share_this_post') }}
                                 </h3>
 
                                 <div class="social-icons">
@@ -82,7 +82,7 @@
                             </div><!-- End .post-share -->
 
                             <div class="post-author">
-                                <h3><i class="far fa-user"></i>Author</h3>
+                                <h3><i class="far fa-user"></i>{{ __('messages.author') }}</h3>
 
                                 <figure>
                                     <a href="#">
@@ -100,36 +100,35 @@
                             </div><!-- End .post-author -->
 
                             <div class="comment-respond">
-                                <h3>Leave a Reply</h3>
+                                <h3>{{ __('messages.leave_a_reply') }}</h3>
 
                                 <form action="#">
-                                    <p>Your email address will not be published. Required fields are marked *</p>
+                                    <p>{{ __('messages.email_wont_be_published') }}</p>
 
                                     <div class="form-group">
-                                        <label>Comment</label>
+                                        <label>{{ __('messages.comment') }}</label>
                                         <textarea cols="30" rows="1" class="form-control" required></textarea>
                                     </div><!-- End .form-group -->
 
                                     <div class="form-group">
-                                        <label>Name</label>
+                                        <label>{{ __('messages.name') }}</label>
                                         <input type="text" class="form-control" required>
                                     </div><!-- End .form-group -->
 
                                     <div class="form-group">
-                                        <label>Email</label>
+                                        <label>{{ __('messages.email') }}</label>
                                         <input type="email" class="form-control" required>
                                     </div><!-- End .form-group -->
 
                                     <div class="form-group">
-                                        <label>Website</label>
+                                        <label>{{ __('messages.website') }}</label>
                                         <input type="url" class="form-control">
                                     </div><!-- End .form-group -->
 
                                     <div class="form-group-custom-control mb-2">
                                         <div class="custom-control custom-checkbox">
                                             <input type="checkbox" class="custom-control-input" id="save-name">
-                                            <label class="custom-control-label" for="save-name">Save my name, email,
-                                                and website in this browser for the next time I comment.</label>
+                                            <label class="custom-control-label" for="save-name">{{ __('messages.save_my_name') }}</label>
                                         </div><!-- End .custom-checkbox -->
                                     </div><!-- End .form-group-custom-control -->
 
@@ -145,7 +144,7 @@
                     <hr class="mt-2 mb-1">
 
                     <div class="related-posts">
-                        <h4>Related <strong>Posts</strong></h4>
+                        <h4>{{ __('messages.related_posts') }}</h4>
 
                         <div class="owl-carousel owl-theme related-posts-carousel" data-owl-options="{
                             'dots': false
@@ -171,7 +170,7 @@
                                         <p>Euismod atras vulputate iltricies etri elit. Class aptent taciti sociosqu
                                             ad litora torquent per conubia nostra, per incep tos himens.</p>
 
-                                        <a href="{{ route('single.index') }}" class="read-more">read more <i
+                                        <a href="{{ route('single.index') }}" class="read-more">{{ __('messages.read_more') }} <i
                                                 class="fas fa-angle-right"></i></a>
                                     </div><!-- End .post-content -->
                                 </div><!-- End .post-body -->
@@ -198,7 +197,7 @@
                                         <p>Euismod atras vulputate iltricies etri elit. Class aptent taciti sociosqu
                                             ad litora torquent per conubia nostra, per incep tos himens.</p>
 
-                                        <a href="{{ route('single.index') }}" class="read-more">read more <i
+                                        <a href="{{ route('single.index') }}" class="read-more">{{ __('messages.read_more') }} <i
                                                 class="fas fa-angle-right"></i></a>
                                     </div><!-- End .post-content -->
                                 </div><!-- End .post-body -->
@@ -225,7 +224,7 @@
                                         <p>Euismod atras vulputate iltricies etri elit. Class aptent taciti sociosqu
                                             ad litora torquent per conubia nostra, per incep tos himens.</p>
 
-                                        <a href="{{ route('single.index') }}" class="read-more">read more <i
+                                        <a href="{{ route('single.index') }}" class="read-more">{{ __('messages.read_more') }} <i
                                                 class="fas fa-angle-right"></i></a>
                                     </div><!-- End .post-content -->
                                 </div><!-- End .post-body -->
@@ -252,7 +251,7 @@
                                         <p>Euismod atras vulputate iltricies etri elit. Class aptent taciti sociosqu
                                             ad litora torquent per conubia nostra, per incep tos himens.</p>
 
-                                        <a href="{{ route('single.index') }}" class="read-more">read more <i
+                                        <a href="{{ route('single.index') }}" class="read-more">{{ __('messages.read_more') }} <i
                                                 class="fas fa-angle-right"></i></a>
                                     </div><!-- End .post-content -->
                                 </div><!-- End .post-body -->
@@ -268,7 +267,7 @@
                 <aside class="sidebar mobile-sidebar col-lg-3">
                     <div class="sidebar-wrapper" data-sticky-sidebar-options='{"offsetTop": 72}'>
                         <div class="widget widget-categories">
-                            <h4 class="widget-title">Blog Categories</h4>
+                            <h4 class="widget-title">{{ __('messages.blog_categories') }}</h4>
 
                             <ul class="list">
                                 <li>
@@ -286,7 +285,7 @@
                         </div><!-- End .widget -->
 
                         <div class="widget">
-                            <h4 class="widget-title">Recent Posts</h4>
+                            <h4 class="widget-title">{{ __('messages.recent_posts') }}</h4>
 
                             <ul class="simple-post-list">
                                 <li>
@@ -320,7 +319,7 @@
                         </div><!-- End .widget -->
 
                         <div class="widget">
-                            <h4 class="widget-title">Tags</h4>
+                            <h4 class="widget-title">{{ __('messages.tags') }}</h4>
 
                             <div class="tagcloud">
                                 <a href="#">ARTICLES</a>

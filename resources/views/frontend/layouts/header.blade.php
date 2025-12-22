@@ -14,13 +14,13 @@
 
                     <div class="header-menu">
                         <ul>
-                            <li><a href="{{route('dashboard')}}">My Account</a></li>
-                            <li><a href="{{ route('about.index') }}">About Us</a></li>
-                            <li><a href="{{ route('blogs.index') }}">Blog</a></li>
-                            <li><a href="{{route('wishlist.index')}}">My Wishlist</a></li>
-                            <li><a href="{{ route('cart.index') }}">Cart</a></li>
-                            <li><a href="{{ route('track.order') }}">Track Order</a></li>
-                            <li><a href="{{ route('register') }}">Register</a></li>
+                            <li><a href="{{route('dashboard')}}">{{ __('messages.my_account') }}</a></li>
+                            <li><a href="{{ route('about.index') }}">{{ __('messages.about_us') }}</a></li>
+                            <li><a href="{{ route('blogs.index') }}">{{ __('messages.blog') }}</a></li>
+                            <li><a href="{{route('wishlist.index')}}">{{ __('messages.my_wishlist') }}</a></li>
+                            <li><a href="{{ route('cart.index') }}">{{ __('messages.cart') }}</a></li>
+                            <li><a href="{{ route('track.order') }}">{{ __('messages.track_order') }}</a></li>
+                            <li><a href="{{ route('register') }}">{{ __('messages.register') }}</a></li>
                         </ul>
                     </div>
                 </div>
@@ -99,11 +99,11 @@
                     <a href="#" class="search-toggle" role="button"><i class="icon-search-3"></i></a>
                     <form action="#" method="get">
                         <div class="header-search-wrapper">
-                            <input type="search" class="form-control" name="q" id="q" placeholder="Search..." required>
+                            <input type="search" class="form-control" name="q" id="q" placeholder="{{ __('messages.search') }}" required>
                             <div class="select-custom">
                                 <select id="cat" name="cat">
-                                    <option value="">All Categories</option>
-                                    <option value="4">Most Popular</option>
+                                    <option value="">{{ __('messages.all_categories') }}</option>
+                                    <option value="4">{{ __('messages.most_popular') }}</option>
                                     <option value="12">Markete Materials</option>
                                     <option value="13">Formate Printing</option>
                                     <option value="66">Packing & Box</option>
@@ -119,7 +119,7 @@
 
                 <div class="header-contact d-none d-lg-flex pl-4 pr-4">
                     <img alt="phone" src="{{ asset('assets/images/phone.png') }}" width="30" height="30" class="pb-1">
-                    <h6><span>Call us now</span><a href="tel:#" class="text-dark font1">+966557834154</a></h6>
+                    <h6><span>{{ __('messages.call_us_now') }}</span><a href="tel:#" class="text-dark font1">+966557834154</a></h6>
                 </div>
 
                 <a href="#" class="header-icon" title="login"><i class="icon-user-2"></i></a>
@@ -139,7 +139,7 @@
                         <a href="#" title="Close (Esc)" class="btn-close">×</a>
 
                         <div class="dropdownmenu-wrapper custom-scrollbar">
-                            <div class="dropdown-cart-header">Shopping Cart</div>
+                            <div class="dropdown-cart-header">{{ __('messages.shopping_cart') }}</div>
                             <div class="dropdown-cart-products">
                                 <div class="product">
                                     <div class="product-details">
@@ -205,15 +205,14 @@
                             </div>
 
                             <div class="dropdown-cart-total">
-                                <span>SUBTOTAL:</span>
+                                <span>{{ __('messages.subtotal') }}:</span>
 
                                 <span class="cart-total-price float-right">$134.00</span>
                             </div>
 
                             <div class="dropdown-cart-action">
-                                <a href="#" class="btn btn-gray btn-block view-cart">View
-                                    Cart</a>
-                                <a href="#" class="btn btn-dark btn-block">Checkout</a>
+                                <a href="#" class="btn btn-gray btn-block view-cart">{{ __('messages.view_cart') }}</a>
+                                <a href="#" class="btn btn-dark btn-block">{{ __('messages.checkout') }}</a>
                             </div>
                         </div>
                     </div>
@@ -227,7 +226,7 @@
             <nav class="main-nav w-100">
                 <ul class="menu">
                     <li class="active">
-                        <a href="{{ route('category.index') }}">Categories</a>
+                        <a href="{{ route('category.index') }}">{{ __('messages.categories') }}</a>
                         <h3>{{ __('messages.categories') }}</h3>
 
                         <div class="megamenu megamenu-fixed-width megamenu-3cols">
@@ -262,38 +261,38 @@
                         </div>
                     </li>
                     <li>
-                        <a href="{{ route('category.index') }}">Most Popular</a>
+                        <a href="{{ route('category.index') }}">{{ __('messages.most_popular') }}</a>
                         <div class="megamenu megamenu-fixed-width megamenu-3cols">
                             <div class="row">
                                 <div class="col-lg-4">
-                                    <a href="#" class="nolink">Business Cards</a>
+                                    <a href="#" class="nolink">{{ __('messages.business_cards') }}</a>
                                     <ul class="submenu">
-                                        <li><a href="{{ route('category.index') }}">Business Cards</a></li>
-                                        <li><a href="#">Standard Cards</a></li>
-                                        <li><a href="#">Premium Cards</a></li>
-                                        <li><a href="#">Special Finishes</a></li>
-                                        <li><a href="#">NFC Cards</a></li>
-                                        <li><a href="#">Special offers</a></li>
-                                        <li><a href="#">Smooth finish</a></li>
-                                        <li><a href="#">Textured finish</a></li>
-                                        <li><a href="#">Specialty textured</a></li>
-                                        <li><a href="#">Holders & More</a></li>
+                                        <li><a href="{{ route('category.index') }}">{{ __('messages.business_cards') }}</a></li>
+                                        <li><a href="#">{{ __('messages.standard_cards') }}</a></li>
+                                        <li><a href="#">{{ __('messages.premium_cards') }}</a></li>
+                                        <li><a href="#">{{ __('messages.special_finishes') }}</a></li>
+                                        <li><a href="#">{{ __('messages.nfc_cards') }}</a></li>
+                                        <li><a href="#">{{ __('messages.special_offers') }}</a></li>
+                                        <li><a href="#">{{ __('messages.smooth_finish') }}</a></li>
+                                        <li><a href="#">{{ __('messages.textured_finish') }}</a></li>
+                                        <li><a href="#">{{ __('messages.specialty_textured') }}</a></li>
+                                        <li><a href="#">{{ __('messages.holders_more') }}</a></li>
                                     </ul>
                                 </div>
                                 <div class="col-lg-4">
-                                    <a href="#" class="nolink">Letterheads</a>
+                                    <a href="#" class="nolink">{{ __('messages.letterheads') }}</a>
                                     <ul class="submenu">
-                                        <li><a href="#">Standard letterhead</a></li>
-                                        <li><a href="#">Textured Finish LH</a></li>
-                                        <li><a href="#">Smooth Finish LH</a></li>
-                                        <li><a href="#">Specialty Textured LH</a></li>
-                                        <li><a href="#">Special offers LH</a></li>
-                                        <li><a href="#">♻️Recycled LH</a></li>
-                                        <a href="#" class="nolink">NFC Business Cards</a>
-                                        <a href="#" class="nolink">Folders</a>
-                                        <li><a href="#">Standard</a></li>
-                                        <li><a href="#">Premium</a></li>
-                                        <li><a href="#">Special offers.</a></li>
+                                        <li><a href="#">{{ __('messages.standard_letterhead') }}</a></li>
+                                        <li><a href="#">{{ __('messages.textured_finish_lh') }}</a></li>
+                                        <li><a href="#">{{ __('messages.smooth_finish_lh') }}</a></li>
+                                        <li><a href="#">{{ __('messages.specialty_textured_lh') }}</a></li>
+                                        <li><a href="#">{{ __('messages.special_offers_lh') }}</a></li>
+                                        <li><a href="#">{{ __('messages.recycled_lh') }}</a></li>
+                                        <a href="#" class="nolink">{{ __('messages.nfc_cards') }}</a>
+                                        <a href="#" class="nolink">{{ __('messages.folders') }}</a>
+                                        <li><a href="#">{{ __('messages.standard') }}</a></li>
+                                        <li><a href="#">{{ __('messages.premium') }}</a></li>
+                                        <li><a href="#">{{ __('messages.special_offers') }}</a></li>
                                     </ul>
                                 </div>
                                 <div class="col-lg-4 p-0">
@@ -318,42 +317,42 @@
                     </li>
 
                     <li>
-                        <a href="{{ route('category.index') }}">Markete Materials</a>
+                        <a href="{{ route('category.index') }}">{{ __('messages.market_materials') }}</a>
                         <div class="megamenu megamenu-fixed-width megamenu-3cols">
                             <div class="row">
                                 <div class="col-lg-4">
-                                    <a href="#" class="nolink">Flyers</a>
+                                    <a href="#" class="nolink">{{ __('messages.flyers') }}</a>
                                     <ul class="submenu">
-                                        <li><a href="#">Standard-</a></li>
-                                        <li><a href="#">Smooth finish-</a></li>
-                                        <li><a href="#">Special Finishes-</a></li>
-                                        <li><a href="#">Textured finish-</a></li>
-                                        <li><a href="#">Specialty textured-</a></li>
-                                        <li><a href="#">Special offers-</a></li>
-                                        <li><a href="#">♻️Recycled.</a></li>
-                                        <a href="#" class="nolink">Brochures</a>
-                                        <li><a href="#">Standard</a></li>
-                                        <li><a href="#">Premium</a></li>
-                                        <a href="#" class="nolink">Stickers/Labels</a>
-                                        <li><a href="#">Vinyl Labels</a></li>
-                                        <li><a href="#">Paper Lables</a></li>
-                                        <li><a href="#">Roll Lables</a></li>
+                                        <li><a href="#">{{ __('messages.standard') }}-</a></li>
+                                        <li><a href="#">{{ __('messages.smooth_finish') }}-</a></li>
+                                        <li><a href="#">{{ __('messages.special_finishes') }}-</a></li>
+                                        <li><a href="#">{{ __('messages.textured_finish') }}-</a></li>
+                                        <li><a href="#">{{ __('messages.specialty_textured') }}-</a></li>
+                                        <li><a href="#">{{ __('messages.special_offers') }}-</a></li>
+                                        <li><a href="#">{{ __('messages.recycled_lh') }}.</a></li>
+                                        <a href="#" class="nolink">{{ __('messages.brochures') }}</a>
+                                        <li><a href="#">{{ __('messages.standard') }}</a></li>
+                                        <li><a href="#">{{ __('messages.premium') }}</a></li>
+                                        <a href="#" class="nolink">{{ __('messages.stickers_labels') }}</a>
+                                        <li><a href="#">{{ __('messages.vinyl_labels') }}</a></li>
+                                        <li><a href="#">{{ __('messages.paper_labels') }}</a></li>
+                                        <li><a href="#">{{ __('messages.roll_labels') }}</a></li>
                                     </ul>
                                 </div>
                                 <div class="col-lg-4">
-                                    <a href="#" class="nolink">Letterheads</a>
+                                    <a href="#" class="nolink">{{ __('messages.letterheads') }}</a>
                                     <ul class="submenu">
-                                        <li><a href="#">Standard letterhead</a></li>
-                                        <li><a href="#">Textured Finish LH</a></li>
-                                        <li><a href="#">Smooth Finish LH</a></li>
-                                        <li><a href="#">Specialty Textured LH</a></li>
-                                        <li><a href="#">Special offers LH</a></li>
-                                        <li><a href="#">♻️Recycled LH</a></li>
-                                        <a href="#" class="nolink">NFC Business Cards</a>
-                                        <a href="#" class="nolink">Folders</a>
-                                        <li><a href="#">Standard</a></li>
-                                        <li><a href="#">Premium</a></li>
-                                        <li><a href="#">Special offers.</a></li>
+                                        <li><a href="#">{{ __('messages.standard_letterhead') }}</a></li>
+                                        <li><a href="#">{{ __('messages.textured_finish_lh') }}</a></li>
+                                        <li><a href="#">{{ __('messages.smooth_finish_lh') }}</a></li>
+                                        <li><a href="#">{{ __('messages.specialty_textured_lh') }}</a></li>
+                                        <li><a href="#">{{ __('messages.special_offers_lh') }}</a></li>
+                                        <li><a href="#">{{ __('messages.recycled_lh') }}</a></li>
+                                        <a href="#" class="nolink">{{ __('messages.nfc_cards') }}</a>
+                                        <a href="#" class="nolink">{{ __('messages.folders') }}</a>
+                                        <li><a href="#">{{ __('messages.standard') }}</a></li>
+                                        <li><a href="#">{{ __('messages.premium') }}</a></li>
+                                        <li><a href="#">{{ __('messages.special_offers') }}</a></li>
                                     </ul>
                                 </div>
                                 <div class="col-lg-4 p-0">
@@ -378,37 +377,37 @@
                     </li>
 
                     <li>
-                        <a href="{{ route('category.index') }}">Formate Printing</a>
+                        <a href="{{ route('category.index') }}">{{ __('messages.format_printing') }}</a>
                         <div class="megamenu megamenu-fixed-width megamenu-3cols">
                             <div class="row">
                                 <div class="col-lg-4">
-                                    <a href="#" class="nolink">Posters & Banners</a>
+                                    <a href="#" class="nolink">{{ __('messages.posters_banners_menu') }}</a>
                                     <ul class="submenu">
-                                        <li><a href="#">Posters</a></li>
-                                        <li><a href="#">3M Vinyl Graphics</a></li>
-                                        <li><a href="#">One Way Vision Film</a></li>
-                                        <li><a href="#">Flex Banners</a></li>
-                                        <li><a href="#">Backlit Prints</a></li>
-                                        <li><a href="#">Whiteboard Film</a></li>
-                                        <a href="#" class="nolink">Wallpapers</a>
-                                        <a href="#" class="nolink">Canvas Printing</a>
-                                        <li><a href="#">Canvas Prints</a></li>
-                                        <li><a href="#">Canvas With Frame</a></li>
-                                        <a href="#" class="nolink">Rollups</a>
-                                        <li><a href="#">Standard</a></li>
-                                        <li><a href="#">Premium</a></li>
-                                        <li><a href="#">X-Stand Banner</a></li>
+                                        <li><a href="#">{{ __('messages.posters') }}</a></li>
+                                        <li><a href="#">{{ __('messages.vinyl_graphics') }}</a></li>
+                                        <li><a href="#">{{ __('messages.vision_film') }}</a></li>
+                                        <li><a href="#">{{ __('messages.flex_banners') }}</a></li>
+                                        <li><a href="#">{{ __('messages.backlit_prints') }}</a></li>
+                                        <li><a href="#">{{ __('messages.whiteboard_film') }}</a></li>
+                                        <a href="#" class="nolink">{{ __('messages.wallpapers') }}</a>
+                                        <a href="#" class="nolink">{{ __('messages.canvas_prints') }}</a>
+                                        <li><a href="#">{{ __('messages.canvas_prints') }}</a></li>
+                                        <li><a href="#">{{ __('messages.canvas_frame') }}</a></li>
+                                        <a href="#" class="nolink">{{ __('messages.rollups') }}</a>
+                                        <li><a href="#">{{ __('messages.standard') }}</a></li>
+                                        <li><a href="#">{{ __('messages.premium') }}</a></li>
+                                        <li><a href="#">{{ __('messages.x_stand_banner') }}</a></li>
                                     </ul>
                                 </div>
                                 <div class="col-lg-4">
-                                    <a href="#" class="nolink">Popups</a>
+                                    <a href="#" class="nolink">{{ __('messages.popups') }}</a>
                                     <ul class="submenu">
-                                        <li><a href="#">Pop-Up Display Straight</a></li>
-                                        <li><a href="#">Pop-Up Display Curved</a></li>
-                                        <li><a href="#">Promotional Table</a></li>
-                                        <a href="#" class="nolink">Displays</a>
-                                        <li><a href="#">Acrylic Sign Holders</a></li>
-                                        <li><a href="#">Acrylic Name Plates & Desk Stands</a></li>
+                                        <li><a href="#">{{ __('messages.popup_straight') }}</a></li>
+                                        <li><a href="#">{{ __('messages.popup_curved') }}</a></li>
+                                        <li><a href="#">{{ __('messages.promo_table') }}</a></li>
+                                        <a href="#" class="nolink">{{ __('messages.displays') }}</a>
+                                        <li><a href="#">{{ __('messages.acrylic_holders') }}</a></li>
+                                        <li><a href="#">{{ __('messages.acrylic_plates') }}</a></li>
                                     </ul>
                                 </div>
                                 <div class="col-lg-4 p-0">
@@ -433,17 +432,17 @@
                     </li>
 
                     <li>
-                        <a href="{{ route('category.index') }}">Packing & Box</a>
+                        <a href="{{ route('category.index') }}">{{ __('messages.packing_box') }}</a>
                         <div class="megamenu megamenu-fixed-width megamenu-3cols">
                             <div class="row">
                                 <div class="col-lg-4">
                                     <ul class="submenu">
-                                        <li><a href="#">Fancy Boxes</a></li>
-                                        <li><a href="#">Corrugated Boxes</a></li>
-                                        <li><a href="#">Gift Box</a></li>
-                                        <li><a href="#">Fancy Gift Sets</a></li>
-                                        <li><a href="#">Cube Boxes</a></li>
-                                        <li><a href="#">Soft Boxes</a></li>
+                                        <li><a href="#">{{ __('messages.fancy_boxes') }}</a></li>
+                                        <li><a href="#">{{ __('messages.corrugated_boxes') }}</a></li>
+                                        <li><a href="#">{{ __('messages.gift_box') }}</a></li>
+                                        <li><a href="#">{{ __('messages.fancy_gift_sets') }}</a></li>
+                                        <li><a href="#">{{ __('messages.cube_boxes') }}</a></li>
+                                        <li><a href="#">{{ __('messages.soft_boxes') }}</a></li>
                                     </ul>
                                 </div>
                                 <!-- <div class="col-lg-4 p-0"></div> -->
@@ -469,41 +468,41 @@
                     </li>
 
                     <li>
-                        <a href="#">Promo Products</a>
+                        <a href="#">{{ __('messages.promo_products') }}</a>
                         <div class="megamenu megamenu-fixed-width megamenu-3cols">
                             <div class="row">
                                 <div class="col-lg-4">
-                                    <a href="#" class="nolink">Mouse Pads</a>
+                                    <a href="#" class="nolink">{{ __('messages.mouse_pads') }}</a>
                                     <ul class="submenu">
-                                        <li><a href="#">Sublimation</a>
+                                        <li><a href="#">{{ __('messages.sublimation') }}</a>
                                         </li>
-                                        <li><a href="">Leather</a>
+                                        <li><a href="">{{ __('messages.leather') }}</a>
                                         </li>
-                                        <li><a href="">Wireless</a>
+                                        <li><a href="">{{ __('messages.wireless') }}</a>
                                         </li>
-                                        <a href="#" class="nolink">Mugs</a>
-                                        <li><a href="category-list.html">Water Bottles</a></li>
-                                        <li><a href="category-infinite-scroll.html">Travel Mugs & Tumblers</a>
+                                        <a href="#" class="nolink">{{ __('messages.mugs') }}</a>
+                                        <li><a href="category-list.html">{{ __('messages.water_bottles') }}</a></li>
+                                        <li><a href="category-infinite-scroll.html">{{ __('messages.travel_mugs') }}</a>
                                         </li>
-                                        <li><a href="#">Mugs</a></li>
-                                        <li><a href="#">Glassware</a></li>
-                                        <a href="#" class="nolink">Pillows</a>
-                                        <a href="#" class="nolink">Diaries/Agendas</a>
-                                        <a href="#" class="nolink">Pens</a>
-                                        <a href="#" class="nolink">USB Flash Drives</a>
-                                        <a href="#" class="nolink">Powerbanks</a>
-                                        <a href="#" class="nolink">Stress Balls</a>
+                                        <li><a href="#">{{ __('messages.mugs') }}</a></li>
+                                        <li><a href="#">{{ __('messages.glassware') }}</a></li>
+                                        <a href="#" class="nolink">{{ __('messages.pillows') }}</a>
+                                        <a href="#" class="nolink">{{ __('messages.diaries') }}</a>
+                                        <a href="#" class="nolink">{{ __('messages.pens') }}</a>
+                                        <a href="#" class="nolink">{{ __('messages.usb_drives') }}</a>
+                                        <a href="#" class="nolink">{{ __('messages.powerbanks') }}</a>
+                                        <a href="#" class="nolink">{{ __('messages.stress_balls') }}</a>
                                     </ul>
                                 </div>
                                 <div class="col-lg-4">
                                     <ul class="submenu">
-                                        <li><a href="category-list.html">Balloons</a></li>
-                                        <li><a href="category-infinite-scroll.html">Ribbons</a>
+                                        <li><a href="category-list.html">{{ __('messages.balloons') }}</a></li>
+                                        <li><a href="category-infinite-scroll.html">{{ __('messages.ribbons') }}</a>
                                         </li>
-                                        <li><a href="#">Thermal Mugs and Bottles</a></li>
-                                        <li><a href="#">Tea Coaster</a></li>
-                                        <li><a href="#">Mobile Accessories</a></li>
-                                        <li><a href="#">Business Cards Cases</a></li>
+                                        <li><a href="#">{{ __('messages.thermal_mugs') }}</a></li>
+                                        <li><a href="#">{{ __('messages.tea_coaster') }}</a></li>
+                                        <li><a href="#">{{ __('messages.mobile_accessories') }}</a></li>
+                                        <li><a href="#">{{ __('messages.card_cases') }}</a></li>
                                     </ul>
                                 </div>
                                 <div class="col-lg-4 p-0">
@@ -528,15 +527,15 @@
                     </li>
 
                     <li>
-                        <a href="#">Apparel & Wearables</a>
+                        <a href="#">{{ __('messages.apparel_wearables') }}</a>
                         <div class="megamenu megamenu-fixed-width megamenu-3cols">
                             <div class="row">
                                 <div class="col-lg-4">
-                                    <a href="#" class="nolink">Safety Products</a>
-                                    <a href="#" class="nolink">Shirts</a>
-                                    <a href="#" class="nolink">Caps</a>
-                                    <a href="#" class="nolink">Badges</a>
-                                    <a href="#" class="nolink">Lanyard</a>
+                                    <a href="#" class="nolink">{{ __('messages.safety_products') }}</a>
+                                    <a href="#" class="nolink">{{ __('messages.shirts') }}</a>
+                                    <a href="#" class="nolink">{{ __('messages.caps') }}</a>
+                                    <a href="#" class="nolink">{{ __('messages.badges') }}</a>
+                                    <a href="#" class="nolink">{{ __('messages.lanyard') }}</a>
                                 </div>
                                 <div class="col-lg-4 p-0">
                                     <div class="menu-banner">
@@ -560,14 +559,14 @@
                     </li>
 
                     <li>
-                        <a href="#">Event Brand</a>
+                        <a href="#">{{ __('messages.event_brand') }}</a>
                         <div class="megamenu megamenu-fixed-width megamenu-3cols">
                             <div class="row">
                                 <div class="col-lg-4">
-                                    <a href="#" class="nolink">Photobooks</a>
-                                    <a href="#" class="nolink">Trophy Awards & Mementos</a>
-                                    <a href="#" class="nolink">Promotional Bags</a>
-                                    <a href="#" class="nolink">Exhibition & Events</a>
+                                    <a href="#" class="nolink">{{ __('messages.photobooks') }}</a>
+                                    <a href="#" class="nolink">{{ __('messages.trophy_awards') }}</a>
+                                    <a href="#" class="nolink">{{ __('messages.promo_bags') }}</a>
+                                    <a href="#" class="nolink">{{ __('messages.exhibition_events') }}</a>
                                 </div>
                                 <div class="col-lg-4 p-0">
                                     <div class="menu-banner">

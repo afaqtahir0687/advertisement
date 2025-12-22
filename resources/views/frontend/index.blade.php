@@ -9,15 +9,15 @@
                 height="499" alt="slider image">
             <div class="container d-flex align-items-center">
                 <div class="banner-layer appear-animate" data-animation-name="fadeInUpShorter">
-                    <h4 class="text-transform-none m-b-3">Find the Boundaries. Push Through!</h4>
-                    <h2 class="text-transform-none mb-0">Summer Sale</h2>
+                    <h4 class="text-transform-none m-b-3">{{ __('messages.find_boundaries') }}</h4>
+                    <h2 class="text-transform-none mb-0">{{ __('messages.summer_sale') }}</h2>
                     <h3 class="m-b-3">70% Off</h3>
                     <h5 class="d-inline-block mb-0">
-                        <span>Starting At</span>
+                        <span>{{ __('messages.starting_at') }}</span>
                         <b class="coupon-sale-text text-white bg-secondary align-middle"><sup>$</sup><em
                                 class="align-text-top">199</em><sup>99</sup></b>
                     </h5>
-                    <a href="{{ route('category.index') }}" class="btn btn-dark btn-lg">Shop Now!</a>
+                    <a href="{{ route('category.index') }}" class="btn btn-dark btn-lg">{{ __('messages.shop_now') }}</a>
                 </div>
             </div>
         </div>
@@ -29,11 +29,11 @@
                 <div class="banner-layer d-flex justify-content-center appear-animate"
                     data-animation-name="fadeInUpShorter">
                     <div class="mx-auto">
-                        <h4 class="m-b-1">Extra</h4>
+                        <h4 class="m-b-1">{{ __('messages.extra') }}</h4>
                         <h3 class="m-b-2">20% off</h3>
-                        <h3 class="mb-2 heading-border">Accessories</h3>
-                        <h2 class="text-transform-none m-b-4">Summer Sale</h2>
-                        <a href="{{ route('category.index') }}" class="btn btn-block btn-dark">Shop All Sale</a>
+                        <h3 class="mb-2 heading-border">{{ __('messages.accessories') }}</h3>
+                        <h2 class="text-transform-none m-b-4">{{ __('messages.summer_sale') }}</h2>
+                        <a href="{{ route('category.index') }}" class="btn btn-block btn-dark">{{ __('messages.shop_all_sale') }}</a>
                     </div>
                 </div>
             </div>
@@ -41,9 +41,8 @@
     </div>
 
     <div class="container">
-        <h2 style="text-align: center;">From Concept to Delivery</h2>
-        <p style="text-align: center;">Fuel Your Business with Flexible Credit, Design Services, and Lightning-Quick
-            Delivery!</p>
+        <h2 style="text-align: center;">{{ __('messages.from_concept_delivery') }}</h2>
+        <p style="text-align: center;">{{ __('messages.fuel_business') }}</p>
         <div class="info-boxes-slider owl-carousel owl-theme mb-2"
             data-owl-options="{
                         'dots': false,
@@ -61,8 +60,8 @@
                 <i class="icon-shipping"></i>
 
                 <div class="info-box-content">
-                    <h4>FREE SHIPPING &amp; RETURN</h4>
-                    <p class="text-body">Free shipping on all orders over $99.</p>
+                    <h4>{{ __('messages.free_shipping_title') }}</h4>
+                    <p class="text-body">{{ __('messages.free_shipping_desc') }}</p>
                 </div>
             </div>
 
@@ -70,8 +69,8 @@
                 <i class="icon-money"></i>
 
                 <div class="info-box-content">
-                    <h4>MONEY BACK GUARANTEE</h4>
-                    <p class="text-body">100% money back guarantee</p>
+                    <h4>{{ __('messages.money_back_title') }}</h4>
+                    <p class="text-body">{{ __('messages.money_back_desc') }}</p>
                 </div>
             </div>
 
@@ -79,8 +78,8 @@
                 <i class="icon-support"></i>
 
                 <div class="info-box-content">
-                    <h4>ONLINE SUPPORT 24/7</h4>
-                    <p class="text-body">Lorem ipsum dolor sit amet.</p>
+                    <h4>{{ __('messages.online_support_title') }}</h4>
+                    <p class="text-body">{{ __('messages.lorem_ipsum') }}</p>
                 </div>
             </div>
         </div>
@@ -97,8 +96,8 @@
                             width="380" height="175" />
                     </figure>
                     <div class="banner-layer">
-                        <h3 class="m-b-2">Credit Terms</h3>
-                        <a href="{{ route('category.index') }}" class="btn btn-sm btn-dark">Check Credit</a>
+                        <h3 class="m-b-2">{{ __('messages.credit_terms') }}</h3>
+                        <a href="{{ route('category.index') }}" class="btn btn-sm btn-dark">{{ __('messages.check_credit') }}</a>
                     </div>
                 </div>
 
@@ -111,10 +110,10 @@
                     <div class="banner-layer text-center">
                         <div class="row align-items-lg-center">
                             <div class="col-lg-7 text-lg-right">
-                                <h3>Design Services</h3>
+                                <h3>{{ __('messages.design_services') }}</h3>
                             </div>
                             <div class="col-lg-5 text-lg-left px-0 px-xl-3">
-                                <a href="{{ route('category.index') }}" class="btn btn-sm btn-dark">Order Now</a>
+                                <a href="{{ route('category.index') }}" class="btn btn-sm btn-dark">{{ __('messages.order_now') }}</a>
                             </div>
                         </div>
                     </div>
@@ -127,8 +126,8 @@
                             width="380" height="175" />
                     </figure>
                     <div class="banner-layer text-right">
-                        <h3 class="m-b-2">Express Delivery</h3>
-                        <a href="{{ route('category.index') }}" class="btn btn-sm btn-dark">See Produts</a>
+                        <h3 class="m-b-2">{{ __('messages.express_delivery') }}</h3>
+                        <a href="{{ route('category.index') }}" class="btn btn-sm btn-dark">{{ __('messages.see_products') }}</a>
                     </div>
                 </div>
             </div>
@@ -137,7 +136,7 @@
 
     <section class="featured-products-section">
         <div class="container">
-            <h2 class="section-title heading-border ls-20 border-0">Featured Products</h2>
+            <h2 class="section-title heading-border ls-20 border-0">{{ __('messages.featured_products') }}</h2>
 
             <div class="products-slider custom-products owl-carousel owl-theme nav-outer show-nav-hover nav-image-center"
                 data-owl-options="{
@@ -153,16 +152,16 @@
                                 height="280" alt="product">
                         </a>
                         <div class="label-group">
-                            <div class="product-label label-hot">HOT</div>
+                            <div class="product-label label-hot">{{ __('messages.hot') }}</div>
                             <div class="product-label label-sale">-20%</div>
                         </div>
                     </figure>
                     <div class="product-details">
                         <div class="category-list">
-                            <a href="#" class="product-category">Category</a>
+                            <a href="#" class="product-category">{{ __('messages.categories') }}</a>
                         </div>
                         <h3 class="product-title">
-                            <a href="#">Business Card Front & Back</a>
+                            <a href="#">{{ __('messages.business_card_fb') }}</a>
                         </h3>
                         <div class="ratings-container">
                             <div class="product-ratings">
@@ -181,8 +180,7 @@
                         <div class="product-action">
                             <a href="#" class="btn-icon-wish" title="wishlist"><i
                                     class="icon-heart"></i></a>
-                            <a href="#" class="btn-icon btn-add-cart"><i class="fa fa-arrow-right"></i><span>SELECT
-                                    OPTIONS</span></a>
+                            <a href="#" class="btn-icon btn-add-cart"><i class="fa fa-arrow-right"></i><span>{{ __('messages.select_options') }}</span></a>
                             <a href="ajax/product-quick-view.html" class="btn-quickview" title="Quick View"><i
                                     class="fas fa-external-link-alt"></i></a>
                         </div>
@@ -197,16 +195,16 @@
                                 alt="product">
                         </a>
                         <div class="label-group">
-                            <div class="product-label label-hot">HOT</div>
+                            <div class="product-label label-hot">{{ __('messages.hot') }}</div>
                             <div class="product-label label-sale">-30%</div>
                         </div>
                     </figure>
                     <div class="product-details">
                         <div class="category-list">
-                            <a href="#" class="product-category">Category</a>
+                            <a href="#" class="product-category">{{ __('messages.categories') }}</a>
                         </div>
                         <h3 class="product-title">
-                            <a href="#">Professional Roll up Banner Design</a>
+                            <a href="#">{{ __('messages.roll_up_banner_design') }}</a>
                         </h3>
                         <div class="ratings-container">
                             <div class="product-ratings">
@@ -224,8 +222,7 @@
                         <!-- End .price-box -->
                         <div class="product-action">
                             <a href="#" class="btn-icon-wish" title="wishlist"><i class="icon-heart"></i></a>
-                            <a href="#" class="btn-icon btn-add-cart"><i class="fa fa-arrow-right"></i><span>SELECT
-                                    OPTIONS</span></a>
+                            <a href="#" class="btn-icon btn-add-cart"><i class="fa fa-arrow-right"></i><span>{{ __('messages.select_options') }}</span></a>
                             <a href="ajax/product-quick-view.html" class="btn-quickview" title="Quick View"><i
                                     class="fas fa-external-link-alt"></i></a>
                         </div>
@@ -242,10 +239,10 @@
                     </figure>
                     <div class="product-details">
                         <div class="category-list">
-                            <a href="#" class="product-category">Category</a>
+                            <a href="#" class="product-category">{{ __('messages.categories') }}</a>
                         </div>
                         <h3 class="product-title">
-                            <a href="#">Postcard Printing</a>
+                            <a href="#">{{ __('messages.postcard_printing') }}</a>
                         </h3>
                         <div class="ratings-container">
                             <div class="product-ratings">
@@ -264,7 +261,7 @@
                         <div class="product-action">
                             <a href="#" class="btn-icon-wish" title="wishlist"><i class="icon-heart"></i></a>
                             <a href="#" class="btn-icon btn-add-cart product-type-simple"><i
-                                    class="icon-shopping-cart"></i><span>ADD TO CART</span></a>
+                                    class="icon-shopping-cart"></i><span>{{ __('messages.add_to_cart_caps') }}</span></a>
                             <a href="#" class="btn-quickview" title="Quick View"><i
                                     class="fas fa-external-link-alt"></i></a>
                         </div>
@@ -279,16 +276,16 @@
                                 height="280" alt="product">
                         </a>
                         <div class="label-group">
-                            <div class="product-label label-hot">HOT</div>
+                            <div class="product-label label-hot">{{ __('messages.hot') }}</div>
                             <div class="product-label label-sale">-40%</div>
                         </div>
                     </figure>
                     <div class="product-details">
                         <div class="category-list">
-                            <a href="#" class="product-category">Category</a>
+                            <a href="#" class="product-category">{{ __('messages.categories') }}</a>
                         </div>
                         <h3 class="product-title">
-                            <a href="#">Folder Flyer Printing</a>
+                            <a href="#">{{ __('messages.folder_flyer_printing') }}</a>
                         </h3>
                         <div class="ratings-container">
                             <div class="product-ratings">
@@ -307,7 +304,7 @@
                         <div class="product-action">
                             <a href="#" class="btn-icon-wish" title="wishlist"><i class="icon-heart"></i></a>
                             <a href="#" class="btn-icon btn-add-cart product-type-simple"><i
-                                    class="icon-shopping-cart"></i><span>ADD TO CART</span></a>
+                                    class="icon-shopping-cart"></i><span>{{ __('messages.add_to_cart_caps') }}</span></a>
                             <a href="#" class="btn-quickview" title="Quick View"><i
                                     class="fas fa-external-link-alt"></i></a>
                         </div>
@@ -322,16 +319,16 @@
                                 height="280" alt="product">
                         </a>
                         <div class="label-group">
-                            <div class="product-label label-hot">HOT</div>
+                            <div class="product-label label-hot">{{ __('messages.hot') }}</div>
                             <div class="product-label label-sale">-15%</div>
                         </div>
                     </figure>
                     <div class="product-details">
                         <div class="category-list">
-                            <a href="{{ route('category.index') }}" class="product-category">Category</a>
+                            <a href="{{ route('category.index') }}" class="product-category">{{ __('messages.categories') }}</a>
                         </div>
                         <h3 class="product-title">
-                            <a href="{{ route('products.index') }}">Casual Spring Blue Shoes</a>
+                            <a href="{{ route('products.index') }}">{{ __('messages.casual_spring_blue_shoes') }}</a>
                         </h3>
                         <div class="ratings-container">
                             <div class="product-ratings">
@@ -351,7 +348,7 @@
                             <a href="#" class="btn-icon-wish" title="wishlist"><i
                                     class="icon-heart"></i></a>
                             <a href="#" class="btn-icon btn-add-cart product-type-simple"><i
-                                    class="icon-shopping-cart"></i><span>ADD TO CART</span></a>
+                                    class="icon-shopping-cart"></i><span>{{ __('messages.add_to_cart_caps') }}</span></a>
                             <a href="ajax/product-quick-view.html" class="btn-quickview" title="Quick View"><i
                                     class="fas fa-external-link-alt"></i></a>
                         </div>
@@ -363,7 +360,7 @@
 
     <section class="new-products-section">
         <div class="container">
-            <h2 class="section-title heading-border ls-20 border-0">New Arrivals</h2>
+            <h2 class="section-title heading-border ls-20 border-0">{{ __('messages.new_arrivals') }}</h2>
 
             <div class="products-slider custom-products owl-carousel owl-theme nav-outer show-nav-hover nav-image-center mb-2"
                 data-owl-options="{
@@ -392,10 +389,10 @@
                     </figure>
                     <div class="product-details">
                         <div class="category-list">
-                            <a href="#" class="product-category">Category</a>
+                            <a href="#" class="product-category">{{ __('messages.categories') }}</a>
                         </div>
                         <h3 class="product-title">
-                            <a href="#">Award Shields Hand Made</a>
+                            <a href="#">{{ __('messages.award_shields') }}</a>
                         </h3>
                         <div class="ratings-container">
                             <div class="product-ratings">
@@ -415,7 +412,7 @@
                             <a href="#" class="btn-icon-wish" title="wishlist"><i
                                     class="icon-heart"></i></a>
                             <a href="#" class="btn-icon btn-add-cart product-type-simple"><i
-                                    class="icon-shopping-cart"></i><span>ADD TO CART</span></a>
+                                    class="icon-shopping-cart"></i><span>{{ __('messages.add_to_cart_caps') }}</span></a>
                             <a href="ajax/product-quick-view.html" class="btn-quickview" title="Quick View"><i
                                     class="fas fa-external-link-alt"></i></a>
                         </div>
@@ -435,10 +432,10 @@
                     </figure>
                     <div class="product-details">
                         <div class="category-list">
-                            <a href="#" class="product-category">Category</a>
+                            <a href="#" class="product-category">{{ __('messages.categories') }}</a>
                         </div>
                         <h3 class="product-title">
-                            <a href="#">Signal Sign Board</a>
+                            <a href="#">{{ __('messages.signal_sign_board') }}</a>
                         </h3>
                         <div class="ratings-container">
                             <div class="product-ratings">
@@ -457,7 +454,7 @@
                         <div class="product-action">
                             <a href="#" class="btn-icon-wish" title="wishlist"><i class="icon-heart"></i></a>
                             <a href="#" class="btn-icon btn-add-cart product-type-simple"><i
-                                    class="icon-shopping-cart"></i><span>ADD TO CART</span></a>
+                                    class="icon-shopping-cart"></i><span>{{ __('messages.add_to_cart_caps') }}</span></a>
                             <a href="#" class="btn-quickview" title="Quick View"><i
                                     class="fas fa-external-link-alt"></i></a>
                         </div>
@@ -477,7 +474,7 @@
                     </figure>
                     <div class="product-details">
                         <div class="category-list">
-                            <a href="#" class="product-category">Category</a>
+                            <a href="#" class="product-category">{{ __('messages.categories') }}</a>
                         </div>
                         <h3 class="product-title">
                             <a href="#">Shop Sign Board</a>
@@ -499,7 +496,7 @@
                         <div class="product-action">
                             <a href="#" class="btn-icon-wish" title="wishlist"><i class="icon-heart"></i></a>
                             <a href="#" class="btn-icon btn-add-cart product-type-simple"><i
-                                    class="icon-shopping-cart"></i><span>ADD TO CART</span></a>
+                                    class="icon-shopping-cart"></i><span>{{ __('messages.add_to_cart_caps') }}</span></a>
                             <a href="#" class="btn-quickview" title="Quick View"><i
                                     class="fas fa-external-link-alt"></i></a>
                         </div>
@@ -519,7 +516,7 @@
                     </figure>
                     <div class="product-details">
                         <div class="category-list">
-                            <a href="#" class="product-category">Category</a>
+                            <a href="#" class="product-category">{{ __('messages.categories') }}</a>
                         </div>
                         <h3 class="product-title">
                             <a href="#">Signage</a>
@@ -540,8 +537,7 @@
                         <!-- End .price-box -->
                         <div class="product-action">
                             <a href="#" class="btn-icon-wish" title="wishlist"><i class="icon-heart"></i></a>
-                            <a href="#" class="btn-icon btn-add-cart"><i class="fa fa-arrow-right"></i><span>SELECT
-                                    OPTIONS</span></a>
+                            <a href="#" class="btn-icon btn-add-cart"><i class="fa fa-arrow-right"></i><span>{{ __('messages.select_options') }}</span></a>
                             <a href="#" class="btn-quickview" title="Quick View"><i
                                     class="fas fa-external-link-alt"></i></a>
                         </div>
@@ -561,7 +557,7 @@
                     </figure>
                     <div class="product-details">
                         <div class="category-list">
-                            <a href="#" class="product-category">Category</a>
+                            <a href="#" class="product-category">{{ __('messages.categories') }}</a>
                         </div>
                         <h3 class="product-title">
                             <a href="#">Die Cut Business Cards</a>
@@ -583,7 +579,7 @@
                         <div class="product-action">
                             <a href="#" class="btn-icon-wish" title="wishlist"><i class="icon-heart"></i></a>
                             <a href="#" class="btn-icon btn-add-cart product-type-simple"><i
-                                    class="icon-shopping-cart"></i><span>ADD TO CART</span></a>
+                                    class="icon-shopping-cart"></i><span>{{ __('messages.add_to_cart_caps') }}</span></a>
                             <a href="#" class="btn-quickview" title="Quick View"><i
                                     class="fas fa-external-link-alt"></i></a>
                         </div>
@@ -603,7 +599,7 @@
                     </figure>
                     <div class="product-details">
                         <div class="category-list">
-                            <a href="#" class="product-category">Category</a>
+                            <a href="#" class="product-category">{{ __('messages.categories') }}</a>
                         </div>
                         <h3 class="product-title">
                             <a href="#">Men Sports Travel Bag</a>
@@ -640,19 +636,18 @@
                 <div class="banner-content row align-items-center mx-0">
                     <div class="col-md-9 col-sm-8">
                         <h2 class="text-white text-uppercase text-center text-sm-left ls-n-20 mb-md-0 px-4">
-                            <b class="d-inline-block mr-3 mb-1 mb-md-0">Big Sale</b> All new fashion brands items up to 70%
-                            off
-                            <small class="text-transform-none align-middle">Online Purchases Only</small>
+                            <b class="d-inline-block mr-3 mb-1 mb-md-0">{{ __('messages.big_sale') }}</b> {{ __('messages.all_new_fashion') }}
+                            <small class="text-transform-none align-middle">{{ __('messages.online_purchases_only') }}</small>
                         </h2>
                     </div>
                     <div class="col-md-3 col-sm-4 text-center text-sm-right">
-                        <a class="btn btn-light btn-white btn-lg" href="{{ route('category.index') }}">View Sale</a>
+                        <a class="btn btn-light btn-white btn-lg" href="{{ route('category.index') }}">{{ __('messages.view_sale') }}</a>
                     </div>
                 </div>
             </div>
 
             <h2 class="section-title categories-section-title heading-border border-0 ls-0 appear-animate"
-                data-animation-delay="100" data-animation-name="fadeInUpShorter">Browse Our Categories
+                data-animation-delay="100" data-animation-name="fadeInUpShorter">{{ __('messages.browse_categories') }}
             </h2>
 
             <div class="categories-slider owl-carousel owl-theme show-nav-hover nav-outer">
@@ -663,8 +658,8 @@
                                 alt="category" width="280" height="240" />
                         </figure>
                         <div class="category-content">
-                            <h3>Stationery</h3>
-                            <span><mark class="count">3</mark> products</span>
+                            <h3>{{ __('messages.stationery') }}</h3>
+                            <span><mark class="count">3</mark> {{ __('messages.products') }}</span>
                         </div>
                     </a>
                 </div>
@@ -676,8 +671,8 @@
                                 alt="category" width="220" height="220" />
                         </figure>
                         <div class="category-content">
-                            <h3>Promotional</h3>
-                            <span><mark class="count">3</mark> products</span>
+                            <h3>{{ __('messages.promotional') }}</h3>
+                            <span><mark class="count">3</mark> {{ __('messages.products') }}</span>
                         </div>
                     </a>
                 </div>
@@ -689,8 +684,8 @@
                                 alt="category" width="220" height="220" />
                         </figure>
                         <div class="category-content">
-                            <h3>Packaging & Boxes</h3>
-                            <span><mark class="count">3</mark> products</span>
+                            <h3>{{ __('messages.packaging_boxes') }}</h3>
+                            <span><mark class="count">3</mark> {{ __('messages.products') }}</span>
                         </div>
                     </a>
                 </div>
@@ -702,8 +697,8 @@
                                 alt="category" width="220" height="220" />
                         </figure>
                         <div class="category-content">
-                            <h3>Event Branding</h3>
-                            <span><mark class="count">3</mark> products</span>
+                            <h3>{{ __('messages.event_branding') }}</h3>
+                            <span><mark class="count">3</mark> {{ __('messages.products') }}</span>
                         </div>
                     </a>
                 </div>
@@ -715,8 +710,8 @@
                                 alt="category" width="220" height="220" />
                         </figure>
                         <div class="category-content">
-                            <h3>Large Printing</h3>
-                            <span><mark class="count">3</mark> products</span>
+                            <h3>{{ __('messages.large_printing') }}</h3>
+                            <span><mark class="count">3</mark> {{ __('messages.products') }}</span>
                         </div>
                     </a>
                 </div>
@@ -728,8 +723,8 @@
                                 alt="category" width="220" height="220" />
                         </figure>
                         <div class="category-content">
-                            <h3>Marketing Materials</h3>
-                            <span><mark class="count">3</mark> products</span>
+                            <h3>{{ __('messages.marketing_materials') }}</h3>
+                            <span><mark class="count">3</mark> {{ __('messages.products') }}</span>
                         </div>
                     </a>
                 </div>
@@ -741,8 +736,8 @@
         <div class="container appear-animate" data-animation-name="fadeInUpShorter">
             <div class="row">
                 <div class="col-md-12 text-center">
-                    <h2>It's Simpler than You Think!</h2>
-                    <p>Curious About the Ease of Ordering with Us?</p>
+                    <h2>{{ __('messages.simpler_than_you_think') }}</h2>
+                    <p>{{ __('messages.curious_ordering') }}</p>
                 </div>
                 <div class="col-md-3">
                     <div class="feature-box px-sm-5 feature-box-simple text-center">
@@ -751,7 +746,7 @@
                         </div>
 
                         <div class="feature-box-content p-0">
-                            <h3>Select the product</h3>
+                            <h3>{{ __('messages.select_product') }}</h3>
 
                         </div>
                         <!-- End .feature-box-content -->
@@ -767,7 +762,7 @@
                         </div>
 
                         <div class="feature-box-content p-0">
-                            <h3>Upload your design</h3>
+                            <h3>{{ __('messages.upload_design') }}</h3>
 
                         </div>
                         <!-- End .feature-box-content -->
@@ -782,7 +777,7 @@
                             <i class="icon-credit-card"></i>
                         </div>
                         <div class="feature-box-content p-0">
-                            <h3>Pay Online</h3>
+                            <h3>{{ __('messages.pay_online') }}</h3>
 
                         </div>
                         <!-- End .feature-box-content -->
@@ -797,7 +792,7 @@
                             <i class="icon-action-undo"></i>
                         </div>
                         <div class="feature-box-content p-0">
-                            <h3>Collect / Receive</h3>
+                            <h3>{{ __('messages.collect_receive') }}</h3>
 
                         </div>
                         <!-- End .feature-box-content -->

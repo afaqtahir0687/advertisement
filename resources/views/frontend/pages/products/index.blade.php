@@ -5,9 +5,9 @@
             <nav aria-label="breadcrumb" class="breadcrumb-nav">
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="{{ route('home') }}"><i class="icon-home"></i></a></li>
-                    <li class="breadcrumb-item"><a href="#">Most Popular</a></li>
-                    <li class="breadcrumb-item"><a href="#">Business Cards</a></li>
-                    <li class="breadcrumb-item"><a href="#">Business Cards</a></li>
+                    <li class="breadcrumb-item"><a href="#">{{ __('messages.most_popular') }}</a></li>
+                    <li class="breadcrumb-item"><a href="#">{{ __('messages.business_cards') }}</a></li>
+                    <li class="breadcrumb-item"><a href="#">{{ __('messages.business_cards') }}</a></li>
                 </ol>
             </nav>
 
@@ -21,7 +21,7 @@
                     <div class="col-lg-5 col-md-6 product-single-gallery">
                         <div class="product-slider-container">
                             <div class="label-group">
-                                <div class="product-label label-hot">HOT</div>
+                                <div class="product-label label-hot">{{ __('messages.hot') }}</div>
 
                                 <div class="product-label label-sale">
                                     -16%
@@ -86,7 +86,7 @@
                     </div><!-- End .product-single-gallery -->
 
                     <div class="col-lg-7 col-md-6 product-single-details">
-                        <h1 class="product-title">Business Cards Standard - Digital</h1>
+                        <h1 class="product-title">{{ __('messages.business_card_fb') }}</h1>
 
                         <div class="product-nav">
                             <div class="product-prev">
@@ -98,7 +98,7 @@
                                             <img alt="product" width="150" height="150"
                                                 src="assets/images/products/product-3.jpg" style="padding-top: 0px;">
 
-                                            <span>Business card Circled Ultimate 3D Speaker</span>
+                                            <span>{{ __('messages.business_card_fb') }}</span>
                                         </span>
                                     </span>
                                 </a>
@@ -113,7 +113,7 @@
                                             <img alt="product" width="150" height="150"
                                                 src="assets/images/products/product-4.jpg" style="padding-top: 0px;">
 
-                                            <span>Business card Blue Backpack for the Young</span>
+                                            <span>{{ __('messages.business_card_fb') }}</span>
                                         </span>
                                     </span>
                                 </a>
@@ -121,29 +121,29 @@
                         </div>
 
                         <div class="product-customization">
-                            <h4 class="customization-title">Customize Your Product</h4>
+                            <h4 class="customization-title">{{ __('messages.customize_product') }}</h4>
 
                             <form id="product-customization-form">
                                 <!-- Side 1 Color Label -->
                                 <div class="form-group">
-                                    <label for="side1Color">Side 1 Color</label>
+                                    <label for="side1Color">{{ __('messages.side_1_color') }}</label>
                                     <select class="form-control" id="side1Color" required>
-                                        <!-- <option value="" disabled selected>Select a color</option> -->
+                                        <!-- <option value="" disabled selected>{{ __('messages.select_color') }}</option> -->
                                         <option value="cmyk">CMYK</option>
                                     </select>
                                 </div>
 
                                 <!-- Size Dropdown -->
                                 <div class="form-group">
-                                    <label for="size">Size</label>
+                                    <label for="size">{{ __('messages.size') }}</label>
                                     <select class="form-control" id="size" required>
-                                        <option value="b-cards">B-Cards</option>
-                                    </select>
+                                        <option value="b-cards">{{ __('messages.business_cards') }}</option>
+                                    </select>>
                                 </div>
 
                                 <!-- Sides Dropdown -->
                                 <div class="form-group">
-                                    <label for="sides">Sides</label>
+                                    <label for="sides">{{ __('messages.sides') }}</label>
                                     <select class="form-control" id="sides" required>
                                         <option value="1">1</option>
                                         <option value="2">2</option>
@@ -152,9 +152,9 @@
 
                                 <!-- Selected Material Dropdown -->
                                 <div class="form-group">
-                                    <label for="material">Selected Material</label>
+                                    <label for="material">{{ __('messages.selected_material') }}</label>
                                     <select class="form-control" id="material" required>
-                                        <option value="" disabled selected>Select material</option>
+                                        <option value="" disabled selected>{{ __('messages.select_material') }}</option>
                                         <option value="standard">200 coated Matt--</option>
                                         <option value="standard">200 coated Gloss--</option>
                                         <option value="standard">250 coated Matt--</option>
@@ -171,7 +171,7 @@
                                 <div class="toggle-box">
                                     <div class="toggle-header">
                                         <span class="toggle-label">
-                                            Lamination (Coated Papers Only)
+                                            {{ __('messages.lamination') }}
                                         </span>
 
                                         <div class="custom-control custom-switch">
@@ -183,7 +183,7 @@
 
                                     <!-- SIDES -->
                                     <div id="laminationSides" class="d-none">
-                                        <label for="lamination_side">Sides</label>
+                                        <label for="lamination_side">{{ __('messages.sides') }}</label>
                                         <select class="form-control" id="lamination_side" name="lamination_side">
                                             <option value="1">1 Side</option>
                                             <option value="2">2 Sides</option>
@@ -192,7 +192,7 @@
 
                                     <!-- LAMINATION TYPE -->
                                     <div id="laminationOptions" class="d-none">
-                                        <label for="lamination_type">Lamination Type</label>
+                                        <label for="lamination_type">{{ __('messages.lamination_type') }}</label>
                                         <select class="form-control" id="lamination_type" name="lamination_type">
                                             <option value="sf-matte">SF Matte Lamination</option>
                                             <option value="sf-gloss">SF Gloss Lamination</option>
@@ -205,7 +205,7 @@
                                 <div class="toggle-box">
                                     <div class="toggle-header">
                                         <span class="toggle-label">
-                                            Round Corners
+                                            {{ __('messages.round_corners') }}
                                             <span id="roundStatus" class="toggle-status">✓</span>
                                         </span>
                                         <div class="custom-control custom-switch">
@@ -218,25 +218,25 @@
                                         <div class="row">
                                             <div class="col-6">
                                                 <div class="option-box">
-                                                    Upper Left
+                                                    {{ __('messages.upper_left') }}
                                                     <span class="check-icon">✓</span>
                                                 </div>
                                             </div>
                                             <div class="col-6">
                                                 <div class="option-box">
-                                                    Upper Right
+                                                    {{ __('messages.upper_right') }}
                                                     <span class="check-icon">✓</span>
                                                 </div>
                                             </div>
                                             <div class="col-6 mt-2">
                                                 <div class="option-box">
-                                                    Lower Left
+                                                    {{ __('messages.lower_left') }}
                                                     <span class="check-icon">✓</span>
                                                 </div>
                                             </div>
                                             <div class="col-6 mt-2">
                                                 <div class="option-box">
-                                                    Lower Right
+                                                    {{ __('messages.lower_right') }}
                                                     <span class="check-icon">✓</span>
                                                 </div>
                                             </div>
@@ -248,7 +248,7 @@
                                 <div class="toggle-box">
                                     <div class="toggle-header">
                                         <span class="toggle-label">
-                                            Die Cutting
+                                            {{ __('messages.die_cutting') }}
                                             <span id="dieStatus" class="toggle-status">✓</span>
                                         </span>
                                         <div class="custom-control custom-switch">
@@ -259,7 +259,7 @@
 
                                     <div id="dieOptions" class="d-none">
                                         <select class="form-control">
-                                            <option value="">Select Die Cutting</option>
+                                            <option value="">{{ __('messages.select_die_cutting') }}</option>
                                             <option>Die Cutting with Ready Die (DGTL)</option>
                                             <option>Custom Die Cut</option>
                                         </select>
@@ -268,13 +268,13 @@
 
                                 <!-- Product Memo -->
                                 <div class="form-group">
-                                    <label for="productMemo">Product Memo</label>
+                                    <label for="productMemo">{{ __('messages.product_memo') }}</label>
                                     <input type="text" class="form-control" id="productMemo"
-                                        placeholder="Enter product memo (optional)">
+                                        placeholder="{{ __('messages.enter_memo') }}">
                                 </div>
                                 <div class="toggle-box clickable-box" id="shareLinkBox">
                                     <div class="toggle-header">
-                                        <strong>Share A Link</strong>
+                                        <strong>{{ __('messages.share_link') }}</strong>
 
                                         <div class="custom-control custom-switch">
                                             <input type="checkbox" class="custom-control-input" id="shareLinkToggle">
@@ -290,7 +290,7 @@
                                 </div>
                                 <div class="toggle-box clickable-box" id="shareSocialBox">
                                     <div class="toggle-header">
-                                        <strong>Share Social Links</strong>
+                                        <strong>{{ __('messages.share_social') }}</strong>
 
                                         <div class="custom-control custom-switch">
                                             <input type="checkbox" class="custom-control-input" id="shareSocialToggle">
@@ -333,15 +333,15 @@
                                 </div>
 
                                 <div class="upload-design-row disabled">
-                                    <div class="upload-text">
-                                        <strong>Upload Design</strong>
-                                        <span>Select From Your Saved Designs</span>
-                                    </div>
+                                <div class="upload-text">
+                                    <strong>{{ __('messages.upload_design_title') }}</strong>
+                                    <span>{{ __('messages.select_saved_designs') }}</span>
+                                </div>
 
-                                    <div class="upload-lock">
-                                        <span>Login for this</span>
-                                        <i class="fa fa-lock"></i>
-                                    </div>
+                                <div class="upload-lock">
+                                    <span>{{ __('messages.login_for_this') }}</span>
+                                    <i class="fa fa-lock"></i>
+                                </div>
                                 </div>
 
                             </form>
@@ -352,7 +352,7 @@
 
             <div class="order-box">
                 <div class="order-header">
-                    <h5>Your Order Details</h5>
+                    <h5>{{ __('messages.order_details') }}</h5>
                 </div>
 
                 <div class="order-content container-fluid">
@@ -362,12 +362,12 @@
                             <div class="left-box">
                                 <div class="row">
                                     <div class="col-md-6">
-                                        <label class="label-title">Number of Designs:</label>
+                                        <label class="label-title">{{ __('messages.number_designs') }}</label>
                                         <input type="number" class="form-control" value="1">
                                     </div>
 
                                     <div class="col-md-6">
-                                        <label class="label-title">Quantity:</label>
+                                        <label class="label-title">{{ __('messages.quantity') }}</label>
 
                                         <div id="quantityWrapper">
                                             <select class="form-control" id="quantityField">
@@ -383,7 +383,7 @@
                                             <input type="checkbox" class="custom-control-input" id="customQuantity">
                                             <label class="custom-control-label" for="customQuantity">Custom</label>
                                             <small class="text-danger d-none" id="quantityError">
-                                                Valid Range: 100 – 1000
+                                                {{ __('messages.valid_range') }}
                                             </small>
                                         </div>
                                     </div>
@@ -395,10 +395,10 @@
                                         <thead>
                                             <tr>
                                                 <th></th>
-                                                <th>Urgency</th>
-                                                <th>Price</th>
-                                                <th>Production day(s)</th>
-                                                <th>Delivery day(s)</th>
+                                                <th>{{ __('messages.urgency') }}</th>
+                                                <th>{{ __('messages.price') }}</th>
+                                                <th>{{ __('messages.production_days') }}</th>
+                                                <th>{{ __('messages.delivery_days') }}</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -411,9 +411,9 @@
                                                         {{-- <label class="custom-control-label" for="regular"></label> --}}
                                                     </div>
                                                 </td>
-                                                <td>Regular</td>
+                                                <td>{{ __('messages.regular') }}</td>
                                                 <td>95.00</td>
-                                                <td>3 working day(s)</td>
+                                                <td>3 {{ __('messages.working_days') }}</td>
                                                 <td>01</td>
                                             </tr>
                                             <tr data-urgency="flexible" data-rate="87.96">
@@ -424,9 +424,9 @@
                                                         {{-- <label class="custom-control-label" for="flexible"></label> --}}
                                                     </div>
                                                 </td>
-                                                <td>Flexible</td>
+                                                <td>{{ __('messages.flexible') }}</td>
                                                 <td>87.96</td>
-                                                <td>5 working day(s)</td>
+                                                <td>5 {{ __('messages.working_days') }}</td>
                                                 <td>01</td>
                                             </tr>
 
@@ -439,9 +439,9 @@
                                                         {{-- <label class="custom-control-label" for="flexible"></label> --}}
                                                     </div>
                                                 </td>
-                                                <td>Urgent</td>
+                                                <td>{{ __('messages.urgent') }}</td>
                                                 <td>100.96</td>
-                                                <td>1 working day</td>
+                                                <td>1 {{ __('messages.working_days') }}</td>
                                                 <td>01</td>
                                             </tr>
                                         </tbody>
@@ -453,24 +453,24 @@
                         <!-- RIGHT SIDE -->
                         <div class="col-md-4">
                             <div class="right-box">
-                                <p><strong>Before discount:</strong>
+                                <p><strong>{{ __('messages.before_discount') }}</strong>
                                     <span class="float-right" id="beforeDiscount">82.61</span>
                                 </p>
 
-                                <p><strong>Total discount:</strong>
+                                <p><strong>{{ __('messages.total_discount') }}</strong>
                                     <span class="float-right" id="discount">0.00</span>
                                 </p>
 
-                                <p><strong>Total tax (15.00%):</strong>
+                                <p><strong>{{ __('messages.total_tax') }}</strong>
                                     <span class="float-right" id="tax">12.39</span>
                                 </p>
 
-                                <p class="total-price"><strong>Price:</strong>
+                                <p class="total-price"><strong>{{ __('messages.final_price') }}</strong>
                                     <span class="float-right" id="finalPrice">95.00</span>
                                 </p>
 
 
-                                <button class="btn btn-primary btn-block btn-lg">Add to cart</button>
+                                <button class="btn btn-primary btn-block btn-lg">{{ __('messages.add_to_cart') }}</button>
                             </div>
                         </div>
                     </div>
@@ -481,23 +481,22 @@
                 <ul class="nav nav-tabs" role="tablist">
                     <li class="nav-item">
                         <a class="nav-link active" id="product-tab-desc" data-toggle="tab" href="#product-desc-content"
-                            role="tab" aria-controls="product-desc-content" aria-selected="true">Description</a>
+                            role="tab" aria-controls="product-desc-content" aria-selected="true">{{ __('messages.description') }}</a>
                     </li>
 
                     <li class="nav-item">
                         <a class="nav-link" id="product-tab-size" data-toggle="tab" href="#product-size-content"
-                            role="tab" aria-controls="product-size-content" aria-selected="true">Size Guide</a>
+                            role="tab" aria-controls="product-size-content" aria-selected="true">{{ __('messages.size_guide') }}</a>
                     </li>
 
                     <li class="nav-item">
                         <a class="nav-link" id="product-tab-tags" data-toggle="tab" href="#product-tags-content"
-                            role="tab" aria-controls="product-tags-content" aria-selected="false">Additional
-                            Information</a>
+                            role="tab" aria-controls="product-tags-content" aria-selected="false">{{ __('messages.additional_info') }}</a>
                     </li>
 
                     <li class="nav-item">
                         <a class="nav-link" id="product-tab-reviews" data-toggle="tab" href="#product-reviews-content"
-                            role="tab" aria-controls="product-reviews-content" aria-selected="false">Reviews (1)</a>
+                            role="tab" aria-controls="product-reviews-content" aria-selected="false">{{ __('messages.reviews') }} (1)</a>
                     </li>
                 </ul>
 
@@ -505,7 +504,7 @@
                     <div class="tab-pane fade show active" id="product-desc-content" role="tabpanel"
                         aria-labelledby="product-tab-desc">
                         <div class="product-desc-content">
-                            <h5 class="section-title">Benefits of Business Cards</h5>
+                            <h5 class="section-title">{{ __('messages.benefits_title') }}</h5>
                             <ul>
                                 <li>Superior Quality Business Cards</li>
                                 <li>Make A Good First Impression</li>
@@ -525,7 +524,7 @@
                                 finishing touch with glossy, matte or soft/velvet lamination. Place your order today to
                                 enjoy a free & fast delivery at your doorsteps.
                             </p>
-                            <h5 class="fs-1">Why Choose Us for Name Cards & Business Cards?</h5>
+                            <h5 class="fs-1">{{ __('messages.why_choose_us') }}</h5>
                             <p>
                                 <span style="font-weight: bold;">Premium Quality Printing:</span> Crisp text, vibrant
                                 colors, and high-quality materials ensure a professional finish.<br>
@@ -543,7 +542,7 @@
                                 designers create clean, brand-aligned designs that represent your business effectively.
                             </p>
 
-                            <h5 class="fs-1">Best Use Cases For Name Cards & Business Cards</h5>
+                            <h5 class="fs-1">{{ __('messages.best_use_cases') }}</h5>
                             <p>
                                 <span style="font-weight: bold;">Networking & Client Meetings:</span> Make a strong first
                                 impression by sharing your details professionally at events, conferences, and meetings.<br>
@@ -783,7 +782,7 @@
             </div><!-- End .product-single-tabs -->
 
             <div class="products-section pt-0">
-                <h2 class="section-title">Related Products</h2>
+                <h2 class="section-title">{{ __('messages.related_products') }}</h2>
 
                 <div class="products-slider owl-carousel owl-theme dots-top dots-small">
                     <div class="product-default">

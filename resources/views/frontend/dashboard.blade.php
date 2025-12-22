@@ -6,59 +6,58 @@
 					<nav aria-label="breadcrumb" class="breadcrumb-nav">
 						<div class="container">
 							<ol class="breadcrumb">
-								<li class="breadcrumb-item"><a href="#">Home</a></li>
-								<li class="breadcrumb-item"><a href="#">Shop</a></li>
+								<li class="breadcrumb-item"><a href="#">{{ __('messages.home') }}</a></li>
+								<li class="breadcrumb-item"><a href="#">{{ __('messages.shop') }}</a></li>
 								<li class="breadcrumb-item active" aria-current="page">
-									My Account
+									{{ __('messages.my_account') }}
 								</li>
 							</ol>
 						</div>
 					</nav>
 
-					<h1>My Account</h1>
+					<h1>{{ __('messages.my_account') }}</h1>
 				</div>
 			</div>
 
 			<div class="container account-container custom-account-container mt-5">
 				<div class="row">
 					<div class="sidebar widget widget-dashboard mb-lg-0 mb-3 col-lg-3 order-0">
-						<h2 class="text-uppercase">My Account</h2>
+						<h2 class="text-uppercase">{{ __('messages.my_account') }}</h2>
 						<ul class="nav nav-tabs list flex-column mb-0" role="tablist">
 							<li class="nav-item">
 								<a class="nav-link active" id="dashboard-tab" data-toggle="tab" href="#dashboard"
-									role="tab" aria-controls="dashboard" aria-selected="true">Dashboard</a>
+									role="tab" aria-controls="dashboard" aria-selected="true">{{ __('messages.dashboard') }}</a>
 							</li>
 
 							<li class="nav-item">
 								<a class="nav-link" id="order-tab" data-toggle="tab" href="#order" role="tab"
-									aria-controls="order" aria-selected="true">Orders</a>
+									aria-controls="order" aria-selected="true">{{ __('messages.orders') }}</a>
 							</li>
 
 							<li class="nav-item">
 								<a class="nav-link" id="download-tab" data-toggle="tab" href="#download" role="tab"
-									aria-controls="download" aria-selected="false">Downloads</a>
+									aria-controls="download" aria-selected="false">{{ __('messages.downloads') }}</a>
 							</li>
 
 							<li class="nav-item">
 								<a class="nav-link" id="address-tab" data-toggle="tab" href="#address" role="tab"
-									aria-controls="address" aria-selected="false">Addresses</a>
+									aria-controls="address" aria-selected="false">{{ __('messages.addresses') }}</a>
 							</li>
 
 							<li class="nav-item">
 								<a class="nav-link" id="edit-tab" data-toggle="tab" href="#edit" role="tab"
-									aria-controls="edit" aria-selected="false">Account
-									details</a>
+									aria-controls="edit" aria-selected="false">{{ __('messages.account_details') }}</a>
 							</li>
 							<li class="nav-item">
 								<a class="nav-link" id="shop-address-tab" data-toggle="tab" href="#shipping" role="tab"
-									aria-controls="edit" aria-selected="false">Shopping Addres</a>
+									aria-controls="edit" aria-selected="false">{{ __('messages.shopping_address') }}</a>
 							</li>
 							<li class="nav-item">
-								<a class="nav-link" href="#">Wishlist</a>
+								<a class="nav-link" href="#">{{ __('messages.wishlist') }}</a>
 							</li>
 
                             <li class="nav-item">
-								<a class="nav-link" href="#">Logout</a>
+								<a class="nav-link" href="#">{{ __('messages.logout') }}</a>
 							</li>
 							{{-- <li class="nav-item">
 								<form action="{{ route('logout') }}" method="POST">
@@ -75,19 +74,16 @@
 						<div class="tab-pane fade show active" id="dashboard" role="tabpanel">
 							<div class="dashboard-content">
 								<p>
-									Hello <strong class="text-dark">Editor</strong> (not
+									{{ __('messages.hello') }} <strong class="text-dark">Editor</strong> ({{ __('messages.not') }}
 									<strong class="text-dark">Editor</strong>?
-									<a href="#" class="btn btn-link ">Log out</a>)
+									<a href="#" class="btn btn-link ">{{ __('messages.logout') }}</a>)
 								</p>
 
 								<p>
-									From your account dashboard you can view your
-									<a  href="#order">recent orders</a>,
-									manage your
-									<a href="#address">shipping and billing
-										addresses</a>, and
-									<a href="#edit">edit your password and account
-										details.</a>
+									{{ __('messages.dashboard_intro') }}
+									<a  href="#order">{{ __('messages.recent_orders') }}</a>,
+									{{ __('messages.manage_addresses') }}, {{ __('messages.and') }}
+									<a href="#edit">{{ __('messages.edit_account') }}</a>
 								</p>
 
 								<div class="mb-4"></div>
@@ -97,7 +93,7 @@
 										<div class="feature-box text-center pb-4">
 											<a href="#order" class="link-to-tab"><i class="fab fa-first-order"></i></a>
 											<div class="feature-box-content">
-												<h3>ORDERS</h3>
+												<h3>{{ __('messages.orders') }}</h3>
 											</div>
 										</div>
 									</div>
@@ -106,7 +102,7 @@
 										<div class="feature-box text-center pb-4">
 											<a href="#download" class="link-to-tab"><i class="fas fa-cloud-download-alt"></i></a>
 											<div class=" feature-box-content">
-												<h3>DOWNLOADS</h3>
+												<h3>{{ __('messages.downloads') }}</h3>
 											</div>
 										</div>
 									</div>
@@ -116,7 +112,7 @@
 											<a href="#address" class="link-to-tab"><i
 										class="icon-location"></i></a>
 											<div class="feature-box-content">
-												<h3>ADDRESSES</h3>
+												<h3>{{ __('messages.addresses') }}</h3>
 											</div>
 										</div>
 									</div>
@@ -125,7 +121,7 @@
 										<div class="feature-box text-center pb-4">
 											<a href="#edit" class="link-to-tab"><i class="icon-user-2"></i></a>
 											<div class="feature-box-content p-0">
-												<h3>ACCOUNT DETAILS</h3>
+												<h3>{{ __('messages.account_details') }}</h3>
 											</div>
 										</div>
 									</div>
@@ -134,7 +130,7 @@
 										<div class="feature-box text-center pb-4">
 											<a href="#"><i class="far fa-heart"></i></a>
 											<div class="feature-box-content">
-												<h3>WISHLIST</h3>
+												<h3>{{ __('messages.wishlist') }}</h3>
 											</div>
 										</div>
 									</div>
@@ -143,7 +139,7 @@
 										<div class="feature-box text-center pb-4">
 											<a href="#"><i class="fas fa-sign-out-alt"></i></a>
 											<div class="feature-box-content">
-												<h3>LOGOUT</h3>
+												<h3>{{ __('messages.logout') }}</h3>
 											</div>
 										</div>
 									</div>
@@ -159,18 +155,18 @@
 									<table class="table table-order text-left">
 										<thead>
 											<tr>
-												<th class="order-id">ORDER</th>
-												<th class="order-date">DATE</th>
-												<th class="order-status">STATUS</th>
-												<th class="order-price">TOTAL</th>
-												<th class="order-action">ACTIONS</th>
+												<th class="order-id">{{ __('messages.orders') }}</th>
+												<th class="order-date">{{ __('messages.date') }}</th>
+												<th class="order-status">{{ __('messages.status') }}</th>
+												<th class="order-price">{{ __('messages.total') }}</th>
+												<th class="order-action">{{ __('messages.actions') }}</th>
 											</tr>
 										</thead>
 										<tbody>
 											<tr>
 												<td class="text-center p-0" colspan="5">
 													<p class="mb-5 mt-5">
-														No Order has been made yet.
+														{{ __('messages.no_order_msg') }}
 													</p>
 												</td>
 											</tr>
@@ -178,7 +174,7 @@
 									</table>
 									<hr class="mt-0 mb-3 pb-2" />
 
-									<a href="£" class="btn btn-dark">Go Shop</a>
+									<a href="£" class="btn btn-dark">{{ __('messages.go_shop') }}</a>
 								</div>
 							</div>
 						</div><!-- End .tab-pane -->
@@ -188,8 +184,8 @@
 								<h3 class="account-sub-title d-none d-md-block"><i
 										class="sicon-cloud-download align-middle mr-3"></i>Downloads</h3>
 								<div class="download-table-container">
-									<p>No downloads available yet.</p> <a href="#"
-										class="btn btn-primary text-transform-none mb-2">GO SHOP</a>
+									<p>{{ __('messages.no_downloads_msg') }}</p> <a href="#"
+										class="btn btn-primary text-transform-none mb-2">{{ __('messages.go_shop') }}</a>
 								</div>
 							</div>
 						</div><!-- End .tab-pane -->
@@ -199,28 +195,26 @@
 									class="sicon-location-pin align-middle mr-3"></i>Addresses</h3>
 							<div class="addresses-content">
 								<p class="mb-4">
-									The following addresses will be used on the checkout page by
-									default.
+									{{ __('messages.default_checkout_msg') }}
 								</p>
 
 								<div class="row">
 									<div class="address col-md-6">
 										<div class="heading d-flex">
-											<h4 class="text-dark mb-0">Billing address</h4>
+											<h4 class="text-dark mb-0">{{ __('messages.billing_address') }}</h4>
 										</div>
 
 										<div class="address-box">
 											You have not set up this type of address yet.
 										</div>
 
-										<a href="#billing" class="btn btn-default address-action link-to-tab">Add
-											Address</a>
+										<a href="#billing" class="btn btn-default address-action link-to-tab">{{ __('messages.add_address') }}</a>
 									</div>
 
 									<div class="address col-md-6 mt-5 mt-md-0">
 										<div class="heading d-flex">
 											<h4 class="text-dark mb-0">
-												Shipping address
+												{{ __('messages.shipping_address') }}
 											</h4>
 										</div>
 
@@ -228,8 +222,7 @@
 											You have not set up this type of address yet.
 										</div>
 
-										<a href="#shipping" class="btn btn-default address-action link-to-tab">Add
-											Address</a>
+										<a href="#shipping" class="btn btn-default address-action link-to-tab">{{ __('messages.add_address') }}</a>
 									</div>
 								</div>
 							</div>
@@ -243,7 +236,7 @@
 									<div class="row">
 										<div class="col-md-6">
 											<div class="form-group">
-												<label for="acc-name">First name <span class="required">*</span></label>
+												<label for="acc-name">{{ __('messages.first_name') }} <span class="required">*</span></label>
 												<input type="text" class="form-control" placeholder="Editor"
 													id="acc-name" name="acc-name" required />
 											</div>
@@ -251,7 +244,7 @@
 
 										<div class="col-md-6">
 											<div class="form-group">
-												<label for="acc-lastname">Last name <span
+												<label for="acc-lastname">{{ __('messages.last_name') }} <span
 														class="required">*</span></label>
 												<input type="text" class="form-control" id="acc-lastname"
 													name="acc-lastname" required />
@@ -260,40 +253,36 @@
 									</div>
 
 									<div class="form-group mb-2">
-										<label for="acc-text">Display name <span class="required">*</span></label>
+										<label for="acc-text">{{ __('messages.display_name') }} <span class="required">*</span></label>
 										<input type="text" class="form-control" id="acc-text" name="acc-text"
 											placeholder="Editor" required />
-										<p>This will be how your name will be displayed in the account section and
-											in
-											reviews</p>
+										<p>{{ __('messages.display_name_hint') }}</p>
 									</div>
 
 
 									<div class="form-group mb-4">
-										<label for="acc-email">Email address <span class="required">*</span></label>
+										<label for="acc-email">{{ __('messages.email_address') }} <span class="required">*</span></label>
 										<input type="email" class="form-control" id="acc-email" name="acc-email"
 											placeholder="editor@gmail.com" required />
 									</div>
 
 									<div class="change-password">
-										<h3 class="text-uppercase mb-2">Password Change</h3>
+										<h3 class="text-uppercase mb-2">{{ __('messages.password_change') }}</h3>
 
 										<div class="form-group">
-											<label for="acc-password">Current Password (leave blank to leave
-												unchanged)</label>
+											<label for="acc-password">{{ __('messages.current_password') }}</label>
 											<input type="password" class="form-control" id="acc-password"
 												name="acc-password" />
 										</div>
 
 										<div class="form-group">
-											<label for="acc-password">New Password (leave blank to leave
-												unchanged)</label>
+											<label for="acc-password">{{ __('messages.new_password') }}</label>
 											<input type="password" class="form-control" id="acc-new-password"
 												name="acc-new-password" />
 										</div>
 
 										<div class="form-group">
-											<label for="acc-password">Confirm New Password</label>
+											<label for="acc-password">{{ __('messages.confirm_new_password') }}</label>
 											<input type="password" class="form-control" id="acc-confirm-password"
 												name="acc-confirm-password" />
 										</div>
@@ -310,7 +299,7 @@
 
 						<div class="tab-pane fade" id="billing" role="tabpanel">
 							<div class="address account-content mt-0 pt-2">
-								<h4 class="title">Billing address</h4>
+								<h4 class="title">{{ __('messages.billing_address') }}</h4>
 
 								<form class="mb-2" action="#">
 									<div class="row">
@@ -330,12 +319,12 @@
 									</div>
 
 									<div class="form-group">
-										<label>Company </label>
+										<label>{{ __('messages.company') }} </label>
 										<input type="text" class="form-control">
 									</div>
 
 									<div class="select-custom">
-										<label>Country / Region <span class="required">*</span></label>
+										<label>{{ __('messages.country_region') }} <span class="required">*</span></label>
 										<select name="orderby" class="form-control">
 											<option value="" selected="selected">British Indian Ocean Territory
 											</option>
@@ -348,36 +337,36 @@
 									</div>
 
 									<div class="form-group">
-										<label>Street address <span class="required">*</span></label>
+										<label>{{ __('messages.street_address') }} <span class="required">*</span></label>
 										<input type="text" class="form-control"
-											placeholder="House number and street name" required />
+											placeholder="{{ __('messages.street_address_placeholder') }}" required />
 										<input type="text" class="form-control"
-											placeholder="Apartment, suite, unit, etc. (optional)" required />
+											placeholder="{{ __('messages.apartment_suite_placeholder') }}" required />
 									</div>
 
 									<div class="form-group">
-										<label>Town / City <span class="required">*</span></label>
+										<label>{{ __('messages.town_city') }} <span class="required">*</span></label>
 										<input type="text" class="form-control" required />
 									</div>
 
 									<div class="form-group">
-										<label>State / Country <span class="required">*</span></label>
+										<label>{{ __('messages.state_country') }} <span class="required">*</span></label>
 										<input type="text" class="form-control" required />
 									</div>
 
 									<div class="form-group">
-										<label>Postcode / ZIP <span class="required">*</span></label>
+										<label>{{ __('messages.postcode_zip') }} <span class="required">*</span></label>
 										<input type="text" class="form-control" required />
 									</div>
 
 									<div class="form-group mb-3">
-										<label>Phone <span class="required">*</span></label>
+										<label>{{ __('messages.phone') }} <span class="required">*</span></label>
 										<input type="number" class="form-control" required />
 									</div>
 
 									<div class="form-group mb-3">
-										<label>Email address <span class="required">*</span></label>
-										<input type="email" class="form-control" placeholder="editor@gmail.com"
+										<label>{{ __('messages.email_address') }} <span class="required">*</span></label>
+										<input type="email" class="form-control" placeholder="{{ __('messages.example_email') }}"
 											required />
 									</div>
 
@@ -394,7 +383,7 @@
 
 						<div class="tab-pane fade" id="shipping" role="tabpanel">
 							<div class="address account-content mt-0 pt-2">
-								<h4 class="title mb-3">Shipping Address</h4>
+								<h4 class="title mb-3">{{ __('messages.shipping_address') }}</h4>
 
 								<form class="mb-2" action="#">
 									<div class="row">
@@ -414,12 +403,12 @@
 									</div>
 
 									<div class="form-group">
-										<label>Company </label>
+										<label>{{ __('messages.company') }} </label>
 										<input type="text" class="form-control">
 									</div>
 
 									<div class="select-custom">
-										<label>Country / Region <span class="required">*</span></label>
+										<label>{{ __('messages.country_region') }} <span class="required">*</span></label>
 										<select name="orderby" class="form-control">
 											<option value="" selected="selected">British Indian Ocean Territory
 											</option>
@@ -432,25 +421,25 @@
 									</div>
 
 									<div class="form-group">
-										<label>Street address <span class="required">*</span></label>
+										<label>{{ __('messages.street_address') }} <span class="required">*</span></label>
 										<input type="text" class="form-control"
-											placeholder="House number and street name" required />
+											placeholder="{{ __('messages.street_address_placeholder') }}" required />
 										<input type="text" class="form-control"
-											placeholder="Apartment, suite, unit, etc. (optional)" required />
+											placeholder="{{ __('messages.apartment_suite_placeholder') }}" required />
 									</div>
 
 									<div class="form-group">
-										<label>Town / City <span class="required">*</span></label>
+										<label>{{ __('messages.town_city') }} <span class="required">*</span></label>
 										<input type="text" class="form-control" required />
 									</div>
 
 									<div class="form-group">
-										<label>State / Country <span class="required">*</span></label>
+										<label>{{ __('messages.state_country') }} <span class="required">*</span></label>
 										<input type="text" class="form-control" required />
 									</div>
 
 									<div class="form-group">
-										<label>Postcode / ZIP <span class="required">*</span></label>
+										<label>{{ __('messages.postcode_zip') }} <span class="required">*</span></label>
 										<input type="text" class="form-control" required />
 									</div>
 

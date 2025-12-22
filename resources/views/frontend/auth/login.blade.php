@@ -6,14 +6,14 @@
             <nav aria-label="breadcrumb" class="breadcrumb-nav">
                 <div class="container">
                     <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="{{ url('/') }}">Home</a></li>
+                        <li class="breadcrumb-item"><a href="{{ url('/') }}">{{ __('messages.home') }}</a></li>
                         <li class="breadcrumb-item active" aria-current="page">
-                            Login
+                            {{ __('messages.login') }}
                         </li>
                     </ol>
                 </div> 
             </nav>
-            <h1>Login to Your Account</h1>
+            <h1>{{ __('messages.login_title') }}</h1>
         </div>
     </div>
 
@@ -45,15 +45,15 @@
                 <div class="card shadow-sm">
                     <div class="card-body p-4">
                         <div class="heading mb-4">
-                            <h2 class="title text-center mb-3">Welcome Back</h2>
-                            <p class="text-center">Sign in to access your account</p>
+                            <h2 class="title text-center mb-3">{{ __('messages.welcome_back') }}</h2>
+                            <p class="text-center">{{ __('messages.sign_in_access') }}</p>
                         </div>
 
                         <form method="POST" action="{{ route('login.store') }}">
                             @csrf
                             <div class="form-group">
                                 <label for="email">
-                                    Email address
+                                    {{ __('messages.email_address') }}
                                     <span class="text-danger">*</span>
                                 </label>
                                 <input type="email" 
@@ -74,12 +74,12 @@
                             <div class="form-group">
                                 <div class="d-flex justify-content-between">
                                     <label for="password">
-                                        Password
+                                        {{ __('messages.password') }}
                                         <span class="text-danger">*</span>
                                     </label>
                                     @if (Route::has('password.request'))
                                         <a href="{{ route('password.request') }}" class="text-primary small">
-                                            Forgot Password?
+                                            {{ __('messages.forgot_password') }}
                                         </a>
                                     @endif
                                 </div>
@@ -102,20 +102,20 @@
                                        id="remember" 
                                        name="remember" {{ old('remember') ? 'checked' : '' }}>
                                 <label class="form-check-label" for="remember">
-                                    Remember me
+                                    {{ __('messages.remember_me') }}
                                 </label>
                             </div>
 
                             <div class="form-group mt-4">
                                 <button type="submit" class="btn btn-dark btn-lg btn-block">
-                                    Sign In
+                                    {{ __('messages.sign_in') }}
                                 </button>
                             </div>
 
                             <div class="text-center mt-3">
                                 <p class="mb-0">
-                                    Don't have an account? 
-                                    <a href="{{ route('register') }}" class="text-primary font-weight-bold">Sign Up</a>
+                                    {{ __('messages.dont_have_account') }} 
+                                    <a href="{{ route('register') }}" class="text-primary font-weight-bold">{{ __('messages.sign_up') }}</a>
                                 </p>
                             </div>
                         </form>
