@@ -36,6 +36,17 @@
                             <h1 class="h4 text-gray-900 mb-4">Create an Account!</h1>
                         </div>
 
+                        {{-- Error Message --}}
+                        @if ($errors->any())
+                            <div class="alert alert-danger">
+                                <ul class="mb-0">
+                                    @foreach ($errors->all() as $error)
+                                        <li>{{ $error }}</li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                        @endif
+
                         <form class="user" method="POST" action="{{ route('admin.register.store') }}">
                             @csrf
 

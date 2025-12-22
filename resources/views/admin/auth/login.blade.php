@@ -44,6 +44,13 @@
                                     <h1 class="h4 text-gray-900 mb-4">Welcome Back!</h1>
                                 </div>
 
+                                {{-- Success Message --}}
+                                @if (session('success'))
+                                    <div class="alert alert-success">
+                                        {{ session('success') }}
+                                    </div>
+                                @endif
+
                                 {{-- Error Message --}}
                                 @if ($errors->any())
                                     <div class="alert alert-danger">

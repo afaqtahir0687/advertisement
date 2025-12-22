@@ -6,6 +6,8 @@ use App\Http\Controllers\Frontend\AuthController;
 use App\Http\Controllers\Frontend\DashboardController;
 use App\Http\Controllers\Frontend\ProductController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Admin\AuthController as AdminAuthController;
+use App\Http\Controllers\Admin\DashboardController as AdminDashboardController;
 
 // Homepage
 Route::get('/', [HomeController::class, 'index'])->name('home');
@@ -45,3 +47,23 @@ Route::get('/wishlist', [HomeController::class, 'wishlist'])->name('wishlist.ind
 Route::get('/cart', [HomeController::class, 'cart'])->name('cart.index');
 Route::get('/contact-us', [HomeController::class, 'contactUs'])->name('contact.index');
 Route::get('/track-order', [HomeController::class, 'trackOrder'])->name('track.order');
+
+
+/*
+|--------------------------------------------------------------------------
+| Admin Routes
+|--------------------------------------------------------------------------
+*/
+Route::prefix('admin')->name('admin.')->group(function () {
+
+    Route::get('/login', [AdminAuthController::class, 'showLogin'])->name('login');
+    Route::post('/login', [AdminAuthController::class, 'login'])->name('login.store');
+
+    Route::get('/register', [AdminAuthController::class, 'showRegister'])->name('register');
+    Route::post('/register', [AdminAuthController::class, 'register'])->name('register.store');
+
+    Route::middleware('auth:admin')->group(function () {
+        Route::post('/logout', [AdminAuthController::class, 'logout'])->name('logout');
+        Route::get('/dashboard', [AdminDashboardController::class, 'index'])->name('dashboard');
+    });
+});
