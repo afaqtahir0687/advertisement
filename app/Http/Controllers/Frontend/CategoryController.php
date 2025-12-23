@@ -3,13 +3,23 @@
 namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
+use App\Models\Category;
+use App\Models\Product; // Added Product model import
 use Illuminate\Http\Request;
 
 class CategoryController extends Controller
 {
     public function index()
     {
-        return view('frontend.pages.categories.index');
+        $categories = Category::where('status', 'active')->latest()->get();
+        return view('frontend.pages.categories.index', compact('categories'));
+    }
+
+    public function show($slug)
+    {
+        $category = Category::where('slug', $slug)->where('status', 'active')->firstOrFail();
+        $products = Product::where('category_id', $category->id)->where('status', 'active')->get();
+        return view('frontend.pages.categories.show', compact('category', 'products'));
     }
 
     public function bannerBoxSlider()

@@ -58,16 +58,11 @@
 							</li>
 
                             <li class="nav-item">
-								<a class="nav-link" href="#">Logout</a>
+								<a class="nav-link" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a>
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                    @csrf
+                                </form>
 							</li>
-							{{-- <li class="nav-item">
-								<form action="{{ route('logout') }}" method="POST">
-									@csrf
-									<button type="submit" class="nav-link btn btn-link p-0" style="cursor:pointer;">
-										Logout
-									</button>
-								</form>
-							</li> --}}
 
 						</ul>
 					</div>
@@ -75,9 +70,9 @@
 						<div class="tab-pane fade show active" id="dashboard" role="tabpanel">
 							<div class="dashboard-content">
 								<p>
-									Hello <strong class="text-dark">Editor</strong> (not
-									<strong class="text-dark">Editor</strong>?
-									<a href="#" class="btn btn-link ">Log out</a>)
+									Hello <strong class="text-dark">{{ Auth::user()->name }}</strong> (not
+									<strong class="text-dark">{{ Auth::user()->name }}</strong>?
+									<a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" class="btn btn-link ">Log out</a>)
 								</p>
 
 								<p>

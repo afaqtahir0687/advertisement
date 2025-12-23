@@ -94,7 +94,7 @@
                     <h6><span>Call us now</span><a href="tel:#" class="text-dark font1">+966557834154</a></h6>
                 </div>
 
-                <a href="#" class="header-icon" title="login"><i class="icon-user-2"></i></a>
+                <a href="{{ auth()->check() ? route('dashboard') : route('login') }}" class="header-icon" title="login"><i class="icon-user-2"></i></a>
 
                 <a href="#" class="header-icon" title="wishlist"><i class="icon-wishlist-2"></i></a>
 

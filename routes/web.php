@@ -6,8 +6,7 @@ use App\Http\Controllers\Frontend\AuthController;
 use App\Http\Controllers\Frontend\DashboardController;
 use App\Http\Controllers\Frontend\ProductController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Admin\AuthController as AdminAuthController;
-use App\Http\Controllers\Admin\DashboardController as AdminDashboardController;
+
 
 // Homepage
 Route::get('/', [HomeController::class, 'index'])->name('home');
@@ -21,15 +20,14 @@ Route::middleware('guest')->group(function () {
     Route::post('/register', [AuthController::class, 'storeRegistration'])->name('register.store');
 });
 
-    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
-
 // Protected Routes
 Route::middleware('auth')->group(function () {
     Route::post('/logout', [AuthController::class, 'destroy'])->name('logout');
-    // Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 });
 
 Route::get('/categories', [CategoryController::class, 'index'])->name('category.index');
+Route::get('/category/{slug}', [CategoryController::class, 'show'])->name('category.show');
 Route::get('/categories/banner-slider', [CategoryController::class, 'bannerBoxSlider'])->name('category.bannerBoxSlider');
 Route::get('/categories/banner-box-image', [CategoryController::class, 'bannerBoxImg'])->name('category.bannerBoxImg');
 Route::get('/categories/right-sidebar', [CategoryController::class, 'rightSidebar'])->name('category.rightSidebar');
@@ -38,6 +36,7 @@ Route::get('/categories/off-canvas', [CategoryController::class, 'offCanvas'])->
 
 
 Route::get('/products', [ProductController::class, 'index'])->name('products.index');
+Route::get('/product/{slug}', [ProductController::class, 'show'])->name('product.show');
 
 Route::get('/about-us', [HomeController::class, 'aboutUs'])->name('about.index');
 
@@ -53,17 +52,7 @@ Route::get('/track-order', [HomeController::class, 'trackOrder'])->name('track.o
 |--------------------------------------------------------------------------
 | Admin Routes
 |--------------------------------------------------------------------------
+|
+| Admin routes are now defined in routes/admin.php
+|
 */
-Route::prefix('admin')->name('admin.')->group(function () {
-
-    Route::get('/login', [AdminAuthController::class, 'showLogin'])->name('login');
-    Route::post('/login', [AdminAuthController::class, 'login'])->name('login.store');
-
-    Route::get('/register', [AdminAuthController::class, 'showRegister'])->name('register');
-    Route::post('/register', [AdminAuthController::class, 'register'])->name('register.store');
-
-    Route::middleware('auth:admin')->group(function () {
-        Route::post('/logout', [AdminAuthController::class, 'logout'])->name('logout');
-        Route::get('/dashboard', [AdminDashboardController::class, 'index'])->name('dashboard');
-    });
-});

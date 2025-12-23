@@ -40,6 +40,31 @@
         </div>
     </div>
 
+
+    <!-- <div class="home-slider slide-animate owl-carousel owl-theme show-nav-hover nav-big mb-2 text-uppercase"
+        data-owl-options="{
+                    'loop': false
+                }">
+        @foreach($sliders as $slider)
+        <div class="home-slide home-slide1 banner">
+            <img class="slide-bg" src="{{ asset('storage/' . $slider->image) }}" width="1903"
+                height="499" alt="slider image">
+            <div class="container d-flex align-items-center">
+                <div class="banner-layer appear-animate" data-animation-name="fadeInUpShorter">
+                    <h4 class="text-transform-none m-b-3">{{ $slider->title }}</h4>
+                    <h2 class="text-transform-none mb-0">{{ $slider->subtitle }}</h2>
+                    <h3 class="m-b-3">{{ $slider->offer_text }}</h3>
+                    @if($slider->link)
+                    <a href="{{ $slider->link }}" target="" class="btn btn-dark btn-lg">Shop Now!</a>
+                    @endif
+                </div>
+            </div>
+        </div>
+        @endforeach
+    </div> -->
+
+
+
     <div class="container">
         <h2 style="text-align: center;">From Concept to Delivery</h2>
         <p style="text-align: center;">Fuel Your Business with Flexible Credit, Design Services, and Lightning-Quick

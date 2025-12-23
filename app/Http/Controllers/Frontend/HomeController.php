@@ -9,7 +9,8 @@ class HomeController extends Controller
 {
     public function index()
     {
-        return view('frontend.index');
+        $sliders = \App\Models\Slider::where('status', 'active')->get();
+        return view('frontend.index', compact('sliders'));
     }
     public function aboutUs()
     {
