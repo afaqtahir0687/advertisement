@@ -12,10 +12,7 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('slug')->unique();
-            $table->string('image')->nullable();
-            $table->string('hover_image')->nullable();
-            $table->string('badge_text')->nullable();
-            $table->string('badge_style')->nullable(); // 'label-hot', 'label-sale', etc.
+            $table->string('image')->nullable();            
             $table->enum('status', ['active', 'inactive'])->default('active');
             $table->timestamps();
         });

@@ -31,16 +31,10 @@ class CategoryController extends Controller
         $category = new Category();
         $category->name = $request->name;
         $category->slug = Str::slug($request->name);
-        $category->badge_text = $request->badge_text;
-        $category->badge_style = $request->badge_style;
         $category->status = $request->status;
         
         if ($request->hasFile('image')) {
             $category->image = $request->file('image')->store('categories', 'public');
-        }
-
-        if ($request->hasFile('hover_image')) {
-            $category->hover_image = $request->file('hover_image')->store('categories', 'public');
         }
 
         $category->save();
@@ -62,8 +56,6 @@ class CategoryController extends Controller
 
         $category->name = $request->name;
         $category->slug = Str::slug($request->name);
-        $category->badge_text = $request->badge_text;
-        $category->badge_style = $request->badge_style;
         $category->status = $request->status;
 
         if ($request->hasFile('image')) {
@@ -71,13 +63,6 @@ class CategoryController extends Controller
                 Storage::disk('public')->delete($category->image);
             }
             $category->image = $request->file('image')->store('categories', 'public');
-        }
-
-        if ($request->hasFile('hover_image')) {
-            if ($category->hover_image) {
-                Storage::disk('public')->delete($category->hover_image);
-            }
-            $category->hover_image = $request->file('hover_image')->store('categories', 'public');
         }
 
         $category->save();
