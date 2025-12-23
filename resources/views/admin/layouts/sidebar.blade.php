@@ -33,11 +33,11 @@
                     <span>Services</span></a>
             </li> -->
 
-            <!-- <li class="nav-item">
+            <li class="nav-item">
                 <a class="nav-link" href="{{ route('admin.banners.index') }}">
                     <i class="fas fa-fw fa-ad"></i>
                     <span>Banners</span></a>
-            </li> -->
+            </li>
 
             <hr class="sidebar-divider">
 
@@ -51,11 +51,11 @@
                     <span>Categories</span></a>
             </li>
 
-            <!-- <li class="nav-item">
+             <li class="nav-item">
                 <a class="nav-link" href="{{ route('admin.products.index') }}">
                     <i class="fas fa-fw fa-box"></i>
                     <span>Products</span></a>
-            </li> -->
+            </li>
 
             <hr class="sidebar-divider">
 
@@ -67,7 +67,7 @@
                 <a class="nav-link" href="{{ route('admin.users.index') }}">
                     <i class="fas fa-fw fa-users"></i>
                     <span>Users</span></a>
-            </li>
+            </li> --}}
 
             <!-- <hr class="sidebar-divider">
 

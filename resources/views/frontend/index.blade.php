@@ -115,6 +115,39 @@
                 data-owl-options="{
                             'dots': false
                         }">
+                @forelse($conceptBanners as $banner)
+                @php
+                    $animation = 'fadeInUpShorter';
+                    if($loop->first) $animation = 'fadeInLeftShorter';
+                    if($loop->last) $animation = 'fadeInRightShorter';
+                    $delay = 200 + ($loop->index * 150);
+                @endphp
+                <div class="banner banner{{ $loop->iteration }} banner-sm-vw d-flex align-items-center appear-animate"
+                    style="background-color: #ccc;" data-animation-name="{{ $animation }}" data-animation-delay="{{ $delay }}">
+                    <figure class="w-100">
+                        <img src="{{ asset('storage/' . $banner->image) }}" alt="{{ $banner->title }}"
+                            width="380" height="175" />
+                    </figure>
+                    <div class="banner-layer {{ $loop->remaining == 1 ? 'text-center' : ($loop->last ? 'text-right' : '') }}">
+                        @if($loop->remaining == 1)
+                            <div class="row align-items-lg-center">
+                                <div class="col-lg-7 text-lg-right">
+                                    <h3>{{ $banner->title }}</h3>
+                                </div>
+                                <div class="col-lg-5 text-lg-left px-0 px-xl-3">
+                                    <a href="{{ $banner->link ?? route('category.index') }}" class="btn btn-sm btn-dark">Order Now</a>
+                                </div>
+                            </div>
+                        @else
+                            <h3 class="m-b-2">{{ $banner->title }}</h3>
+                            <a href="{{ $banner->link ?? route('category.index') }}" class="btn btn-sm btn-dark">
+                                {{ $loop->first ? 'Check Credit' : 'See Products' }}
+                            </a>
+                        @endif
+                    </div>
+                </div>
+                @empty
+                <!-- Fallback to static if no banners found -->
                 <div class="banner banner1 banner-sm-vw d-flex align-items-center appear-animate"
                     style="background-color: #ccc;" data-animation-name="fadeInLeftShorter" data-animation-delay="500">
                     <figure class="w-100">
@@ -156,6 +189,7 @@
                         <a href="{{ route('category.index') }}" class="btn btn-sm btn-dark">See Produts</a>
                     </div>
                 </div>
+                @endforelse
             </div>
         </div>
     </div>
@@ -169,219 +203,67 @@
                             'dots': false,
                             'nav': true
                         }">
+                @foreach($featuredProducts as $product)
                 <div class="product-default appear-animate" data-animation-name="fadeInRightShorter">
                     <figure>
-                        <a href="{{ route('products.index') }}">
-                            <img src="{{ asset('assets/images/products/product-1.jpg') }}" width="280" height="280"
-                                alt="product">
-                            <img src="{{ asset('assets/images/products/product-1-2.jpg') }}" width="280"
-                                height="280" alt="product">
+                        <a href="{{ route('product.show', $product->slug) }}">
+                            <img src="{{ asset('storage/' . $product->image) }}" width="280" height="280"
+                                alt="{{ $product->name }}">
+                            @php
+                                $secondImage = null;
+                                if(is_array($product->images) && count($product->images) > 0) {
+                                    $secondImage = $product->images[0];
+                                }
+                            @endphp
+                            @if($secondImage)
+                            <img src="{{ asset('storage/' . $secondImage) }}" width="280"
+                                height="280" alt="{{ $product->name }}">
+                            @endif
                         </a>
                         <div class="label-group">
+                            @if($product->is_new_arrival)
                             <div class="product-label label-hot">HOT</div>
-                            <div class="product-label label-sale">-20%</div>
+                            @endif
+                            @if($product->discount_price)
+                            @php
+                                $percent = round((($product->price - $product->discount_price) / $product->price) * 100);
+                            @endphp
+                            <div class="product-label label-sale">-{{ $percent }}%</div>
+                            @endif
                         </div>
                     </figure>
                     <div class="product-details">
                         <div class="category-list">
-                            <a href="#" class="product-category">Category</a>
+                            <a href="{{ route('category.show', $product->category->slug ?? '#') }}" class="product-category">{{ $product->category->name ?? 'Category' }}</a>
                         </div>
                         <h3 class="product-title">
-                            <a href="#">Business Card Front & Back</a>
+                            <a href="{{ route('product.show', $product->slug) }}">{{ $product->name }}</a>
                         </h3>
                         <div class="ratings-container">
                             <div class="product-ratings">
                                 <span class="ratings" style="width:80%"></span>
-                                <!-- End .ratings -->
                                 <span class="tooltiptext tooltip-top"></span>
                             </div>
-                            <!-- End .product-ratings -->
                         </div>
-                        <!-- End .product-container -->
                         <div class="price-box">
-                            <del class="old-price">SAR 200.00</del>
-                            <span class="product-price">SAR 150.00</span>
+                            @if($product->discount_price)
+                            <del class="old-price">SAR {{ number_format($product->price, 2) }}</del>
+                            <span class="product-price">SAR {{ number_format($product->discount_price, 2) }}</span>
+                            @else
+                            <span class="product-price">SAR {{ number_format($product->price, 2) }}</span>
+                            @endif
                         </div>
-                        <!-- End .price-box -->
                         <div class="product-action">
                             <a href="#" class="btn-icon-wish" title="wishlist"><i
                                     class="icon-heart"></i></a>
-                            <a href="#" class="btn-icon btn-add-cart"><i class="fa fa-arrow-right"></i><span>SELECT
+                            <a href="{{ route('product.show', $product->slug) }}" class="btn-icon btn-add-cart"><i class="fa fa-arrow-right"></i><span>SELECT
                                     OPTIONS</span></a>
                             <a href="ajax/product-quick-view.html" class="btn-quickview" title="Quick View"><i
                                     class="fas fa-external-link-alt"></i></a>
                         </div>
                     </div>
                 </div>
-                <div class="product-default appear-animate" data-animation-name="fadeInRightShorter">
-                    <figure>
-                        <a href="{{ route('products.index') }}">
-                            <img src="{{ asset('assets/images/products/product-2.jpg') }}" width="280" height="280"
-                                alt="product">
-                            <img src="{{ asset('assets/images/products/product-2-3.jpg') }}" width="280" height="280"
-                                alt="product">
-                        </a>
-                        <div class="label-group">
-                            <div class="product-label label-hot">HOT</div>
-                            <div class="product-label label-sale">-30%</div>
-                        </div>
-                    </figure>
-                    <div class="product-details">
-                        <div class="category-list">
-                            <a href="#" class="product-category">Category</a>
-                        </div>
-                        <h3 class="product-title">
-                            <a href="#">Professional Roll up Banner Design</a>
-                        </h3>
-                        <div class="ratings-container">
-                            <div class="product-ratings">
-                                <span class="ratings" style="width:80%"></span>
-                                <!-- End .ratings -->
-                                <span class="tooltiptext tooltip-top"></span>
-                            </div>
-                            <!-- End .product-ratings -->
-                        </div>
-                        <!-- End .product-container -->
-                        <div class="price-box">
-                            <del class="old-price">SAR 175.00</del>
-                            <span class="product-price">SAR 150.00</span>
-                        </div>
-                        <!-- End .price-box -->
-                        <div class="product-action">
-                            <a href="#" class="btn-icon-wish" title="wishlist"><i class="icon-heart"></i></a>
-                            <a href="#" class="btn-icon btn-add-cart"><i class="fa fa-arrow-right"></i><span>SELECT
-                                    OPTIONS</span></a>
-                            <a href="ajax/product-quick-view.html" class="btn-quickview" title="Quick View"><i
-                                    class="fas fa-external-link-alt"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="product-default appear-animate" data-animation-name="fadeInRightShorter">
-                    <figure>
-                        <a href="{{ route('products.index') }}">
-                            <img src="{{ asset('assets/images/products/product-3.jpg') }}" width="280" height="280"
-                                alt="product">
-                            <img src="{{ asset('assets/images/products/product-3-2.jpg') }}" width="280"
-                                height="280" alt="product">
-                        </a>
-                    </figure>
-                    <div class="product-details">
-                        <div class="category-list">
-                            <a href="#" class="product-category">Category</a>
-                        </div>
-                        <h3 class="product-title">
-                            <a href="#">Postcard Printing</a>
-                        </h3>
-                        <div class="ratings-container">
-                            <div class="product-ratings">
-                                <span class="ratings" style="width:80%"></span>
-                                <!-- End .ratings -->
-                                <span class="tooltiptext tooltip-top"></span>
-                            </div>
-                            <!-- End .product-ratings -->
-                        </div>
-                        <!-- End .product-container -->
-                        <div class="price-box">
-                            <del class="old-price">SAR 159.00</del>
-                            <span class="product-price">SAR 149.00</span>
-                        </div>
-                        <!-- End .price-box -->
-                        <div class="product-action">
-                            <a href="#" class="btn-icon-wish" title="wishlist"><i class="icon-heart"></i></a>
-                            <a href="#" class="btn-icon btn-add-cart product-type-simple"><i
-                                    class="icon-shopping-cart"></i><span>ADD TO CART</span></a>
-                            <a href="#" class="btn-quickview" title="Quick View"><i
-                                    class="fas fa-external-link-alt"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="product-default appear-animate" data-animation-name="fadeInRightShorter">
-                    <figure>
-                        <a href="{{ route('products.index') }}">
-                            <img src="{{ asset('assets/images/products/product-4.jpg') }}" width="280" height="280"
-                                alt="product">
-                            <img src="{{ asset('assets/images/products/product-4-2.jpg') }}" width="280"
-                                height="280" alt="product">
-                        </a>
-                        <div class="label-group">
-                            <div class="product-label label-hot">HOT</div>
-                            <div class="product-label label-sale">-40%</div>
-                        </div>
-                    </figure>
-                    <div class="product-details">
-                        <div class="category-list">
-                            <a href="#" class="product-category">Category</a>
-                        </div>
-                        <h3 class="product-title">
-                            <a href="#">Folder Flyer Printing</a>
-                        </h3>
-                        <div class="ratings-container">
-                            <div class="product-ratings">
-                                <span class="ratings" style="width:80%"></span>
-                                <!-- End .ratings -->
-                                <span class="tooltiptext tooltip-top"></span>
-                            </div>
-                            <!-- End .product-ratings -->
-                        </div>
-                        <!-- End .product-container -->
-                        <div class="price-box">
-                            <del class="old-price">SAR 159.00</del>
-                            <span class="product-price">SAR 149.00</span>
-                        </div>
-                        <!-- End .price-box -->
-                        <div class="product-action">
-                            <a href="#" class="btn-icon-wish" title="wishlist"><i class="icon-heart"></i></a>
-                            <a href="#" class="btn-icon btn-add-cart product-type-simple"><i
-                                    class="icon-shopping-cart"></i><span>ADD TO CART</span></a>
-                            <a href="#" class="btn-quickview" title="Quick View"><i
-                                    class="fas fa-external-link-alt"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="product-default appear-animate" data-animation-name="fadeInRightShorter">
-                    <figure>
-                        <a href="{{ route('products.index') }}">
-                            <img src="{{ asset('assets/images/products/product-5.jpg') }}" width="280" height="280"
-                                alt="product">
-                            <img src="{{ asset('assets/images/products/product-5-2.jpg') }}" width="280"
-                                height="280" alt="product">
-                        </a>
-                        <div class="label-group">
-                            <div class="product-label label-hot">HOT</div>
-                            <div class="product-label label-sale">-15%</div>
-                        </div>
-                    </figure>
-                    <div class="product-details">
-                        <div class="category-list">
-                            <a href="{{ route('category.index') }}" class="product-category">Category</a>
-                        </div>
-                        <h3 class="product-title">
-                            <a href="{{ route('products.index') }}">Casual Spring Blue Shoes</a>
-                        </h3>
-                        <div class="ratings-container">
-                            <div class="product-ratings">
-                                <span class="ratings" style="width:80%"></span>
-
-                                <span class="tooltiptext tooltip-top"></span>
-                            </div>
-
-                        </div>
-
-                        <div class="price-box">
-                            <del class="old-price">$59.00</del>
-                            <span class="product-price">$49.00</span>
-                        </div>
-
-                        <div class="product-action">
-                            <a href="#" class="btn-icon-wish" title="wishlist"><i
-                                    class="icon-heart"></i></a>
-                            <a href="#" class="btn-icon btn-add-cart product-type-simple"><i
-                                    class="icon-shopping-cart"></i><span>ADD TO CART</span></a>
-                            <a href="ajax/product-quick-view.html" class="btn-quickview" title="Quick View"><i
-                                    class="fas fa-external-link-alt"></i></a>
-                        </div>
-                    </div>
-                </div>
+                @endforeach
             </div>
         </div>
     </section>
@@ -403,13 +285,22 @@
                                 }
                             }
                         }">
+                @foreach($newArrivals as $product)
                 <div class="product-default appear-animate" data-animation-name="fadeInRightShorter">
                     <figure>
-                        <a href="{{ route('products.index') }}">
-                            <img src="{{ asset('assets/images/products/product-6.jpg') }}" width="220" height="220"
-                                alt="product">
-                            <img src="{{ asset('assets/images/products/product-6-2.jpg') }}" width="220"
-                                height="220" alt="product">
+                        <a href="{{ route('product.show', $product->slug) }}">
+                            <img src="{{ asset('storage/' . $product->image) }}" width="220" height="220"
+                                alt="{{ $product->name }}">
+                            @php
+                                $secondImage = null;
+                                if(is_array($product->images) && count($product->images) > 0) {
+                                    $secondImage = $product->images[0];
+                                }
+                            @endphp
+                            @if($secondImage)
+                            <img src="{{ asset('storage/' . $secondImage) }}" width="220"
+                                height="220" alt="{{ $product->name }}">
+                            @endif
                         </a>
                         <div class="label-group">
                             <div class="product-label label-hot">HOT</div>
@@ -417,246 +308,36 @@
                     </figure>
                     <div class="product-details">
                         <div class="category-list">
-                            <a href="#" class="product-category">Category</a>
+                            <a href="{{ route('category.show', $product->category->slug ?? '#') }}" class="product-category">{{ $product->category->name ?? 'Category' }}</a>
                         </div>
                         <h3 class="product-title">
-                            <a href="#">Award Shields Hand Made</a>
+                            <a href="{{ route('product.show', $product->slug) }}">{{ $product->name }}</a>
                         </h3>
                         <div class="ratings-container">
                             <div class="product-ratings">
                                 <span class="ratings" style="width:80%"></span>
-                                <!-- End .ratings -->
                                 <span class="tooltiptext tooltip-top"></span>
                             </div>
-                            <!-- End .product-ratings -->
                         </div>
-                        <!-- End .product-container -->
                         <div class="price-box">
-                            <del class="old-price">SAR 159.00</del>
-                            <span class="product-price">SAR 149.00</span>
+                            @if($product->discount_price)
+                            <del class="old-price">SAR {{ number_format($product->price, 2) }}</del>
+                            <span class="product-price">SAR {{ number_format($product->discount_price, 2) }}</span>
+                            @else
+                            <span class="product-price">SAR {{ number_format($product->price, 2) }}</span>
+                            @endif
                         </div>
-                        <!-- End .price-box -->
                         <div class="product-action">
                             <a href="#" class="btn-icon-wish" title="wishlist"><i
                                     class="icon-heart"></i></a>
-                            <a href="#" class="btn-icon btn-add-cart product-type-simple"><i
+                            <a href="{{ route('product.show', $product->slug) }}" class="btn-icon btn-add-cart product-type-simple"><i
                                     class="icon-shopping-cart"></i><span>ADD TO CART</span></a>
                             <a href="ajax/product-quick-view.html" class="btn-quickview" title="Quick View"><i
                                     class="fas fa-external-link-alt"></i></a>
                         </div>
                     </div>
                 </div>
-                <div class="product-default appear-animate" data-animation-name="fadeInRightShorter">
-                    <figure>
-                        <a href="{{ route('products.index') }}">
-                            <img src="{{ asset('assets/images/products/product-7.jpg') }}" width="220" height="220"
-                                alt="product">
-                            <img src="{{ asset('assets/images/products/product-7-2.jpg') }}" width="220"
-                                height="220" alt="product">
-                        </a>
-                        <div class="label-group">
-                            <div class="product-label label-hot">HOT</div>
-                        </div>
-                    </figure>
-                    <div class="product-details">
-                        <div class="category-list">
-                            <a href="#" class="product-category">Category</a>
-                        </div>
-                        <h3 class="product-title">
-                            <a href="#">Signal Sign Board</a>
-                        </h3>
-                        <div class="ratings-container">
-                            <div class="product-ratings">
-                                <span class="ratings" style="width:80%"></span>
-                                <!-- End .ratings -->
-                                <span class="tooltiptext tooltip-top"></span>
-                            </div>
-                            <!-- End .product-ratings -->
-                        </div>
-                        <!-- End .product-container -->
-                        <div class="price-box">
-                            <del class="old-price">SAR 159.00</del>
-                            <span class="product-price">SAR 149.00</span>
-                        </div>
-                        <!-- End .price-box -->
-                        <div class="product-action">
-                            <a href="#" class="btn-icon-wish" title="wishlist"><i class="icon-heart"></i></a>
-                            <a href="#" class="btn-icon btn-add-cart product-type-simple"><i
-                                    class="icon-shopping-cart"></i><span>ADD TO CART</span></a>
-                            <a href="#" class="btn-quickview" title="Quick View"><i
-                                    class="fas fa-external-link-alt"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="product-default appear-animate" data-animation-name="fadeInRightShorter">
-                    <figure>
-                        <a href="{{ route('products.index') }}">
-                            <img src="{{ asset('assets/images/products/product-8.jpg') }}" width="220" height="220"
-                                alt="product">
-                            <img src="{{ asset('assets/images/products/product-8-2.jpg') }}" width="220"
-                                height="220" alt="product">
-                        </a>
-                        <div class="label-group">
-                            <div class="product-label label-sale">-20%</div>
-                        </div>
-                    </figure>
-                    <div class="product-details">
-                        <div class="category-list">
-                            <a href="#" class="product-category">Category</a>
-                        </div>
-                        <h3 class="product-title">
-                            <a href="#">Shop Sign Board</a>
-                        </h3>
-                        <div class="ratings-container">
-                            <div class="product-ratings">
-                                <span class="ratings" style="width:80%"></span>
-                                <!-- End .ratings -->
-                                <span class="tooltiptext tooltip-top"></span>
-                            </div>
-                            <!-- End .product-ratings -->
-                        </div>
-                        <!-- End .product-container -->
-                        <div class="price-box">
-                            <del class="old-price">SAR 159.00</del>
-                            <span class="product-price">SAR 149.00</span>
-                        </div>
-                        <!-- End .price-box -->
-                        <div class="product-action">
-                            <a href="#" class="btn-icon-wish" title="wishlist"><i class="icon-heart"></i></a>
-                            <a href="#" class="btn-icon btn-add-cart product-type-simple"><i
-                                    class="icon-shopping-cart"></i><span>ADD TO CART</span></a>
-                            <a href="#" class="btn-quickview" title="Quick View"><i
-                                    class="fas fa-external-link-alt"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="product-default appear-animate" data-animation-name="fadeInRightShorter">
-                    <figure>
-                        <a href="{{ route('products.index') }}">
-                            <img src="{{ asset('assets/images/products/product-9.jpg') }}" width="220" height="220"
-                                alt="product">
-                            <img src="{{ asset('assets/images/products/product-9-2.jpg') }}" width="220"
-                                height="220" alt="product">
-                        </a>
-                        <div class="label-group">
-                            <div class="product-label label-sale">-30%</div>
-                        </div>
-                    </figure>
-                    <div class="product-details">
-                        <div class="category-list">
-                            <a href="#" class="product-category">Category</a>
-                        </div>
-                        <h3 class="product-title">
-                            <a href="#">Signage</a>
-                        </h3>
-                        <div class="ratings-container">
-                            <div class="product-ratings">
-                                <span class="ratings" style="width:80%"></span>
-                                <!-- End .ratings -->
-                                <span class="tooltiptext tooltip-top"></span>
-                            </div>
-                            <!-- End .product-ratings -->
-                        </div>
-                        <!-- End .product-container -->
-                        <div class="price-box">
-                            <del class="old-price">SAR 159.00</del>
-                            <span class="product-price">SAR 149.00</span>
-                        </div>
-                        <!-- End .price-box -->
-                        <div class="product-action">
-                            <a href="#" class="btn-icon-wish" title="wishlist"><i class="icon-heart"></i></a>
-                            <a href="#" class="btn-icon btn-add-cart"><i class="fa fa-arrow-right"></i><span>SELECT
-                                    OPTIONS</span></a>
-                            <a href="#" class="btn-quickview" title="Quick View"><i
-                                    class="fas fa-external-link-alt"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="product-default appear-animate" data-animation-name="fadeInRightShorter">
-                    <figure>
-                        <a href="{{ route('products.index') }}">
-                            <img src="{{ asset('assets/images/products/product-10.jpg') }}" width="220"
-                                height="220" alt="product">
-                            <img src="{{ asset('assets/images/products/product-10-2.jpg') }}" width="220"
-                                height="220" alt="product">
-                        </a>
-                        <div class="label-group">
-                            <div class="product-label label-hot">HOT</div>
-                        </div>
-                    </figure>
-                    <div class="product-details">
-                        <div class="category-list">
-                            <a href="#" class="product-category">Category</a>
-                        </div>
-                        <h3 class="product-title">
-                            <a href="#">Die Cut Business Cards</a>
-                        </h3>
-                        <div class="ratings-container">
-                            <div class="product-ratings">
-                                <span class="ratings" style="width:80%"></span>
-                                <!-- End .ratings -->
-                                <span class="tooltiptext tooltip-top"></span>
-                            </div>
-                            <!-- End .product-ratings -->
-                        </div>
-                        <!-- End .product-container -->
-                        <div class="price-box">
-                            <del class="old-price">SAR 159.00</del>
-                            <span class="product-price">SAR 149.00</span>
-                        </div>
-                        <!-- End .price-box -->
-                        <div class="product-action">
-                            <a href="#" class="btn-icon-wish" title="wishlist"><i class="icon-heart"></i></a>
-                            <a href="#" class="btn-icon btn-add-cart product-type-simple"><i
-                                    class="icon-shopping-cart"></i><span>ADD TO CART</span></a>
-                            <a href="#" class="btn-quickview" title="Quick View"><i
-                                    class="fas fa-external-link-alt"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="product-default appear-animate" data-animation-name="fadeInRightShorter">
-                    <figure>
-                        <a href="{{ route('products.index') }}">
-                            <img src="{{ asset('assets/images/products/product-11.jpg') }}" width="220"
-                                height="220" alt="product">
-                            <img src="{{ asset('assets/images/products/product-11-2.jpg') }}" width="220"
-                                height="220" alt="product">
-                        </a>
-                        <div class="label-group">
-                            <div class="product-label label-sale">-20%</div>
-                        </div>
-                    </figure>
-                    <div class="product-details">
-                        <div class="category-list">
-                            <a href="#" class="product-category">Category</a>
-                        </div>
-                        <h3 class="product-title">
-                            <a href="#">Men Sports Travel Bag</a>
-                        </h3>
-                        <div class="ratings-container">
-                            <div class="product-ratings">
-                                <span class="ratings" style="width:80%"></span>
-                                <!-- End .ratings -->
-                                <span class="tooltiptext tooltip-top"></span>
-                            </div>
-                            <!-- End .product-ratings -->
-                        </div>
-                        <!-- End .product-container -->
-                        <div class="price-box">
-                            <del class="old-price">$59.00</del>
-                            <span class="product-price">$49.00</span>
-                        </div>
-                        <!-- End .price-box -->
-                        <div class="product-action">
-                            <a href="#" class="btn-icon-wish" title="wishlist"><i
-                                    class="icon-heart"></i></a>
-                            <a href="#" class="btn-icon btn-add-cart"><i class="fa fa-arrow-right"></i><span>SELECT
-                                    OPTIONS</span></a>
-                            <a href="ajax/product-quick-view.html" class="btn-quickview" title="Quick View"><i
-                                    class="fas fa-external-link-alt"></i></a>
-                        </div>
-                    </div>
-                </div>
+                @endforeach
             </div>
 
             <div class="banner banner-big-sale appear-animate" data-animation-delay="200"
@@ -681,83 +362,20 @@
             </h2>
 
             <div class="categories-slider owl-carousel owl-theme show-nav-hover nav-outer">
+                @foreach($categories as $category)
                 <div class="product-category appear-animate" data-animation-name="fadeInUpShorter">
-                    <a href="{{ route('category.index') }}">
+                    <a href="{{ route('category.show', $category->slug) }}">
                         <figure>
-                            <img src="{{ asset('assets/images/demoes/demo4/products/categories/category-1.jpg') }}"
-                                alt="category" width="280" height="240" />
+                            <img src="{{ asset('storage/' . $category->image) }}"
+                                alt="{{ $category->name }}" width="280" height="240" />
                         </figure>
                         <div class="category-content">
-                            <h3>Stationery</h3>
-                            <span><mark class="count">3</mark> products</span>
+                            <h3>{{ $category->name }}</h3>
+                            <span><mark class="count">{{ $category->products_count }}</mark> products</span>
                         </div>
                     </a>
                 </div>
-
-                <div class="product-category appear-animate" data-animation-name="fadeInUpShorter">
-                    <a href="{{ route('category.index') }}">
-                        <figure>
-                            <img src="{{ asset('assets/images/demoes/demo4/products/categories/category-2.jpg') }}"
-                                alt="category" width="220" height="220" />
-                        </figure>
-                        <div class="category-content">
-                            <h3>Promotional</h3>
-                            <span><mark class="count">3</mark> products</span>
-                        </div>
-                    </a>
-                </div>
-
-                <div class="product-category appear-animate" data-animation-name="fadeInUpShorter">
-                    <a href="{{ route('category.index') }}">
-                        <figure>
-                            <img src="{{ asset('assets/images/demoes/demo4/products/categories/category-3.jpg') }}"
-                                alt="category" width="220" height="220" />
-                        </figure>
-                        <div class="category-content">
-                            <h3>Packaging & Boxes</h3>
-                            <span><mark class="count">3</mark> products</span>
-                        </div>
-                    </a>
-                </div>
-
-                <div class="product-category appear-animate" data-animation-name="fadeInUpShorter">
-                    <a href="{{ route('category.index') }}">
-                        <figure>
-                            <img src="{{ asset('assets/images/demoes/demo4/products/categories/category-4.jpg') }}"
-                                alt="category" width="220" height="220" />
-                        </figure>
-                        <div class="category-content">
-                            <h3>Event Branding</h3>
-                            <span><mark class="count">3</mark> products</span>
-                        </div>
-                    </a>
-                </div>
-
-                <div class="product-category appear-animate" data-animation-name="fadeInUpShorter">
-                    <a href="{{ route('category.index') }}">
-                        <figure>
-                            <img src="{{ asset('assets/images/demoes/demo4/products/categories/category-6.jpg') }}"
-                                alt="category" width="220" height="220" />
-                        </figure>
-                        <div class="category-content">
-                            <h3>Large Printing</h3>
-                            <span><mark class="count">3</mark> products</span>
-                        </div>
-                    </a>
-                </div>
-
-                <div class="product-category appear-animate" data-animation-name="fadeInUpShorter">
-                    <a href="{{ route('category.index') }}">
-                        <figure>
-                            <img src="{{ asset('assets/images/demoes/demo4/products/categories/category-5.jpg') }}"
-                                alt="category" width="220" height="220" />
-                        </figure>
-                        <div class="category-content">
-                            <h3>Marketing Materials</h3>
-                            <span><mark class="count">3</mark> products</span>
-                        </div>
-                    </a>
-                </div>
+                @endforeach
             </div>
         </div>
     </section>
