@@ -31,8 +31,6 @@ class CategoryController extends Controller
         $category = new Category();
         $category->name = $request->name;
         $category->slug = Str::slug($request->name);
-        $category->price = $request->price;
-        $category->old_price = $request->old_price;
         $category->badge_text = $request->badge_text;
         $category->badge_style = $request->badge_style;
         $category->status = $request->status;
@@ -64,8 +62,6 @@ class CategoryController extends Controller
 
         $category->name = $request->name;
         $category->slug = Str::slug($request->name);
-        $category->price = $request->price;
-        $category->old_price = $request->old_price;
         $category->badge_text = $request->badge_text;
         $category->badge_style = $request->badge_style;
         $category->status = $request->status;

@@ -14,8 +14,6 @@ return new class extends Migration
             $table->string('slug')->unique();
             $table->string('image')->nullable();
             $table->string('hover_image')->nullable();
-            $table->decimal('price', 10, 2)->nullable();
-            $table->decimal('old_price', 10, 2)->nullable();
             $table->string('badge_text')->nullable();
             $table->string('badge_style')->nullable(); // 'label-hot', 'label-sale', etc.
             $table->enum('status', ['active', 'inactive'])->default('active');

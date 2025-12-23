@@ -14,14 +14,6 @@
                 <input type="text" name="name" class="form-control" value="{{ $category->name }}" required>
             </div>
             <div class="form-group">
-                <label>Starting Price (SAR)</label>
-                <input type="number" step="0.01" name="price" class="form-control" value="{{ $category->price }}">
-            </div>
-            <div class="form-group">
-                <label>Old Price (SAR) (Optional)</label>
-                <input type="number" step="0.01" name="old_price" class="form-control" value="{{ $category->old_price }}">
-            </div>
-            <div class="form-group">
                 <label>Badge Text (e.g. HOT, -20%)</label>
                 <input type="text" name="badge_text" class="form-control" value="{{ $category->badge_text }}">
             </div>
