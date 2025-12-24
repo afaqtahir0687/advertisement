@@ -6,7 +6,7 @@
         <h6 class="m-0 font-weight-bold text-primary">Add New Product</h6>
     </div>
     <div class="card-body">
-        <form action="{{ url('admin.products') }}" method="POST" enctype="multipart/form-data">
+        <form action="{{ route('admin.products.store') }}" method="POST" enctype="multipart/form-data">
             @csrf
             <div class="row">
                 <div class="col-md-8">
@@ -31,11 +31,11 @@
                     </div>
                     <div class="form-group">
                         <label>Short Description</label>
-                        <textarea name="short_description" id="short_description" class="form-control"></textarea>
+                        <textarea name="short_description" class="form-control"></textarea>
                     </div>
                     <div class="form-group">
                         <label>Description</label>
-                        <textarea name="description" id="description" class="form-control" rows="5"></textarea>
+                        <textarea name="description" class="form-control" rows="5"></textarea>
                     </div>
                 </div>
                 <div class="col-md-4">
@@ -82,27 +82,25 @@
 </div>
 @push('scripts')
 <script>
-    $(document).ready(function(){
-        $('#category_id').change(function(){
-            var category_id = $(this).val();
-            if(category_id){
-                $.ajax({
-                    url: "{{ route('admin.get-subcategories') }}/" + category_id,
-                    type: "GET",
-                    dataType: "json",
-                    success: function(data){
-                        $('#subcategory_id').empty();
-                        $('#subcategory_id').append('<option value="">Select Subcategory</option>');
-                        $.each(data, function(key, value){
-                            $('#subcategory_id').append('<option value="'+value.id+'">'+value.name+'</option>');
-                        });
-                    }
-                });
-            } else {
-                $('#subcategory_id').empty();
-                $('#subcategory_id').append('<option value="">Select Subcategory</option>');
-            }
-        });
+    $('#category_id').change(function(){
+        var category_id = $(this).val();
+        if(category_id){
+            $.ajax({
+                url: "{{ route('admin.get-subcategories') }}/" + category_id,
+                type: "GET",
+                dataType: "json",
+                success: function(data){
+                    $('#subcategory_id').empty();
+                    $('#subcategory_id').append('<option value="">Select Subcategory</option>');
+                    $.each(data, function(key, value){
+                        $('#subcategory_id').append('<option value="'+value.id+'">'+value.name+'</option>');
+                    });
+                }
+            });
+        } else {
+            $('#subcategory_id').empty();
+            $('#subcategory_id').append('<option value="">Select Subcategory</option>');
+        }
     });
 </script>
 @endpush
