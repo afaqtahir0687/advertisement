@@ -11,8 +11,9 @@ class CategoryController extends Controller
 {
     public function index()
     {
+        $products = Product::where('status', 'active')->latest()->paginate(12);
         $categories = Category::where('status', 'active')->latest()->get();
-        return view('frontend.pages.categories.index', compact('categories'));
+        return view('frontend.pages.categories.index', compact('products', 'categories'));
     }
 
     public function show($slug)

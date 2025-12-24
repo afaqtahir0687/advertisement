@@ -7,22 +7,57 @@ use Illuminate\Support\Facades\Schema;
 return new class extends Migration
 {
     public function up(): void
-    {
+   {
         Schema::create('products', function (Blueprint $table) {
             $table->id();
+
+            // Relations
             $table->foreignId('category_id')->constrained()->onDelete('cascade');
-            $table->foreignId('subcategory_id')->nullable()->constrained('sub_categories')->onDelete('set null');
+            $table->foreignId('subcategory_id')
+                  ->nullable()
+                  ->constrained('sub_categories')
+                  ->onDelete('set null');
+
+            // Basic info
             $table->string('name');
             $table->string('slug')->unique();
+            $table->string('sku')->nullable();
+
+            // Descriptions
             $table->text('short_description')->nullable();
             $table->longText('description')->nullable();
+            $table->longText('size_guide')->nullable();
+            $table->longText('additional_info')->nullable();
+
+            // Pricing
             $table->decimal('price', 10, 2);
             $table->decimal('discount_price', 10, 2)->nullable();
-            $table->string('image')->nullable(); // Main image
-            $table->json('images')->nullable(); // Gallery images
+            $table->decimal('flexible_rate', 10, 2)->nullable();
+            $table->decimal('urgent_rate', 10, 2)->nullable();
+
+            // Production & delivery
+            $table->integer('delivery_days')->default(1);
+            $table->integer('production_days')->default(3);
+            $table->integer('flexible_production_days')->default(5);
+            $table->integer('urgent_production_days')->default(1);
+
+            // Media
+            $table->string('image')->nullable();
+            $table->json('images')->nullable();
+
+            // Product options (Printing related)
+            $table->json('materials')->nullable();
+            $table->json('sizes')->nullable();
+            $table->json('side_1_colors')->nullable();
+            $table->json('sides_options')->nullable();
+            $table->json('lamination_types')->nullable();
+            $table->json('die_cutting_options')->nullable();
+
+            // Flags
             $table->boolean('is_featured')->default(false);
             $table->boolean('is_new_arrival')->default(false);
             $table->enum('status', ['active', 'inactive'])->default('active');
+
             $table->timestamps();
         });
     }

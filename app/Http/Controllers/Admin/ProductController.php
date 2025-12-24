@@ -36,13 +36,30 @@ class ProductController extends Controller
 
         $product = new Product();
         $product->name = $request->name;
+        $product->sku = $request->sku;
         $product->slug = Str::slug($request->name);
         $product->category_id = $request->category_id;
         $product->subcategory_id = $request->subcategory_id;
         $product->short_description = $request->short_description;
         $product->description = $request->description;
+        $product->size_guide = $request->size_guide;
+        $product->additional_info = $request->additional_info;
         $product->price = $request->price;
         $product->discount_price = $request->discount_price;
+        $product->delivery_days = $request->delivery_days ?? 1;
+        $product->production_days = $request->production_days ?? 3;
+        $product->flexible_rate = $request->flexible_rate;
+        $product->urgent_rate = $request->urgent_rate;
+        $product->flexible_production_days = $request->flexible_production_days ?? 5;
+        $product->urgent_production_days = $request->urgent_production_days ?? 1;
+        
+        $product->materials = $request->materials ? array_map('trim', explode(',', $request->materials)) : null;
+        $product->sizes = $request->sizes ? array_map('trim', explode(',', $request->sizes)) : null;
+        $product->side_1_colors = $request->side_1_colors ? array_map('trim', explode(',', $request->side_1_colors)) : null;
+        $product->sides_options = $request->sides_options ? array_map('trim', explode(',', $request->sides_options)) : null;
+        $product->lamination_types = $request->lamination_types ? array_map('trim', explode(',', $request->lamination_types)) : null;
+        $product->die_cutting_options = $request->die_cutting_options ? array_map('trim', explode(',', $request->die_cutting_options)) : null;
+
         $product->status = $request->status;
         $product->is_featured = $request->has('is_featured');
         $product->is_new_arrival = $request->has('is_new_arrival');
@@ -82,13 +99,30 @@ class ProductController extends Controller
         ]);
 
         $product->name = $request->name;
+        $product->sku = $request->sku;
         $product->slug = Str::slug($request->name);
         $product->category_id = $request->category_id;
         $product->subcategory_id = $request->subcategory_id;
         $product->short_description = $request->short_description;
         $product->description = $request->description;
+        $product->size_guide = $request->size_guide;
+        $product->additional_info = $request->additional_info;
         $product->price = $request->price;
         $product->discount_price = $request->discount_price;
+        $product->delivery_days = $request->delivery_days ?? 1;
+        $product->production_days = $request->production_days ?? 3;
+        $product->flexible_rate = $request->flexible_rate;
+        $product->urgent_rate = $request->urgent_rate;
+        $product->flexible_production_days = $request->flexible_production_days ?? 5;
+        $product->urgent_production_days = $request->urgent_production_days ?? 1;
+
+        $product->materials = $request->materials ? array_map('trim', explode(',', $request->materials)) : null;
+        $product->sizes = $request->sizes ? array_map('trim', explode(',', $request->sizes)) : null;
+        $product->side_1_colors = $request->side_1_colors ? array_map('trim', explode(',', $request->side_1_colors)) : null;
+        $product->sides_options = $request->sides_options ? array_map('trim', explode(',', $request->sides_options)) : null;
+        $product->lamination_types = $request->lamination_types ? array_map('trim', explode(',', $request->lamination_types)) : null;
+        $product->die_cutting_options = $request->die_cutting_options ? array_map('trim', explode(',', $request->die_cutting_options)) : null;
+
         $product->status = $request->status;
         $product->is_featured = $request->has('is_featured');
         $product->is_new_arrival = $request->has('is_new_arrival');

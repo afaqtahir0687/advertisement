@@ -106,25 +106,38 @@
                     </nav>
 
                     <div class="row" id="products-grid">
-                        @forelse($categories as $category)
+                        @forelse($products as $product)
                             <div class="col-6 col-sm-4">
                                 <div class="product-default">
                                     <figure>
-                                        <a href="{{ route('category.show', $category->slug) }}">
-                                            @if($category->image)
-                                                <img src="{{ asset('storage/' . $category->image) }}" width="280" height="280" alt="{{ $category->name }}" />
+                                        <a href="{{ route('product.show', $product->slug) }}">
+                                            @if($product->image)
+                                                <img src="{{ Storage::url($product->image) }}" width="280" height="280" alt="{{ $product->name }}" />
                                             @else
-                                                <img src="{{ asset('assets/images/products/product-1.jpg') }}" width="280" height="280" alt="{{ $category->name }}" />
+                                                <img src="{{ asset('assets/images/products/product-1.jpg') }}" width="280" height="280" alt="{{ $product->name }}" />
                                             @endif
                                         </a>
+                                        <div class="label-group">
+                                            @if($product->discount_price)
+                                                @php
+                                                    $percentage = round((($product->price - $product->discount_price) / $product->price) * 100);
+                                                @endphp
+                                                <div class="product-label label-sale">-{{ $percentage }}%</div>
+                                            @endif
+                                        </div>
                                     </figure>
 
                                     <div class="product-details">
                                         <h3 class="product-title">
-                                            <a href="{{ route('category.show', $category->slug) }}">{{ $category->name }}</a>
+                                            <a href="{{ route('product.show', $product->slug) }}">{{ $product->name }}</a>
                                         </h3>
                                         <div class="price-box">
-                                            <span class="product-price">{{ $category->subcategories->count() }} Subcategories</span>
+                                            @if($product->discount_price)
+                                                <del class="old-price">SAR {{ $product->price }}</del>
+                                                <span class="product-price">SAR {{ $product->discount_price }}</span>
+                                            @else
+                                                <span class="product-price">SAR {{ $product->price }}</span>
+                                            @endif
                                         </div>
                                     </div>
                                 </div>
@@ -132,41 +145,14 @@
                         @empty
                             <div class="col-12">
                                 <div class="alert alert-info">
-                                    No categories found.
+                                    No products found.
                                 </div>
                             </div>
                         @endforelse
                     </div>
                     <!-- End .row -->
                     <nav class="toolbox toolbox-pagination">
-                        <div class="toolbox-item toolbox-show">
-                            <label>Show</label>
-
-                            <div class="select-custom">
-                                <select name="count" class="form-control">
-                                    <option value="12">12</option>
-                                    <option value="24">24</option>
-                                    <option value="36">36</option>
-                                </select>
-                            </div>
-                            <!-- End .select-custom -->
-                        </div>
-                        <!-- End .toolbox-item -->
-
-                        <ul class="pagination toolbox-item">
-                            <li class="page-item disabled">
-                                <a class="page-link page-link-btn" href="#"><i class="icon-angle-left"></i></a>
-                            </li>
-                            <li class="page-item active">
-                                <a class="page-link" href="#">1 <span class="sr-only">(current)</span></a>
-                            </li>
-                            <li class="page-item"><a class="page-link" href="#">2</a></li>
-                            <li class="page-item"><a class="page-link" href="#">3</a></li>
-                            <li class="page-item"><span class="page-link">...</span></li>
-                            <li class="page-item">
-                                <a class="page-link page-link-btn" href="#"><i class="icon-angle-right"></i></a>
-                            </li>
-                        </ul>
+                        {{ $products->links('pagination::bootstrap-4') }}
                     </nav>
                 </div>
                 <!-- End .col-lg-9 -->
