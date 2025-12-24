@@ -6,6 +6,7 @@ use App\Http\Controllers\Admin\SliderController;
 use App\Http\Controllers\Admin\ServiceController;
 use App\Http\Controllers\Admin\BannerController;
 use App\Http\Controllers\Admin\CategoryController;
+use App\Http\Controllers\Admin\SubcategoryController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\SettingController;
 use App\Http\Controllers\Admin\ProfileController;
@@ -28,6 +29,7 @@ Route::prefix('admin')->name('admin.')->group(function () {
         Route::resource('services', ServiceController::class);
         Route::resource('banners', BannerController::class);
         Route::resource('categories', CategoryController::class);
+        Route::resource('subcategories', SubcategoryController::class);
         Route::resource('products', ProductController::class);
         Route::resource('users', UserController::class)->only(['index', 'destroy']);
         

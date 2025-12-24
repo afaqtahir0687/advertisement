@@ -90,6 +90,43 @@
                         </div>
                     </nav>
 
+                    @if($subcategories->count() > 0)
+                        <div class="subcategories-section mb-4">
+                            <h3 class="section-title mb-3">Subcategories</h3>
+                            <div class="row">
+                                @foreach($subcategories as $subcategory)
+                                    <div class="col-6 col-md-4 col-lg-3 mb-3">
+                                        <a href="{{ route('category.show', $subcategory->slug) }}" class="subcategory-card">
+                                            <div class="card h-100 text-center">
+                                                @if($subcategory->image)
+                                                    <img src="{{ asset('storage/' . $subcategory->image) }}" class="card-img-top" alt="{{ $subcategory->name }}" style="height: 150px; object-fit: cover;">
+                                                @else
+                                                    <div class="card-img-top bg-light d-flex align-items-center justify-content-center" style="height: 150px;">
+                                                        <i class="icon-category" style="font-size: 3rem; color: #ccc;"></i>
+                                                    </div>
+                                                @endif
+                                                <div class="card-body">
+                                                    <h5 class="card-title mb-1">{{ $subcategory->name }}</h5>
+                                                    <p class="text-muted mb-0"><small>{{ $subcategory->products_count }} Products</small></p>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                @endforeach
+                            </div>
+                        </div>
+                    @endif
+
+                    <div class="products-header mb-3">
+                        <h3 class="section-title">
+                            @if($subcategories->count() > 0)
+                                All Products
+                            @else
+                                Products
+                            @endif
+                        </h3>
+                    </div>
+
                     <div class="row" id="products-grid">
                         @forelse($products as $product)
                             <div class="col-6 col-sm-4">
@@ -172,12 +209,23 @@
                             <div class="collapse show" id="widget-body-2">
                                 <div class="widget-body">
                                     <ul class="cat-list">
-                                        <!-- Ideally this should be dynamic too, sharing the same category list -->
-                                        @foreach(\App\Models\Category::where('status', 'active')->get() as $cat)
-                                            <li>
+                                        <!-- Show only parent categories -->
+                                        @foreach(\App\Models\Category::where('status', 'active')->whereNull('parent_id')->get() as $cat)
+                                            <li class="{{ $cat->id == $category->id || ($category->parent && $cat->id == $category->parent->id) ? 'active' : '' }}">
                                                 <a href="{{ route('category.show', $cat->slug) }}">
-                                                    {{ $cat->name }} <span class="products-count">({{ $cat->products()->count() }})</span>
+                                                    {{ $cat->name }} <span class="products-count">({{ $cat->getAllProducts()->count() }})</span>
                                                 </a>
+                                                @if($cat->children()->where('status', 'active')->count() > 0)
+                                                    <ul class="cat-sublist">
+                                                        @foreach($cat->children()->where('status', 'active')->get() as $subcat)
+                                                            <li class="{{ $subcat->id == $category->id ? 'active' : '' }}">
+                                                                <a href="{{ route('category.show', $subcat->slug) }}">
+                                                                    {{ $subcat->name }} <span class="products-count">({{ $subcat->products()->count() }})</span>
+                                                                </a>
+                                                            </li>
+                                                        @endforeach
+                                                    </ul>
+                                                @endif
                                             </li>
                                         @endforeach
                                     </ul>

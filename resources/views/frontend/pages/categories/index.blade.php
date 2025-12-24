@@ -105,501 +105,37 @@
                         <!-- End .toolbox-right -->
                     </nav>
 
-                    <div class="row">
-                        <div class="col-6 col-sm-4">
-                            <div class="product-default">
-                                <figure>
-                                    <a href="{{ route('products.index') }}">
-                                        <img src="{{ asset('assets/images/products/product-1.jpg') }}" width="280"
-                                            height="280" alt="product" />
-                                        <img src="{{ asset('assets/images/products/product-1-2.jpg') }}" width="280"
-                                            height="280" alt="product" />
-                                    </a>
+                    <div class="row" id="products-grid">
+                        @forelse($categories as $category)
+                            <div class="col-6 col-sm-4">
+                                <div class="product-default">
+                                    <figure>
+                                        <a href="{{ route('category.show', $category->slug) }}">
+                                            @if($category->image)
+                                                <img src="{{ asset('storage/' . $category->image) }}" width="280" height="280" alt="{{ $category->name }}" />
+                                            @else
+                                                <img src="{{ asset('assets/images/products/product-1.jpg') }}" width="280" height="280" alt="{{ $category->name }}" />
+                                            @endif
+                                        </a>
+                                    </figure>
 
-                                    <div class="label-group">
-                                        <div class="product-label label-hot">HOT</div>
-                                        <div class="product-label label-sale">-20%</div>
-                                    </div>
-                                </figure>
-
-                                <div class="product-details">
-                                    <div class="category-list">
-                                        <a href="#" class="product-category">Category</a>
-                                    </div>
-                                    <h3 class="product-title">
-                                        <a href="#">Business Card Front & Back</a>
-                                    </h3>
-                                    <div class="ratings-container">
-                                        <div class="product-ratings">
-                                            <span class="ratings" style="width:80%"></span>
-                                            <!-- End .ratings -->
-                                            <span class="tooltiptext tooltip-top"></span>
+                                    <div class="product-details">
+                                        <h3 class="product-title">
+                                            <a href="{{ route('category.show', $category->slug) }}">{{ $category->name }}</a>
+                                        </h3>
+                                        <div class="price-box">
+                                            <span class="product-price">{{ $category->children->count() }} Subcategories</span>
                                         </div>
-                                        <!-- End .product-ratings -->
-                                    </div>
-                                    <!-- End .product-container -->
-                                    <div class="price-box">
-                                        <del class="old-price">SAR 200.00</del>
-                                        <span class="product-price">SAR 150.00</span>
-                                    </div>
-                                    <!-- End .price-box -->
-                                    <div class="product-action">
-                                        <a href="#" class="btn-icon-wish" title="wishlist"><i
-                                                class="icon-heart"></i></a>
-                                        <a href="#" class="btn-icon btn-add-cart"><i
-                                                class="fa fa-arrow-right"></i><span>SELECT
-                                                OPTIONS</span></a>
-                                        <a href="#" class="btn-quickview" title="Quick View"><i
-                                                class="fas fa-external-link-alt"></i></a>
                                     </div>
                                 </div>
-                                <!-- End .product-details -->
                             </div>
-                        </div>
-                        <!-- End .col-sm-4 -->
-
-                        <div class="col-6 col-sm-4">
-                            <div class="product-default">
-                                <figure>
-                                    <a href="{{ route('products.index') }}">
-                                        <img src="{{ asset('assets/images/products/product-2.jpg') }}" width="280"
-                                            height="280" alt="product" />
-                                        <img src="{{ asset('assets/images/products/product-2-3.jpg') }}" width="280"
-                                            height="280" alt="product" />
-                                    </a>
-                                </figure>
-
-                                <div class="product-details">
-                                    <div class="category-list">
-                                        <a href="#" class="product-category">Category</a>
-                                    </div>
-                                    <h3 class="product-title">
-                                        <a href="#">Professional Roll up Banner Design</a>
-                                    </h3>
-                                    <div class="ratings-container">
-                                        <div class="product-ratings">
-                                            <span class="ratings" style="width:80%"></span>
-                                            <!-- End .ratings -->
-                                            <span class="tooltiptext tooltip-top"></span>
-                                        </div>
-                                        <!-- End .product-ratings -->
-                                    </div>
-                                    <!-- End .product-container -->
-                                    <div class="price-box">
-                                        <del class="old-price">SAR 175.00</del>
-                                        <span class="product-price">SAR 150.00</span>
-                                    </div>
-                                    <!-- End .price-box -->
-                                    <div class="product-action">
-                                        <a href="#" class="btn-icon-wish" title="wishlist"><i
-                                                class="icon-heart"></i></a>
-                                        <a href="#" class="btn-icon btn-add-cart"><i
-                                                class="fa fa-arrow-right"></i><span>SELECT
-                                                OPTIONS</span></a>
-                                        <a href="#" class="btn-quickview" title="Quick View"><i
-                                                class="fas fa-external-link-alt"></i></a>
-                                    </div>
+                        @empty
+                            <div class="col-12">
+                                <div class="alert alert-info">
+                                    No categories found.
                                 </div>
-                                <!-- End .product-details -->
                             </div>
-                        </div>
-                        <!-- End .col-sm-4 -->
-
-                        <div class="col-6 col-sm-4">
-                            <div class="product-default">
-                                <figure>
-                                    <a href="{{ route('products.index') }}">
-                                        <img src="{{ asset('assets/images/products/product-3.jpg') }}" width="280"
-                                            height="280" alt="product" />
-                                        <img src="{{ asset('assets/images/products/product-3-2.jpg') }}" width="280"
-                                            height="280" alt="product" />
-                                    </a>
-
-                                    <div class="label-group">
-                                        <div class="product-label label-sale">-20%</div>
-                                    </div>
-                                </figure>
-
-                                <div class="product-details">
-                                    <div class="category-list">
-                                        <a href="#" class="product-category">Category</a>
-                                    </div>
-                                    <h3 class="product-title">
-                                        <a href="#">Postcard Printing</a>
-                                    </h3>
-                                    <div class="ratings-container">
-                                        <div class="product-ratings">
-                                            <span class="ratings" style="width:80%"></span>
-                                            <!-- End .ratings -->
-                                            <span class="tooltiptext tooltip-top"></span>
-                                        </div>
-                                        <!-- End .product-ratings -->
-                                    </div>
-                                    <!-- End .product-container -->
-                                    <div class="price-box">
-                                        <del class="old-price">SAR 159.00</del>
-                                        <span class="product-price">SAR 149.00</span>
-                                    </div>
-                                    <!-- End .price-box -->
-                                    <div class="product-action">
-                                        <a href="#" class="btn-icon-wish" title="wishlist"><i
-                                                class="icon-heart"></i></a>
-                                        <a href="#" class="btn-icon btn-add-cart product-type-simple"><i
-                                                class="icon-shopping-cart"></i><span>ADD TO CART</span></a>
-                                        <a href="#" class="btn-quickview" title="Quick View"><i
-                                                class="fas fa-external-link-alt"></i></a>
-                                    </div>
-                                </div>
-                                <!-- End .product-details -->
-                            </div>
-                        </div>
-                        <!-- End .col-sm-4 -->
-
-                        <div class="col-6 col-sm-4">
-                            <div class="product-default">
-                                <figure>
-                                    <a href="{{ route('products.index') }}">
-                                        <img src="{{ asset('assets/images/products/product-4.jpg') }}" width="280"
-                                            height="280" alt="product" />
-                                        <img src="{{ asset('assets/images/products/product-4-2.jpg') }}" width="280"
-                                            height="280" alt="product">
-                                    </a>
-
-                                    <div class="label-group">
-                                        <div class="product-label label-sale">-30%</div>
-                                    </div>
-                                </figure>
-
-                                <div class="product-details">
-                                    <div class="category-list">
-                                        <a href="#" class="product-category">Category</a>
-                                    </div>
-                                    <h3 class="product-title">
-                                        <a href="#">Folder Flyer Printing</a>
-                                    </h3>
-                                    <div class="ratings-container">
-                                        <div class="product-ratings">
-                                            <span class="ratings" style="width:80%"></span>
-                                            <!-- End .ratings -->
-                                            <span class="tooltiptext tooltip-top"></span>
-                                        </div>
-                                        <!-- End .product-ratings -->
-                                    </div>
-                                    <!-- End .product-container -->
-                                    <div class="price-box">
-                                        <del class="old-price">SAR 159.00</del>
-                                        <span class="product-price">SAR 149.00</span>
-                                    </div>
-                                    <!-- End .price-box -->
-                                    <div class="product-action">
-                                        <a href="#" class="btn-icon-wish" title="wishlist"><i
-                                                class="icon-heart"></i></a>
-                                        <a href="#" class="btn-icon btn-add-cart product-type-simple"><i
-                                                class="icon-shopping-cart"></i><span>ADD TO CART</span></a>
-                                        <a href="#" class="btn-quickview" title="Quick View"><i
-                                                class="fas fa-external-link-alt"></i></a>
-                                    </div>
-                                </div>
-                                <!-- End .product-details -->
-                            </div>
-                        </div>
-                        <!-- End .col-sm-4 -->
-
-                        <div class="col-6 col-sm-4">
-                            <div class="product-default">
-                                <figure>
-                                    <a href="{{ route('products.index') }}">
-                                        <img src="{{ asset('assets/images/products/product-5.jpg') }}" width="280"
-                                            height="280" alt="product" />
-                                        <img src="{{ asset('assets/images/products/product-5-2.jpg') }}" width="280"
-                                            height="280" alt="product" />
-                                    </a>
-
-                                    <div class="label-group">
-                                        <div class="product-label label-hot">HOT</div>
-                                    </div>
-                                </figure>
-
-                                <div class="product-details">
-                                    <div class="category-list">
-                                        <a href="{{ route('category.index') }}" class="product-category">Category</a>
-                                    </div>
-                                    <h3 class="product-title">
-                                        <a href="{{ route('products.index') }}">Casual Spring Blue Shoes</a>
-                                    </h3>
-                                    <div class="ratings-container">
-                                        <div class="product-ratings">
-                                            <span class="ratings" style="width:80%"></span>
-
-                                            <span class="tooltiptext tooltip-top"></span>
-                                        </div>
-
-                                    </div>
-
-                                    <div class="price-box">
-                                        <del class="old-price">$59.00</del>
-                                        <span class="product-price">$49.00</span>
-                                    </div>
-
-                                    <div class="product-action">
-                                        <a href="#" class="btn-icon-wish" title="wishlist"><i
-                                                class="icon-heart"></i></a>
-                                        <a href="#" class="btn-icon btn-add-cart product-type-simple"><i
-                                                class="icon-shopping-cart"></i><span>ADD TO CART</span></a>
-                                        <a href="#" class="btn-quickview" title="Quick View"><i
-                                                class="fas fa-external-link-alt"></i></a>
-                                    </div>
-                                </div>
-                                <!-- End .product-details -->
-                            </div>
-                        </div>
-                        <!-- End .col-sm-4 -->
-
-                        <div class="col-6 col-sm-4">
-                            <div class="product-default">
-                                <figure>
-                                    <a href="{{ route('products.index') }}">
-                                        <img src="{{ asset('assets/images/products/product-6.jpg') }}" width="280"
-                                            height="280" alt="product">
-                                        <img src="{{ asset('assets/images/products/product-6-2.jpg') }}" width="280"
-                                            height="280" alt="product" />
-                                    </a>
-
-                                    <div class="label-group">
-                                        <div class="product-label label-sale">-8%</div>
-                                    </div>
-                                </figure>
-
-                                <div class="product-details">
-                                    <div class="category-list">
-                                        <a href="#" class="product-category">Category</a>
-                                    </div>
-                                    <h3 class="product-title">
-                                        <a href="#">Award Shields Hand Made</a>
-                                    </h3>
-                                    <div class="ratings-container">
-                                        <div class="product-ratings">
-                                            <span class="ratings" style="width:80%"></span>
-                                            <!-- End .ratings -->
-                                            <span class="tooltiptext tooltip-top"></span>
-                                        </div>
-                                        <!-- End .product-ratings -->
-                                    </div>
-                                    <!-- End .product-container -->
-                                    <div class="price-box">
-                                        <del class="old-price">SAR 159.00</del>
-                                        <span class="product-price">SAR 149.00</span>
-                                    </div>
-                                    <!-- End .price-box -->
-                                    <div class="product-action">
-                                        <a href="#" class="btn-icon-wish" title="wishlist"><i
-                                                class="icon-heart"></i></a>
-                                        <a href="#" class="btn-icon btn-add-cart product-type-simple"><i
-                                                class="icon-shopping-cart"></i><span>ADD TO CART</span></a>
-                                        <a href="#" class="btn-quickview" title="Quick View"><i
-                                                class="fas fa-external-link-alt"></i></a>
-                                    </div>
-                                </div>
-                                <!-- End .product-details -->
-                            </div>
-                        </div>
-                        <!-- End .col-sm-4 -->
-
-                        <div class="col-6 col-sm-4">
-                            <div class="product-default">
-                                <figure>
-                                    <a href="{{ route('products.index') }}">
-                                        <img src="{{ asset('assets/images/products/product-7.jpg') }}" width="280"
-                                            height="280" alt="product" />
-                                        <img src="{{ asset('assets/images/products/product-7-2.jpg') }}" width="280"
-                                            height="280" alt="product" />
-                                    </a>
-
-                                    <div class="label-group">
-                                        <div class="product-label label-sale">-8%</div>
-                                    </div>
-                                </figure>
-
-                                <div class="product-details">
-                                    <div class="category-list">
-                                        <a href="#" class="product-category">Category</a>
-                                    </div>
-                                    <h3 class="product-title">
-                                        <a href="#">Signal Sign Board</a>
-                                    </h3>
-                                    <div class="ratings-container">
-                                        <div class="product-ratings">
-                                            <span class="ratings" style="width:80%"></span>
-                                            <!-- End .ratings -->
-                                            <span class="tooltiptext tooltip-top"></span>
-                                        </div>
-                                        <!-- End .product-ratings -->
-                                    </div>
-                                    <!-- End .product-container -->
-                                    <div class="price-box">
-                                        <del class="old-price">SAR 159.00</del>
-                                        <span class="product-price">SAR 149.00</span>
-                                    </div>
-                                    <!-- End .price-box -->
-                                    <div class="product-action">
-                                        <a href="#" class="btn-icon-wish" title="wishlist"><i
-                                                class="icon-heart"></i></a>
-                                        <a href="#" class="btn-icon btn-add-cart product-type-simple"><i
-                                                class="icon-shopping-cart"></i><span>ADD TO CART</span></a>
-                                        <a href="#" class="btn-quickview" title="Quick View"><i
-                                                class="fas fa-external-link-alt"></i></a>
-                                    </div>
-                                </div>
-                                <!-- End .product-details -->
-                            </div>
-                        </div>
-                        <!-- End .col-sm-4 -->
-
-                        <div class="col-6 col-sm-4">
-                            <div class="product-default">
-                                <figure>
-                                    <a href="{{ route('products.index') }}">
-                                        <img src="{{ asset('assets/images/products/product-8.jpg') }}" width="280"
-                                            height="280" alt="product" />
-                                        <img src="{{ asset('assets/images/products/product-8-2.jpg') }}" width="280"
-                                            height="280" alt="product" />
-                                    </a>
-
-                                    <div class="label-group">
-                                        <div class="product-label label-sale">-40%</div>
-                                    </div>
-                                </figure>
-
-                                <div class="product-details">
-                                    <div class="category-list">
-                                        <a href="#" class="product-category">Category</a>
-                                    </div>
-                                    <h3 class="product-title">
-                                        <a href="#">Shop Sign Board</a>
-                                    </h3>
-                                    <div class="ratings-container">
-                                        <div class="product-ratings">
-                                            <span class="ratings" style="width:80%"></span>
-                                            <!-- End .ratings -->
-                                            <span class="tooltiptext tooltip-top"></span>
-                                        </div>
-                                        <!-- End .product-ratings -->
-                                    </div>
-                                    <!-- End .product-container -->
-                                    <div class="price-box">
-                                        <del class="old-price">SAR 159.00</del>
-                                        <span class="product-price">SAR 149.00</span>
-                                    </div>
-                                    <!-- End .price-box -->
-                                    <div class="product-action">
-                                        <a href="#" class="btn-icon-wish" title="wishlist"><i
-                                                class="icon-heart"></i></a>
-                                        <a href="#" class="btn-icon btn-add-cart product-type-simple"><i
-                                                class="icon-shopping-cart"></i><span>ADD TO CART</span></a>
-                                        <a href="#" class="btn-quickview" title="Quick View"><i
-                                                class="fas fa-external-link-alt"></i></a>
-                                    </div>
-                                </div>
-                                <!-- End .product-details -->
-                            </div>
-                        </div>
-                        <!-- End .col-sm-4 -->
-
-                        <div class="col-6 col-sm-4">
-                            <div class="product-default">
-                                <figure>
-                                    <a href="{{ route('products.index') }}">
-                                        <img src="{{ asset('assets/images/products/product-9.jpg') }}" width="280"
-                                            height="280" alt="product" />
-                                        <img src="{{ asset('assets/images/products/product-9-2.jpg') }}" width="280"
-                                            height="280" alt="product" />
-                                    </a>
-                                </figure>
-
-                                <div class="product-details">
-                                    <div class="category-list">
-                                        <a href="#" class="product-category">Category</a>
-                                    </div>
-                                    <h3 class="product-title">
-                                        <a href="#">Signage</a>
-                                    </h3>
-                                    <div class="ratings-container">
-                                        <div class="product-ratings">
-                                            <span class="ratings" style="width:80%"></span>
-                                            <!-- End .ratings -->
-                                            <span class="tooltiptext tooltip-top"></span>
-                                        </div>
-                                        <!-- End .product-ratings -->
-                                    </div>
-                                    <!-- End .product-container -->
-                                    <div class="price-box">
-                                        <del class="old-price">SAR 159.00</del>
-                                        <span class="product-price">SAR 149.00</span>
-                                    </div>
-                                    <!-- End .price-box -->
-                                    <div class="product-action">
-                                        <a href="#" class="btn-icon-wish" title="wishlist"><i
-                                                class="icon-heart"></i></a>
-                                        <a href="#" class="btn-icon btn-add-cart"><i
-                                                class="fa fa-arrow-right"></i><span>SELECT
-                                                OPTIONS</span></a>
-                                        <a href="#" class="btn-quickview" title="Quick View"><i
-                                                class="fas fa-external-link-alt"></i></a>
-                                    </div>
-                                </div>
-                                <!-- End .product-details -->
-                            </div>
-                        </div>
-                        <!-- End .col-sm-4 -->
-
-                        <div class="col-6 col-sm-4">
-                            <div class="product-default">
-                                <figure>
-                                    <a href="{{ route('products.index') }}">
-                                        <img src="{{ asset('assets/images/products/product-10.jpg') }}" width="280"
-                                            height="280" alt="product" />
-                                        <img src="{{ asset('assets/images/products/product-10-2.jpg') }}" width="280"
-                                            height="280" alt="product" />
-                                    </a>
-
-                                    <div class="label-group">
-                                        <div class="product-label label-sale">-30%</div>
-                                    </div>
-                                </figure>
-
-                                <div class="product-details">
-                                    <div class="category-list">
-                                        <a href="#" class="product-category">Category</a>
-                                    </div>
-                                    <h3 class="product-title">
-                                        <a href="#">Die Cut Business Cards</a>
-                                    </h3>
-                                    <div class="ratings-container">
-                                        <div class="product-ratings">
-                                            <span class="ratings" style="width:80%"></span>
-                                            <!-- End .ratings -->
-                                            <span class="tooltiptext tooltip-top"></span>
-                                        </div>
-                                        <!-- End .product-ratings -->
-                                    </div>
-                                    <!-- End .product-container -->
-                                    <div class="price-box">
-                                        <del class="old-price">SAR 159.00</del>
-                                        <span class="product-price">SAR 149.00</span>
-                                    </div>
-                                    <!-- End .price-box -->
-                                    <div class="product-action">
-                                        <a href="#" class="btn-icon-wish" title="wishlist"><i
-                                                class="icon-heart"></i></a>
-                                        <a href="#" class="btn-icon btn-add-cart product-type-simple"><i
-                                                class="icon-shopping-cart"></i><span>ADD TO CART</span></a>
-                                        <a href="#" class="btn-quickview" title="Quick View"><i
-                                                class="fas fa-external-link-alt"></i></a>
-                                    </div>
-                                </div>
-                                <!-- End .product-details -->
-                            </div>
-                        </div>
+                        @endforelse
                     </div>
                     <!-- End .row -->
                     <nav class="toolbox toolbox-pagination">
@@ -647,92 +183,28 @@
                             <div class="collapse show" id="widget-body-2">
                                 <div class="widget-body">
                                     <ul class="cat-list">
-
-    <li>
-        <a href="#widget-category-1"
-           role="button"
-           data-toggle="collapse"
-           aria-expanded="true"
-           aria-controls="widget-category-1">
-            Business Printing
-            <span class="products-count">(3)</span>
-            <span class="toggle"></span>
-        </a>
-
-        <div class="collapse show" id="widget-category-1">
-            <ul class="cat-sublist">
-                <li>Business Cards <span class="products-count">(1)</span></li>
-                <li>Letterheads <span class="products-count">(1)</span></li>
-                <li>Envelopes <span class="products-count">(1)</span></li>
-            </ul>
-        </div>
-    </li>
-
-    <li>
-        <a href="#widget-category-2"
-           role="button"
-           data-toggle="collapse"
-           aria-expanded="false"
-           aria-controls="widget-category-2">
-            Marketing Materials
-            <span class="products-count">(4)</span>
-            <span class="toggle"></span>
-        </a>
-
-        <div class="collapse" id="widget-category-2">
-            <ul class="cat-sublist">
-                <li>Flyers <span class="products-count">(2)</span></li>
-                <li>Postcards <span class="products-count">(2)</span></li>
-            </ul>
-        </div>
-    </li>
-
-    <li>
-        <a href="#widget-category-3"
-           role="button"
-           data-toggle="collapse"
-           aria-expanded="false"
-           aria-controls="widget-category-3">
-            Large Format Printing
-            <span class="products-count">(2)</span>
-            <span class="toggle"></span>
-        </a>
-
-        <div class="collapse" id="widget-category-3">
-            <ul class="cat-sublist">
-                <li>Roll-up Banners <span class="products-count">(1)</span></li>
-                <li>Posters <span class="products-count">(1)</span></li>
-            </ul>
-        </div>
-    </li>
-
-    <li>
-        <a href="#widget-category-4"
-           role="button"
-           data-toggle="collapse"
-           aria-expanded="false"
-           aria-controls="widget-category-4">
-            Corporate Stationery
-            <span class="products-count">(2)</span>
-            <span class="toggle"></span>
-        </a>
-
-        <div class="collapse" id="widget-category-4">
-            <ul class="cat-sublist">
-                <li>Folders <span class="products-count">(1)</span></li>
-                <li>Brochures <span class="products-count">(1)</span></li>
-            </ul>
-        </div>
-    </li>
-
-    <li>
-        <a href="#">
-            Custom Printing
-            <span class="products-count">(2)</span>
-        </a>
-    </li>
-
-</ul>
+                                        @foreach($categories as $category)
+                                            <li>
+                                                @if($category->children->count() > 0)
+                                                    <a href="#widget-category-{{ $category->id }}" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="widget-category-{{ $category->id }}">
+                                                        {{ $category->name }} <span class="products-count">({{ $category->children->count() }})</span>
+                                                        <span class="toggle"></span>
+                                                    </a>
+                                                    <div class="collapse" id="widget-category-{{ $category->id }}">
+                                                        <ul class="cat-sublist">
+                                                            @foreach($category->children as $child)
+                                                                <li><a href="{{ route('category.show', $child->slug) }}">{{ $child->name }}</a> <span class="products-count">({{ $child->products->count() }})</span></li>
+                                                            @endforeach
+                                                        </ul>
+                                                    </div>
+                                                @else
+                                                    <a href="{{ route('category.show', $category->slug) }}">
+                                                        {{ $category->name }} <span class="products-count">({{ $category->products->count() }})</span>
+                                                    </a>
+                                                @endif
+                                            </li>
+                                        @endforeach
+                                    </ul>
 
                                 </div>
                                 <!-- End .widget-body -->

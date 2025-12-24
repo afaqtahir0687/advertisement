@@ -11,15 +11,21 @@ class CategoryController extends Controller
 {
     public function index()
     {
-        $categories = Category::where('status', 'active')->latest()->get();
+        $categories = Category::where('status', 'active')->whereNull('parent_id')->latest()->get();
         return view('frontend.pages.categories.index', compact('categories'));
     }
 
     public function show($slug)
     {
         $category = Category::where('slug', $slug)->where('status', 'active')->firstOrFail();
-        $products = Product::where('category_id', $category->id)->where('status', 'active')->get();
-        return view('frontend.pages.categories.show', compact('category', 'products'));
+        
+        // Get subcategories with product counts
+        $subcategories = $category->children()->where('status', 'active')->withCount('products')->get();
+        
+        // Get all products from this category and its subcategories
+        $products = $category->getAllProducts();
+        
+        return view('frontend.pages.categories.show', compact('category', 'products', 'subcategories'));
     }
 
     public function bannerBoxSlider()

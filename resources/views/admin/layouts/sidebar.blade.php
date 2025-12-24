@@ -56,6 +56,12 @@
         </a>
     </li>
 
+    <li class="nav-item {{ request()->routeIs('admin.subcategories.*') ? 'active' : '' }}">
+        <a class="nav-link" href="{{ route('admin.subcategories.index') }}">
+            <i class="fas fa-fw fa-layer-group"></i>
+            <span>Subcategories</span>
+        </a>
+    </li>
 
     <li class="nav-item {{ request()->routeIs('admin.products.*') ? 'active' : '' }}">
         <a class="nav-link" href="{{ route('admin.products.index') }}">

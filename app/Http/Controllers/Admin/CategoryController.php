@@ -12,7 +12,8 @@ class CategoryController extends Controller
 {
     public function index()
     {
-        $categories = Category::latest()->get();
+        // Show only parent categories (categories without parent_id)
+        $categories = Category::whereNull('parent_id')->latest()->get();
         return view('admin.categories.index', compact('categories'));
     }
 

@@ -3,12 +3,15 @@
 @section('content')
     <div class="card shadow mb-4">
         <div class="card-header py-3 d-flex justify-content-between align-items-center">
-            <h6 class="m-0 font-weight-bold text-primary">Categories</h6>
-            <a href="{{ route('admin.categories.create') }}" class="btn btn-primary btn-sm">Add New</a>
+            <h6 class="m-0 font-weight-bold text-primary">Subcategories</h6>
+            <a href="{{ route('admin.subcategories.create') }}" class="btn btn-primary btn-sm">Add New Subcategory</a>
         </div>
         <div class="card-body">
             @if(session('success'))
                 <div class="alert alert-success">{{ session('success') }}</div>
+            @endif
+            @if(session('error'))
+                <div class="alert alert-danger">{{ session('error') }}</div>
             @endif
             <div class="table-responsive">
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
@@ -16,47 +19,57 @@
                         <tr>
                             <th>ID</th>
                             <th>Image</th>
-                            <th>Name</th>
+                            <th>Subcategory Name</th>
+                            <th>Parent Category</th>
                             <th>Slug</th>
-                            <th>Subcategories</th>
                             <th>Status</th>
                             <th>Actions</th>
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach($categories as $category)
+                        @forelse($subcategories as $subcategory)
                             <tr>
-                                <td>{{ $category->id }}</td>
-                                <td><img src="{{ asset('storage/' . $category->image) }}" width="100" alt="Category Image"></td>
+                                <td>{{ $subcategory->id }}</td>
                                 <td>
-                                    <strong>{{ $category->name }}</strong>
+                                    @if($subcategory->image)
+                                        <img src="{{ asset('storage/' . $subcategory->image) }}" width="100" alt="Subcategory Image">
+                                    @else
+                                        <span class="text-muted">No Image</span>
+                                    @endif
                                 </td>
-                                <td>{{ $category->slug }}</td>
+                                <td>{{ $subcategory->name }}</td>
                                 <td>
-                                    @if($category->children()->count() > 0)
-                                        <span class="badge badge-info">{{ $category->children()->count() }} Subcategories</span>
+                                    @if($subcategory->parent)
+                                        <a href="{{ route('admin.categories.edit', $subcategory->parent->id) }}" class="text-primary">
+                                            {{ $subcategory->parent->name }}
+                                        </a>
                                     @else
                                         <span class="text-muted">-</span>
                                     @endif
                                 </td>
+                                <td>{{ $subcategory->slug }}</td>
                                 <td>
-                                    <span class="badge badge-{{ $category->status == 'active' ? 'success' : 'danger' }}">
-                                        {{ ucfirst($category->status) }}
+                                    <span class="badge badge-{{ $subcategory->status == 'active' ? 'success' : 'danger' }}">
+                                        {{ ucfirst($subcategory->status) }}
                                     </span>
                                 </td>
                                 <td>
-                                    <a href="{{ route('admin.categories.edit', $category->id) }}"
+                                    <a href="{{ route('admin.subcategories.edit', $subcategory->id) }}"
                                         class="btn btn-warning btn-sm">Edit</a>
-                                    <form action="{{ route('admin.categories.destroy', $category->id) }}" method="POST"
+                                    <form action="{{ route('admin.subcategories.destroy', $subcategory->id) }}" method="POST"
                                         class="d-inline">
                                         @csrf
                                         @method('DELETE')
                                         <button type="submit" class="btn btn-danger btn-sm"
-                                            onclick="return confirm('Are you sure?')">Delete</button>
+                                            onclick="return confirm('Are you sure you want to delete this subcategory?')">Delete</button>
                                     </form>
                                 </td>
                             </tr>
-                        @endforeach
+                        @empty
+                            <tr>
+                                <td colspan="7" class="text-center">No subcategories found. <a href="{{ route('admin.subcategories.create') }}">Create one now</a></td>
+                            </tr>
+                        @endforelse
                     </tbody>
                 </table>
             </div>

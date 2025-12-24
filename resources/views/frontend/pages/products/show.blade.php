@@ -7,7 +7,12 @@
                     <li class="breadcrumb-item"><a href="{{ route('home') }}"><i class="icon-home"></i></a></li>
                     <li class="breadcrumb-item"><a href="{{ route('category.index') }}">Categories</a></li>
                     @if($product->category)
-                        <li class="breadcrumb-item"><a href="{{ route('category.show', $product->category->slug) }}">{{ $product->category->name }}</a></li>
+                        @php
+                            $categoryPath = $product->category->getFullPath();
+                        @endphp
+                        @foreach($categoryPath as $cat)
+                            <li class="breadcrumb-item"><a href="{{ route('category.show', $cat->slug) }}">{{ $cat->name }}</a></li>
+                        @endforeach
                     @endif
                     <li class="breadcrumb-item active" aria-current="page">{{ $product->name }}</li>
                 </ol>
