@@ -1,4 +1,4 @@
-  <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+<ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
     <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{{route('admin.dashboard')}}">
         <div class="sidebar-brand-icon rotate-n-15">
@@ -9,11 +9,13 @@
 
     <hr class="sidebar-divider my-0">
 
-    <li class="nav-item active">
+    <li class="nav-item {{ request()->routeIs('admin.dashboard') ? 'active' : '' }}">
         <a class="nav-link" href="{{ route('admin.dashboard') }}">
             <i class="fas fa-fw fa-tachometer-alt"></i>
-            <span>Dashboard</span></a>
+            <span>Dashboard</span>
+        </a>
     </li>
+
 
     <hr class="sidebar-divider">
 
@@ -21,11 +23,13 @@
         Content Management
     </div>
 
-    <li class="nav-item">
+    <li class="nav-item {{ request()->routeIs('admin.sliders.*') ? 'active' : '' }}">
         <a class="nav-link" href="{{ route('admin.sliders.index') }}">
             <i class="fas fa-fw fa-images"></i>
-            <span>Sliders</span></a>
+            <span>Sliders</span>
+        </a>
     </li>
+
 
     <!-- <li class="nav-item">
         <a class="nav-link" href="{{ route('admin.services.index') }}">
@@ -45,17 +49,21 @@
         Shop Management
     </div>
 
-    <li class="nav-item">
+    <li class="nav-item {{ request()->routeIs('admin.categories.*') ? 'active' : '' }}">
         <a class="nav-link" href="{{ route('admin.categories.index') }}">
             <i class="fas fa-fw fa-list"></i>
-            <span>Categories</span></a>
+            <span>Categories</span>
+        </a>
     </li>
 
-        <!-- <li class="nav-item">
+
+    <li class="nav-item {{ request()->routeIs('admin.products.*') ? 'active' : '' }}">
         <a class="nav-link" href="{{ route('admin.products.index') }}">
             <i class="fas fa-fw fa-box"></i>
-            <span>Products</span></a>
-    </li> -->
+            <span>Products</span>
+        </a>
+    </li>
+
 
     <hr class="sidebar-divider">
 
@@ -63,11 +71,13 @@
         User Management
     </div>
 
-    <li class="nav-item">
+    <li class="nav-item {{ request()->routeIs('admin.users.*') ? 'active' : '' }}">
         <a class="nav-link" href="{{ route('admin.users.index') }}">
             <i class="fas fa-fw fa-users"></i>
-            <span>Users</span></a>
+            <span>Users</span>
+        </a>
     </li>
+
 
     <!-- <hr class="sidebar-divider">
 
@@ -86,11 +96,7 @@
     <!-- Sidebar Footer (Custom Branding) -->
     <div class="sidebar-card d-none d-lg-flex text-center">
         <a href="{{ route('home') }}" class="logo mb-2" target="_blank">
-            <img 
-                src="{{ asset('assets/images/logo.png') }}" 
-                width="111" 
-                height="44" 
-                alt="Crelogics Logo">
+            <img src="{{ asset('assets/images/logo.png') }}" width="111" height="44" alt="Crelogics Logo">
         </a>
 
         <p class="text-center mb-2">

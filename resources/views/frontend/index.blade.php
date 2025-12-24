@@ -1,46 +1,101 @@
 @extends('frontend.layouts.master')
 @section('content')
-   
-     <div class="home-slider slide-animate owl-carousel owl-theme show-nav-hover nav-big mb-2 text-uppercase"
+
+    <div class="home-slider slide-animate owl-carousel owl-theme show-nav-hover nav-big mb-2 text-uppercase"
         data-owl-options="{
-                    'loop': false
-                }">
-        @foreach($sliders as $slider)
-        <div class="home-slide home-slide1 banner">
-            <img class="slide-bg" src="{{ asset('storage/' . $slider->image) }}" width="1903"
-                height="499" alt="slider image">
-            <div class="container d-flex align-items-center">
-                <div class="banner-layer appear-animate" data-animation-name="fadeInUpShorter">
-                    <h4 class="text-transform-none m-b-3">{{ $slider->title }}</h4>
-                    <h2 class="text-transform-none mb-0">{{ $slider->subtitle }}</h2>
-                    <h3 class="m-b-3">{{ $slider->offer_text }}</h3>
-                    @if($slider->link)
-                    <a href="{{ $slider->link }}" target="" class="btn btn-dark btn-lg">Shop Now!</a>
-                    @endif
+            'loop': false
+         }">
+
+        @if(isset($sliders) && $sliders->count() > 0)
+
+            {{-- ✅ Dynamic sliders --}}
+            @foreach($sliders as $slider)
+                <div class="home-slide home-slide1 banner">
+                    <img class="slide-bg" src="{{ asset('storage/' . $slider->image) }}" width="1903" height="499"
+                        alt="slider image">
+
+                    <div class="container d-flex align-items-center">
+                        <div class="banner-layer appear-animate" data-animation-name="fadeInUpShorter">
+                            <h4 class="text-transform-none m-b-3">{{ $slider->title }}</h4>
+                            <h2 class="text-transform-none mb-0">{{ $slider->subtitle }}</h2>
+                            <h3 class="m-b-3">{{ $slider->offer_text }}</h3>
+
+                            @if($slider->link)
+                                <a href="{{ $slider->link }}" class="btn btn-dark btn-lg">
+                                    Shop Now!
+                                </a>
+                            @endif
+                        </div>
+                    </div>
+                </div>
+            @endforeach
+
+        @else
+
+            {{-- ❌ Static sliders (unchanged HTML) --}}
+            <div class="home-slide home-slide1 banner">
+                <img class="slide-bg" src="{{ asset('assets/images/demoes/demo4/slider/slide-1.jpeg') }}" width="1903"
+                    height="499" alt="slider image">
+
+                <div class="container d-flex align-items-center">
+                    <div class="banner-layer appear-animate" data-animation-name="fadeInUpShorter">
+                        <h4 class="text-transform-none m-b-3">Find the Boundaries. Push Through!</h4>
+                        <h2 class="text-transform-none mb-0">Summer Sale</h2>
+                        <h3 class="m-b-3">70% Off</h3>
+                        <h5 class="d-inline-block mb-0">
+                            <span>Starting At</span>
+                            <b class="coupon-sale-text text-white bg-secondary align-middle">
+                                <sup>$</sup><em class="align-text-top">199</em><sup>99</sup>
+                            </b>
+                        </h5>
+                        <a href="{{ route('category.index') }}" class="btn btn-dark btn-lg">
+                            Shop Now!
+                        </a>
+                    </div>
                 </div>
             </div>
-        </div>
-        @endforeach
+
+            <div class="home-slide home-slide2 banner banner-md-vw">
+                <img class="slide-bg" src="{{ asset('assets/images/demoes/demo4/slider/slide-2.jpeg') }}" width="1903"
+                    height="499" alt="slider image">
+
+                <div class="container d-flex align-items-center">
+                    <div class="banner-layer d-flex justify-content-center appear-animate"
+                        data-animation-name="fadeInUpShorter">
+                        <div class="mx-auto">
+                            <h4 class="m-b-1">Extra</h4>
+                            <h3 class="m-b-2">20% off</h3>
+                            <h3 class="mb-2 heading-border">Accessories</h3>
+                            <h2 class="text-transform-none m-b-4">Summer Sale</h2>
+                            <a href="{{ route('category.index') }}" class="btn btn-block btn-dark">
+                                Shop All Sale
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        @endif
     </div>
 
 
- <div class="container">
+
+    <div class="container">
         <h2 style="text-align: center;">From Concept to Delivery</h2>
         <p style="text-align: center;">Fuel Your Business with Flexible Credit, Design Services, and Lightning-Quick
             Delivery!</p>
-        <div class="info-boxes-slider owl-carousel owl-theme mb-2"
-            data-owl-options="{
-                        'dots': false,
-                        'loop': false,
-                        'responsive': {
-                            '576': {
-                                'items': 2
-                            },
-                            '992': {
-                                'items': 3
+        <div class="info-boxes-slider owl-carousel owl-theme mb-2" data-owl-options="{
+                            'dots': false,
+                            'loop': false,
+                            'responsive': {
+                                '576': {
+                                    'items': 2
+                                },
+                                '992': {
+                                    'items': 3
+                                }
                             }
-                        }
-                    }">
+                        }">
             <div class="info-box info-box-icon-left">
                 <i class="icon-shipping"></i>
 
@@ -70,15 +125,14 @@
         </div>
 
         <div class="banners-container mb-2">
-            <div class="banners-slider owl-carousel owl-theme"
-                data-owl-options="{
-                            'dots': false
-                        }">
+            <div class="banners-slider owl-carousel owl-theme" data-owl-options="{
+                                'dots': false
+                            }">
                 <div class="banner banner1 banner-sm-vw d-flex align-items-center appear-animate"
                     style="background-color: #ccc;" data-animation-name="fadeInLeftShorter" data-animation-delay="500">
                     <figure class="w-100">
-                        <img src="{{ asset('assets/images/demoes/demo4/banners/banner-1.jpg') }}" alt="banner"
-                            width="380" height="175" />
+                        <img src="{{ asset('assets/images/demoes/demo4/banners/banner-1.jpg') }}" alt="banner" width="380"
+                            height="175" />
                     </figure>
                     <div class="banner-layer">
                         <h3 class="m-b-2">Credit Terms</h3>
@@ -107,8 +161,8 @@
                 <div class="banner banner3 banner-sm-vw d-flex align-items-center appear-animate"
                     style="background-color: #ccc;" data-animation-name="fadeInRightShorter" data-animation-delay="500">
                     <figure class="w-100">
-                        <img src="{{ asset('assets/images/demoes/demo4/banners/banner-3.jpg') }}" alt="banner"
-                            width="380" height="175" />
+                        <img src="{{ asset('assets/images/demoes/demo4/banners/banner-3.jpg') }}" alt="banner" width="380"
+                            height="175" />
                     </figure>
                     <div class="banner-layer text-right">
                         <h3 class="m-b-2">Express Delivery</h3>
@@ -119,22 +173,22 @@
         </div>
     </div>
 
-     <section class="featured-products-section">
+    <section class="featured-products-section">
         <div class="container">
             <h2 class="section-title heading-border ls-20 border-0">Featured Products</h2>
 
             <div class="products-slider custom-products owl-carousel owl-theme nav-outer show-nav-hover nav-image-center"
                 data-owl-options="{
-                            'dots': false,
-                            'nav': true
-                        }">
+                                'dots': false,
+                                'nav': true
+                            }">
                 <div class="product-default appear-animate" data-animation-name="fadeInRightShorter">
                     <figure>
                         <a href="{{ route('products.index') }}">
                             <img src="{{ asset('assets/images/products/product-1.jpg') }}" width="280" height="280"
                                 alt="product">
-                            <img src="{{ asset('assets/images/products/product-1-2.jpg') }}" width="280"
-                                height="280" alt="product">
+                            <img src="{{ asset('assets/images/products/product-1-2.jpg') }}" width="280" height="280"
+                                alt="product">
                         </a>
                         <div class="label-group">
                             <div class="product-label label-hot">HOT</div>
@@ -163,8 +217,7 @@
                         </div>
                         <!-- End .price-box -->
                         <div class="product-action">
-                            <a href="#" class="btn-icon-wish" title="wishlist"><i
-                                    class="icon-heart"></i></a>
+                            <a href="#" class="btn-icon-wish" title="wishlist"><i class="icon-heart"></i></a>
                             <a href="#" class="btn-icon btn-add-cart"><i class="fa fa-arrow-right"></i><span>SELECT
                                     OPTIONS</span></a>
                             <a href="ajax/product-quick-view.html" class="btn-quickview" title="Quick View"><i
@@ -220,8 +273,8 @@
                         <a href="{{ route('products.index') }}">
                             <img src="{{ asset('assets/images/products/product-3.jpg') }}" width="280" height="280"
                                 alt="product">
-                            <img src="{{ asset('assets/images/products/product-3-2.jpg') }}" width="280"
-                                height="280" alt="product">
+                            <img src="{{ asset('assets/images/products/product-3-2.jpg') }}" width="280" height="280"
+                                alt="product">
                         </a>
                     </figure>
                     <div class="product-details">
@@ -259,8 +312,8 @@
                         <a href="{{ route('products.index') }}">
                             <img src="{{ asset('assets/images/products/product-4.jpg') }}" width="280" height="280"
                                 alt="product">
-                            <img src="{{ asset('assets/images/products/product-4-2.jpg') }}" width="280"
-                                height="280" alt="product">
+                            <img src="{{ asset('assets/images/products/product-4-2.jpg') }}" width="280" height="280"
+                                alt="product">
                         </a>
                         <div class="label-group">
                             <div class="product-label label-hot">HOT</div>
@@ -302,8 +355,8 @@
                         <a href="{{ route('products.index') }}">
                             <img src="{{ asset('assets/images/products/product-5.jpg') }}" width="280" height="280"
                                 alt="product">
-                            <img src="{{ asset('assets/images/products/product-5-2.jpg') }}" width="280"
-                                height="280" alt="product">
+                            <img src="{{ asset('assets/images/products/product-5-2.jpg') }}" width="280" height="280"
+                                alt="product">
                         </a>
                         <div class="label-group">
                             <div class="product-label label-hot">HOT</div>
@@ -332,8 +385,7 @@
                         </div>
 
                         <div class="product-action">
-                            <a href="#" class="btn-icon-wish" title="wishlist"><i
-                                    class="icon-heart"></i></a>
+                            <a href="#" class="btn-icon-wish" title="wishlist"><i class="icon-heart"></i></a>
                             <a href="#" class="btn-icon btn-add-cart product-type-simple"><i
                                     class="icon-shopping-cart"></i><span>ADD TO CART</span></a>
                             <a href="ajax/product-quick-view.html" class="btn-quickview" title="Quick View"><i
@@ -351,24 +403,24 @@
 
             <div class="products-slider custom-products owl-carousel owl-theme nav-outer show-nav-hover nav-image-center mb-2"
                 data-owl-options="{
-                            'dots': false,
-                            'nav': true,
-                            'responsive': {
-                                '992': {
-                                    'items': 4
-                                },
-                                '1200': {
-                                    'items': 5
+                                'dots': false,
+                                'nav': true,
+                                'responsive': {
+                                    '992': {
+                                        'items': 4
+                                    },
+                                    '1200': {
+                                        'items': 5
+                                    }
                                 }
-                            }
-                        }">
+                            }">
                 <div class="product-default appear-animate" data-animation-name="fadeInRightShorter">
                     <figure>
                         <a href="{{ route('products.index') }}">
                             <img src="{{ asset('assets/images/products/product-6.jpg') }}" width="220" height="220"
                                 alt="product">
-                            <img src="{{ asset('assets/images/products/product-6-2.jpg') }}" width="220"
-                                height="220" alt="product">
+                            <img src="{{ asset('assets/images/products/product-6-2.jpg') }}" width="220" height="220"
+                                alt="product">
                         </a>
                         <div class="label-group">
                             <div class="product-label label-hot">HOT</div>
@@ -396,8 +448,7 @@
                         </div>
                         <!-- End .price-box -->
                         <div class="product-action">
-                            <a href="#" class="btn-icon-wish" title="wishlist"><i
-                                    class="icon-heart"></i></a>
+                            <a href="#" class="btn-icon-wish" title="wishlist"><i class="icon-heart"></i></a>
                             <a href="#" class="btn-icon btn-add-cart product-type-simple"><i
                                     class="icon-shopping-cart"></i><span>ADD TO CART</span></a>
                             <a href="ajax/product-quick-view.html" class="btn-quickview" title="Quick View"><i
@@ -410,8 +461,8 @@
                         <a href="{{ route('products.index') }}">
                             <img src="{{ asset('assets/images/products/product-7.jpg') }}" width="220" height="220"
                                 alt="product">
-                            <img src="{{ asset('assets/images/products/product-7-2.jpg') }}" width="220"
-                                height="220" alt="product">
+                            <img src="{{ asset('assets/images/products/product-7-2.jpg') }}" width="220" height="220"
+                                alt="product">
                         </a>
                         <div class="label-group">
                             <div class="product-label label-hot">HOT</div>
@@ -452,8 +503,8 @@
                         <a href="{{ route('products.index') }}">
                             <img src="{{ asset('assets/images/products/product-8.jpg') }}" width="220" height="220"
                                 alt="product">
-                            <img src="{{ asset('assets/images/products/product-8-2.jpg') }}" width="220"
-                                height="220" alt="product">
+                            <img src="{{ asset('assets/images/products/product-8-2.jpg') }}" width="220" height="220"
+                                alt="product">
                         </a>
                         <div class="label-group">
                             <div class="product-label label-sale">-20%</div>
@@ -494,8 +545,8 @@
                         <a href="{{ route('products.index') }}">
                             <img src="{{ asset('assets/images/products/product-9.jpg') }}" width="220" height="220"
                                 alt="product">
-                            <img src="{{ asset('assets/images/products/product-9-2.jpg') }}" width="220"
-                                height="220" alt="product">
+                            <img src="{{ asset('assets/images/products/product-9-2.jpg') }}" width="220" height="220"
+                                alt="product">
                         </a>
                         <div class="label-group">
                             <div class="product-label label-sale">-30%</div>
@@ -534,10 +585,10 @@
                 <div class="product-default appear-animate" data-animation-name="fadeInRightShorter">
                     <figure>
                         <a href="{{ route('products.index') }}">
-                            <img src="{{ asset('assets/images/products/product-10.jpg') }}" width="220"
-                                height="220" alt="product">
-                            <img src="{{ asset('assets/images/products/product-10-2.jpg') }}" width="220"
-                                height="220" alt="product">
+                            <img src="{{ asset('assets/images/products/product-10.jpg') }}" width="220" height="220"
+                                alt="product">
+                            <img src="{{ asset('assets/images/products/product-10-2.jpg') }}" width="220" height="220"
+                                alt="product">
                         </a>
                         <div class="label-group">
                             <div class="product-label label-hot">HOT</div>
@@ -576,10 +627,10 @@
                 <div class="product-default appear-animate" data-animation-name="fadeInRightShorter">
                     <figure>
                         <a href="{{ route('products.index') }}">
-                            <img src="{{ asset('assets/images/products/product-11.jpg') }}" width="220"
-                                height="220" alt="product">
-                            <img src="{{ asset('assets/images/products/product-11-2.jpg') }}" width="220"
-                                height="220" alt="product">
+                            <img src="{{ asset('assets/images/products/product-11.jpg') }}" width="220" height="220"
+                                alt="product">
+                            <img src="{{ asset('assets/images/products/product-11-2.jpg') }}" width="220" height="220"
+                                alt="product">
                         </a>
                         <div class="label-group">
                             <div class="product-label label-sale">-20%</div>
@@ -607,8 +658,7 @@
                         </div>
                         <!-- End .price-box -->
                         <div class="product-action">
-                            <a href="#" class="btn-icon-wish" title="wishlist"><i
-                                    class="icon-heart"></i></a>
+                            <a href="#" class="btn-icon-wish" title="wishlist"><i class="icon-heart"></i></a>
                             <a href="#" class="btn-icon btn-add-cart"><i class="fa fa-arrow-right"></i><span>SELECT
                                     OPTIONS</span></a>
                             <a href="ajax/product-quick-view.html" class="btn-quickview" title="Quick View"><i
@@ -635,28 +685,120 @@
                 </div>
             </div>
 
-           
 
-           <h2 class="section-title categories-section-title heading-border border-0 ls-0 appear-animate"
-                data-animation-delay="100" data-animation-name="fadeInUpShorter">Browse Our Categories
+
+            <h2 class="section-title categories-section-title heading-border border-0 ls-0 appear-animate"
+                data-animation-delay="100" data-animation-name="fadeInUpShorter">
+                Browse Our Categories
             </h2>
 
             <div class="categories-slider owl-carousel owl-theme show-nav-hover nav-outer">
-                @foreach($categories as $category)
-                <div class="product-category appear-animate" data-animation-name="fadeInUpShorter">
-                    <a href="{{ route('category.show', $category->slug) }}">
-                        <figure>
-                            <img src="{{ asset('storage/' . $category->image) }}"
-                                alt="{{ $category->name }}" width="280" height="240" />
-                        </figure>
-                        <div class="category-content">
-                            <h3>{{ $category->name }}</h3>
-                            <span><mark class="count">{{ $category->products_count }}</mark> products</span>
+
+                @if(isset($categories) && $categories->count() > 0)
+
+                    {{-- ✅ Dynamic Categories --}}
+                    @foreach($categories as $category)
+                        <div class="product-category appear-animate" data-animation-name="fadeInUpShorter">
+                            <a href="{{ route('category.show', $category->slug) }}">
+                                <figure>
+                                    <img src="{{ asset('storage/' . $category->image) }}" alt="{{ $category->name }}" width="280"
+                                        height="240" />
+                                </figure>
+                                <div class="category-content">
+                                    <h3>{{ $category->name }}</h3>
+                                    <span>
+                                        <mark class="count">{{ $category->products_count }}</mark> products
+                                    </span>
+                                </div>
+                            </a>
                         </div>
-                    </a>
-                </div>
-                @endforeach
+                    @endforeach
+
+                @else
+
+                    {{-- ❌ Static Categories (UNCHANGED HTML) --}}
+                    <div class="product-category appear-animate" data-animation-name="fadeInUpShorter">
+                        <a href="{{ route('category.index') }}">
+                            <figure>
+                                <img src="{{ asset('assets/images/demoes/demo4/products/categories/category-1.jpg') }}"
+                                    alt="category" width="280" height="240" />
+                            </figure>
+                            <div class="category-content">
+                                <h3>Stationery</h3>
+                                <span><mark class="count">3</mark> products</span>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="product-category appear-animate" data-animation-name="fadeInUpShorter">
+                        <a href="{{ route('category.index') }}">
+                            <figure>
+                                <img src="{{ asset('assets/images/demoes/demo4/products/categories/category-2.jpg') }}"
+                                    alt="category" width="220" height="220" />
+                            </figure>
+                            <div class="category-content">
+                                <h3>Promotional</h3>
+                                <span><mark class="count">3</mark> products</span>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="product-category appear-animate" data-animation-name="fadeInUpShorter">
+                        <a href="{{ route('category.index') }}">
+                            <figure>
+                                <img src="{{ asset('assets/images/demoes/demo4/products/categories/category-3.jpg') }}"
+                                    alt="category" width="220" height="220" />
+                            </figure>
+                            <div class="category-content">
+                                <h3>Packaging & Boxes</h3>
+                                <span><mark class="count">3</mark> products</span>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="product-category appear-animate" data-animation-name="fadeInUpShorter">
+                        <a href="{{ route('category.index') }}">
+                            <figure>
+                                <img src="{{ asset('assets/images/demoes/demo4/products/categories/category-4.jpg') }}"
+                                    alt="category" width="220" height="220" />
+                            </figure>
+                            <div class="category-content">
+                                <h3>Event Branding</h3>
+                                <span><mark class="count">3</mark> products</span>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="product-category appear-animate" data-animation-name="fadeInUpShorter">
+                        <a href="{{ route('category.index') }}">
+                            <figure>
+                                <img src="{{ asset('assets/images/demoes/demo4/products/categories/category-6.jpg') }}"
+                                    alt="category" width="220" height="220" />
+                            </figure>
+                            <div class="category-content">
+                                <h3>Large Printing</h3>
+                                <span><mark class="count">3</mark> products</span>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="product-category appear-animate" data-animation-name="fadeInUpShorter">
+                        <a href="{{ route('category.index') }}">
+                            <figure>
+                                <img src="{{ asset('assets/images/demoes/demo4/products/categories/category-5.jpg') }}"
+                                    alt="category" width="220" height="220" />
+                            </figure>
+                            <div class="category-content">
+                                <h3>Marketing Materials</h3>
+                                <span><mark class="count">3</mark> products</span>
+                            </div>
+                        </a>
+                    </div>
+
+                @endif
+
             </div>
+
         </div>
     </section>
 
@@ -673,7 +815,8 @@
                             <h3>Customer Support</h3>
                             <h5>You Won't Be Alone</h5>
 
-                            <p>We really care about you and your website as much as you do. Purchasing Porto or any other theme from us you get 100% free support.</p>
+                            <p>We really care about you and your website as much as you do. Purchasing Porto or any other
+                                theme from us you get 100% free support.</p>
                         </div>
                     </div>
                 </div>
@@ -688,7 +831,8 @@
                             <h3>Fully Customizable</h3>
                             <h5>Tons Of Options</h5>
 
-                            <p>With Porto you can customize the layout, colors and styles within only a few minutes. Start creating an amazing website right now!</p>
+                            <p>With Porto you can customize the layout, colors and styles within only a few minutes. Start
+                                creating an amazing website right now!</p>
                         </div>
                     </div>
                 </div>
@@ -701,7 +845,8 @@
                             <h3>Powerful Admin</h3>
                             <h5>Made To Help You</h5>
 
-                            <p>Porto has very powerful admin features to help customer to build their own shop in minutes without any special skills in web development.</p>
+                            <p>Porto has very powerful admin features to help customer to build their own shop in minutes
+                                without any special skills in web development.</p>
                         </div>
                     </div>
                 </div>
@@ -709,20 +854,26 @@
         </div>
     </section>
 
-    <section class="promo-section bg-dark" data-parallax="{'speed': 2, 'enableOnMobile': true}" data-image-src="assets/images/demoes/demo4/banners/banner-5.jpg">
+    <section class="promo-section bg-dark" data-parallax="{'speed': 2, 'enableOnMobile': true}"
+        data-image-src="assets/images/demoes/demo4/banners/banner-5.jpg">
         <div class="promo-banner banner container text-uppercase">
             <div class="banner-content row align-items-center text-center">
-                <div class="col-md-4 ml-xl-auto text-md-right appear-animate" data-animation-name="fadeInRightShorter" data-animation-delay="600">
+                <div class="col-md-4 ml-xl-auto text-md-right appear-animate" data-animation-name="fadeInRightShorter"
+                    data-animation-delay="600">
                     <h2 class="mb-md-0 text-white">Top Fashion<br>Deals</h2>
                 </div>
-                <div class="col-md-4 col-xl-3 pb-4 pb-md-0 appear-animate" data-animation-name="fadeIn" data-animation-delay="300">
+                <div class="col-md-4 col-xl-3 pb-4 pb-md-0 appear-animate" data-animation-name="fadeIn"
+                    data-animation-delay="300">
                     <a href="{{ route('category.index') }}" class="btn btn-dark btn-black ls-10">View Sale</a>
                 </div>
-                <div class="col-md-4 mr-xl-auto text-md-left appear-animate" data-animation-name="fadeInLeftShorter" data-animation-delay="600">
+                <div class="col-md-4 mr-xl-auto text-md-left appear-animate" data-animation-name="fadeInLeftShorter"
+                    data-animation-delay="600">
                     <h4 class="mb-1 mt-1 font1 coupon-sale-text p-0 d-block ls-n-10 text-transform-none">
                         <b>Exclusive
-                            COUPON</b></h4>
-                    <h5 class="mb-1 coupon-sale-text text-white ls-10 p-0"><i class="ls-0">UP TO</i><b class="text-white bg-secondary ls-n-10">$100</b> OFF</h5>
+                            COUPON</b>
+                    </h4>
+                    <h5 class="mb-1 coupon-sale-text text-white ls-10 p-0"><i class="ls-0">UP TO</i><b
+                            class="text-white bg-secondary ls-n-10">$100</b> OFF</h5>
                 </div>
             </div>
         </div>

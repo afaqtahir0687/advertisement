@@ -6,7 +6,7 @@
         <h6 class="m-0 font-weight-bold text-primary">Add New Product</h6>
     </div>
     <div class="card-body">
-        <form action="{{ route('admin.products.store') }}" method="POST" enctype="multipart/form-data">
+        <form action="{{ url('admin.products.store') }}" method="POST" enctype="multipart/form-data">
             @csrf
             <div class="row">
                 <div class="col-md-8">

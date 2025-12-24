@@ -7,14 +7,14 @@
                 <div class="container position-relative">
                     <div class="row">
                         <div class="pl-lg-5 pb-5 pb-md-0 col-sm-5 col-xl-4 col-lg-4 offset-1">
-                            <h3>{!! __('messages.printing_deals') !!}</h3>
-                            <a href="{{ route('products.index') }}" class="btn btn-dark">{{ __('messages.get_yours') }}</a>
+                            <h3>Printing Deals</h3>
+                            <a href="{{ route('products.index') }}" class="btn btn-dark">Get Yours</a>
                         </div>
                         <div class="pl-lg-3 col-sm-4 offset-sm-0 offset-1 pt-3">
                             <div class="coupon-sale-content">
-                                <h4 class="m-b-1 coupon-sale-text bg-white text-transform-none">{{ __('messages.exclusive_coupon') }}</h4>
+                                <h4 class="m-b-1 coupon-sale-text bg-white text-transform-none">Exclusive Coupon</h4>
                                 <h5 class="mb-2 coupon-sale-text d-block ls-10 p-0">
-                                    <i class="ls-0">{{ __('messages.up_to') }}</i><b class="text-dark">SAR 100</b> {{ __('messages.off') }}
+                                    <i class="ls-0">Up to</i><b class="text-dark">SAR 100</b> Off
                                 </h5>
                             </div>
                         </div>
@@ -28,8 +28,8 @@
             <nav aria-label="breadcrumb" class="breadcrumb-nav">
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="#"><i class="icon-home"></i></a></li>
-                    <li class="breadcrumb-item"><a href="#">{{ __('messages.business_cards') }}</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">{{ __('messages.categories') }}</li>
+                    <li class="breadcrumb-item"><a href="#">Business Cards</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Categories</li>
                 </ol>
             </nav>
 
@@ -53,11 +53,11 @@
                                     <path d="M16.5,22.92A2.6,2.6,0,0,1,14,25.5a2.6,2.6,0,0,1-2.5-2.58,2.5,2.5,0,0,1,5,0Z"
                                         class="cls-2"></path>
                                 </svg>
-                                <span>{{ __('messages.filter') }}</span>
+                                <span>Filter</span>
                             </a>
 
                             <div class="toolbox-item toolbox-sort">
-                                <label>{{ __('messages.sort_by') }}</label>
+                                <label>Sort by</label>
 
                                 <div class="select-custom">
                                     <select name="orderby" class="form-control">
@@ -79,7 +79,7 @@
 
                         <div class="toolbox-right">
                             <div class="toolbox-item toolbox-show">
-                                <label>{{ __('messages.show') }}</label>
+                                <label>Show</label>
 
                                 <div class="select-custom">
                                     <select name="count" class="form-control">
@@ -604,7 +604,7 @@
                     <!-- End .row -->
                     <nav class="toolbox toolbox-pagination">
                         <div class="toolbox-item toolbox-show">
-                            <label>{{ __('messages.show') }}</label>
+                            <label>Show</label>
 
                             <div class="select-custom">
                                 <select name="count" class="form-control">
@@ -641,71 +641,99 @@
                         <div class="widget">
                             <h3 class="widget-title">
                                 <a data-toggle="collapse" href="#widget-body-2" role="button" aria-expanded="true"
-                                    aria-controls="widget-body-2">{{ __('messages.categories') }}</a>
+                                    aria-controls="widget-body-2">Categories</a>
                             </h3>
 
                             <div class="collapse show" id="widget-body-2">
                                 <div class="widget-body">
                                     <ul class="cat-list">
 
-                                        <li>
-                                                aria-expanded="true" aria-controls="widget-category-1">
-                                                {{ __('messages.business_printing') }} <span class="products-count">(3)</span>
-                                                <span class="toggle"></span>
-                                            </a>
-                                            <div class="collapse show" id="widget-category-1">
-                                                <ul class="cat-sublist">
-                                                    <li>{{ __('messages.business_cards') }} <span class="products-count">(1)</span></li>
-                                                    <li>{{ __('messages.letterheads') }} <span class="products-count">(1)</span></li>
-                                                    <li>{{ __('messages.envelopes') }} <span class="products-count">(1)</span></li>
-                                                </ul>
-                                            </div>
-                                        </li>
+    <li>
+        <a href="#widget-category-1"
+           role="button"
+           data-toggle="collapse"
+           aria-expanded="true"
+           aria-controls="widget-category-1">
+            Business Printing
+            <span class="products-count">(3)</span>
+            <span class="toggle"></span>
+        </a>
 
-                                        <li>
-                                                role="button" aria-expanded="false" aria-controls="widget-category-2">
-                                                {{ __('messages.marketing_materials') }} <span class="products-count">(4)</span>
-                                                <span class="toggle"></span>
-                                            </a>
-                                            <div class="collapse" id="widget-category-2">
-                                                <ul class="cat-sublist">
-                                                    <li>{{ __('messages.flyers') }} <span class="products-count">(2)</span></li>
-                                                    <li>{{ __('messages.postcards') }} <span class="products-count">(2)</span></li>
-                                                </ul>
-                                            </div>
-                                        </li>
+        <div class="collapse show" id="widget-category-1">
+            <ul class="cat-sublist">
+                <li>Business Cards <span class="products-count">(1)</span></li>
+                <li>Letterheads <span class="products-count">(1)</span></li>
+                <li>Envelopes <span class="products-count">(1)</span></li>
+            </ul>
+        </div>
+    </li>
 
-                                        <li>
-                                                role="button" aria-expanded="false" aria-controls="widget-category-3">
-                                                {{ __('messages.large_format_printing') }} <span class="products-count">(2)</span>
-                                                <span class="toggle"></span>
-                                            </a>
-                                            <div class="collapse" id="widget-category-3">
-                                                <ul class="cat-sublist">
-                                                    <li>{{ __('messages.roll_up_banners') }} <span class="products-count">(1)</span></li>
-                                                    <li>{{ __('messages.posters') }} <span class="products-count">(1)</span></li>
-                                                </ul>
-                                            </div>
-                                        </li>
+    <li>
+        <a href="#widget-category-2"
+           role="button"
+           data-toggle="collapse"
+           aria-expanded="false"
+           aria-controls="widget-category-2">
+            Marketing Materials
+            <span class="products-count">(4)</span>
+            <span class="toggle"></span>
+        </a>
 
-                                        <li>
-                                                role="button" aria-expanded="false" aria-controls="widget-category-4">
-                                                {{ __('messages.corporate_stationery') }} <span class="products-count">(2)</span>
-                                                <span class="toggle"></span>
-                                            </a>
-                                            <div class="collapse" id="widget-category-4">
-                                                <ul class="cat-sublist">
-                                                    <li>{{ __('messages.folders') }} <span class="products-count">(1)</span></li>
-                                                    <li>{{ __('messages.brochures') }} <span class="products-count">(1)</span></li>
-                                                </ul>
-                                            </div>
-                                        </li>
+        <div class="collapse" id="widget-category-2">
+            <ul class="cat-sublist">
+                <li>Flyers <span class="products-count">(2)</span></li>
+                <li>Postcards <span class="products-count">(2)</span></li>
+            </ul>
+        </div>
+    </li>
 
-                                        <li>
-                                            <a href="#">{{ __('messages.custom_printing') }} <span class="products-count">(2)</span></a>
-                                        </li>
+    <li>
+        <a href="#widget-category-3"
+           role="button"
+           data-toggle="collapse"
+           aria-expanded="false"
+           aria-controls="widget-category-3">
+            Large Format Printing
+            <span class="products-count">(2)</span>
+            <span class="toggle"></span>
+        </a>
 
-                                    </ul>
+        <div class="collapse" id="widget-category-3">
+            <ul class="cat-sublist">
+                <li>Roll-up Banners <span class="products-count">(1)</span></li>
+                <li>Posters <span class="products-count">(1)</span></li>
+            </ul>
+        </div>
+    </li>
+
+    <li>
+        <a href="#widget-category-4"
+           role="button"
+           data-toggle="collapse"
+           aria-expanded="false"
+           aria-controls="widget-category-4">
+            Corporate Stationery
+            <span class="products-count">(2)</span>
+            <span class="toggle"></span>
+        </a>
+
+        <div class="collapse" id="widget-category-4">
+            <ul class="cat-sublist">
+                <li>Folders <span class="products-count">(1)</span></li>
+                <li>Brochures <span class="products-count">(1)</span></li>
+            </ul>
+        </div>
+    </li>
+
+    <li>
+        <a href="#">
+            Custom Printing
+            <span class="products-count">(2)</span>
+        </a>
+    </li>
+
+</ul>
+
                                 </div>
                                 <!-- End .widget-body -->
                             </div>
