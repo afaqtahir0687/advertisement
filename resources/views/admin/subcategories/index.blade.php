@@ -39,9 +39,9 @@
                                 </td>
                                 <td>{{ $subcategory->name }}</td>
                                 <td>
-                                    @if($subcategory->parent)
-                                        <a href="{{ route('admin.categories.edit', $subcategory->parent->id) }}" class="text-primary">
-                                            {{ $subcategory->parent->name }}
+                                    @if($subcategory->category)
+                                        <a href="{{ route('admin.categories.edit', $subcategory->category->id) }}" class="text-primary">
+                                            {{ $subcategory->category->name }}
                                         </a>
                                     @else
                                         <span class="text-muted">-</span>

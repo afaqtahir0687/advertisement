@@ -209,17 +209,17 @@
                             <div class="collapse show" id="widget-body-2">
                                 <div class="widget-body">
                                     <ul class="cat-list">
-                                        <!-- Show only parent categories -->
-                                        @foreach(\App\Models\Category::where('status', 'active')->whereNull('parent_id')->get() as $cat)
-                                            <li class="{{ $cat->id == $category->id || ($category->parent && $cat->id == $category->parent->id) ? 'active' : '' }}">
+                                        <!-- Show all categories -->
+                                        @foreach(\App\Models\Category::where('status', 'active')->get() as $cat)
+                                            <li class="{{ $cat->id == $category->id ? 'active' : '' }}">
                                                 <a href="{{ route('category.show', $cat->slug) }}">
                                                     {{ $cat->name }} <span class="products-count">({{ $cat->getAllProducts()->count() }})</span>
                                                 </a>
-                                                @if($cat->children()->where('status', 'active')->count() > 0)
+                                                @if($cat->subcategories()->where('status', 'active')->count() > 0)
                                                     <ul class="cat-sublist">
-                                                        @foreach($cat->children()->where('status', 'active')->get() as $subcat)
-                                                            <li class="{{ $subcat->id == $category->id ? 'active' : '' }}">
-                                                                <a href="{{ route('category.show', $subcat->slug) }}">
+                                                        @foreach($cat->subcategories()->where('status', 'active')->get() as $subcat)
+                                                            <li>
+                                                                <a href="#">
                                                                     {{ $subcat->name }} <span class="products-count">({{ $subcat->products()->count() }})</span>
                                                                 </a>
                                                             </li>

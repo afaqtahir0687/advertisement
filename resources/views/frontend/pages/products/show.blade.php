@@ -6,11 +6,12 @@
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="{{ route('home') }}"><i class="icon-home"></i></a></li>
                     <li class="breadcrumb-item"><a href="{{ route('category.index') }}">Categories</a></li>
-                    @if($product->category)
-                        @php
-                            $categoryPath = $product->category->getFullPath();
-                        @endphp
-                        @foreach($categoryPath as $cat)
+                    @if($product->subcategory)
+                        @foreach($product->subcategory->getFullPath() as $cat)
+                            <li class="breadcrumb-item"><a href="{{ route('category.show', $cat->slug) }}">{{ $cat->name }}</a></li>
+                        @endforeach
+                    @elseif($product->category)
+                        @foreach($product->category->getFullPath() as $cat)
                             <li class="breadcrumb-item"><a href="{{ route('category.show', $cat->slug) }}">{{ $cat->name }}</a></li>
                         @endforeach
                     @endif

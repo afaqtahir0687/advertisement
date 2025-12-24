@@ -11,15 +11,15 @@
                 
                 <div class="form-group">
                     <label>Parent Category <span class="text-danger">*</span></label>
-                    <select name="parent_id" class="form-control @error('parent_id') is-invalid @enderror" required>
+                    <select name="category_id" class="form-control @error('category_id') is-invalid @enderror" required>
                         <option value="">Select Parent Category</option>
                         @foreach($parent_categories as $parent)
-                            <option value="{{ $parent->id }}" {{ old('parent_id') == $parent->id ? 'selected' : '' }}>
+                            <option value="{{ $parent->id }}" {{ old('category_id') == $parent->id ? 'selected' : '' }}>
                                 {{ $parent->name }}
                             </option>
                         @endforeach
                     </select>
-                    @error('parent_id')
+                    @error('category_id')
                         <div class="invalid-feedback">{{ $message }}</div>
                     @enderror
                     <small class="form-text text-muted">Select the parent category for this subcategory</small>

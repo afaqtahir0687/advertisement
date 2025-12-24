@@ -33,8 +33,8 @@
                                 </td>
                                 <td>{{ $category->slug }}</td>
                                 <td>
-                                    @if($category->children()->count() > 0)
-                                        <span class="badge badge-info">{{ $category->children()->count() }} Subcategories</span>
+                                    @if($category->subcategories->count() > 0)
+                                        <span class="badge badge-info">{{ $category->subcategories->count() }} Subcategories</span>
                                     @else
                                         <span class="text-muted">-</span>
                                     @endif

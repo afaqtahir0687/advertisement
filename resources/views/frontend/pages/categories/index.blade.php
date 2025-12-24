@@ -124,7 +124,7 @@
                                             <a href="{{ route('category.show', $category->slug) }}">{{ $category->name }}</a>
                                         </h3>
                                         <div class="price-box">
-                                            <span class="product-price">{{ $category->children->count() }} Subcategories</span>
+                                            <span class="product-price">{{ $category->subcategories->count() }} Subcategories</span>
                                         </div>
                                     </div>
                                 </div>
@@ -185,15 +185,15 @@
                                     <ul class="cat-list">
                                         @foreach($categories as $category)
                                             <li>
-                                                @if($category->children->count() > 0)
+                                                @if($category->subcategories->count() > 0)
                                                     <a href="#widget-category-{{ $category->id }}" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="widget-category-{{ $category->id }}">
-                                                        {{ $category->name }} <span class="products-count">({{ $category->children->count() }})</span>
+                                                        {{ $category->name }} <span class="products-count">({{ $category->subcategories->count() }})</span>
                                                         <span class="toggle"></span>
                                                     </a>
                                                     <div class="collapse" id="widget-category-{{ $category->id }}">
                                                         <ul class="cat-sublist">
-                                                            @foreach($category->children as $child)
-                                                                <li><a href="{{ route('category.show', $child->slug) }}">{{ $child->name }}</a> <span class="products-count">({{ $child->products->count() }})</span></li>
+                                                            @foreach($category->subcategories as $subcategory)
+                                                                <li><a href="{{ route('category.show', $subcategory->slug) }}">{{ $subcategory->name }}</a> <span class="products-count">({{ $subcategory->products->count() }})</span></li>
                                                             @endforeach
                                                         </ul>
                                                     </div>

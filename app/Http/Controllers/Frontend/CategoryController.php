@@ -11,7 +11,7 @@ class CategoryController extends Controller
 {
     public function index()
     {
-        $categories = Category::where('status', 'active')->whereNull('parent_id')->latest()->get();
+        $categories = Category::where('status', 'active')->latest()->get();
         return view('frontend.pages.categories.index', compact('categories'));
     }
 
@@ -20,7 +20,7 @@ class CategoryController extends Controller
         $category = Category::where('slug', $slug)->where('status', 'active')->firstOrFail();
         
         // Get subcategories with product counts
-        $subcategories = $category->children()->where('status', 'active')->withCount('products')->get();
+        $subcategories = $category->subcategories()->where('status', 'active')->withCount('products')->get();
         
         // Get all products from this category and its subcategories
         $products = $category->getAllProducts();
