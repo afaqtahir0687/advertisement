@@ -86,4 +86,13 @@ class SubcategoryController extends Controller
 
         return redirect()->route('admin.subcategories.index')->with('success', 'Subcategory deleted successfully.');
     }
+
+    public function getSubcategories($category_id = null)
+    {
+        if (!$category_id) {
+            return response()->json([]);
+        }
+        $subcategories = SubCategory::where('category_id', $category_id)->where('status', 'active')->get();
+        return response()->json($subcategories);
+    }
 }

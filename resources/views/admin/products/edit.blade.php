@@ -17,7 +17,7 @@
                     </div>
                      <div class="form-group">
                         <label>Category</label>
-                        <select name="category_id" class="form-control" required>
+                        <select name="category_id" id="category_id" class="form-control" required>
                             <option value="">Select Category</option>
                             @foreach($categories as $category)
                                 <option value="{{ $category->id }}" {{ $product->category_id == $category->id ? 'selected' : '' }}>{{ $category->name }}</option>
@@ -25,12 +25,21 @@
                         </select>
                     </div>
                     <div class="form-group">
+                        <label>Subcategory</label>
+                        <select name="subcategory_id" id="subcategory_id" class="form-control">
+                            <option value="">Select Subcategory</option>
+                            @foreach($subcategories as $subcategory)
+                                <option value="{{ $subcategory->id }}" {{ $product->subcategory_id == $subcategory->id ? 'selected' : '' }}>{{ $subcategory->name }}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                    <div class="form-group">
                         <label>Short Description</label>
-                        <textarea name="short_description" class="form-control">{{ $product->short_description }}</textarea>
+                        <textarea name="short_description" id="short_description" class="form-control">{{ $product->short_description }}</textarea>
                     </div>
                     <div class="form-group">
                         <label>Description</label>
-                        <textarea name="description" class="form-control" rows="5">{{ $product->description }}</textarea>
+                        <textarea name="description" id="description" class="form-control" rows="5">{{ $product->description }}</textarea>
                     </div>
                 </div>
                 <div class="col-md-4">
@@ -85,4 +94,30 @@
         </form>
     </div>
 </div>
+@push('scripts')
+<script>
+    $(document).ready(function(){
+        $('#category_id').change(function(){
+            var category_id = $(this).val();
+            if(category_id){
+                $.ajax({
+                    url: "{{ route('admin.get-subcategories') }}/" + category_id,
+                    type: "GET",
+                    dataType: "json",
+                    success: function(data){
+                        $('#subcategory_id').empty();
+                        $('#subcategory_id').append('<option value="">Select Subcategory</option>');
+                        $.each(data, function(key, value){
+                            $('#subcategory_id').append('<option value="'+value.id+'">'+value.name+'</option>');
+                        });
+                    }
+                });
+            } else {
+                $('#subcategory_id').empty();
+                $('#subcategory_id').append('<option value="">Select Subcategory</option>');
+            }
+        });
+    });
+</script>
+@endpush
 @endsection

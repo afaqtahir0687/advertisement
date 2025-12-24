@@ -31,6 +31,7 @@ Route::prefix('admin')->name('admin.')->group(function () {
         Route::resource('categories', CategoryController::class);
         Route::resource('subcategories', SubcategoryController::class);
         Route::resource('products', ProductController::class);
+        Route::get('get-subcategories/{category_id?}', [SubcategoryController::class, 'getSubcategories'])->name('get-subcategories');
         Route::resource('users', UserController::class)->only(['index', 'destroy']);
         
         Route::get('settings', [SettingController::class, 'index'])->name('settings.index');

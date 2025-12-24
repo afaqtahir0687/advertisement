@@ -28,6 +28,7 @@ class ProductController extends Controller
         $request->validate([
             'name' => 'required|unique:products',
             'category_id' => 'required',
+            'subcategory_id' => 'nullable|exists:sub_categories,id',
             'price' => 'required|numeric',
             'status' => 'required',
             'image' => 'required|image',
@@ -37,6 +38,7 @@ class ProductController extends Controller
         $product->name = $request->name;
         $product->slug = Str::slug($request->name);
         $product->category_id = $request->category_id;
+        $product->subcategory_id = $request->subcategory_id;
         $product->short_description = $request->short_description;
         $product->description = $request->description;
         $product->price = $request->price;
@@ -65,7 +67,8 @@ class ProductController extends Controller
     public function edit(Product $product)
     {
         $categories = Category::where('status', 'active')->get();
-        return view('admin.products.edit', compact('product', 'categories'));
+        $subcategories = \App\Models\SubCategory::where('category_id', $product->category_id)->where('status', 'active')->get();
+        return view('admin.products.edit', compact('product', 'categories', 'subcategories'));
     }
 
     public function update(Request $request, Product $product)
@@ -73,6 +76,7 @@ class ProductController extends Controller
          $request->validate([
             'name' => 'required|unique:products,name,' . $product->id,
             'category_id' => 'required',
+            'subcategory_id' => 'nullable|exists:sub_categories,id',
             'price' => 'required|numeric',
             'status' => 'required',
         ]);
@@ -80,6 +84,7 @@ class ProductController extends Controller
         $product->name = $request->name;
         $product->slug = Str::slug($request->name);
         $product->category_id = $request->category_id;
+        $product->subcategory_id = $request->subcategory_id;
         $product->short_description = $request->short_description;
         $product->description = $request->description;
         $product->price = $request->price;
