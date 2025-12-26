@@ -139,8 +139,9 @@
                                                 <img src="{{ asset('assets/images/products/product-1.jpg') }}" width="280" height="280" alt="{{ $product->name }}" />
                                             @endif
                                             
-                                            <!-- Optional: Add functionality for second image on hover if available -->
-                                            <!-- <img src="{{ asset('assets/images/products/product-1-2.jpg') }}" width="280" height="280" alt="product" /> -->
+                                            @if($product->images && count($product->images) > 0)
+                                                <img src="{{ asset('storage/' . $product->images[0]) }}" width="280" height="280" alt="{{ $product->name }}" />
+                                            @endif
                                         </a>
 
                                         <div class="label-group">

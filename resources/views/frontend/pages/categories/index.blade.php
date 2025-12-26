@@ -116,6 +116,10 @@
                                             @else
                                                 <img src="{{ asset('assets/images/products/product-1.jpg') }}" width="280" height="280" alt="{{ $product->name }}" />
                                             @endif
+
+                                            @if($product->images && count($product->images) > 0)
+                                                <img src="{{ Storage::url($product->images[0]) }}" width="280" height="280" alt="{{ $product->name }}" />
+                                            @endif
                                         </a>
                                         <div class="label-group">
                                             @if($product->discount_price)
