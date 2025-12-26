@@ -40,6 +40,13 @@
 </head>
 
 <body>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            setTimeout(function() {
+                document.body.classList.add('loaded');
+            }, 100); 
+        });
+    </script>
     <div class="page-wrapper">
         <div class="top-notice bg-primary text-white">
             <div class="container text-center">

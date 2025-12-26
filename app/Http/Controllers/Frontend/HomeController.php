@@ -11,8 +11,8 @@ class HomeController extends Controller
     {
         $sliders = \App\Models\Slider::where('status', 'active')->get();
         $conceptBanners = \App\Models\Banner::where('position', 'concept_to_delivery')->where('status', 'active')->get();
-        $featuredProducts = \App\Models\Product::where('is_featured', true)->where('status', 'active')->latest()->take(10)->get();
-        $newArrivals = \App\Models\Product::where('is_new_arrival', true)->where('status', 'active')->latest()->take(10)->get();
+        $featuredProducts = \App\Models\Product::with('category')->where('is_featured', true)->where('status', 'active')->latest()->take(10)->get();
+        $newArrivals = \App\Models\Product::with('category')->where('is_new_arrival', true)->where('status', 'active')->latest()->take(10)->get();
         $categories = \App\Models\Category::where('status', 'active')->withCount('products')->get();
         
         return view('frontend.index', compact('sliders', 'conceptBanners', 'featuredProducts', 'newArrivals', 'categories'));
