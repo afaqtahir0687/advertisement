@@ -33,12 +33,12 @@
                 </div>
 
                 <div class="header-dropdown mr-auto mr-sm-3 mr-md-0">
-                    <a href="#">USD</a>
+                    <a href="#">{{ current_currency() }}</a>
                     <div class="header-menu">
                         <ul>
-                            <li><a href="#">SAR</a></li>
-                            <li><a href="#">USD</a></li>
-                            <li><a href="#">PKR</a></li>
+                            <li><a href="{{ route('currency.switch', 'SAR') }}">SAR</a></li>
+                            <li><a href="{{ route('currency.switch', 'USD') }}">USD</a></li>
+                            <li><a href="{{ route('currency.switch', 'PKR') }}">PKR</a></li>
                         </ul>
                     </div>
                 </div>
@@ -120,7 +120,7 @@
                                         </h4>
 
                                         <span class="cart-product-info">
-                                            <span class="cart-product-qty">1</span> × $99.00
+                                            <span class="cart-product-qty">1</span> × {{ format_price(99.00) }}
                                         </span>
                                     </div>
 
@@ -141,7 +141,7 @@
                                         </h4>
 
                                         <span class="cart-product-info">
-                                            <span class="cart-product-qty">1</span> × $35.00
+                                            <span class="cart-product-qty">1</span> × {{ format_price(35.00) }}
                                         </span>
                                     </div>
 
@@ -162,7 +162,7 @@
                                         </h4>
 
                                         <span class="cart-product-info">
-                                            <span class="cart-product-qty">1</span> × $35.00
+                                            <span class="cart-product-qty">1</span> × {{ format_price(35.00) }}
                                         </span>
                                     </div>
 
@@ -179,7 +179,7 @@
                             <div class="dropdown-cart-total">
                                 <span>SUBTOTAL:</span>
 
-                                <span class="cart-total-price float-right">$134.00</span>
+                                <span class="cart-total-price float-right">{{ format_price(134.00) }}</span>
                             </div>
 
                             <div class="dropdown-cart-action">

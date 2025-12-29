@@ -63,6 +63,7 @@ class ProductController extends Controller
         $product->status = $request->status;
         $product->is_featured = $request->has('is_featured');
         $product->is_new_arrival = $request->has('is_new_arrival');
+        $product->is_wishlist = $request->has('is_wishlist');
 
         if ($request->hasFile('image')) {
             $product->image = $request->file('image')->store('products', 'public');
@@ -126,6 +127,7 @@ class ProductController extends Controller
         $product->status = $request->status;
         $product->is_featured = $request->has('is_featured');
         $product->is_new_arrival = $request->has('is_new_arrival');
+        $product->is_wishlist = $request->has('is_wishlist');
 
         if ($request->hasFile('image')) {
             if ($product->image) {

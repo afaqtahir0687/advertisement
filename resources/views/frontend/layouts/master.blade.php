@@ -29,7 +29,7 @@
     <link rel="stylesheet" href="{{ asset('assets/css/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/demo4.min.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/vendor/fontawesome-free/css/all.min.css') }}">
-    
+
     <style>
         .bounce-loader .bounce1,
         .bounce-loader .bounce2,
@@ -44,7 +44,7 @@
         document.addEventListener('DOMContentLoaded', function() {
             setTimeout(function() {
                 document.body.classList.add('loaded');
-            }, 100); 
+            }, 100);
         });
     </script>
     <div class="page-wrapper">
@@ -250,7 +250,7 @@
         </div>
     </div>
 
-    <div class="newsletter-popup mfp-hide bg-img" id="newsletter-popup-form" style="background: #f1f1f1 no-repeat center/cover url(assets/images/newsletter_popup_bg.jpg)">
+    {{-- <div class="newsletter-popup mfp-hide bg-img" id="newsletter-popup-form" style="background: #f1f1f1 no-repeat center/cover url(assets/images/newsletter_popup_bg.jpg)">
         <div class="newsletter-popup-content">
             <img src="assets/images/logo.png" width="111" height="44" alt="Logo" class="logo-newsletter">
             <h2>Subscribe to newsletter</h2>
@@ -278,7 +278,7 @@
         <button title="Close (Esc)" type="button" class="mfp-close">
 			×
 		</button>
-    </div>
+    </div> --}}
     <!-- End .newsletter-popup -->
 
     <a id="scroll-top" href="#top" title="Top" role="button"><i class="icon-angle-up"></i></a>

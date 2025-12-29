@@ -14,7 +14,7 @@
                             <div class="coupon-sale-content">
                                 <h4 class="m-b-1 coupon-sale-text bg-white text-transform-none">Exclusive Coupon</h4>
                                 <h5 class="mb-2 coupon-sale-text d-block ls-10 p-0">
-                                    <i class="ls-0">Up to</i><b class="text-dark">SAR 100</b> Off
+                                    <i class="ls-0">Up to</i><b class="text-dark">{{ format_price(100) }}</b> Off
                                 </h5>
                             </div>
                         </div>
@@ -137,10 +137,10 @@
                                         </h3>
                                         <div class="price-box">
                                             @if($product->discount_price)
-                                                <del class="old-price">SAR {{ $product->price }}</del>
-                                                <span class="product-price">SAR {{ $product->discount_price }}</span>
+                                                <del class="old-price">{{ format_price($product->price) }}</del>
+                                                <span class="product-price">{{ format_price($product->discount_price) }}</span>
                                             @else
-                                                <span class="product-price">SAR {{ $product->price }}</span>
+                                                <span class="product-price">{{ format_price($product->price) }}</span>
                                             @endif
                                         </div>
                                     </div>
@@ -317,7 +317,7 @@
                                                 </div>
                                                 <!-- End .product-container -->
                                                 <div class="price-box">
-                                                    <span class="product-price">$150.00</span>
+                                                    <span class="product-price">{{ format_price(150.00) }}</span>
                                                 </div>
                                                 <!-- End .price-box -->
                                             </div>
@@ -374,7 +374,7 @@
                                                 </div>
                                                 <!-- End .product-container -->
                                                 <div class="price-box">
-                                                    <span class="product-price">$149.00</span>
+                                                    <span class="product-price">{{ format_price(149.00) }}</span>
                                                 </div>
                                                 <!-- End .price-box -->
                                             </div>

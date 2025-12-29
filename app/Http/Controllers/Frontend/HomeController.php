@@ -31,7 +31,8 @@ class HomeController extends Controller
     }
     public function wishlist()
     {
-        return view('frontend.header-pages.wishlist');
+        $products = \App\Models\Product::where('is_wishlist', true)->where('status', 'active')->latest()->get();
+        return view('frontend.header-pages.wishlist', compact('products'));
     }
     public function cart()
     {

@@ -45,7 +45,7 @@
                         <h5 class="d-inline-block mb-0">
                             <span>Starting At</span>
                             <b class="coupon-sale-text text-white bg-secondary align-middle">
-                                <sup>$</sup><em class="align-text-top">199</em><sup>99</sup>
+                                {!! format_price(199.99) !!}
                             </b>
                         </h5>
                         <a href="{{ route('category.index') }}" class="btn btn-dark btn-lg">
@@ -101,7 +101,7 @@
 
                 <div class="info-box-content">
                     <h4>FREE SHIPPING &amp; RETURN</h4>
-                    <p class="text-body">Free shipping on all orders over $99.</p>
+                    <p class="text-body">Free shipping on all orders over {{ format_price(99) }}.</p>
                 </div>
             </div>
 
@@ -233,10 +233,10 @@
                                 </div>
                                 <div class="price-box">
                                     @if($product->discount_price)
-                                        <del class="old-price">SAR {{ number_format($product->price, 2) }}</del>
-                                        <span class="product-price">SAR {{ number_format($product->discount_price, 2) }}</span>
+                                        <del class="old-price">{{ format_price($product->price) }}</del>
+                                        <span class="product-price">{{ format_price($product->discount_price) }}</span>
                                     @else
-                                        <span class="product-price">SAR {{ number_format($product->price, 2) }}</span>
+                                        <span class="product-price">{{ format_price($product->price) }}</span>
                                     @endif
                                 </div>
                                 <div class="product-action">
@@ -280,8 +280,8 @@
                             </div>
                             <!-- End .product-container -->
                             <div class="price-box">
-                                <del class="old-price">SAR 200.00</del>
-                                <span class="product-price">SAR 150.00</span>
+                                <del class="old-price">{{ format_price(200.00) }}</del>
+                                <span class="product-price">{{ format_price(150.00) }}</span>
                             </div>
                             <!-- End .price-box -->
                             <div class="product-action">
@@ -323,8 +323,8 @@
                             </div>
                             <!-- End .product-container -->
                             <div class="price-box">
-                                <del class="old-price">SAR 175.00</del>
-                                <span class="product-price">SAR 150.00</span>
+                                <del class="old-price">{{ format_price(175.00) }}</del>
+                                <span class="product-price">{{ format_price(150.00) }}</span>
                             </div>
                             <!-- End .price-box -->
                             <div class="product-action">
@@ -362,8 +362,8 @@
                             </div>
                             <!-- End .product-container -->
                             <div class="price-box">
-                                <del class="old-price">SAR 159.00</del>
-                                <span class="product-price">SAR 149.00</span>
+                                <del class="old-price">{{ format_price(159.00) }}</del>
+                                <span class="product-price">{{ format_price(149.00) }}</span>
                             </div>
                             <!-- End .price-box -->
                             <div class="product-action">
@@ -405,8 +405,8 @@
                             </div>
                             <!-- End .product-container -->
                             <div class="price-box">
-                                <del class="old-price">SAR 159.00</del>
-                                <span class="product-price">SAR 149.00</span>
+                                <del class="old-price">{{ format_price(159.00) }}</del>
+                                <span class="product-price">{{ format_price(149.00) }}</span>
                             </div>
                             <!-- End .price-box -->
                             <div class="product-action">
@@ -448,8 +448,8 @@
                             </div>
 
                             <div class="price-box">
-                                <del class="old-price">$59.00</del>
-                                <span class="product-price">$49.00</span>
+                                <del class="old-price">{{ format_price(59.00) }}</del>
+                                <span class="product-price">{{ format_price(49.00) }}</span>
                             </div>
 
                             <div class="product-action">
@@ -526,10 +526,10 @@
                                 </div>
                                 <div class="price-box">
                                     @if($product->discount_price)
-                                        <del class="old-price">SAR {{ number_format($product->price, 2) }}</del>
-                                        <span class="product-price">SAR {{ number_format($product->discount_price, 2) }}</span>
+                                        <del class="old-price">{{ format_price($product->price) }}</del>
+                                        <span class="product-price">{{ format_price($product->discount_price) }}</span>
                                     @else
-                                        <span class="product-price">SAR {{ number_format($product->price, 2) }}</span>
+                                        <span class="product-price">{{ format_price($product->price) }}</span>
                                     @endif
                                 </div>
                                 <div class="product-action">
@@ -572,8 +572,8 @@
                             </div>
                             <!-- End .product-container -->
                             <div class="price-box">
-                                <del class="old-price">SAR 159.00</del>
-                                <span class="product-price">SAR 149.00</span>
+                                <del class="old-price">{{ format_price(159.00) }}</del>
+                                <span class="product-price">{{ format_price(149.00) }}</span>
                             </div>
                             <!-- End .price-box -->
                             <div class="product-action">
@@ -614,8 +614,8 @@
                             </div>
                             <!-- End .product-container -->
                             <div class="price-box">
-                                <del class="old-price">SAR 159.00</del>
-                                <span class="product-price">SAR 149.00</span>
+                                <del class="old-price">{{ format_price(159.00) }}</del>
+                                <span class="product-price">{{ format_price(149.00) }}</span>
                             </div>
                             <!-- End .price-box -->
                             <div class="product-action">
@@ -656,8 +656,8 @@
                             </div>
                             <!-- End .product-container -->
                             <div class="price-box">
-                                <del class="old-price">SAR 159.00</del>
-                                <span class="product-price">SAR 149.00</span>
+                                <del class="old-price">{{ format_price(159.00) }}</del>
+                                <span class="product-price">{{ format_price(149.00) }}</span>
                             </div>
                             <!-- End .price-box -->
                             <div class="product-action">
@@ -698,8 +698,8 @@
                             </div>
                             <!-- End .product-container -->
                             <div class="price-box">
-                                <del class="old-price">SAR 159.00</del>
-                                <span class="product-price">SAR 149.00</span>
+                                <del class="old-price">{{ format_price(159.00) }}</del>
+                                <span class="product-price">{{ format_price(149.00) }}</span>
                             </div>
                             <!-- End .price-box -->
                             <div class="product-action">
@@ -740,8 +740,8 @@
                             </div>
                             <!-- End .product-container -->
                             <div class="price-box">
-                                <del class="old-price">SAR 159.00</del>
-                                <span class="product-price">SAR 149.00</span>
+                                <del class="old-price">{{ format_price(159.00) }}</del>
+                                <span class="product-price">{{ format_price(149.00) }}</span>
                             </div>
                             <!-- End .price-box -->
                             <div class="product-action">
@@ -782,8 +782,8 @@
                             </div>
                             <!-- End .product-container -->
                             <div class="price-box">
-                                <del class="old-price">$59.00</del>
-                                <span class="product-price">$49.00</span>
+                                <del class="old-price">{{ format_price(59.00) }}</del>
+                                <span class="product-price">{{ format_price(49.00) }}</span>
                             </div>
                             <!-- End .price-box -->
                             <div class="product-action">

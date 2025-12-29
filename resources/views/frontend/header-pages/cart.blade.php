@@ -42,13 +42,13 @@
                                             <a href="{{ route('products.index') }}" style="color: #e91d8e">Men Watch</a>
                                         </h5>
                                     </td>
-                                    <td>$17.90</td>
+                                    <td>{{ format_price(17.90) }}</td>
                                     <td>
                                         <div class="product-single-qty">
                                             <input class="horizontal-quantity form-control" type="text">
                                         </div><!-- End .product-single-qty -->
                                     </td>
-                                    <td class="text-right"><span class="subtotal-price">$17.90</span></td>
+                                    <td class="text-right"><span class="subtotal-price">{{ format_price(17.90) }}</span></td>
                                 </tr>
 
                                 <tr class="product-row">
@@ -65,13 +65,13 @@
                                             <a href="{{ route('products.index') }}" style="color: #e91d8e">Men Watch</a>
                                         </h5>
                                     </td>
-                                    <td>$17.90</td>
+                                    <td>{{ format_price(17.90) }}</td>
                                     <td>
                                         <div class="product-single-qty">
                                             <input class="horizontal-quantity form-control" type="text">
                                         </div><!-- End .product-single-qty -->
                                     </td>
-                                    <td class="text-right"><span class="subtotal-price">$17.90</span></td>
+                                    <td class="text-right"><span class="subtotal-price">{{ format_price(17.90) }}</span></td>
                                 </tr>
 
                                 <tr class="product-row">
@@ -88,13 +88,13 @@
                                             <a href="{{ route('products.index') }}" style="color: #e91d8e">Men Black Gentle Belt</a>
                                         </h5>
                                     </td>
-                                    <td>$17.90</td>
+                                    <td>{{ format_price(17.90) }}</td>
                                     <td>
                                         <div class="product-single-qty">
                                             <input class="horizontal-quantity form-control" type="text">
                                         </div><!-- End .product-single-qty -->
                                     </td>
-                                    <td class="text-right"><span class="subtotal-price">$17.90</span></td>
+                                    <td class="text-right"><span class="subtotal-price">{{ format_price(17.90) }}</span></td>
                                 </tr>
                             </tbody>
 
@@ -136,7 +136,7 @@
                             <tbody>
                                 <tr>
                                     <td>Subtotal</td>
-                                    <td>SAR 67.20</td>
+                                    <td>{{ format_price(67.20) }}</td>
                                 </tr>
 
                                 <tr>
@@ -203,7 +203,7 @@
                             <tfoot>
                                 <tr>
                                     <td>Total</td>
-                                    <td><strong>SAR 67.20</strong></td>
+                                    <td><strong>{{ format_price(67.20) }}</strong></td>
                                 </tr>
                             </tfoot>
                         </table>

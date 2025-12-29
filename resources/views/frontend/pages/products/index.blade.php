@@ -412,7 +412,7 @@
                                                     </div>
                                                 </td>
                                                 <td>Regular</td>
-                                                <td>95.00</td>
+                                                <td>{{ format_price(95.00) }}</td>
                                                 <td>3 working day(s)</td>
                                                 <td>01</td>
                                             </tr>
@@ -425,7 +425,7 @@
                                                     </div>
                                                 </td>
                                                 <td>Flexible</td>
-                                                <td>87.96</td>
+                                                <td>{{ format_price(87.96) }}</td>
                                                 <td>5 working day(s)</td>
                                                 <td>01</td>
                                             </tr>
@@ -440,7 +440,7 @@
                                                     </div>
                                                 </td>
                                                 <td>Urgent</td>
-                                                <td>100.96</td>
+                                                <td>{{ format_price(100.96) }}</td>
                                                 <td>1 working day</td>
                                                 <td>01</td>
                                             </tr>

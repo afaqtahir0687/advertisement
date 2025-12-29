@@ -47,6 +47,10 @@ Route::get('/cart', [HomeController::class, 'cart'])->name('cart.index');
 Route::get('/contact-us', [HomeController::class, 'contactUs'])->name('contact.index');
 Route::get('/track-order', [HomeController::class, 'trackOrder'])->name('track.order');
 
+// Currency Switching
+Route::get('currency-switch/{currency}', [App\Http\Controllers\Frontend\CurrencyController::class, 'switch'])->name('currency.switch');
+
+
 
 /*
 |--------------------------------------------------------------------------

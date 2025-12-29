@@ -56,6 +56,7 @@ return new class extends Migration
             // Flags
             $table->boolean('is_featured')->default(false);
             $table->boolean('is_new_arrival')->default(false);
+            $table->boolean('is_wishlist')->default(false);
             $table->enum('status', ['active', 'inactive'])->default('active');
 
             $table->timestamps();

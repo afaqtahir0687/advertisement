@@ -237,6 +237,12 @@
                             </div>
                         </div>
                         <div class="form-group">
+                            <div class="custom-control custom-switch">
+                                <input type="checkbox" class="custom-control-input" id="is_wishlist" name="is_wishlist" {{ $product->is_wishlist ? 'checked' : '' }}>
+                                <label class="custom-control-label font-weight-bold" for="is_wishlist">Show in Wishlist</label>
+                            </div>
+                        </div>
+                        <div class="form-group">
                             <label class="font-weight-bold">Status</label>
                             <select name="status" class="form-control">
                                 <option value="active" {{ $product->status == 'active' ? 'selected' : '' }}>Active</option>

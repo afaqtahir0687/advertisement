@@ -34,99 +34,127 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr class="product-row">
-                            <td>
-                                <figure class="product-image-container">
-                                    <a href="{{route('products.index')}}" class="product-image">
-                                        <img src="assets/images/products/product-4.jpg" alt="product">
+                        @forelse($products as $product)
+                            <tr class="product-row">
+                                <td>
+                                    <figure class="product-image-container">
+                                        <a href="{{ route('product.show', $product->slug) }}" class="product-image">
+                                            <img src="{{ asset('storage/' . $product->image) }}" alt="{{ $product->name }}">
+                                        </a>
+                                    </figure>
+                                </td>
+                                <td>
+                                    <h5 class="product-title">
+                                        <a href="{{ route('product.show', $product->slug) }}"
+                                            style="color: #e91d8e">{{ $product->name }}</a>
+                                    </h5>
+                                </td>
+                                <td class="price-box">{{ format_price($product->price) }}</td>
+                                <td>
+                                    <span
+                                        class="stock-status">{{ $product->status == 'active' ? 'In stock' : 'Out of stock' }}</span>
+                                </td>
+                                <td class="action">
+                                    <a href="{{ route('product.show', $product->slug) }}"
+                                        class="btn btn-quickview mt-1 mt-md-0" title="View Detail">
+                                        View Detail
                                     </a>
-
-                                    <a href="#" class="btn-remove icon-cancel" title="Remove Product"></a>
-                                </figure>
-                            </td>
-                            <td>
-                                <h5 class="product-title">
-                                    <a href="{{route('products.index')}}" style="color: #e91d8e">Men Watch</a>
-                                </h5>
-                            </td>
-                            <td class="price-box">$17.90</td>
-                            <td>
-                                <span class="stock-status">In stock</span>
-                            </td>
-                            <td class="action">
-                                 <a href="#"
-                                    class="btn btn-quickview mt-1 mt-md-0 quickview-btn"
-                                    title="Quick View">
-                                    Quick View
-                                </a>
-                                <button class="btn btn-dark btn-add-cart product-type-simple btn-shop">
-                                    ADD TO CART
-                                </button>
-                            </td>
-                        </tr>
-
-                        <tr class="product-row">
-                            <td>
-                                <figure class="product-image-container">
-                                    <a href="{{route('products.index')}}" class="product-image">
-                                        <img src="assets/images/products/product-5.jpg" alt="product">
+                                    <a href="{{ route('product.show', $product->slug) }}"
+                                        class="btn btn-dark btn-add-cart btn-shop">
+                                        SELECT OPTION
                                     </a>
-
-                                    <a href="#" class="btn-remove icon-cancel" title="Remove Product"></a>
-                                </figure>
-                            </td>
-                            <td>
-                                <h5 class="product-title">
-                                    <a href="{{route('products.index')}}" style="color: #e91d8e">Men Cap</a>
-                                </h5>
-                            </td>
-                            <td class="price-box">$17.90</td>
-                            <td>
-                                <span class="stock-status">In stock</span>
-                            </td>
-                            <td class="action">
-                                <a href="#"
-                                    class="btn btn-quickview mt-1 mt-md-0 quickview-btn"
-                                    title="Quick View">
-                                    Quick View
-                                </a>
-                                <a href="{{route('products.index')}}" class="btn btn-dark btn-add-cart btn-shop">
-                                    SELECT OPTION
-                                </a>
-                            </td>
-                        </tr>
-
-                        <tr class="product-row">
-                            <td>
-                                <figure class="product-image-container">
-                                    <a href="{{route('products.index')}}" class="product-image">
-                                        <img src="assets/images/products/product-6.jpg" alt="product">
+                                </td>
+                            </tr>
+                        @empty
+                            {{-- Static Fallback Data --}}
+                            <tr class="product-row">
+                                <td>
+                                    <figure class="product-image-container">
+                                        <a href="{{ route('products.index') }}" class="product-image">
+                                            <img src="{{ asset('assets/images/products/product-4.jpg') }}" alt="product">
+                                        </a>
+                                        <a href="#" class="btn-remove icon-cancel" title="Remove Product"></a>
+                                    </figure>
+                                </td>
+                                <td>
+                                    <h5 class="product-title">
+                                        <a href="{{ route('products.index') }}" style="color: #e91d8e">Men Watch</a>
+                                    </h5>
+                                </td>
+                                <td class="price-box">{{ format_price(17.90) }}</td>
+                                <td>
+                                    <span class="stock-status">In stock</span>
+                                </td>
+                                <td class="action">
+                                    <a href="#" class="btn btn-quickview mt-1 mt-md-0 quickview-btn"
+                                        title="Quick View">
+                                        Quick View
                                     </a>
+                                    <button class="btn btn-dark btn-add-cart product-type-simple btn-shop">
+                                        ADD TO CART
+                                    </button>
+                                </td>
+                            </tr>
 
-                                    <a href="#" class="btn-remove icon-cancel" title="Remove Product"></a>
-                                </figure>
-                            </td>
-                            <td>
-                                <h5 class="product-title">
-                                    <a href="{{route('products.index')}}" style="color: #e91d8e">Men Black Gentle Belt</a>
-                                </h5>
-                            </td>
-                            <td class="price-box">$17.90</td>
-                            <td>
-                                <span class="stock-status">In stock</span>
-                            </td>
-                            <td class="action">
-                              <a href="#"
-                                    class="btn btn-quickview mt-1 mt-md-0 quickview-btn"
-                                    title="Quick View">
-                                    Quick View
-                                </a>
+                            <tr class="product-row">
+                                <td>
+                                    <figure class="product-image-container">
+                                        <a href="{{ route('products.index') }}" class="product-image">
+                                            <img src="{{ asset('assets/images/products/product-5.jpg') }}" alt="product">
+                                        </a>
+                                        <a href="#" class="btn-remove icon-cancel" title="Remove Product"></a>
+                                    </figure>
+                                </td>
+                                <td>
+                                    <h5 class="product-title">
+                                        <a href="{{ route('products.index') }}" style="color: #e91d8e">Men Cap</a>
+                                    </h5>
+                                </td>
+                                <td class="price-box">{{ format_price(17.90) }}</td>
+                                <td>
+                                    <span class="stock-status">In stock</span>
+                                </td>
+                                <td class="action">
+                                    <a href="#" class="btn btn-quickview mt-1 mt-md-0 quickview-btn"
+                                        title="Quick View">
+                                        Quick View
+                                    </a>
+                                    <a href="{{ route('products.index') }}" class="btn btn-dark btn-add-cart btn-shop">
+                                        SELECT OPTION
+                                    </a>
+                                </td>
+                            </tr>
 
-                                <a href="{{route('products.index')}}" class="btn btn-dark btn-add-cart btn-shop">
-                                    SELECT OPTION
-                                </a>
-                            </td>
-                        </tr>
+                            <tr class="product-row">
+                                <td>
+                                    <figure class="product-image-container">
+                                        <a href="{{ route('products.index') }}" class="product-image">
+                                            <img src="{{ asset('assets/images/products/product-6.jpg') }}" alt="product">
+                                        </a>
+                                        <a href="#" class="btn-remove icon-cancel" title="Remove Product"></a>
+                                    </figure>
+                                </td>
+                                <td>
+                                    <h5 class="product-title">
+                                        <a href="{{ route('products.index') }}" style="color: #e91d8e">Men Black Gentle
+                                            Belt</a>
+                                    </h5>
+                                </td>
+                                <td class="price-box">{{ format_price(17.90) }}</td>
+                                <td>
+                                    <span class="stock-status">In stock</span>
+                                </td>
+                                <td class="action">
+                                    <a href="#" class="btn btn-quickview mt-1 mt-md-0 quickview-btn"
+                                        title="Quick View">
+                                        Quick View
+                                    </a>
+                                    <a href="{{ route('products.index') }}" class="btn btn-dark btn-add-cart btn-shop">
+                                        SELECT OPTION
+                                    </a>
+                                </td>
+                            </tr>
+                        @endforelse
                     </tbody>
                 </table>
             </div><!-- End .cart-table-container -->

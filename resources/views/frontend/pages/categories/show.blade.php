@@ -169,9 +169,9 @@
                                         </div>
                                         <div class="price-box">
                                             @if($product->old_price)
-                                                <del class="old-price">SAR {{ $product->old_price }}</del>
+                                                <del class="old-price">{{ format_price($product->old_price) }}</del>
                                             @endif
-                                            <span class="product-price">SAR {{ $product->price }}</span>
+                                            <span class="product-price">{{ format_price($product->price) }}</span>
                                         </div>
                                         <div class="product-action">
                                             <a href="#" class="btn-icon-wish" title="wishlist"><i class="icon-heart"></i></a>

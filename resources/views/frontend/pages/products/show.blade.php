@@ -240,7 +240,7 @@
                                             <tr data-urgency="regular">
                                                 <td><input type="radio" name="urgency" value="regular" checked></td>
                                                 <td>Regular</td>
-                                                <td>SAR <span id="rate_regular">{{ number_format($product->discount_price ?? $product->price, 2) }}</span></td>
+                                                <td>{{ format_price($product->discount_price ?? $product->price) }}</td>
                                                 <td>{{ $product->production_days ?? 3 }} Days</td>
                                                 <td>{{ $product->delivery_days ?? 1 }} Day</td>
                                             </tr>
@@ -248,7 +248,7 @@
                                             <tr data-urgency="flexible">
                                                 <td><input type="radio" name="urgency" value="flexible"></td>
                                                 <td>Flexible</td>
-                                                <td>SAR <span id="rate_flexible">{{ number_format($product->flexible_rate, 2) }}</span></td>
+                                                <td>{{ format_price($product->flexible_rate) }}</td>
                                                 <td>{{ $product->flexible_production_days ?? 5 }} Days</td>
                                                 <td>{{ $product->delivery_days ?? 1 }} Day</td>
                                             </tr>
@@ -257,7 +257,7 @@
                                             <tr data-urgency="urgent">
                                                 <td><input type="radio" name="urgency" value="urgent"></td>
                                                 <td>Urgent</td>
-                                                <td>SAR <span id="rate_urgent">{{ number_format($product->urgent_rate, 2) }}</span></td>
+                                                <td>{{ format_price($product->urgent_rate) }}</td>
                                                 <td>{{ $product->urgent_production_days ?? 1 }} Day</td>
                                                 <td>{{ $product->delivery_days ?? 1 }} Day</td>
                                             </tr>
@@ -269,9 +269,9 @@
                         </div>
                         <div class="col-md-4">
                             <div class="right-box">
-                                <p><strong>Subtotal:</strong> <span class="float-right">SAR <span id="subtotal">0.00</span></span></p>
-                                <p><strong>Tax (15%):</strong> <span class="float-right">SAR <span id="tax">0.00</span></span></p>
-                                <p class="total-price"><strong>Total:</strong> <span class="float-right">SAR <span id="finalPrice">0.00</span></span></p>
+                                <p><strong>Subtotal:</strong> <span class="float-right"><span id="subtotal_display">{{ format_price(0.00) }}</span></span></p>
+                                <p><strong>Tax (15%):</strong> <span class="float-right"><span id="tax_display">{{ format_price(0.00) }}</span></span></p>
+                                <p class="total-price"><strong>Total:</strong> <span class="float-right"><span id="finalPrice_display">{{ format_price(0.00) }}</span></span></p>
                                 <button class="btn btn-primary btn-block btn-lg">Add to cart</button>
                             </div>
                         </div>
@@ -325,7 +325,7 @@
                         <div class="product-details">
                             <h3 class="product-title"><a href="{{ route('product.show', $related->slug) }}">{{ $related->name }}</a></h3>
                             <div class="price-box">
-                                <span class="product-price">SAR {{ $related->price }}</span>
+                                <span class="product-price">{{ format_price($related->price) }}</span>
                             </div>
                         </div>
                     </div>
@@ -353,9 +353,22 @@
                 });
 
                 // Pricing Calculation
+                @php
+                    $currency = current_currency();
+                    $rates = ['USD' => 1, 'SAR' => 3.75, 'PKR' => 280];
+                    $symbols = ['USD' => '$', 'SAR' => 'SAR ', 'PKR' => 'Rs '];
+                    $currentRate = $rates[$currency] ?? 1;
+                    $currentSymbol = $symbols[$currency] ?? '$';
+                @endphp
+                const currentRate = {{ $currentRate }};
+                const currentSymbol = "{{ $currentSymbol }}";
                 const baseRate = {{ $product->discount_price ?? $product->price }};
                 const flexRate = {{ $product->flexible_rate ?? 0 }};
                 const urgentRate = {{ $product->urgent_rate ?? 0 }};
+
+                function formatCurrency(amount) {
+                    return currentSymbol + (amount * currentRate).toFixed(2);
+                }
 
                 function calculatePrice() {
                     let qty = parseInt($('#quantityField').val()) || 0;
@@ -370,9 +383,9 @@
                     let tax = subtotal * 0.15;
                     let total = subtotal + tax;
 
-                    $('#subtotal').text(subtotal.toFixed(2));
-                    $('#tax').text(tax.toFixed(2));
-                    $('#finalPrice').text(total.toFixed(2));
+                    $('#subtotal_display').text(formatCurrency(subtotal));
+                    $('#tax_display').text(formatCurrency(tax));
+                    $('#finalPrice_display').text(formatCurrency(total));
                 }
 
                 $(document).on('input change', '#quantityField, #num_designs, input[name="urgency"]', calculatePrice);
