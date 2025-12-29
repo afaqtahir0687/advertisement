@@ -105,14 +105,22 @@
                 </div>
             </div>
 
-            <div class="info-box info-box-icon-left">
-                <i class="icon-money"></i>
+            <div class="info-box info-box-icon-left" style="align-items: center;">
+                <span class="info-box-icon"
+                    style="width: 50px; min-width: 50px; height: 50px; display: flex; align-items: center; justify-content: center;">
+                    
+                    <img src="{{ asset('assets/images/demoes/demo4/banners/rial.jpg') }}"
+                        alt="Money Back"
+                        style="width: 40px; height: 40px; object-fit: contain; display: block;">
+                </span>
 
-                <div class="info-box-content">
+                <div class="info-box-content" style="padding-left: 12px;">
                     <h4>MONEY BACK GUARANTEE</h4>
                     <p class="text-body">100% money back guarantee</p>
                 </div>
             </div>
+
+
 
             <div class="info-box info-box-icon-left">
                 <i class="icon-support"></i>
