@@ -1001,7 +1001,7 @@
                             COUPON</b>
                     </h4>
                     <h5 class="mb-1 coupon-sale-text text-white ls-10 p-0"><i class="ls-0">UP TO</i><b
-                            class="text-white bg-secondary ls-n-10">$100</b> OFF</h5>
+                            class="text-white bg-secondary ls-n-10">{{ format_price(100) }}</b> OFF</h5>
                 </div>
             </div>
         </div>
