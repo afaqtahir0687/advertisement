@@ -106,13 +106,16 @@
 
                 <a href="{{ auth()->check() ? route('dashboard') : route('login') }}" class="header-icon" title="login"><i class="icon-user-2"></i></a>
 
-                <a href="{{ auth()->check() ? route('wishlist.index') : route('login') }}" class="header-icon" title="wishlist"><i class="icon-wishlist-2"></i></a>
+                <a href="{{ auth()->check() ? route('wishlist.index') : route('login') }}" class="header-icon" title="wishlist">
+                    <i class="icon-wishlist-2"></i>
+                    <span class="wishlist-count badge-circle">{{ count(session('wishlist', [])) }}</span>
+                </a>
 
                 <div class="dropdown cart-dropdown">
                     <a href="#" title="Cart" class="dropdown-toggle dropdown-arrow cart-toggle" role="button"
                         data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-display="static">
                         <i class="minicart-icon"></i>
-                        <span class="cart-count badge-circle">{{ count(session('cart', [])) }}</span>
+                        <span class="cart-count badge-circle">{{ array_sum(array_column(session('cart', []), 'quantity')) }}</span>
                     </a>
 
                     <div class="cart-overlay"></div>

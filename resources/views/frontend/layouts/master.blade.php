@@ -86,6 +86,17 @@
             transform: scale(1.1);
         }
 
+        .header-icon {
+            position: relative;
+        }
+
+        .header-icon .badge-circle {
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            font-family: 'Open Sans', sans-serif;
+        }
+
         .currency-dropdown-premium .currency-switcher i.flag {
             margin-right: 8px;
             box-shadow: 0 1px 2px rgba(0,0,0,0.1);
