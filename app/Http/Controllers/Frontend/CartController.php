@@ -20,6 +20,7 @@ class CartController extends Controller
                 "name" => $product->name,
                 "quantity" => 1,
                 "price" => $product->discount_price ?: $product->price,
+                "original_price" => $product->price,
                 "image" => $product->image,
                 "slug" => $product->slug
             ];

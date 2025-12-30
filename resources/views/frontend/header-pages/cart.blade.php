@@ -106,80 +106,48 @@
 
                         <table class="table table-totals">
                             <tbody>
-                                @php $subtotal = 0; @endphp
+                                @php 
+                                    $subtotal = 0; 
+                                    $total_discount = 0;
+                                @endphp
                                 @foreach((array) session('cart') as $id => $details)
-                                    @php $subtotal += $details['price'] * $details['quantity']; @endphp
+                                    @php 
+                                        $item_original_total = ($details['original_price'] ?? $details['price']) * $details['quantity'];
+                                        $item_selling_total = $details['price'] * $details['quantity'];
+                                        
+                                        $subtotal += $item_original_total;
+                                        $total_discount += ($item_original_total - $item_selling_total);
+                                    @endphp
                                 @endforeach
+
+                                @php
+                                    $after_discount = $subtotal - $total_discount;
+                                    $tax = $after_discount * 0.15; // 15% VAT
+                                    $grand_total = $after_discount + $tax;
+                                @endphp
+
                                 <tr>
-                                    <td>Subtotal</td>
+                                    <td>Subtotal (Price)</td>
                                     <td>{{ format_price($subtotal) }}</td>
                                 </tr>
 
+                                @if($total_discount > 0)
+                                <tr class="text-danger">
+                                    <td>Discount</td>
+                                    <td>-{{ format_price($total_discount) }}</td>
+                                </tr>
+                                @endif
+
                                 <tr>
-                                    <td colspan="2" class="text-left">
-                                        <h4>Shipping</h4>
-
-                                        <div class="form-group form-group-custom-control">
-                                            <div class="custom-control custom-radio">
-                                                <input type="radio" class="custom-control-input" name="shipping" checked>
-                                                <label class="custom-control-label">Free Local Delivery</label>
-                                            </div>
-                                        </div>
-
-                                        <div class="form-group form-group-custom-control mb-0">
-                                            <div class="custom-control custom-radio mb-0">
-                                                <input type="radio" name="shipping" class="custom-control-input">
-                                                <label class="custom-control-label">Standard Shipping</label>
-                                            </div>
-                                        </div>
-
-                                        <form action="#">
-                                            <div class="form-group form-group-sm">
-                                                <label>Shipping to <strong>Saudi Arabia</strong></label>
-                                                <div class="select-custom">
-                                                    <select class="form-control form-control-sm">
-                                                        <option value="SA" selected>Saudi Arabia</option>
-                                                        <option value="UAE">United Arab Emirates</option>
-                                                        <option value="KW">Kuwait</option>
-                                                        <option value="BH">Bahrain</option>
-                                                    </select>
-                                                </div>
-                                            </div>
-
-                                            <div class="form-group form-group-sm">
-                                                <div class="select-custom">
-                                                    <select class="form-control form-control-sm">
-                                                        <option value="Riyadh">Riyadh</option>
-                                                        <option value="Jeddah">Jeddah</option>
-                                                        <option value="Dammam">Dammam</option>
-                                                        <option value="Makkah">Makkah</option>
-                                                        <option value="Madinah">Madinah</option>
-                                                    </select>
-                                                </div>
-                                            </div>
-
-                                            <div class="form-group form-group-sm">
-                                                <input type="text" class="form-control form-control-sm"
-                                                    placeholder="District / City Area">
-                                            </div>
-
-                                            <div class="form-group form-group-sm">
-                                                <input type="text" class="form-control form-control-sm"
-                                                    placeholder="Postal Code">
-                                            </div>
-
-                                            <button type="submit" class="btn btn-shop btn-update-total">
-                                                Update Totals
-                                            </button>
-                                        </form>
-                                    </td>
+                                    <td>Tax (15% VAT)</td>
+                                    <td>{{ format_price($tax) }}</td>
                                 </tr>
                             </tbody>
 
                             <tfoot>
                                 <tr>
-                                    <td>Total</td>
-                                    <td><strong>{{ format_price($subtotal) }}</strong></td>
+                                    <td>Order Total</td>
+                                    <td><strong>{{ format_price($grand_total) }}</strong></td>
                                 </tr>
                             </tfoot>
                         </table>
