@@ -240,7 +240,7 @@
                                     @endif
                                 </div>
                                 <div class="product-action">
-                                    <a href="{{ auth()->check() ? route('wishlist.index') : route('login') }}" class="btn-icon-wish" title="wishlist"><i class="icon-heart"></i></a>
+                                    <a href="{{ auth()->check() ? route('wishlist.add', $product->id) : route('login') }}" class="btn-icon-wish" title="wishlist"><i class="icon-heart"></i></a>
                                     <a href="{{ auth()->check() ? route('cart.add', $product->id) : route('login') }}" class="btn-icon btn-add-cart"><i class="fa fa-arrow-right"></i><span>ADD TO CART</span></a>
                                     <a href="javascript:void(0);" class="btn-quickview" title="Quick View"><i
                                             class="fas fa-external-link-alt"></i></a>
@@ -532,7 +532,7 @@
                                     @endif
                                 </div>
                                 <div class="product-action">
-                                    <a href="{{ auth()->check() ? route('wishlist.index') : route('login') }}" class="btn-icon-wish" title="wishlist"><i class="icon-heart"></i></a>
+                                    <a href="{{ auth()->check() ? route('wishlist.add', $product->id) : route('login') }}" class="btn-icon-wish" title="wishlist"><i class="icon-heart"></i></a>
                                     <a href="{{ auth()->check() ? route('cart.add', $product->id) : route('login') }}" class="btn-icon btn-add-cart"><i class="fa fa-arrow-right"></i><span>ADD TO CART</span></a>
                                     <a href="javascript:void(0);" class="btn-quickview" title="Quick View"><i
                                             class="fas fa-external-link-alt"></i></a>

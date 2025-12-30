@@ -27,6 +27,8 @@ Route::middleware('auth')->group(function () {
 
     // Wishlist
     Route::get('/wishlist', [HomeController::class, 'wishlist'])->name('wishlist.index');
+    Route::get('/add-to-wishlist/{id}', [App\Http\Controllers\Frontend\WishlistController::class, 'add'])->name('wishlist.add');
+    Route::get('/remove-from-wishlist/{id}', [App\Http\Controllers\Frontend\WishlistController::class, 'remove'])->name('wishlist.remove');
 
     // Cart Routes
     Route::get('/cart', [HomeController::class, 'cart'])->name('cart.index');
