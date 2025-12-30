@@ -36,6 +36,84 @@
         .bounce-loader .bounce3 {
             background-color: #e91d8e !important;
         }
+
+        /* Premium Currency Switcher Styling */
+        .currency-dropdown-premium .currency-switcher {
+            display: flex;
+            align-items: center;
+            background: rgba(233, 29, 142, 0.05);
+            border: 1px solid rgba(233, 29, 142, 0.2);
+            padding: 4px 12px;
+            border-radius: 30px;
+            color: #333;
+            font-weight: 600;
+            font-size: 13px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05), inset 0 1px 0 rgba(255, 255, 255, 0.8);
+            text-decoration: none !important;
+        }
+
+        .currency-dropdown-premium .currency-switcher:hover {
+            background: rgba(233, 29, 142, 0.1);
+            border-color: rgba(233, 29, 142, 0.5);
+            transform: translateY(-1px);
+            box-shadow: 0 4px 8px rgba(233, 29, 142, 0.15);
+            color: #e91d8e;
+        }
+
+        .currency-dropdown-premium .currency-switcher i.flag,
+        .currency-dropdown-premium .header-menu i.flag {
+            display: none;
+        }
+
+        .curr-icon-circle {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 20px;
+            height: 20px;
+            background: #e91d8e;
+            color: white;
+            border-radius: 50%;
+            font-size: 10px;
+            font-weight: bold;
+            margin-right: 8px;
+            flex-shrink: 0;
+            box-shadow: 0 1px 3px rgba(233, 29, 142, 0.3);
+        }
+
+        .currency-dropdown-premium .header-menu ul li a:hover .curr-icon-circle {
+            transform: scale(1.1);
+        }
+
+        .currency-dropdown-premium .currency-switcher i.flag {
+            margin-right: 8px;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+            border-radius: 2px;
+        }
+
+        .currency-dropdown-premium .header-menu {
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            border: 1px solid #eee;
+            margin-top: 10px;
+        }
+
+        .currency-dropdown-premium .header-menu ul li a {
+            padding: 10px 15px;
+            display: flex;
+            align-items: center;
+            transition: all 0.2s;
+            color: #555;
+            font-weight: 500;
+        }
+
+        .currency-dropdown-premium .header-menu ul li a:hover {
+            background: #f8f9fa;
+            color: #e91d8e;
+            padding-left: 20px;
+        }
     </style>
 </head>
 
@@ -59,6 +137,25 @@
         </div>
 
         @include('frontend.layouts.header')
+
+        <div class="container mt-2">
+            @if(session('success'))
+                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                    {{ session('success') }}
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+            @endif
+            @if(session('error'))
+                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                    {{ session('error') }}
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+            @endif
+        </div>
 
        @yield('content')
 

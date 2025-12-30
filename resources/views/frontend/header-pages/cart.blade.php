@@ -4,13 +4,13 @@
         <div class="container">
             <ul class="checkout-progress-bar d-flex justify-content-center flex-wrap">
                 <li class="active">
-                    <a href="#">Shopping Cart</a>
+                    <a href="{{ route('cart.index') }}">Shopping Cart</a>
                 </li>
                 <li>
-                    <a href="#">Checkout</a>
+                    <a href="{{ route('checkout.index') }}">Checkout</a>
                 </li>
                 <li class="disabled">
-                    <a href="#">Order Complete</a>
+                    <a href="{{ route('order.complete') }}">Order Complete</a>
                 </li>
             </ul>
 
@@ -29,73 +29,45 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr class="product-row">
-                                    <td>
-                                        <figure class="product-image-container">
-                                            <a href="{{ route('products.index') }}" class="product-image">
-                                                <img src="assets/images/products/product-4.jpg" alt="product">
-                                            </a>
-                                        </figure>
-                                    </td>
-                                    <td class="product-col">
-                                        <h5 class="product-title">
-                                            <a href="{{ route('products.index') }}" style="color: #e91d8e">Men Watch</a>
-                                        </h5>
-                                    </td>
-                                    <td>{{ format_price(17.90) }}</td>
-                                    <td>
-                                        <div class="product-single-qty">
-                                            <input class="horizontal-quantity form-control" type="text">
-                                        </div><!-- End .product-single-qty -->
-                                    </td>
-                                    <td class="text-right"><span class="subtotal-price">{{ format_price(17.90) }}</span></td>
-                                </tr>
-
-                                <tr class="product-row">
-                                    <td>
-                                        <figure class="product-image-container">
-                                            <a href="{{ route('products.index') }}" class="product-image">
-                                                <img src="assets/images/products/product-3.jpg" alt="product">
-                                            </a>
-
-                                        </figure>
-                                    </td>
-                                    <td class="product-col">
-                                        <h5 class="product-title">
-                                            <a href="{{ route('products.index') }}" style="color: #e91d8e">Men Watch</a>
-                                        </h5>
-                                    </td>
-                                    <td>{{ format_price(17.90) }}</td>
-                                    <td>
-                                        <div class="product-single-qty">
-                                            <input class="horizontal-quantity form-control" type="text">
-                                        </div><!-- End .product-single-qty -->
-                                    </td>
-                                    <td class="text-right"><span class="subtotal-price">{{ format_price(17.90) }}</span></td>
-                                </tr>
-
-                                <tr class="product-row">
-                                    <td>
-                                        <figure class="product-image-container">
-                                            <a href="{{ route('products.index') }}" class="product-image">
-                                                <img src="assets/images/products/product-6.jpg" alt="product">
-                                            </a>
-
-                                        </figure>
-                                    </td>
-                                    <td class="product-col">
-                                        <h5 class="product-title">
-                                            <a href="{{ route('products.index') }}" style="color: #e91d8e">Men Black Gentle Belt</a>
-                                        </h5>
-                                    </td>
-                                    <td>{{ format_price(17.90) }}</td>
-                                    <td>
-                                        <div class="product-single-qty">
-                                            <input class="horizontal-quantity form-control" type="text">
-                                        </div><!-- End .product-single-qty -->
-                                    </td>
-                                    <td class="text-right"><span class="subtotal-price">{{ format_price(17.90) }}</span></td>
-                                </tr>
+                                @if(session('cart') && count(session('cart')) > 0)
+                                    @foreach(session('cart') as $id => $details)
+                                        <tr class="product-row">
+                                            <td>
+                                                <figure class="product-image-container">
+                                                    <a href="{{ route('product.show', $details['slug']) }}" class="product-image">
+                                                        @if($details['image'])
+                                                            <img src="{{ asset('storage/' . $details['image']) }}" alt="product"
+                                                                width="80" height="80">
+                                                        @else
+                                                            <img src="{{ asset('assets/images/products/product-1.jpg') }}" alt="product"
+                                                                width="80" height="80">
+                                                        @endif
+                                                    </a>
+                                                    <a href="#" class="btn-remove" title="Remove Product"><span>×</span></a>
+                                                </figure>
+                                            </td>
+                                            <td class="product-col">
+                                                <h5 class="product-title">
+                                                    <a href="{{ route('product.show', $details['slug']) }}" style="color: #e91d8e">{{ $details['name'] }}</a>
+                                                </h5>
+                                            </td>
+                                            <td>{{ format_price($details['price']) }}</td>
+                                            <td>
+                                                <div class="product-single-qty">
+                                                    <input class="horizontal-quantity form-control" type="text" value="{{ $details['quantity'] }}">
+                                                </div>
+                                            </td>
+                                            <td class="text-right"><span class="subtotal-price">{{ format_price($details['price'] * $details['quantity']) }}</span></td>
+                                        </tr>
+                                    @endforeach
+                                @else
+                                    <tr class="product-row">
+                                        <td colspan="5" class="text-center p-5">
+                                            <h4>Your cart is empty.</h4>
+                                            <a href="{{ route('home') }}" class="btn btn-primary mt-2">Go Shopping</a>
+                                        </td>
+                                    </tr>
+                                @endif
                             </tbody>
 
 
@@ -134,9 +106,13 @@
 
                         <table class="table table-totals">
                             <tbody>
+                                @php $subtotal = 0; @endphp
+                                @foreach((array) session('cart') as $id => $details)
+                                    @php $subtotal += $details['price'] * $details['quantity']; @endphp
+                                @endforeach
                                 <tr>
                                     <td>Subtotal</td>
-                                    <td>{{ format_price(67.20) }}</td>
+                                    <td>{{ format_price($subtotal) }}</td>
                                 </tr>
 
                                 <tr>
@@ -203,13 +179,13 @@
                             <tfoot>
                                 <tr>
                                     <td>Total</td>
-                                    <td><strong>{{ format_price(67.20) }}</strong></td>
+                                    <td><strong>{{ format_price($subtotal) }}</strong></td>
                                 </tr>
                             </tfoot>
                         </table>
 
                         <div class="checkout-methods">
-                            <a href="{{ route('cart.index') }}" class="btn btn-block btn-dark">
+                            <a href="{{ route('checkout.index') }}" class="btn btn-block btn-dark">
                                 Proceed to Checkout
                                 <i class="fa fa-arrow-right"></i>
                             </a>

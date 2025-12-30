@@ -32,13 +32,23 @@
                     </div>
                 </div>
 
-                <div class="header-dropdown mr-auto mr-sm-3 mr-md-0">
-                    <a href="#">{{ current_currency() }}</a>
+                <div class="header-dropdown mr-auto mr-sm-3 mr-md-0 currency-dropdown-premium">
+                    @php 
+                        $current = current_currency();
+                        $icon = '$';
+                        if($current == 'SAR') $icon = 'SR';
+                        if($current == 'PKR') $icon = 'Rs';
+                    @endphp
+                    <a href="#" class="currency-switcher">
+                        <span class="curr-icon-circle">{{ $icon }}</span>
+                        <span>{{ $current }}</span>
+                        <i class="fas fa-chevron-down ml-2" style="font-size: 10px;"></i>
+                    </a>
                     <div class="header-menu">
                         <ul>
-                            <li><a href="{{ route('currency.switch', 'SAR') }}">SAR</a></li>
-                            <li><a href="{{ route('currency.switch', 'USD') }}">USD</a></li>
-                            <li><a href="{{ route('currency.switch', 'PKR') }}">PKR</a></li>
+                            <li><a href="{{ route('currency.switch', 'USD') }}"><span class="curr-icon-circle mr-2">$</span>USD</a></li>
+                            <li><a href="{{ route('currency.switch', 'SAR') }}"><span class="curr-icon-circle mr-2">SR</span>SAR</a></li>
+                            <li><a href="{{ route('currency.switch', 'PKR') }}"><span class="curr-icon-circle mr-2">Rs</span>PKR</a></li>
                         </ul>
                     </div>
                 </div>
@@ -96,13 +106,13 @@
 
                 <a href="{{ auth()->check() ? route('dashboard') : route('login') }}" class="header-icon" title="login"><i class="icon-user-2"></i></a>
 
-                <a href="#" class="header-icon" title="wishlist"><i class="icon-wishlist-2"></i></a>
+                <a href="{{ route('wishlist.index') }}" class="header-icon" title="wishlist"><i class="icon-wishlist-2"></i></a>
 
                 <div class="dropdown cart-dropdown">
                     <a href="#" title="Cart" class="dropdown-toggle dropdown-arrow cart-toggle" role="button"
                         data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-display="static">
                         <i class="minicart-icon"></i>
-                        <span class="cart-count badge-circle">3</span>
+                        <span class="cart-count badge-circle">{{ count(session('cart', [])) }}</span>
                     </a>
 
                     <div class="cart-overlay"></div>
@@ -113,79 +123,54 @@
                         <div class="dropdownmenu-wrapper custom-scrollbar">
                             <div class="dropdown-cart-header">Shopping Cart</div>
                             <div class="dropdown-cart-products">
-                                <div class="product">
-                                    <div class="product-details">
-                                        <h4 class="product-title">
-                                            <a href="#">Business Card Front & Back</a>
-                                        </h4>
+                                @if(session('cart') && count(session('cart')) > 0)
+                                    @foreach(session('cart') as $id => $details)
+                                        <div class="product">
+                                            <div class="product-details">
+                                                <h4 class="product-title">
+                                                    <a href="{{ route('product.show', $details['slug']) }}">{{ $details['name'] }}</a>
+                                                </h4>
 
-                                        <span class="cart-product-info">
-                                            <span class="cart-product-qty">1</span> × {{ format_price(99.00) }}
-                                        </span>
+                                                <span class="cart-product-info">
+                                                    <span class="cart-product-qty">{{ $details['quantity'] }}</span> × {{ format_price($details['price']) }}
+                                                </span>
+                                            </div>
+
+                                            <figure class="product-image-container">
+                                                <a href="{{ route('product.show', $details['slug']) }}" class="product-image">
+                                                    @if($details['image'])
+                                                        <img src="{{ asset('storage/' . $details['image']) }}" alt="product"
+                                                            width="80" height="80">
+                                                    @else
+                                                        <img src="{{ asset('assets/images/products/product-1.jpg') }}" alt="product"
+                                                            width="80" height="80">
+                                                    @endif
+                                                </a>
+
+                                                <a href="#" class="btn-remove" title="Remove Product"><span>×</span></a>
+                                            </figure>
+                                        </div>
+                                    @endforeach
+                                @else
+                                    <div class="product text-center">
+                                        <p class="p-3">Your cart is empty.</p>
                                     </div>
-
-                                    <figure class="product-image-container">
-                                        <a href="#" class="product-image">
-                                            <img src="{{ asset('assets/images/products/product-1.jpg') }}" alt="product"
-                                                width="80" height="80">
-                                        </a>
-
-                                        <a href="#" class="btn-remove" title="Remove Product"><span>×</span></a>
-                                    </figure>
-                                </div>
-
-                                <div class="product">
-                                    <div class="product-details">
-                                        <h4 class="product-title">
-                                            <a href="#">Professional Roll up Banner Design</a>
-                                        </h4>
-
-                                        <span class="cart-product-info">
-                                            <span class="cart-product-qty">1</span> × {{ format_price(35.00) }}
-                                        </span>
-                                    </div>
-
-                                    <figure class="product-image-container">
-                                        <a href="#" class="product-image">
-                                            <img src="{{ asset('assets/images/products/product-2.jpg') }}" alt="product"
-                                                width="80" height="80">
-                                        </a>
-
-                                        <a href="#" class="btn-remove" title="Remove Product"><span>×</span></a>
-                                    </figure>
-                                </div>
-
-                                <div class="product">
-                                    <div class="product-details">
-                                        <h4 class="product-title">
-                                            <a href="#">Postcard Printing</a>
-                                        </h4>
-
-                                        <span class="cart-product-info">
-                                            <span class="cart-product-qty">1</span> × {{ format_price(35.00) }}
-                                        </span>
-                                    </div>
-
-                                    <figure class="product-image-container">
-                                        <a href="#" class="product-image">
-                                            <img src="{{ asset('assets/images/products/product-3.jpg') }}" alt="product"
-                                                width="80" height="80">
-                                        </a>
-                                        <a href="#" class="btn-remove" title="Remove Product"><span>×</span></a>
-                                    </figure>
-                                </div>
+                                @endif
                             </div>
 
                             <div class="dropdown-cart-total">
                                 <span>SUBTOTAL:</span>
-
-                                <span class="cart-total-price float-right">{{ format_price(134.00) }}</span>
+                                @php $total = 0 @endphp
+                                @foreach((array) session('cart') as $id => $details)
+                                    @php $total += $details['price'] * $details['quantity'] @endphp
+                                @endforeach
+                                <span class="cart-total-price float-right">{{ format_price($total ?: 134.00) }}</span>
                             </div>
 
                             <div class="dropdown-cart-action">
-                                <a href="#" class="btn btn-gray btn-block view-cart">View
+                                <a href="{{ route('cart.index') }}" class="btn btn-gray btn-block view-cart">View
                                     Cart</a>
-                                <a href="#" class="btn btn-dark btn-block">Checkout</a>
+                                <a href="{{ route('checkout.index') }}" class="btn btn-dark btn-block">Checkout</a>
                             </div>
                         </div>
                     </div>

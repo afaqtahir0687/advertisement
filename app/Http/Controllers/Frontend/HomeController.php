@@ -38,6 +38,14 @@ class HomeController extends Controller
     {
         return view('frontend.header-pages.cart');
     }
+    public function checkout()
+    {
+        return view('frontend.header-pages.checkout');
+    }
+    public function orderComplete()
+    {
+        return view('frontend.header-pages.order-complete');
+    }
     public function contactUs()
     {
         return view('frontend.pages.contacts.contact-us');
