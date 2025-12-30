@@ -106,7 +106,7 @@
 
                 <a href="{{ auth()->check() ? route('dashboard') : route('login') }}" class="header-icon" title="login"><i class="icon-user-2"></i></a>
 
-                <a href="{{ route('wishlist.index') }}" class="header-icon" title="wishlist"><i class="icon-wishlist-2"></i></a>
+                <a href="{{ auth()->check() ? route('wishlist.index') : route('login') }}" class="header-icon" title="wishlist"><i class="icon-wishlist-2"></i></a>
 
                 <div class="dropdown cart-dropdown">
                     <a href="#" title="Cart" class="dropdown-toggle dropdown-arrow cart-toggle" role="button"

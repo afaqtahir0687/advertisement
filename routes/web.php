@@ -24,8 +24,23 @@ Route::middleware('guest')->group(function () {
 Route::middleware('auth')->group(function () {
     Route::post('/logout', [AuthController::class, 'destroy'])->name('logout');
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+
+    // Wishlist
+    Route::get('/wishlist', [HomeController::class, 'wishlist'])->name('wishlist.index');
+
+    // Cart Routes
+    Route::get('/cart', [HomeController::class, 'cart'])->name('cart.index');
+    Route::get('/add-to-cart/{id}', [App\Http\Controllers\Frontend\CartController::class, 'add'])->name('cart.add');
+    Route::patch('/update-cart', [App\Http\Controllers\Frontend\CartController::class, 'update'])->name('cart.update');
+    Route::delete('/remove-from-cart', [App\Http\Controllers\Frontend\CartController::class, 'remove'])->name('cart.remove');
+
+    // Checkout & Orders
+    Route::get('/checkout', [HomeController::class, 'checkout'])->name('checkout.index');
+    Route::get('/order-complete', [HomeController::class, 'orderComplete'])->name('order.complete');
+    Route::get('/track-order', [HomeController::class, 'trackOrder'])->name('track.order');
 });
 
+// Public Routes (Restored)
 Route::get('/categories', [CategoryController::class, 'index'])->name('category.index');
 Route::get('/category/{slug}', [CategoryController::class, 'show'])->name('category.show');
 Route::get('/categories/banner-slider', [CategoryController::class, 'bannerBoxSlider'])->name('category.bannerBoxSlider');
@@ -33,26 +48,13 @@ Route::get('/categories/banner-box-image', [CategoryController::class, 'bannerBo
 Route::get('/categories/right-sidebar', [CategoryController::class, 'rightSidebar'])->name('category.rightSidebar');
 Route::get('/categories/off-canvas', [CategoryController::class, 'offCanvas'])->name('category.offCanvas');
 
-
-
 Route::get('/products', [ProductController::class, 'index'])->name('products.index');
 Route::get('/product/{slug}', [ProductController::class, 'show'])->name('product.show');
 
 Route::get('/about-us', [HomeController::class, 'aboutUs'])->name('about.index');
-
 Route::get('/blogs', [HomeController::class, 'blogs'])->name('blogs.index');
 Route::get('/single', [HomeController::class, 'single'])->name('single.index');
-Route::get('/wishlist', [HomeController::class, 'wishlist'])->name('wishlist.index');
-// Cart Routes
-Route::get('/cart', [HomeController::class, 'cart'])->name('cart.index');
-Route::get('/add-to-cart/{id}', [App\Http\Controllers\Frontend\CartController::class, 'add'])->name('cart.add');
-Route::patch('/update-cart', [App\Http\Controllers\Frontend\CartController::class, 'update'])->name('cart.update');
-Route::delete('/remove-from-cart', [App\Http\Controllers\Frontend\CartController::class, 'remove'])->name('cart.remove');
-
-Route::get('/checkout', [HomeController::class, 'checkout'])->name('checkout.index');
-Route::get('/order-complete', [HomeController::class, 'orderComplete'])->name('order.complete');
 Route::get('/contact-us', [HomeController::class, 'contactUs'])->name('contact.index');
-Route::get('/track-order', [HomeController::class, 'trackOrder'])->name('track.order');
 
 // Currency Switching
 Route::get('currency-switch/{currency}', [App\Http\Controllers\Frontend\CurrencyController::class, 'switch'])->name('currency.switch');
