@@ -41,7 +41,25 @@ class HomeController extends Controller
     }
     public function checkout()
     {
-        return view('frontend.header-pages.checkout');
+        $cart = session()->get('cart', []);
+        $user = auth()->user();
+
+        // Calculate totals
+        $subtotal = 0; 
+        $total_discount = 0;
+        foreach($cart as $id => $details) {
+            $item_original_total = ($details['original_price'] ?? $details['price']) * $details['quantity'];
+            $item_selling_total = $details['price'] * $details['quantity'];
+            
+            $subtotal += $item_original_total;
+            $total_discount += ($item_original_total - $item_selling_total);
+        }
+
+        $after_discount = $subtotal - $total_discount;
+        $tax = $after_discount * 0.15; // 15% VAT
+        $grand_total = $after_discount + $tax;
+
+        return view('frontend.header-pages.checkout', compact('cart', 'user', 'subtotal', 'total_discount', 'tax', 'grand_total'));
     }
     public function orderComplete()
     {

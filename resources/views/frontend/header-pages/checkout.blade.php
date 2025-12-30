@@ -25,14 +25,14 @@
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label>First Name <span class="required">*</span></label>
-                                            <input type="text" class="form-control" required />
+                                            <input type="text" class="form-control" name="first_name" value="{{ $user->name ?? '' }}" required />
                                         </div>
                                     </div>
 
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label>Last Name <span class="required">*</span></label>
-                                            <input type="text" class="form-control" required />
+                                            <input type="text" class="form-control" name="last_name" required />
                                         </div>
                                     </div>
                                 </div>
@@ -79,7 +79,7 @@
 
                                 <div class="form-group">
                                     <label>Email Address <span class="required">*</span></label>
-                                    <input type="email" class="form-control" required />
+                                    <input type="email" class="form-control" name="email" value="{{ $user->email ?? '' }}" required />
                                 </div>
 
                                 <div class="form-group">
@@ -102,27 +102,18 @@
                                 </tr>
                             </thead>
                             <tbody>
+                                @foreach($cart as $id => $details)
                                 <tr>
                                     <td class="product-col">
                                         <h3 class="product-title">
-                                            Men Watch × 2
+                                            {{ $details['name'] }} × {{ $details['quantity'] }}
                                         </h3>
                                     </td>
                                     <td class="price-col">
-                                        <span>{{ format_price(35.80) }}</span>
+                                        <span>{{ format_price($details['price'] * $details['quantity']) }}</span>
                                     </td>
                                 </tr>
-
-                                <tr>
-                                    <td class="product-col">
-                                        <h3 class="product-title">
-                                            Men Black Gentle Belt × 1
-                                        </h3>
-                                    </td>
-                                    <td class="price-col">
-                                        <span>{{ format_price(17.90) }}</span>
-                                    </td>
-                                </tr>
+                                @endforeach
                             </tbody>
                             <tfoot>
                                 <tr class="cart-subtotal">
@@ -130,7 +121,25 @@
                                         <h4>Subtotal</h4>
                                     </td>
                                     <td class="price-col">
-                                        <span>{{ format_price(53.70) }}</span>
+                                        <span>{{ format_price($subtotal) }}</span>
+                                    </td>
+                                </tr>
+                                @if($total_discount > 0)
+                                <tr class="cart-subtotal text-danger">
+                                    <td>
+                                        <h4>Discount</h4>
+                                    </td>
+                                    <td class="price-col">
+                                        <span>-{{ format_price($total_discount) }}</span>
+                                    </td>
+                                </tr>
+                                @endif
+                                <tr class="cart-subtotal">
+                                    <td>
+                                        <h4>Tax (15%)</h4>
+                                    </td>
+                                    <td class="price-col">
+                                        <span>{{ format_price($tax) }}</span>
                                     </td>
                                 </tr>
                                 <tr class="order-shipping">
@@ -149,7 +158,7 @@
                                         <h4>Total</h4>
                                     </td>
                                     <td>
-                                        <b class="total-price"><span>{{ format_price(53.70) }}</span></b>
+                                        <b class="total-price"><span>{{ format_price($grand_total) }}</span></b>
                                     </td>
                                 </tr>
                             </tfoot>
