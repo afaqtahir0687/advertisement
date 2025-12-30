@@ -150,7 +150,7 @@
                                                     @endif
                                                 </a>
 
-                                                <a href="#" class="btn-remove" title="Remove Product"><span>×</span></a>
+                                                <a href="{{ route('cart.remove', $id) }}" class="btn-remove icon-cancel" title="Remove Product"></a>
                                             </figure>
                                         </div>
                                     @endforeach

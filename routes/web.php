@@ -34,7 +34,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/cart', [HomeController::class, 'cart'])->name('cart.index');
     Route::get('/add-to-cart/{id}', [App\Http\Controllers\Frontend\CartController::class, 'add'])->name('cart.add');
     Route::patch('/update-cart', [App\Http\Controllers\Frontend\CartController::class, 'update'])->name('cart.update');
-    Route::delete('/remove-from-cart', [App\Http\Controllers\Frontend\CartController::class, 'remove'])->name('cart.remove');
+    Route::get('/remove-from-cart/{id}', [App\Http\Controllers\Frontend\CartController::class, 'remove'])->name('cart.remove');
 
     // Checkout & Orders
     Route::get('/checkout', [HomeController::class, 'checkout'])->name('checkout.index');

@@ -43,7 +43,7 @@
                                                                 width="80" height="80">
                                                         @endif
                                                     </a>
-                                                    <a href="#" class="btn-remove" title="Remove Product"><span>×</span></a>
+                                                    <a href="{{ route('cart.remove', $id) }}" class="btn-remove icon-cancel" title="Remove Product"></a>
                                                 </figure>
                                             </td>
                                             <td class="product-col">
@@ -157,6 +157,20 @@
                                 Proceed to Checkout
                                 <i class="fa fa-arrow-right"></i>
                             </a>
+                            <div class="payment-methods d-flex justify-content-center mt-3">
+                                <div class="payment-icon-box border rounded p-1 mx-1 d-flex align-items-center justify-content-center" style="width: 50px; height: 35px;">
+                                    <img src="{{ asset('assets/images/payments/payment-visa.png') }}" alt="Visa" style="max-width: 100%; max-height: 100%;">
+                                </div>
+                                <div class="payment-icon-box border rounded p-1 mx-1 d-flex align-items-center justify-content-center" style="width: 50px; height: 35px;">
+                                    <img src="{{ asset('assets/images/payments/payment-mastercard.png') }}" alt="Mastercard" style="max-width: 100%; max-height: 100%;">
+                                </div>
+                                <div class="payment-icon-box border rounded p-1 mx-1 d-flex align-items-center justify-content-center" style="width: 50px; height: 35px;">
+                                    <img src="{{ asset('assets/images/payments/payment-mada.png') }}" alt="Mada" style="max-width: 100%; max-height: 100%;">
+                                </div>
+                                <div class="payment-icon-box border rounded p-1 mx-1 d-flex align-items-center justify-content-center" style="width: 50px; height: 35px;">
+                                    <img src="{{ asset('assets/images/payments/payment-applepay.png') }}" alt="Apple Pay" style="max-width: 100%; max-height: 100%;">
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>

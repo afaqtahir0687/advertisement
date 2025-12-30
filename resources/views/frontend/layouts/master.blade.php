@@ -97,6 +97,37 @@
             font-family: 'Open Sans', sans-serif;
         }
 
+        .product-image-container {
+            position: relative;
+            display: inline-block;
+        }
+
+        .product-image-container .btn-remove {
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            z-index: 2;
+            background: #fff;
+            color: #e91d8e;
+            border-radius: 50%;
+            width: 22px;
+            height: 22px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            font-size: 14px;
+            line-height: 1;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .product-image-container .btn-remove:hover {
+            background: #e91d8e;
+            color: #fff;
+            transform: scale(1.1);
+        }
+
         .currency-dropdown-premium .currency-switcher i.flag {
             margin-right: 8px;
             box-shadow: 0 1px 2px rgba(0,0,0,0.1);
