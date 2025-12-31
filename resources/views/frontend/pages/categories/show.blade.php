@@ -131,8 +131,8 @@
                         @forelse($products as $product)
                             <div class="col-6 col-sm-4">
                                 <div class="product-default">
-                                    <figure>
-                                        <a href="{{ route('products.show', $product->slug) }}">
+                                        <figure>
+                                        <a href="{{ route('product.show', $product->slug) }}">
                                             @if($product->image)
                                                 <img src="{{ asset('storage/' . $product->image) }}" width="280" height="280" alt="{{ $product->name }}" />
                                             @else
@@ -159,7 +159,7 @@
                                             <a href="{{ route('category.show', $category->slug) }}" class="product-category">{{ $category->name }}</a>
                                         </div>
                                         <h3 class="product-title">
-                                            <a href="{{ route('products.show', $product->slug) }}">{{ $product->name }}</a>
+                                            <a href="{{ route('product.show', $product->slug) }}">{{ $product->name }}</a>
                                         </h3>
                                         <div class="ratings-container">
                                             <div class="product-ratings">
@@ -175,7 +175,7 @@
                                         </div>
                                         <div class="product-action">
                                             <a href="#" class="btn-icon-wish" title="wishlist"><i class="icon-heart"></i></a>
-                                            <a href="{{ route('products.show', $product->slug) }}" class="btn-icon btn-add-cart"><i class="fa fa-arrow-right"></i><span>SELECT OPTIONS</span></a>
+                                            <a href="{{ route('product.show', $product->slug) }}" class="btn-icon btn-add-cart"><i class="fa fa-arrow-right"></i><span>SELECT OPTIONS</span></a>
                                             <a href="#" class="btn-quickview" title="Quick View"><i class="fas fa-external-link-alt"></i></a>
                                         </div>
                                     </div>

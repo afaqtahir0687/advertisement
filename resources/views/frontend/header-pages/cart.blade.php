@@ -24,7 +24,7 @@
                                     <th class="thumbnail-col"></th>
                                     <th class="product-col" style="font-weight: bold; font-size: 15px;">Product</th>
                                     <th class="price-col" style="font-weight: bold; font-size: 15px;">Price</th>
-                                    <th class="qty-col" style="font-weight: bold; font-size: 15px;">Quantity</th>
+                                    <th class="qty-col" style="font-weight: bold; font-size: 15px;">Number of Designs</th>
                                     <th class="text-right" style="font-weight: bold; font-size: 15px;">Subtotal</th>
                                 </tr>
                             </thead>
@@ -50,12 +50,29 @@
                                                 <h5 class="product-title">
                                                     <a href="{{ route('product.show', $details['slug']) }}" style="color: #e91d8e">{{ $details['name'] }}</a>
                                                 </h5>
+                                                @if(isset($details['options']['print_quantity']))
+                                                    <div class="product-specs mt-1">
+                                                        <span style="font-weight: 600; color: #555;">Print Quantity: {{ $details['options']['print_quantity'] }}</span>
+                                                    </div>
+                                                @endif
+                                                @if(isset($details['options']['urgency']))
+                                                    <div class="product-specs">
+                                                        <span style="font-weight: 600; color: #555;">Urgency: {{ ucfirst($details['options']['urgency']) }}</span>
+                                                        @if(isset($details['options']['production_days']))
+                                                            <br><span style="font-size: 13px; color: #777;">Production: {{ $details['options']['production_days'] }} Days</span>
+                                                        @endif
+                                                        @if(isset($details['options']['delivery_days']))
+                                                            <span style="font-size: 13px; color: #777;"> | Delivery: {{ $details['options']['delivery_days'] }} Day(s)</span>
+                                                        @endif
+                                                    </div>
+                                                @endif
                                             </td>
                                             <td>{{ format_price($details['price']) }}</td>
                                             <td>
                                                 <div class="product-single-qty">
                                                     <input class="horizontal-quantity form-control" type="text" value="{{ $details['quantity'] }}">
                                                 </div>
+                                                <small class="text-muted d-block text-center mt-1">Designs</small>
                                             </td>
                                             <td class="text-right"><span class="subtotal-price">{{ format_price($details['price'] * $details['quantity']) }}</span></td>
                                         </tr>

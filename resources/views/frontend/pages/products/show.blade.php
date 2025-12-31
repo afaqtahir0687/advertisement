@@ -1,11 +1,16 @@
 @extends('frontend.layouts.master')
 @section('content')
+    <style>
+        .breadcrumb-item, .breadcrumb-item a {
+            text-transform: none !important;
+        }
+    </style>
     <main class="main">
         <div class="container">
             <nav aria-label="breadcrumb" class="breadcrumb-nav">
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="{{ route('home') }}"><i class="icon-home"></i></a></li>
-                    <li class="breadcrumb-item"><a href="{{ route('category.index') }}">Categories</a></li>
+
                     @if($product->subcategory)
                         @foreach($product->subcategory->getFullPath() as $cat)
                             <li class="breadcrumb-item"><a href="{{ route('category.show', $cat->slug) }}">{{ $cat->name }}</a></li>
@@ -240,7 +245,7 @@
                                             <tr data-urgency="regular">
                                                 <td><input type="radio" name="urgency" value="regular" checked></td>
                                                 <td>Regular</td>
-                                                <td>{{ format_price($product->discount_price ?? $product->price) }}</td>
+                                                <td id="price-regular">{{ format_price($product->discount_price ?? $product->price) }}</td>
                                                 <td>{{ $product->production_days ?? 3 }} Days</td>
                                                 <td>{{ $product->delivery_days ?? 1 }} Day</td>
                                             </tr>
@@ -248,7 +253,7 @@
                                             <tr data-urgency="flexible">
                                                 <td><input type="radio" name="urgency" value="flexible"></td>
                                                 <td>Flexible</td>
-                                                <td>{{ format_price($product->flexible_rate) }}</td>
+                                                <td id="price-flexible">{{ format_price($product->flexible_rate) }}</td>
                                                 <td>{{ $product->flexible_production_days ?? 5 }} Days</td>
                                                 <td>{{ $product->delivery_days ?? 1 }} Day</td>
                                             </tr>
@@ -257,7 +262,7 @@
                                             <tr data-urgency="urgent">
                                                 <td><input type="radio" name="urgency" value="urgent"></td>
                                                 <td>Urgent</td>
-                                                <td>{{ format_price($product->urgent_rate) }}</td>
+                                                <td id="price-urgent">{{ format_price($product->urgent_rate) }}</td>
                                                 <td>{{ $product->urgent_production_days ?? 1 }} Day</td>
                                                 <td>{{ $product->delivery_days ?? 1 }} Day</td>
                                             </tr>
@@ -272,7 +277,7 @@
                                 <p><strong>Subtotal:</strong> <span class="float-right"><span id="subtotal_display">{{ format_price(0.00) }}</span></span></p>
                                 <p><strong>Tax (15%):</strong> <span class="float-right"><span id="tax_display">{{ format_price(0.00) }}</span></span></p>
                                 <p class="total-price"><strong>Total:</strong> <span class="float-right"><span id="finalPrice_display">{{ format_price(0.00) }}</span></span></p>
-                                <button class="btn btn-primary btn-block btn-lg">Add to cart</button>
+                                <button id="addToCartBtn" class="btn btn-primary btn-block btn-lg">Add to cart</button>
                             </div>
                         </div>
                     </div>
@@ -374,12 +379,25 @@
                     let qty = parseInt($('#quantityField').val()) || 0;
                     let numDesigns = parseInt($('#num_designs').val()) || 1;
                     let urgency = $('input[name="urgency"]:checked').val();
-                    let rate = baseRate;
+                    
+                    // Calculate individual urgency prices (Unit Price * Designs)
+                    // Unit Price = (qty/100) * rate_per_100
+                    
+                    let regularPrice = (qty / 100) * baseRate * numDesigns;
+                    let flexiblePrice = (qty / 100) * flexRate * numDesigns;
+                    let urgentPrice = (qty / 100) * urgentRate * numDesigns;
 
-                    if (urgency === 'flexible' && flexRate > 0) rate = flexRate;
-                    if (urgency === 'urgent' && urgentRate > 0) rate = urgentRate;
+                    // Update Table Cells
+                    $('#price-regular').text(formatCurrency(regularPrice));
+                    if (flexRate > 0) $('#price-flexible').text(formatCurrency(flexiblePrice));
+                    if (urgentRate > 0) $('#price-urgent').text(formatCurrency(urgentPrice));
 
-                    let subtotal = (qty / 100) * rate * numDesigns;
+                    // Determine Selected Subtotal
+                    let subtotal = 0;
+                    if (urgency === 'regular') subtotal = regularPrice;
+                    else if (urgency === 'flexible') subtotal = flexiblePrice;
+                    else if (urgency === 'urgent') subtotal = urgentPrice;
+
                     let tax = subtotal * 0.15;
                     let total = subtotal + tax;
 
@@ -388,7 +406,21 @@
                     $('#finalPrice_display').text(formatCurrency(total));
                 }
 
+                $(document).on('click', '#addToCartBtn', function(e) {
+                    e.preventDefault();
+                    let printQty = $('#quantityField').val(); // 100, 500, etc.
+                    let numDesigns = $('#num_designs').val(); // 1, 2, etc.
+                    let urgency = $('input[name="urgency"]:checked').val();
+
+                    let url = "{{ route('cart.add', ':id') }}";
+                    url = url.replace(':id', {{ $product->id }});
+                    
+                    // Send print_quantity, quantity (num_designs), and urgency
+                    window.location.href = url + "?print_quantity=" + printQty + "&quantity=" + numDesigns + "&urgency=" + urgency;
+                });
+
                 $(document).on('input change', '#quantityField, #num_designs, input[name="urgency"]', calculatePrice);
+                // Also trigger calculation on load to set initial values correctly
                 calculatePrice();
             });
         </script>

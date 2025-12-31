@@ -27,7 +27,16 @@ class SubCategory extends Model
         return $this->hasMany(Product::class, 'subcategory_id');
     }
 
-    // Get full category path for breadcrumbs
+    public function subcategories()
+    {
+        return $this->hasMany(SubCategory::class, 'category_id')->where('id', null);
+    }
+
+    public function getAllProducts()
+    {
+        return $this->products()->where('status', 'active')->get();
+    }
+
     public function getFullPath()
     {
         return collect([$this->category, $this]);

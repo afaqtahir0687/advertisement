@@ -135,8 +135,13 @@
                                                 </h4>
 
                                                 <span class="cart-product-info">
-                                                    <span class="cart-product-qty">{{ $details['quantity'] }}</span> × {{ format_price($details['price']) }}
+                                                    <span class="cart-product-qty">{{ $details['quantity'] }} Designs</span> × {{ format_price($details['price']) }}
                                                 </span>
+                                                @if(isset($details['options']['print_quantity']))
+                                                    <div class="product-specs mt-1">
+                                                        <span style="font-size: 11px; color: #777;">Print Quantity: {{ $details['options']['print_quantity'] }}</span>
+                                                    </div>
+                                                @endif
                                             </div>
 
                                             <figure class="product-image-container">
