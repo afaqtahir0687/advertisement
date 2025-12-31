@@ -246,16 +246,16 @@
                                                 <td><input type="radio" name="urgency" value="regular" checked></td>
                                                 <td>Regular</td>
                                                 <td id="price-regular">{{ format_price($product->discount_price ?? $product->price) }}</td>
-                                                <td>{{ $product->production_days ?? 3 }} Days</td>
-                                                <td>{{ $product->delivery_days ?? 1 }} Day</td>
+                                                <td id="days-production-regular">{{ $product->production_days ?? 3 }} Days</td>
+                                                <td id="days-delivery-regular">{{ $product->delivery_days ?? 1 }} Day</td>
                                             </tr>
                                             @if($product->flexible_rate)
                                             <tr data-urgency="flexible">
                                                 <td><input type="radio" name="urgency" value="flexible"></td>
                                                 <td>Flexible</td>
                                                 <td id="price-flexible">{{ format_price($product->flexible_rate) }}</td>
-                                                <td>{{ $product->flexible_production_days ?? 5 }} Days</td>
-                                                <td>{{ $product->delivery_days ?? 1 }} Day</td>
+                                                <td id="days-production-flexible">{{ $product->flexible_production_days ?? 5 }} Days</td>
+                                                <td id="days-delivery-flexible">{{ $product->delivery_days ?? 1 }} Day</td>
                                             </tr>
                                             @endif
                                             @if($product->urgent_rate)
@@ -263,8 +263,8 @@
                                                 <td><input type="radio" name="urgency" value="urgent"></td>
                                                 <td>Urgent</td>
                                                 <td id="price-urgent">{{ format_price($product->urgent_rate) }}</td>
-                                                <td>{{ $product->urgent_production_days ?? 1 }} Day</td>
-                                                <td>{{ $product->delivery_days ?? 1 }} Day</td>
+                                                <td id="days-production-urgent">{{ $product->urgent_production_days ?? 1 }} Day</td>
+                                                <td id="days-delivery-urgent">{{ $product->delivery_days ?? 1 }} Day</td>
                                             </tr>
                                             @endif
                                         </tbody>
@@ -371,6 +371,14 @@
                 const flexRate = {{ $product->flexible_rate ?? 0 }};
                 const urgentRate = {{ $product->urgent_rate ?? 0 }};
 
+                // Base Days from Backend
+                const baseProdDays = {
+                    regular: {{ $product->production_days ?? 3 }},
+                    flexible: {{ $product->flexible_production_days ?? 5 }},
+                    urgent: {{ $product->urgent_production_days ?? 1 }}
+                };
+                const baseDeliveryDays = {{ $product->delivery_days ?? 1 }};
+
                 function formatCurrency(amount) {
                     return currentSymbol + (amount * currentRate).toFixed(2);
                 }
@@ -386,11 +394,40 @@
                     let regularPrice = (qty / 100) * baseRate * numDesigns;
                     let flexiblePrice = (qty / 100) * flexRate * numDesigns;
                     let urgentPrice = (qty / 100) * urgentRate * numDesigns;
+                    
+                    // Logic to increase days based on quantity
+                    // Production: Increase by 1 day for every 1000 units.
+                    // Delivery: Increase by 1 day for every 2000 units.
+                    
+                    let extraProdDays = 0;
+                    let extraDeliveryDays = 0;
+
+                    if (qty >= 1000) {
+                        extraProdDays = Math.floor(qty / 1000);
+                        extraDeliveryDays = Math.floor(qty / 2000); 
+                    }
+                    
+                    let regProd = baseProdDays.regular + extraProdDays;
+                    let flexProd = baseProdDays.flexible + extraProdDays;
+                    let urgProd = baseProdDays.urgent + extraProdDays; // Urgent might stay same? Assuming increases too for large bulk
+                    
+                    let delDays = baseDeliveryDays + extraDeliveryDays;
 
                     // Update Table Cells
                     $('#price-regular').text(formatCurrency(regularPrice));
-                    if (flexRate > 0) $('#price-flexible').text(formatCurrency(flexiblePrice));
-                    if (urgentRate > 0) $('#price-urgent').text(formatCurrency(urgentPrice));
+                    $('#days-production-regular').text(regProd + ' Days');
+                    $('#days-delivery-regular').text(delDays + ' Day' + (delDays > 1 ? 's' : ''));
+
+                    if (flexRate > 0) {
+                         $('#price-flexible').text(formatCurrency(flexiblePrice));
+                         $('#days-production-flexible').text(flexProd + ' Days');
+                         $('#days-delivery-flexible').text(delDays + ' Day' + (delDays > 1 ? 's' : ''));
+                    }
+                    if (urgentRate > 0) {
+                         $('#price-urgent').text(formatCurrency(urgentPrice));
+                         $('#days-production-urgent').text(urgProd + ' Days'); // Update urgent production too?
+                         $('#days-delivery-urgent').text(delDays + ' Day' + (delDays > 1 ? 's' : ''));
+                    }
 
                     // Determine Selected Subtotal
                     let subtotal = 0;

@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
 use App\Models\Category;
-use App\Models\Product; // Added Product model import
+use App\Models\Product;
 use Illuminate\Http\Request;
 
 class CategoryController extends Controller
@@ -18,25 +18,22 @@ class CategoryController extends Controller
 
     public function show($slug)
     {
-        // First try to find a main Category
         $category = Category::where('slug', $slug)->where('status', 'active')->first();
 
         if ($category) {
-            // Get subcategories with product counts
+
             $subcategories = $category->subcategories()->where('status', 'active')->withCount('products')->get();
-            // Get all products from this category and its subcategories
+
             $products = $category->getAllProducts();
         } else {
-            // If not found, try to find a SubCategory
+
             $category = \App\Models\SubCategory::where('slug', $slug)->where('status', 'active')->firstOrFail();
-            
-            // Subcategories (empty for now as per model update)
-            $subcategories = collect([]); 
-            
-            // Get products directly belonging to this subcategory
+
+            $subcategories = collect([]);
+
             $products = $category->getAllProducts();
         }
-        
+
         return view('frontend.pages.categories.show', compact('category', 'products', 'subcategories'));
     }
 
