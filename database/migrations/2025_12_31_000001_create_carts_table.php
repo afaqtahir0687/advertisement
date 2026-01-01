@@ -15,10 +15,10 @@ return new class extends Migration
             $table->id();
             $table->foreignId('user_id')->constrained()->onDelete('cascade');
             $table->foreignId('product_id')->constrained()->onDelete('cascade');
-            $table->integer('quantity')->default(1); // Number of designs
-            $table->integer('print_quantity')->default(100); // 100, 250, 500 etc.
+            $table->integer('quantity')->default(1); 
+            $table->integer('print_quantity')->default(100);
             $table->string('urgency')->default('regular');
-            $table->decimal('price', 10, 2); // Unit price stored for reference
+            $table->decimal('price', 10, 2); 
             $table->integer('production_days')->default(3);
             $table->integer('delivery_days')->default(1);
             $table->timestamps();

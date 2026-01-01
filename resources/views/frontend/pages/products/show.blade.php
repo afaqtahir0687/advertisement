@@ -4,6 +4,31 @@
         .breadcrumb-item, .breadcrumb-item a {
             text-transform: none !important;
         }
+        /* Magnific Popup Fade Effect */
+        .mfp-fade.mfp-bg {
+            opacity: 0;
+            -webkit-transition: all 0.15s ease-out; 
+            -moz-transition: all 0.15s ease-out; 
+            transition: all 0.15s ease-out;
+        }
+        .mfp-fade.mfp-bg.mfp-ready {
+            opacity: 0.8;
+        }
+        .mfp-fade.mfp-bg.mfp-removing {
+            opacity: 0;
+        }
+        .mfp-fade.mfp-wrap .mfp-content {
+            opacity: 0;
+            -webkit-transition: all 0.15s ease-out; 
+            -moz-transition: all 0.15s ease-out; 
+            transition: all 0.15s ease-out;
+        }
+        .mfp-fade.mfp-wrap.mfp-ready .mfp-content {
+            opacity: 1;
+        }
+        .mfp-fade.mfp-wrap.mfp-removing .mfp-content {
+            opacity: 0;
+        }
     </style>
     <main class="main">
         <div class="container">
@@ -215,18 +240,19 @@
                                         <label class="label-title">Quantity:</label>
                                         <div id="quantityWrapper">
                                             <select class="form-control" id="quantityField">
-                                                <option value="100">100</option>
-                                                <option value="250">250</option>
-                                                <option value="500">500</option>
-                                                <option value="1000">1000</option>
-                                                <option value="2500">2500</option>
-                                                <option value="5000">5000</option>
+                                                @if($product->quantities && count($product->quantities) > 0)
+                                                    @foreach($product->quantities as $qty)
+                                                        <option value="{{ $qty }}">{{ $qty }}</option>
+                                                    @endforeach
+                                                @endif
                                             </select>
                                         </div>
+                                        @if($product->allow_custom_quantity && $product->quantities && count($product->quantities) > 0)
                                         <div class="mt-1 custom-control custom-checkbox">
                                             <input type="checkbox" class="custom-control-input" id="customQuantity">
                                             <label class="custom-control-label" for="customQuantity">Custom</label>
                                         </div>
+                                        @endif
                                     </div>
                                 </div>
 
@@ -236,7 +262,7 @@
                                             <tr>
                                                 <th></th>
                                                 <th>Urgency</th>
-                                                <th>Price (Unit)</th>
+                                                <th>Price</th>
                                                 <th>Production</th>
                                                 <th>Delivery</th>
                                             </tr>
@@ -299,6 +325,9 @@
                         <a class="nav-link" id="product-tab-tags" data-toggle="tab" href="#product-tags-content" role="tab">Additional Information</a>
                     </li>
                     @endif
+                    <li class="nav-item">
+                        <a class="nav-link" id="product-tab-details" data-toggle="tab" href="#product-details-content" role="tab">All Information</a>
+                    </li>
                 </ul>
                 <div class="tab-content">
                     <div class="tab-pane fade show active" id="product-desc-content" role="tabpanel">
@@ -314,6 +343,80 @@
                         <div class="product-tags-content">{!! $product->additional_info !!}</div>
                     </div>
                     @endif
+                    <div class="tab-pane fade" id="product-details-content" role="tabpanel">
+                        <div class="product-details-list pt-3 pl-2">
+                            <div class="row">
+                                <div class="col-md-4 mb-3">
+                                    <h5 class="text-dark font-weight-bold mb-1">Category</h5>
+                                    <p class="text-muted mb-0">{{ $product->category->name ?? 'N/A' }}</p>
+                                </div>
+                                
+                                @if($product->subcategory)
+                                <div class="col-md-4 mb-3">
+                                    <h5 class="text-dark font-weight-bold mb-1">Subcategory</h5>
+                                    <p class="text-muted mb-0">{{ $product->subcategory->name }}</p>
+                                </div>
+                                @endif
+
+                                <div class="col-md-4 mb-3">
+                                    <h5 class="text-dark font-weight-bold mb-1">SKU</h5>
+                                    <p class="text-muted mb-0">{{ $product->sku ?? 'N/A' }}</p>
+                                </div>
+
+                                @if($product->materials && count($product->materials) > 0)
+                                <div class="col-md-4 mb-3">
+                                    <h5 class="text-dark font-weight-bold mb-1">Available Materials</h5>
+                                    <p class="text-muted mb-0">{{ implode(', ', $product->materials) }}</p>
+                                </div>
+                                @endif
+
+                                @if($product->sizes && count($product->sizes) > 0)
+                                <div class="col-md-4 mb-3">
+                                    <h5 class="text-dark font-weight-bold mb-1">Available Sizes</h5>
+                                    <p class="text-muted mb-0">{{ implode(', ', $product->sizes) }}</p>
+                                </div>
+                                @endif
+
+                                @if($product->side_1_colors && count($product->side_1_colors) > 0)
+                                <div class="col-md-4 mb-3">
+                                    <h5 class="text-dark font-weight-bold mb-1">Side 1 Colors</h5>
+                                    <p class="text-muted mb-0">{{ implode(', ', $product->side_1_colors) }}</p>
+                                </div>
+                                @endif
+
+                                @if($product->sides_options && count($product->sides_options) > 0)
+                                <div class="col-md-4 mb-3">
+                                    <h5 class="text-dark font-weight-bold mb-1">Side Options</h5>
+                                    <p class="text-muted mb-0">{{ implode(', ', $product->sides_options) }}</p>
+                                </div>
+                                @endif
+
+                                @if($product->lamination_types && count($product->lamination_types) > 0)
+                                <div class="col-md-4 mb-3">
+                                    <h5 class="text-dark font-weight-bold mb-1">Lamination Types</h5>
+                                    <p class="text-muted mb-0">{{ implode(', ', $product->lamination_types) }}</p>
+                                </div>
+                                @endif
+
+                                @if($product->die_cutting_options && count($product->die_cutting_options) > 0)
+                                <div class="col-md-4 mb-3">
+                                    <h5 class="text-dark font-weight-bold mb-1">Die Cutting Options</h5>
+                                    <p class="text-muted mb-0">{{ implode(', ', $product->die_cutting_options) }}</p>
+                                </div>
+                                @endif
+
+                                <div class="col-md-4 mb-3">
+                                    <h5 class="text-dark font-weight-bold mb-1">Production Days</h5>
+                                    <p class="text-muted mb-0">{{ $product->production_days ?? 'N/A' }} Days</p>
+                                </div>
+
+                                <div class="col-md-4 mb-3">
+                                    <h5 class="text-dark font-weight-bold mb-1">Delivery Days</h5>
+                                    <p class="text-muted mb-0">{{ $product->delivery_days ?? 'N/A' }} Days</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
 
@@ -325,6 +428,9 @@
                         <figure>
                             <a href="{{ route('product.show', $related->slug) }}">
                                 <img src="{{ Storage::url($related->image) }}" width="280" height="280" alt="{{ $related->name }}">
+                                @if($related->images && count($related->images) > 0)
+                                    <img src="{{ Storage::url($related->images[0]) }}" width="280" height="280" alt="{{ $related->name }}">
+                                @endif
                             </a>
                         </figure>
                         <div class="product-details">
@@ -348,11 +454,38 @@
                 $('#dieToggle').change(function() { $('#dieOptions').toggleClass('d-none', !this.checked); });
                 $('#shareLinkToggle').change(function() { $('#shareLinkOptions').toggleClass('d-none', !this.checked); });
 
+                var defaultQuantities = {!! json_encode($product->quantities ?? []) !!};
+
                 $('#customQuantity').change(function() {
                     if (this.checked) {
-                        $('#quantityWrapper').html('<input type="number" id="quantityField" class="form-control" value="100" min="100">');
+                        $('#quantityWrapper').html('<input type="number" id="quantityField" class="form-control" value="100" min="1" max="1000">');
+                        $('#quantityWrapper').after('<small id="qtyError" class="text-danger" style="display:none;">Maximum quantity is 1000</small>');
                     } else {
-                        $('#quantityWrapper').html('<select class="form-control" id="quantityField"><option value="100">100</option><option value="250">250</option><option value="500">500</option><option value="1000">1000</option></select>');
+                        var options = '';
+                         if (defaultQuantities.length > 0) {
+                            $.each(defaultQuantities, function(index, value) {
+                                options += '<option value="'+value+'">'+value+'</option>';
+                            });
+                        }
+                        $('#quantityWrapper').html('<select class="form-control" id="quantityField">' + options + '</select>');
+                        $('#qtyError').remove();
+                        $('#addToCartBtn').prop('disabled', false);
+                    }
+                    calculatePrice();
+                });
+
+                $(document).on('input change', '#quantityField[type="number"]', function() {
+                    let val = parseInt($(this).val());
+                    if (val > 1000) {
+                        $('#qtyError').show();
+                        $('#addToCartBtn').prop('disabled', true);
+                    } else if(val < 1) {
+                        // Optional: Handle min value
+                         $('#addToCartBtn').prop('disabled', false); // Or invalid
+                         $('#qtyError').hide();
+                    } else {
+                        $('#qtyError').hide();
+                        $('#addToCartBtn').prop('disabled', false);
                     }
                     calculatePrice();
                 });

@@ -55,10 +55,12 @@ class ProductController extends Controller
         
         $product->materials = $request->materials ? array_map('trim', explode(',', $request->materials)) : null;
         $product->sizes = $request->sizes ? array_map('trim', explode(',', $request->sizes)) : null;
+        $product->quantities = $request->quantities ? array_map('trim', explode(',', $request->quantities)) : null;
         $product->side_1_colors = $request->side_1_colors ? array_map('trim', explode(',', $request->side_1_colors)) : null;
         $product->sides_options = $request->sides_options ? array_map('trim', explode(',', $request->sides_options)) : null;
         $product->lamination_types = $request->lamination_types ? array_map('trim', explode(',', $request->lamination_types)) : null;
         $product->die_cutting_options = $request->die_cutting_options ? array_map('trim', explode(',', $request->die_cutting_options)) : null;
+        $product->allow_custom_quantity = $request->has('allow_custom_quantity');
 
         $product->status = $request->status;
         $product->is_featured = $request->has('is_featured');
@@ -119,10 +121,12 @@ class ProductController extends Controller
 
         $product->materials = $request->materials ? array_map('trim', explode(',', $request->materials)) : null;
         $product->sizes = $request->sizes ? array_map('trim', explode(',', $request->sizes)) : null;
+        $product->quantities = $request->quantities ? array_map('trim', explode(',', $request->quantities)) : null;
         $product->side_1_colors = $request->side_1_colors ? array_map('trim', explode(',', $request->side_1_colors)) : null;
         $product->sides_options = $request->sides_options ? array_map('trim', explode(',', $request->sides_options)) : null;
         $product->lamination_types = $request->lamination_types ? array_map('trim', explode(',', $request->lamination_types)) : null;
         $product->die_cutting_options = $request->die_cutting_options ? array_map('trim', explode(',', $request->die_cutting_options)) : null;
+        $product->allow_custom_quantity = $request->has('allow_custom_quantity');
 
         $product->status = $request->status;
         $product->is_featured = $request->has('is_featured');

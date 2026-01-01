@@ -70,6 +70,13 @@
         </a>
     </li>
 
+    <li class="nav-item {{ request()->routeIs('admin.carts.index') ? 'active' : '' }}">
+        <a class="nav-link" href="{{ route('admin.carts.index') }}">
+            <i class="fas fa-fw fa-shopping-cart"></i>
+            <span>Carts</span>
+        </a>
+    </li>
+
 
     <hr class="sidebar-divider">
 

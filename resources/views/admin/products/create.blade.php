@@ -129,6 +129,23 @@
                                 </div>
                             </div>
                         </div>
+                        <div class="row">
+                             <div class="col-md-8">
+                                <div class="form-group">
+                                    <label class="font-weight-bold">Allowed Quantities (Comma separated)</label>
+                                     <input type="text" name="quantities" class="form-control" placeholder="e.g. 100, 250, 500, 1000">
+                                     <small class="form-text text-muted">Leave empty to use default quantities.</small>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group mt-4">
+                                    <div class="custom-control custom-checkbox">
+                                         <input type="checkbox" class="custom-control-input" id="allow_custom_quantity" name="allow_custom_quantity" checked>
+                                         <label class="custom-control-label font-weight-bold" for="allow_custom_quantity">Allow Custom Quantity</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

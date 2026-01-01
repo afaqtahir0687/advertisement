@@ -145,26 +145,26 @@
 
                                 <tr>
                                     <td>Subtotal (Price)</td>
-                                    <td>{{ format_price($subtotal) }}</td>
+                                    <td id="cart-subtotal">{{ format_price($subtotal) }}</td>
                                 </tr>
 
                                 @if($total_discount > 0)
                                 <tr class="text-danger">
                                     <td>Discount</td>
-                                    <td>-{{ format_price($total_discount) }}</td>
+                                    <td id="cart-discount">-{{ format_price($total_discount) }}</td>
                                 </tr>
                                 @endif
 
                                 <tr>
                                     <td>Tax (15% VAT)</td>
-                                    <td>{{ format_price($tax) }}</td>
+                                    <td id="cart-tax">{{ format_price($tax) }}</td>
                                 </tr>
                             </tbody>
 
                             <tfoot>
                                 <tr>
                                     <td>Order Total</td>
-                                    <td><strong>{{ format_price($grand_total) }}</strong></td>
+                                    <td><strong id="cart-grand-total">{{ format_price($grand_total) }}</strong></td>
                                 </tr>
                             </tfoot>
                         </table>
@@ -175,16 +175,16 @@
                                 <i class="fa fa-arrow-right"></i>
                             </a>
                             <div class="payment-methods d-flex justify-content-center mt-3">
-                                <div class="payment-icon-box border rounded p-1 mx-1 d-flex align-items-center justify-content-center" style="width: 50px; height: 35px;">
+                                <div class="payment-icon-box border rounded mx-1 d-flex align-items-center justify-content-center" style="width: 24%; height: 42px;">
                                     <img src="{{ asset('assets/images/payments/payment-visa.png') }}" alt="Visa" style="max-width: 100%; max-height: 100%;">
                                 </div>
-                                <div class="payment-icon-box border rounded p-1 mx-1 d-flex align-items-center justify-content-center" style="width: 50px; height: 35px;">
+                                <div class="payment-icon-box border rounded mx-1 d-flex align-items-center justify-content-center" style="width: 24%; height: 42px;">
                                     <img src="{{ asset('assets/images/payments/payment-mastercard.png') }}" alt="Mastercard" style="max-width: 100%; max-height: 100%;">
                                 </div>
-                                <div class="payment-icon-box border rounded p-1 mx-1 d-flex align-items-center justify-content-center" style="width: 50px; height: 35px;">
+                                <div class="payment-icon-box border rounded mx-1 d-flex align-items-center justify-content-center" style="width: 24%; height: 42px;">
                                     <img src="{{ asset('assets/images/payments/payment-mada.png') }}" alt="Mada" style="max-width: 100%; max-height: 100%;">
                                 </div>
-                                <div class="payment-icon-box border rounded p-1 mx-1 d-flex align-items-center justify-content-center" style="width: 50px; height: 35px;">
+                                <div class="payment-icon-box border rounded mx-1 d-flex align-items-center justify-content-center" style="width: 24%; height: 42px;">
                                     <img src="{{ asset('assets/images/payments/payment-applepay.png') }}" alt="Apple Pay" style="max-width: 100%; max-height: 100%;">
                                 </div>
                             </div>

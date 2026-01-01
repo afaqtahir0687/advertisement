@@ -11,6 +11,7 @@ use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\SettingController;
 use App\Http\Controllers\Admin\ProfileController;
 use App\Http\Controllers\Admin\UserController;
+use App\Http\Controllers\Admin\CartController;
 use Illuminate\Support\Facades\Route;
 
 Route::prefix('admin')->name('admin.')->group(function () {
@@ -32,6 +33,7 @@ Route::prefix('admin')->name('admin.')->group(function () {
         Route::resource('subcategories', SubcategoryController::class);
         Route::resource('products', ProductController::class);
         Route::get('get-subcategories/{category_id?}', [SubcategoryController::class, 'getSubcategories'])->name('get-subcategories');
+        Route::get('carts', [CartController::class, 'index'])->name('carts.index');
         Route::resource('users', UserController::class)->only(['index', 'destroy']);
         
         Route::get('settings', [SettingController::class, 'index'])->name('settings.index');

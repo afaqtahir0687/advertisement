@@ -31,6 +31,8 @@ return new class extends Migration
 
             // Pricing
             $table->decimal('price', 10, 2);
+            $table->json('quantities')->nullable();
+            $table->boolean('allow_custom_quantity')->default(true);
             $table->decimal('discount_price', 10, 2)->nullable();
             $table->decimal('flexible_rate', 10, 2)->nullable();
             $table->decimal('urgent_rate', 10, 2)->nullable();

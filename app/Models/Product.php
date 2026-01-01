@@ -21,6 +21,8 @@ class Product extends Model
         'additional_info',
         'price',
         'discount_price',
+        'quantities',
+        'allow_custom_quantity',
         'flexible_rate',
         'urgent_rate',
         'delivery_days',
@@ -43,6 +45,7 @@ class Product extends Model
 
     protected $casts = [
         'images' => 'array',
+        'quantities' => 'array',
         'materials' => 'array',
         'sizes' => 'array',
         'side_1_colors' => 'array',
@@ -51,6 +54,7 @@ class Product extends Model
         'die_cutting_options' => 'array',
         'is_featured' => 'boolean',
         'is_new_arrival' => 'boolean',
+        'allow_custom_quantity' => 'boolean',
     ];
 
     public function category()

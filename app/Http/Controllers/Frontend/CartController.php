@@ -13,9 +13,13 @@ class CartController extends Controller
         $product = Product::findOrFail($id);
         $cart = session()->get('cart', []);
 
-        $designs_quantity = $request->input('quantity', 1);
-        $print_quantity = $request->input('print_quantity', 100);
+        $designs_quantity = (int) $request->input('quantity', 1);
+        $print_quantity = (int) $request->input('print_quantity', 100);
         $urgency = $request->input('urgency', 'regular');
+
+        if ($print_quantity <= 0) {
+            return redirect()->back()->with('error', 'Please select a valid quantity.');
+        }
 
         $rate = 0;
         $production_days = 0;
@@ -126,7 +130,7 @@ class CartController extends Controller
         }
     }
 
-    public function remove($id)
+    public function remove(Request $request, $id)
     {
         if ($id) {
             $cart = session()->get('cart');
@@ -148,6 +152,38 @@ class CartController extends Controller
                             ->where('urgency', $urgency)
                             ->delete();
                     }
+                }
+                
+                if ($request->ajax()) {
+                    $cart = session()->get('cart', []);
+                    $count = 0;
+                    $subtotal = 0;
+                    $total_discount = 0;
+
+                    foreach($cart as $c) {
+                        $count += $c['quantity'];
+                        $item_original_total = ($c['original_price'] ?? $c['price']) * $c['quantity'];
+                        $item_selling_total = $c['price'] * $c['quantity'];
+                        
+                        $subtotal += $item_original_total;
+                        $total_discount += ($item_original_total - $item_selling_total);
+                    }
+                    
+                    $after_discount = $subtotal - $total_discount;
+                    $tax = $after_discount * 0.15;
+                    $grand_total = $after_discount + $tax;
+
+                    return response()->json([
+                        'success' => true,
+                        'message' => 'Product removed successfully!',
+                        'cartCount' => $count,
+                        'cartTotal' => format_price($after_discount), // Header total usually shows subtotal or specific logic, keeping consistent
+                        'subtotal' => format_price($subtotal),
+                        'discount' => format_price($total_discount),
+                        'tax' => format_price($tax),
+                        'grandTotal' => format_price($grand_total),
+                        'isEmpty' => $count == 0
+                    ]);
                 }
             }
             return redirect()->back()->with('success', 'Product removed from cart successfully!');

@@ -30,7 +30,8 @@ Route::middleware('auth')->group(function () {
     Route::get('/add-to-wishlist/{id}', [App\Http\Controllers\Frontend\WishlistController::class, 'add'])->name('wishlist.add');
     Route::get('/remove-from-wishlist/{id}', [App\Http\Controllers\Frontend\WishlistController::class, 'remove'])->name('wishlist.remove');
 
-    // Cart Routes
+// Cart Routes
+    // Route::resource('carts', CartController::class); // I WILL REMOVE THIS FROM HERE and move to admin.php or fix it.
     Route::get('/cart', [HomeController::class, 'cart'])->name('cart.index');
     Route::get('/add-to-cart/{id}', [App\Http\Controllers\Frontend\CartController::class, 'add'])->name('cart.add');
     Route::patch('/update-cart', [App\Http\Controllers\Frontend\CartController::class, 'update'])->name('cart.update');

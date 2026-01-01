@@ -555,3 +555,65 @@
         </div>
     </div>
 </header>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        // Use event delegation for dynamic content
+        $(document).on('click', '.btn-remove', function(e) {
+            e.preventDefault();
+            var $this = $(this);
+            var url = $this.attr('href');
+            var $productContainer = $this.closest('.product'); // For header dropdown
+            var $row = $this.closest('tr'); // For cart page table row
+
+            $.ajax({
+                url: url,
+                type: 'GET', 
+                dataType: 'json',
+                success: function(response) {
+                    if(response.success) {
+                        // Remove element from DOM
+                        if($productContainer.length) {
+                             $productContainer.fadeOut(300, function() { $(this).remove(); });
+                        }
+                        if($row.length) {
+                            $row.fadeOut(300, function() { $(this).remove(); });
+                        }
+
+                        // Update Header Cart Counts & Totals
+                        $('.cart-count').text(response.cartCount);
+                        $('.cart-total-price').html(response.cartTotal);
+
+                        // Update Cart Page Totals (if elements exist)
+                        if($('#cart-subtotal').length) $('#cart-subtotal').html(response.subtotal);
+                        if($('#cart-discount').length) $('#cart-discount').html('-' + response.discount);
+                        if($('#cart-tax').length) $('#cart-tax').html(response.tax);
+                        if($('#cart-grand-total').length) $('#cart-grand-total').html(response.grandTotal);
+
+                        // Handle Empty Cart State without reload
+                        if(response.isEmpty) {
+                             setTimeout(function(){ 
+                                 // Check if we are on cart page by looking for the table
+                                 if($('.table-cart').length) {
+                                     $('.table-cart tbody').html('<tr><td colspan="5" class="text-center p-5"><h4>Your cart is empty.</h4><a href="/" class="btn btn-primary mt-2">Go Shopping</a></td></tr>');
+                                     $('.cart-summary').fadeOut(); // Hide summary if empty
+                                 }
+                                 
+                                 // Also update header dropdown if it's open or generally
+                                 $('.dropdown-cart-products').html('<div class="product text-center"><p class="p-3">Your cart is empty.</p></div>');
+                                 $('.dropdown-cart-total').fadeOut();
+                                 $('.dropdown-cart-action').fadeOut();
+                             }, 500);
+                        }
+                    } else {
+                        // Fallback
+                        window.location.href = url;
+                    }
+                },
+                error: function() {
+                     // Fallback in case of error (e.g. non-ajax route)
+                     window.location.href = url;
+                }
+            });
+        });
+    });
+</script>
