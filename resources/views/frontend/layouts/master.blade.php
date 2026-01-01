@@ -157,6 +157,62 @@
             padding-left: 20px;
         }
     </style>
+    <style>
+        /* Custom Toast Notification Styles */
+        .custom-toast-container {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 10000;
+        }
+        .custom-toast {
+            background-color: #fff;
+            color: #333;
+            padding: 15px 20px;
+            margin-bottom: 10px;
+            border-radius: 4px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            display: flex;
+            align-items: center;
+            min-width: 300px;
+            opacity: 0;
+            transform: translateX(100%);
+            transition: all 0.4s ease;
+            border-left: 5px solid #ccc;
+        }
+        .custom-toast.show {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        .custom-toast.success {
+            border-left-color: #28a745;
+        }
+        .custom-toast.success i {
+            color: #28a745;
+        }
+        .custom-toast.error {
+            border-left-color: #dc3545;
+        }
+        .custom-toast.error i {
+            color: #dc3545;
+        }
+        .custom-toast-content {
+            flex-grow: 1;
+            margin-left: 10px;
+            font-size: 14px;
+            font-weight: 500;
+        }
+        .custom-toast-close {
+            cursor: pointer;
+            color: #999;
+            font-size: 18px;
+            line-height: 1;
+            margin-left: 10px;
+        }
+        .custom-toast-close:hover {
+            color: #333;
+        }
+    </style>
 </head>
 
 <body>
@@ -181,22 +237,7 @@
         @include('frontend.layouts.header')
 
         <div class="container mt-2">
-            @if(session('success'))
-                <div class="alert alert-success alert-dismissible fade show" role="alert">
-                    {{ session('success') }}
-                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-            @endif
-            @if(session('error'))
-                <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                    {{ session('error') }}
-                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-            @endif
+            {{-- Static alerts removed --}}
         </div>
 
        @yield('content')
@@ -422,12 +463,58 @@
 
     <a id="scroll-top" href="#top" title="Top" role="button"><i class="icon-angle-up"></i></a>
 
+    {{-- Custom Toast Container --}}
+    <div id="toast-container" class="custom-toast-container"></div>
+
     <script src="{{ asset('assets/js/jquery.min.js') }}"></script>
     <script src="{{ asset('assets/js/bootstrap.bundle.min.js') }}"></script>
     <script src="{{ asset('assets/js/optional/isotope.pkgd.min.js') }}"></script>
     <script src="{{ asset('assets/js/plugins.min.js') }}"></script>
     <script src="{{ asset('assets/js/jquery.appear.min.js') }}"></script>
     <script src="{{ asset('assets/js/main.min.js') }}"></script>
+    
+    <script>
+        function showToast(message, type) {
+            const container = document.getElementById('toast-container');
+            const toast = document.createElement('div');
+            
+            let iconClass = 'fa-info-circle';
+            if (type === 'success') iconClass = 'fa-check-circle';
+            if (type === 'error') iconClass = 'fa-exclamation-circle';
+
+            toast.className = `custom-toast ${type}`;
+            toast.innerHTML = `
+                <i class="fas ${iconClass} fa-lg"></i>
+                <div class="custom-toast-content">${message}</div>
+                <span class="custom-toast-close">&times;</span>
+            `;
+
+            container.appendChild(toast);
+
+            setTimeout(() => {
+                toast.classList.add('show');
+            }, 10);
+
+            const closeToast = () => {
+                toast.classList.remove('show');
+                setTimeout(() => {
+                    toast.remove();
+                }, 400); 
+            };
+
+            setTimeout(closeToast, 5000);
+
+            toast.querySelector('.custom-toast-close').addEventListener('click', closeToast);
+        }
+
+        @if(session('success'))
+            showToast("{{ session('success') }}", 'success');
+        @endif
+        @if(session('error'))
+            showToast("{{ session('error') }}", 'error');
+        @endif
+    </script>
+
     @stack('scripts')
 </body>
 </html>

@@ -65,11 +65,9 @@ class CartController extends Controller
 
         session()->put('cart', $cart);
 
-        // Database Persistence for Authenticated Users
         if (auth()->check()) {
             $user = auth()->user();
 
-            // Check if item exists in DB for this user with same options
             $existingCartItem = \App\Models\Cart::where('user_id', $user->id)
                 ->where('product_id', $product->id)
                 ->where('print_quantity', $print_quantity)
@@ -93,6 +91,15 @@ class CartController extends Controller
             }
         }
 
+        if ($request->ajax()) {
+            $cartCount = count(session('cart'));
+            return response()->json([
+                'success' => true,
+                'message' => 'Product added to cart successfully!',
+                'cartCount' => $cartCount
+            ]);
+        }
+
         return redirect()->back()->with('success', 'Product added to cart successfully!');
     }
 
@@ -103,10 +110,8 @@ class CartController extends Controller
             $cart[$request->id]["quantity"] = $request->quantity;
             session()->put('cart', $cart);
 
-            // Sync with DB
             if (auth()->check()) {
-                // Determine cart details from session ID (composite key)
-                // ID format: product_id . '_' . print_quantity . '_' . urgency
+                
                 $parts = explode('_', $request->id);
                 if (count($parts) >= 3) {
                     $productId = $parts[0];
@@ -177,7 +182,7 @@ class CartController extends Controller
                         'success' => true,
                         'message' => 'Product removed successfully!',
                         'cartCount' => $count,
-                        'cartTotal' => format_price($after_discount), // Header total usually shows subtotal or specific logic, keeping consistent
+                        'cartTotal' => format_price($after_discount),
                         'subtotal' => format_price($subtotal),
                         'discount' => format_price($total_discount),
                         'tax' => format_price($tax),

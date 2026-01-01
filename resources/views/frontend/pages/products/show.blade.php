@@ -449,7 +449,7 @@
     @push('scripts')
         <script>
             $(document).ready(function() {
-                // UI Toggles
+                
                 $('#laminationToggle').change(function() { $('#laminationOptions').toggleClass('d-none', !this.checked); });
                 $('#dieToggle').change(function() { $('#dieOptions').toggleClass('d-none', !this.checked); });
                 $('#shareLinkToggle').change(function() { $('#shareLinkOptions').toggleClass('d-none', !this.checked); });
@@ -480,8 +480,8 @@
                         $('#qtyError').show();
                         $('#addToCartBtn').prop('disabled', true);
                     } else if(val < 1) {
-                        // Optional: Handle min value
-                         $('#addToCartBtn').prop('disabled', false); // Or invalid
+                       
+                         $('#addToCartBtn').prop('disabled', false); 
                          $('#qtyError').hide();
                     } else {
                         $('#qtyError').hide();
@@ -490,7 +490,6 @@
                     calculatePrice();
                 });
 
-                // Pricing Calculation
                 @php
                     $currency = current_currency();
                     $rates = ['USD' => 1, 'SAR' => 3.75, 'PKR' => 280];
@@ -504,7 +503,6 @@
                 const flexRate = {{ $product->flexible_rate ?? 0 }};
                 const urgentRate = {{ $product->urgent_rate ?? 0 }};
 
-                // Base Days from Backend
                 const baseProdDays = {
                     regular: {{ $product->production_days ?? 3 }},
                     flexible: {{ $product->flexible_production_days ?? 5 }},
@@ -521,16 +519,10 @@
                     let numDesigns = parseInt($('#num_designs').val()) || 1;
                     let urgency = $('input[name="urgency"]:checked').val();
                     
-                    // Calculate individual urgency prices (Unit Price * Designs)
-                    // Unit Price = (qty/100) * rate_per_100
                     
                     let regularPrice = (qty / 100) * baseRate * numDesigns;
                     let flexiblePrice = (qty / 100) * flexRate * numDesigns;
                     let urgentPrice = (qty / 100) * urgentRate * numDesigns;
-                    
-                    // Logic to increase days based on quantity
-                    // Production: Increase by 1 day for every 1000 units.
-                    // Delivery: Increase by 1 day for every 2000 units.
                     
                     let extraProdDays = 0;
                     let extraDeliveryDays = 0;
@@ -542,11 +534,10 @@
                     
                     let regProd = baseProdDays.regular + extraProdDays;
                     let flexProd = baseProdDays.flexible + extraProdDays;
-                    let urgProd = baseProdDays.urgent + extraProdDays; // Urgent might stay same? Assuming increases too for large bulk
+                    let urgProd = baseProdDays.urgent + extraProdDays;
                     
                     let delDays = baseDeliveryDays + extraDeliveryDays;
 
-                    // Update Table Cells
                     $('#price-regular').text(formatCurrency(regularPrice));
                     $('#days-production-regular').text(regProd + ' Days');
                     $('#days-delivery-regular').text(delDays + ' Day' + (delDays > 1 ? 's' : ''));
@@ -558,11 +549,10 @@
                     }
                     if (urgentRate > 0) {
                          $('#price-urgent').text(formatCurrency(urgentPrice));
-                         $('#days-production-urgent').text(urgProd + ' Days'); // Update urgent production too?
+                         $('#days-production-urgent').text(urgProd + ' Days'); 
                          $('#days-delivery-urgent').text(delDays + ' Day' + (delDays > 1 ? 's' : ''));
                     }
 
-                    // Determine Selected Subtotal
                     let subtotal = 0;
                     if (urgency === 'regular') subtotal = regularPrice;
                     else if (urgency === 'flexible') subtotal = flexiblePrice;
@@ -578,19 +568,40 @@
 
                 $(document).on('click', '#addToCartBtn', function(e) {
                     e.preventDefault();
-                    let printQty = $('#quantityField').val(); // 100, 500, etc.
-                    let numDesigns = $('#num_designs').val(); // 1, 2, etc.
+                    let printQty = $('#quantityField').val();
+                    let numDesigns = $('#num_designs').val(); 
                     let urgency = $('input[name="urgency"]:checked').val();
 
                     let url = "{{ route('cart.add', ':id') }}";
                     url = url.replace(':id', {{ $product->id }});
                     
-                    // Send print_quantity, quantity (num_designs), and urgency
-                    window.location.href = url + "?print_quantity=" + printQty + "&quantity=" + numDesigns + "&urgency=" + urgency;
+                    $.ajax({
+                        url: url,
+                        type: 'GET',
+                        data: {
+                            print_quantity: printQty,
+                            quantity: numDesigns,
+                            urgency: urgency
+                        },
+                        success: function(response) {
+                             if(typeof showToast === 'function') {
+                                showToast("Product added to cart successfully!", "success");
+                            }
+                            
+                            if(response.cartCount) {
+                                $('.cart-count').text(response.cartCount);
+                            }
+                        },
+                        error: function(xhr) {
+                            if(typeof showToast === 'function') {
+                                showToast("Error adding product to cart.", "error");
+                            }
+                        }
+                    });
                 });
 
                 $(document).on('input change', '#quantityField, #num_designs, input[name="urgency"]', calculatePrice);
-                // Also trigger calculation on load to set initial values correctly
+
                 calculatePrice();
             });
         </script>
