@@ -196,6 +196,18 @@
         .custom-toast.error i {
             color: #dc3545;
         }
+        .custom-toast.warning {
+            border-left-color: #ffc107;
+        }
+        .custom-toast.warning i {
+            color: #ffc107;
+        }
+        .custom-toast.info {
+            border-left-color: #17a2b8;
+        }
+        .custom-toast.info i {
+            color: #17a2b8;
+        }
         .custom-toast-content {
             flex-grow: 1;
             margin-left: 10px;
@@ -512,6 +524,17 @@
         @endif
         @if(session('error'))
             showToast("{{ session('error') }}", 'error');
+        @endif
+        @if(session('warning'))
+            showToast("{{ session('warning') }}", 'warning');
+        @endif
+        @if(session('status'))
+            showToast("{{ session('status') }}", 'success');
+        @endif
+        @if($errors->any())
+            @foreach($errors->all() as $error)
+                showToast("{{ $error }}", 'error');
+            @endforeach
         @endif
     </script>
 
