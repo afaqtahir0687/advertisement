@@ -141,10 +141,16 @@
                                 </div>
                             </div>
                             <div class="col-md-4">
-                                <div class="form-group mt-4">
+                                <div class="form-group mb-0 mt-2">
                                     <div class="custom-control custom-checkbox">
                                          <input type="checkbox" class="custom-control-input" id="allow_custom_quantity" name="allow_custom_quantity" {{ $product->allow_custom_quantity ? 'checked' : '' }}>
                                          <label class="custom-control-label font-weight-bold" for="allow_custom_quantity">Allow Custom Quantity</label>
+                                    </div>
+                                </div>
+                                <div class="form-group mb-0 mt-2">
+                                    <div class="custom-control custom-checkbox">
+                                         <input type="checkbox" class="custom-control-input" id="allow_round_corners" name="allow_round_corners" {{ $product->allow_round_corners ? 'checked' : '' }}>
+                                         <label class="custom-control-label font-weight-bold" for="allow_round_corners">Allow Round Corners</label>
                                     </div>
                                 </div>
                             </div>

@@ -39,9 +39,13 @@ class CartController extends Controller
         if (!$rate) $rate = $product->price;
 
 
+        $options = $request->except(['_token', 'quantity', 'print_quantity', 'urgency']);
+        
         $unit_price = ($print_quantity / 100) * $rate;
 
-        $cartId = $id . '_' . $print_quantity . '_' . $urgency;
+        // Generate a unique ID for the cart item based on product, quantities, urgency AND options
+        $optionsHash = !empty($options) ? '_' . md5(json_encode($options)) : '';
+        $cartId = $id . '_' . $print_quantity . '_' . $urgency . $optionsHash;
 
         if (isset($cart[$cartId])) {
             $cart[$cartId]['quantity'] += $designs_quantity;
@@ -54,12 +58,12 @@ class CartController extends Controller
                 "original_price" => $unit_price,
                 "image" => $product->image,
                 "slug" => $product->slug,
-                "options" => [
+                "options" => array_merge([
                     "print_quantity" => $print_quantity,
                     "urgency" => $urgency,
                     "production_days" => $production_days,
                     "delivery_days" => $product->delivery_days ?? 1
-                ]
+                ], $options)
             ];
         }
 
@@ -72,6 +76,7 @@ class CartController extends Controller
                 ->where('product_id', $product->id)
                 ->where('print_quantity', $print_quantity)
                 ->where('urgency', $urgency)
+                ->where('options', json_encode($options)) // Match options too
                 ->first();
 
             if ($existingCartItem) {
@@ -87,6 +92,7 @@ class CartController extends Controller
                     'price' => $unit_price,
                     'production_days' => $production_days,
                     'delivery_days' => $product->delivery_days ?? 1,
+                    'options' => $options
                 ]);
             }
         }

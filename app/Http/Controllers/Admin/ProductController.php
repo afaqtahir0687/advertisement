@@ -61,6 +61,7 @@ class ProductController extends Controller
         $product->lamination_types = $request->lamination_types ? array_map('trim', explode(',', $request->lamination_types)) : null;
         $product->die_cutting_options = $request->die_cutting_options ? array_map('trim', explode(',', $request->die_cutting_options)) : null;
         $product->allow_custom_quantity = $request->has('allow_custom_quantity');
+        $product->allow_round_corners = $request->has('allow_round_corners');
 
         $product->status = $request->status;
         $product->is_featured = $request->has('is_featured');
@@ -127,6 +128,7 @@ class ProductController extends Controller
         $product->lamination_types = $request->lamination_types ? array_map('trim', explode(',', $request->lamination_types)) : null;
         $product->die_cutting_options = $request->die_cutting_options ? array_map('trim', explode(',', $request->die_cutting_options)) : null;
         $product->allow_custom_quantity = $request->has('allow_custom_quantity');
+        $product->allow_round_corners = $request->has('allow_round_corners');
 
         $product->status = $request->status;
         $product->is_featured = $request->has('is_featured');

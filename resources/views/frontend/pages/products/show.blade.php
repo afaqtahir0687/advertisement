@@ -205,6 +205,51 @@
                                     <input type="text" class="form-control" id="productMemo" placeholder="Enter product memo">
                                 </div>
 
+                                @if($product->allow_round_corners)
+                                <!-- Round Corner Toggle -->
+                                <div class="toggle-box">
+                                    <div class="toggle-header">
+                                        <span class="toggle-label">
+                                            Round Corners
+                                            <span id="roundStatus" class="toggle-status">✓</span>
+                                        </span>
+                                        <div class="custom-control custom-switch">
+                                            <input type="checkbox" class="custom-control-input" id="roundToggle">
+                                            <label class="custom-control-label" for="roundToggle"></label>
+                                        </div>
+                                    </div>
+
+                                    <div id="roundOptions" class="d-none">
+                                        <div class="row">
+                                            <div class="col-6">
+                                                <div class="option-box" data-corner="upper-left">
+                                                    Upper Left
+                                                    <span class="check-icon">✓</span>
+                                                </div>
+                                            </div>
+                                            <div class="col-6">
+                                                <div class="option-box" data-corner="upper-right">
+                                                    Upper Right
+                                                    <span class="check-icon">✓</span>
+                                                </div>
+                                            </div>
+                                            <div class="col-6 mt-2">
+                                                <div class="option-box" data-corner="lower-left">
+                                                    Lower Left
+                                                    <span class="check-icon">✓</span>
+                                                </div>
+                                            </div>
+                                            <div class="col-6 mt-2">
+                                                <div class="option-box" data-corner="lower-right">
+                                                    Lower Right
+                                                    <span class="check-icon">✓</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                @endif
+
                                 <div class="toggle-box clickable-box" id="shareLinkBox">
                                     <div class="toggle-header">
                                         <strong>Share A Link</strong>
@@ -450,9 +495,47 @@
         <script>
             $(document).ready(function() {
                 
-                $('#laminationToggle').change(function() { $('#laminationOptions').toggleClass('d-none', !this.checked); });
-                $('#dieToggle').change(function() { $('#dieOptions').toggleClass('d-none', !this.checked); });
+                function toggleSection(toggleId, optionIds, statusId = null) {
+                    const toggle = document.getElementById(toggleId);
+                    if(!toggle) return;
+
+                    if (!Array.isArray(optionIds)) {
+                        optionIds = [optionIds];
+                    }
+
+                    const status = statusId ? document.getElementById(statusId) : null;
+
+                    function applyState() {
+                        optionIds.forEach(id => {
+                            const el = document.getElementById(id);
+                            if (!el) return;
+
+                            toggle.checked ? el.classList.remove('d-none') : el.classList.add('d-none');
+
+                            if (!toggle.checked) {
+                                el.querySelectorAll('.option-box').forEach(box => {
+                                    box.classList.remove('active');
+                                });
+                            }
+                        });
+
+                        if (status) {
+                            toggle.checked ? status.classList.add('active') : status.classList.remove('active');
+                        }
+                    }
+
+                    toggle.addEventListener('change', applyState);
+                    applyState();
+                }
+
+                toggleSection('laminationToggle', 'laminationOptions');
+                toggleSection('dieToggle', 'dieOptions', 'dieStatus');
+                toggleSection('roundToggle', 'roundOptions', 'roundStatus');
                 $('#shareLinkToggle').change(function() { $('#shareLinkOptions').toggleClass('d-none', !this.checked); });
+
+                $(document).on('click', '.option-box', function() {
+                    $(this).toggleClass('active');
+                });
 
                 var defaultQuantities = {!! json_encode($product->quantities ?? []) !!};
 
@@ -572,17 +655,44 @@
                     let numDesigns = $('#num_designs').val(); 
                     let urgency = $('input[name="urgency"]:checked').val();
 
+                    // Collect other options
+                    let options = {
+                        print_quantity: printQty,
+                        quantity: numDesigns,
+                        urgency: urgency
+                    };
+
+                    if($('#side1Color').length) options.side_1_color = $('#side1Color').val();
+                    if($('#size').length) options.size = $('#size').val();
+                    if($('#sides').length) options.sides = $('#sides').val();
+                    if($('#material').length) options.material = $('#material').val();
+                    if($('#productMemo').length) options.memo = $('#productMemo').val();
+
+                    if($('#laminationToggle').is(':checked')) {
+                        options.lamination = $('#lamination_type').val();
+                    }
+
+                    if($('#dieToggle').is(':checked')) {
+                        options.die_cutting = $('#die_cutting_type').val();
+                    }
+
+                    if($('#roundToggle').is(':checked')) {
+                        let selectedCorners = [];
+                        $('.option-box.active').each(function() {
+                            selectedCorners.push($(this).text().trim().replace('✓', '').trim());
+                        });
+                        if(selectedCorners.length > 0) {
+                            options.round_corners = selectedCorners.join(', ');
+                        }
+                    }
+
                     let url = "{{ route('cart.add', ':id') }}";
                     url = url.replace(':id', {{ $product->id }});
                     
                     $.ajax({
                         url: url,
                         type: 'GET',
-                        data: {
-                            print_quantity: printQty,
-                            quantity: numDesigns,
-                            urgency: urgency
-                        },
+                        data: options,
                         success: function(response) {
                              if(typeof showToast === 'function') {
                                 showToast("Product added to cart successfully!", "success");

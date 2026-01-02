@@ -17,7 +17,12 @@ class Cart extends Model
         'urgency',
         'price',
         'production_days',
-        'delivery_days'
+        'delivery_days',
+        'options'
+    ];
+
+    protected $casts = [
+        'options' => 'array'
     ];
 
     public function product()

@@ -40,6 +40,7 @@ class Product extends Model
         'is_featured',
         'is_new_arrival',
         'is_wishlist',
+        'allow_round_corners',
         'status',
     ];
 
@@ -55,6 +56,7 @@ class Product extends Model
         'is_featured' => 'boolean',
         'is_new_arrival' => 'boolean',
         'allow_custom_quantity' => 'boolean',
+        'allow_round_corners' => 'boolean',
     ];
 
     public function category()
