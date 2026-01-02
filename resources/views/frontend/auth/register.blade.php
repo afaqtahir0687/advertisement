@@ -51,20 +51,63 @@
 
                         <form method="POST" action="{{ route('register.store') }}">
                             @csrf
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="first_name">
+                                            First Name
+                                            <span class="text-danger">*</span>
+                                        </label>
+                                        <input type="text"
+                                               class="form-control form-control-lg @error('first_name') is-invalid @enderror"
+                                               id="first_name"
+                                               name="first_name"
+                                               value="{{ old('first_name') }}"
+                                               required
+                                               autocomplete="given-name"
+                                               autofocus />
+                                        @error('first_name')
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                        @enderror
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="last_name">
+                                            Last Name
+                                            <span class="text-danger">*</span>
+                                        </label>
+                                        <input type="text"
+                                               class="form-control form-control-lg @error('last_name') is-invalid @enderror"
+                                               id="last_name"
+                                               name="last_name"
+                                               value="{{ old('last_name') }}"
+                                               required
+                                               autocomplete="family-name" />
+                                        @error('last_name')
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                        @enderror
+                                    </div>
+                                </div>
+                            </div>
+
                             <div class="form-group">
-                                <label for="name">
-                                    Full Name
+                                <label for="phone">
+                                    Phone Number
                                     <span class="text-danger">*</span>
                                 </label>
-                                <input type="text" 
-                                       class="form-control form-control-lg @error('name') is-invalid @enderror" 
-                                       id="name" 
-                                       name="name" 
-                                       value="{{ old('name') }}" 
-                                       required 
-                                       autocomplete="name" 
-                                       autofocus />
-                                @error('name')
+                                <input type="text"
+                                       class="form-control form-control-lg @error('phone') is-invalid @enderror"
+                                       id="phone"
+                                       name="phone"
+                                       value="{{ old('phone') }}"
+                                       required
+                                       autocomplete="tel" />
+                                @error('phone')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
