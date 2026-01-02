@@ -96,25 +96,6 @@
                             </div>
 
                             <div class="form-group">
-                                <label for="phone">
-                                    Phone Number
-                                    <span class="text-danger">*</span>
-                                </label>
-                                <input type="text"
-                                       class="form-control form-control-lg @error('phone') is-invalid @enderror"
-                                       id="phone"
-                                       name="phone"
-                                       value="{{ old('phone') }}"
-                                       required
-                                       autocomplete="tel" />
-                                @error('phone')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-
-                            <div class="form-group">
                                 <label for="email">
                                     Email address
                                     <span class="text-danger">*</span>

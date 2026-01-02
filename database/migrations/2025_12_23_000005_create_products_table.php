@@ -33,6 +33,7 @@ return new class extends Migration
             $table->decimal('price', 10, 2);
             $table->json('quantities')->nullable();
             $table->boolean('allow_custom_quantity')->default(true);
+            $table->boolean('allow_round_corners')->default(false);
             $table->decimal('discount_price', 10, 2)->nullable();
             $table->decimal('flexible_rate', 10, 2)->nullable();
             $table->decimal('urgent_rate', 10, 2)->nullable();

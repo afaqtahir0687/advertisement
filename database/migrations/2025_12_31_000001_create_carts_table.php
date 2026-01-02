@@ -21,6 +21,7 @@ return new class extends Migration
             $table->decimal('price', 10, 2); 
             $table->integer('production_days')->default(3);
             $table->integer('delivery_days')->default(1);
+            $table->json('options')->nullable();
             $table->timestamps();
         });
     }
