@@ -37,12 +37,11 @@ class RegistrationOTP extends Notification
     public function toMail(object $notifiable): MailMessage
     {
         return (new MailMessage)
-                    ->subject('Registration OTP - ' . config('app.name'))
-                    ->greeting('Hello ' . $notifiable->first_name . '!')
-                    ->line('Thank you for registering. Please use the following One-Time Password (OTP) to verify your account:')
-                    ->line(new \Illuminate\Support\HtmlString('<h1 style="text-align: center; color: #4CAF50; letter-spacing: 5px;">' . $this->otp . '</h1>'))
-                    ->line('This code will expire in 10 minutes.')
-                    ->line('If you did not create an account, no further action is required.');
+                    ->subject('Registration OTP - Crelogics')
+                    ->view('mail.registration-otp', [
+                        'otp' => $this->otp,
+                        'first_name' => $notifiable->first_name
+                    ]);
     }
 
     /**
