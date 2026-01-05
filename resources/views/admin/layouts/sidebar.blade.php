@@ -91,14 +91,15 @@
         </a>
     </li>
 
+{{-- 
+    <hr class="sidebar-divider">
 
-    <!-- <hr class="sidebar-divider">
-
-        <li class="nav-item">
+    <li class="nav-item {{ request()->routeIs('admin.settings.*') ? 'active' : '' }}">
         <a class="nav-link" href="{{ route('admin.settings.index') }}">
             <i class="fas fa-fw fa-cogs"></i>
-            <span>Settings</span></a>
-    </li> -->
+            <span>Settings</span>
+        </a>
+    </li> --}}
 
     <hr class="sidebar-divider d-none d-md-block">
 
@@ -109,7 +110,11 @@
     <!-- Sidebar Footer (Custom Branding) -->
     <div class="sidebar-card d-none d-lg-flex text-center">
         <a href="{{ route('home') }}" class="logo mb-2" target="_blank">
-            <img src="{{ asset('assets/images/logo.png') }}" width="111" height="44" alt="Crelogics Logo">
+            @if(config('app.logo'))
+                <img src="{{ asset('storage/' . config('app.logo')) }}" width="111" height="44" alt="{{ config('app.name') }}">
+            @else
+                <img src="{{ asset('assets/images/logo.png') }}" width="111" height="44" alt="{{ config('app.name') }}">
+            @endif
         </a>
 
         <p class="text-center mb-2">

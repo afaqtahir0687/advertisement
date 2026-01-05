@@ -37,7 +37,7 @@ class RegistrationOTP extends Notification
     public function toMail(object $notifiable): MailMessage
     {
         return (new MailMessage)
-                    ->subject('Registration OTP - Crelogics')
+                    ->subject('Registration OTP - ' . config('app.name'))
                     ->view('mail.registration-otp', [
                         'otp' => $this->otp,
                         'first_name' => $notifiable->first_name

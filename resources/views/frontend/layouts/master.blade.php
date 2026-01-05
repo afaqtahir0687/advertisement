@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Crelogics</title>
+    <title>{{ config('app.name') }}</title>
     <meta name="keywords" content="HTML5 Template" />
     <meta name="description" content="Porto - Bootstrap eCommerce Template">
     <meta name="author" content="SW-THEMES">
@@ -444,7 +444,11 @@
 
     {{-- <div class="newsletter-popup mfp-hide bg-img" id="newsletter-popup-form" style="background: #f1f1f1 no-repeat center/cover url(assets/images/newsletter_popup_bg.jpg)">
         <div class="newsletter-popup-content">
-            <img src="assets/images/logo.png" width="111" height="44" alt="Logo" class="logo-newsletter">
+            @if(config('app.logo'))
+                <img src="{{ asset('storage/' . config('app.logo')) }}" alt="{{ config('app.name') }}" width="111" height="44" class="logo-newsletter">
+            @else
+                <img src="{{ asset('assets/images/logo.png') }}" width="111" height="44" alt="Logo" class="logo-newsletter">
+            @endif
             <h2>Subscribe to newsletter</h2>
 
             <p>

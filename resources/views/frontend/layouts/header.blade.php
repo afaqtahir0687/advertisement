@@ -71,7 +71,11 @@
                     <i class="fas fa-bars"></i>
                 </button>
                 <a href="{{route('home')}}" class="logo">
-                    <img src="{{ asset('assets/images/logo.png') }}" width="111" height="44" alt="Porto Logo">
+                    @if(config('app.logo'))
+                        <img src="{{ asset('storage/' . config('app.logo')) }}" width="111" height="44" alt="{{ config('app.name') }}">
+                    @else
+                        <img src="{{ asset('assets/images/logo.png') }}" width="111" height="44" alt="{{ config('app.name') }}">
+                    @endif
                 </a>
             </div>
 

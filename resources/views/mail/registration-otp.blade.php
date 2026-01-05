@@ -103,12 +103,16 @@
     <div class="wrapper">
         <div class="content">
             <div class="header">
-                <img src="http://adv.crelogics.com/assets/images/logo.png" alt="Crelogics">
+                @if(config('app.logo'))
+                    <img src="{{ asset('storage/' . config('app.logo')) }}" alt="{{ config('app.name') }}">
+                @else
+                    <img src="{{ asset('assets/images/logo.png') }}" alt="{{ config('app.name') }}">
+                @endif
             </div>
             <div class="body">
                 <div class="greeting">Hello {{ $first_name }}!</div>
                 <div class="message">
-                    Thank you for registering with <strong>Crelogics</strong>. Please use the following One-Time Password (OTP) to verify your account and complete your registration.
+                    Thank you for registering with <strong>{{ config('app.name') }}</strong>. Please use the following One-Time Password (OTP) to verify your account and complete your registration.
                 </div>
                 
                 <div class="otp-container">
@@ -124,7 +128,7 @@
                 </div>
             </div>
             <div class="footer">
-                <p>&copy; {{ date('Y') }} Crelogics. All rights reserved.</p>
+                <p>&copy; {{ date('Y') }} {{ config('app.name') }}. All rights reserved.</p>
                 <p>If you have any questions, please contact our support team.</p>
             </div>
         </div>
