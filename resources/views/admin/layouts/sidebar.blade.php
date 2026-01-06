@@ -91,7 +91,7 @@
         </a>
     </li>
 
-{{-- 
+
     <hr class="sidebar-divider">
 
     <li class="nav-item {{ request()->routeIs('admin.settings.*') ? 'active' : '' }}">
@@ -99,7 +99,7 @@
             <i class="fas fa-fw fa-cogs"></i>
             <span>Settings</span>
         </a>
-    </li> --}}
+    </li>
 
     <hr class="sidebar-divider d-none d-md-block">
 

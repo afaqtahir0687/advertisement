@@ -27,7 +27,7 @@
                             <p class="text-center">Create your account to get started</p>
                         </div>
 
-                        <form method="POST" action="{{ route('register.store') }}">
+                        <form method="POST" action="{{ route('register.store') }}" enctype="multipart/form-data">
                             @csrf
                             <div class="row">
                                 <div class="col-md-6">
@@ -78,12 +78,12 @@
                                     Email address
                                     <span class="text-danger">*</span>
                                 </label>
-                                <input type="email" 
-                                       class="form-control form-control-lg @error('email') is-invalid @enderror" 
-                                       id="email" 
-                                       name="email" 
-                                       value="{{ old('email') }}" 
-                                       required 
+                                <input type="email"
+                                       class="form-control form-control-lg @error('email') is-invalid @enderror"
+                                       id="email"
+                                       name="email"
+                                       value="{{ old('email') }}"
+                                       required
                                        autocomplete="email" />
                                 @error('email')
                                     <span class="invalid-feedback" role="alert">
@@ -93,15 +93,27 @@
                             </div>
 
                             <div class="form-group">
+                                <label for="image">Profile Image (optional)</label>
+                                <input type="file"
+                                    class="form-control @error('image') is-invalid @enderror"
+                                    name="image"
+                                    accept="image/*">
+                                @error('image')
+                                    <span class="invalid-feedback">{{ $message }}</span>
+                                @enderror
+                            </div>
+
+
+                            <div class="form-group">
                                 <label for="password">
                                     Password
                                     <span class="text-danger">*</span>
                                 </label>
-                                <input type="password" 
-                                       class="form-control form-control-lg @error('password') is-invalid @enderror" 
-                                       id="password" 
-                                       name="password" 
-                                       required 
+                                <input type="password"
+                                       class="form-control form-control-lg @error('password') is-invalid @enderror"
+                                       id="password"
+                                       name="password"
+                                       required
                                        autocomplete="new-password" />
                                 @error('password')
                                     <span class="invalid-feedback" role="alert">
@@ -115,11 +127,11 @@
                                     Confirm Password
                                     <span class="text-danger">*</span>
                                 </label>
-                                <input type="password" 
-                                       class="form-control form-control-lg" 
-                                       id="password-confirm" 
-                                       name="password_confirmation" 
-                                       required 
+                                <input type="password"
+                                       class="form-control form-control-lg"
+                                       id="password-confirm"
+                                       name="password_confirmation"
+                                       required
                                        autocomplete="new-password" />
                             </div>
 
@@ -131,7 +143,7 @@
 
                             <div class="text-center mt-3">
                                 <p class="mb-0">
-                                    Already have an account? 
+                                    Already have an account?
                                     <a href="{{ route('login') }}" class="text-primary font-weight-bold">Sign In</a>
                                 </p>
                             </div>

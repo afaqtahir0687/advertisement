@@ -45,34 +45,48 @@ class AuthController extends Controller
 
     // Handle registration form submission
     public function storeRegistration(Request $request)
-    {
-        $validated = $request->validate([
-            'first_name' => 'required|string|max:255',
-            'last_name' => 'required|string|max:255',
-            'email' => 'required|string|email|max:255|unique:users',
-            'password' => 'required|string|min:8|confirmed',
-        ]);
+{
+    $validated = $request->validate([
+        'first_name' => 'required|string|max:255',
+        'last_name'  => 'required|string|max:255',
+        'email'      => 'required|string|email|max:255|unique:users',
+        'image'      => 'nullable|image|mimes:jpg,jpeg,png,webp|max:2048',
+        'password'   => 'required|string|min:8|confirmed',
+    ]);
 
-        $otp = rand(100000, 999999);
+    // Generate OTP
+    $otp = rand(100000, 999999);
 
-        $user = User::create([
-            'first_name' => $validated['first_name'],
-            'last_name' => $validated['last_name'],
-            'email' => $validated['email'],
-            'password' => Hash::make($validated['password']),
-            'status' => 1,
-            'otp' => $otp,
-            'otp_expires_at' => Carbon::now()->addMinutes(10),
-        ]);
-
-        // Send OTP Notification
-        $user->notify(new RegistrationOTP($otp));
-
-        // Store user ID in session for verification
-        session(['otp_user_id' => $user->id]);
-
-        return redirect()->route('otp.verify')->with('success', 'Registration successful! Please check your email for the OTP code.');
+    // Handle Image Upload
+    $imageName = null;
+    if ($request->hasFile('image')) {
+        $image      = $request->file('image');
+        $imageName  = time() . '_' . uniqid() . '.' . $image->getClientOriginalExtension();
+        $image->move(public_path('assets/images/users_image'), $imageName);
     }
+
+    // Create User
+    $user = User::create([
+        'first_name'       => $validated['first_name'],
+        'last_name'        => $validated['last_name'],
+        'email'            => $validated['email'],
+        'password'         => Hash::make($validated['password']),
+        'image'            => $imageName,
+        'status'           => 1,
+        'otp'              => $otp,
+        'otp_expires_at'   => Carbon::now()->addMinutes(10),
+    ]);
+
+    // Send OTP Notification
+    $user->notify(new RegistrationOTP($otp));
+
+    // Store user ID in session for OTP verification
+    session(['otp_user_id' => $user->id]);
+
+    return redirect()
+        ->route('otp.verify')
+        ->with('success', 'Registration successful! Please check your email for the OTP code.');
+}
 
     // Show OTP verification form
     public function showVerifyOtp()
