@@ -15,7 +15,10 @@
                             <li><a href="{{route('wishlist.index')}}">My Wishlist</a></li>
                             <li><a href="{{ route('cart.index') }}">Cart</a></li>
                             <li><a href="{{ route('track.order') }}">Track Order</a></li>
-                            <li><a href="{{ route('register') }}">Register</a></li>
+                            @guest
+                                <li><a href="{{ route('register') }}">Register</a></li>
+                                <li><a href="{{ route('login') }}">Login</a></li>
+                            @endguest
                         </ul>
                     </div>
                 </div>
@@ -33,7 +36,7 @@
                 </div>
 
                 <div class="header-dropdown mr-auto mr-sm-3 mr-md-0 currency-dropdown-premium">
-                    @php 
+                    @php
                         $current = current_currency();
                         $icon = '$';
                         if($current == 'SAR') $icon = 'SR';
@@ -55,11 +58,47 @@
 
                 <span class="separator"></span>
 
-                <div class="social-icons">
+                @auth
+                    <div class="header-dropdown mr-auto mr-sm-3 mr-md-0 currency-dropdown-premium ml-2">
+                        @php
+                            $name = Auth::user()->name;
+                            $firstLetter = strtoupper(substr($name, 0, 1));
+                        @endphp
+                        <a href="#" class="currency-switcher">
+                            @if(Auth::user()->image)
+                                <img src="{{ asset('storage/' . Auth::user()->image) }}" alt="User" style="width: 20px; height: 20px; border-radius: 50%; margin-right: 8px; object-fit: cover; box-shadow: 0 1px 3px rgba(233, 29, 142, 0.3);">
+                            @else
+                                <span class="curr-icon-circle">{{ $firstLetter }}</span>
+                            @endif
+                            <span>{{ $name }}</span>
+                            <i class="fas fa-chevron-down ml-2" style="font-size: 10px;"></i>
+                        </a>
+                        <div class="header-menu">
+                            <ul>
+                                <li>
+                                    <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form-header').submit();">
+                                        <i class="fas fa-sign-out-alt mr-2" style="font-size: 12px;"></i>Logout
+                                    </a>
+                                    <form id="logout-form-header" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                        @csrf
+                                    </form>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                @else
+                    <div class="header-dropdown ml-0 ml-md-3">
+                        <a href="{{ route('login') }}">Login</a>
+                    </div>
+                @endauth
+
+                {{-- <span class="separator"></span> --}}
+
+                {{-- <div class="social-icons">
                     <a href="#" class="social-icon social-facebook icon-facebook" target="_blank"></a>
                     <a href="#" class="social-icon social-twitter icon-twitter" target="_blank"></a>
                     <a href="#" class="social-icon social-instagram icon-instagram" target="_blank"></a>
-                </div>
+                </div> --}}
             </div>
         </div>
     </div>
@@ -571,7 +610,7 @@
 
             $.ajax({
                 url: url,
-                type: 'GET', 
+                type: 'GET',
                 dataType: 'json',
                 success: function(response) {
                     if(response.success) {
@@ -592,13 +631,13 @@
                         if($('#cart-grand-total').length) $('#cart-grand-total').html(response.grandTotal);
 
                         if(response.isEmpty) {
-                             setTimeout(function(){ 
-                                 
+                             setTimeout(function(){
+
                                  if($('.table-cart').length) {
                                      $('.table-cart tbody').html('<tr><td colspan="5" class="text-center p-5"><h4>Your cart is empty.</h4><a href="/" class="btn btn-primary mt-2">Go Shopping</a></td></tr>');
-                                     $('.cart-summary').fadeOut(); 
+                                     $('.cart-summary').fadeOut();
                                  }
-                                 
+
                                  $('.dropdown-cart-products').html('<div class="product text-center"><p class="p-3">Your cart is empty.</p></div>');
                                  $('.dropdown-cart-total').fadeOut();
                                  $('.dropdown-cart-action').fadeOut();

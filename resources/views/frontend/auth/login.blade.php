@@ -11,13 +11,13 @@
                             Login
                         </li>
                     </ol>
-                </div> 
+                </div>
             </nav>
             <h1>Login to Your Account</h1>
         </div>
     </div>
 
-    <div class="container login-container">
+    <div class="container login-container mt-5">
         <div class="row justify-content-center">
             <div class="col-lg-6">
                 <div class="card shadow-sm">
@@ -34,13 +34,13 @@
                                     Email address
                                     <span class="text-danger">*</span>
                                 </label>
-                                <input type="email" 
-                                       class="form-control form-control-lg @error('email') is-invalid @enderror" 
-                                       id="email" 
-                                       name="email" 
-                                       value="{{ old('email') }}" 
-                                       required 
-                                       autocomplete="email" 
+                                <input type="email"
+                                       class="form-control form-control-lg @error('email') is-invalid @enderror"
+                                       id="email"
+                                       name="email"
+                                       value="{{ old('email') }}"
+                                       required
+                                       autocomplete="email"
                                        autofocus />
                                 @error('email')
                                     <span class="invalid-feedback" role="alert">
@@ -61,11 +61,11 @@
                                         </a>
                                     @endif
                                 </div>
-                                <input type="password" 
-                                       class="form-control form-control-lg @error('password') is-invalid @enderror" 
-                                       id="password" 
-                                       name="password" 
-                                       required 
+                                <input type="password"
+                                       class="form-control form-control-lg @error('password') is-invalid @enderror"
+                                       id="password"
+                                       name="password"
+                                       required
                                        autocomplete="current-password" />
                                 @error('password')
                                     <span class="invalid-feedback" role="alert">
@@ -75,9 +75,9 @@
                             </div>
 
                             <div class="form-group form-check">
-                                <input type="checkbox" 
-                                       class="form-check-input" 
-                                       id="remember" 
+                                <input type="checkbox"
+                                       class="form-check-input"
+                                       id="remember"
                                        name="remember" {{ old('remember') ? 'checked' : '' }}>
                                 <label class="form-check-label" for="remember">
                                     Remember me
@@ -92,7 +92,7 @@
 
                             <div class="text-center mt-3">
                                 <p class="mb-0">
-                                    Don't have an account? 
+                                    Don't have an account?
                                     <a href="{{ route('register') }}" class="text-primary font-weight-bold">Sign Up</a>
                                 </p>
                             </div>
