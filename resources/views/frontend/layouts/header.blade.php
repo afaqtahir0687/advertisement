@@ -87,8 +87,11 @@
                         </div>
                     </div>
                 @else
-                    <div class="header-dropdown ml-0 ml-md-3">
-                        <a href="{{ route('login') }}">Login</a>
+                    <div class="header-dropdown mr-auto mr-sm-3 mr-md-0 currency-dropdown-premium ml-2">
+                        <a href="{{ route('login') }}" class="currency-switcher">
+                            <span class="curr-icon-circle"><i class="icon-user-2" style="font-size: 10px;"></i></span>
+                            <span>Login</span>
+                        </a>
                     </div>
                 @endauth
 

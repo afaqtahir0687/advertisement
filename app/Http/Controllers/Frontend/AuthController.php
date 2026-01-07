@@ -27,6 +27,8 @@ class AuthController extends Controller
         ]);
 
         if (Auth::attempt($credentials, $request->filled('remember'))) {
+            $user = Auth::user();
+            $this->syncCart($user);
             $request->session()->regenerate();
 
             return redirect()->intended(route('dashboard'));
@@ -118,37 +120,7 @@ class AuthController extends Controller
             Auth::login($user);
             session()->forget('otp_user_id');
 
-            // Handle guest cart if exists
-            $cart = session()->get('cart', []);
-            if (!empty($cart)) {
-                foreach ($cart as $id => $details) {
-                    $print_quantity = $details['options']['print_quantity'] ?? 100;
-                    $urgency = $details['options']['urgency'] ?? 'regular';
-                    $productId = $details['product_id'];
-
-                    $existingCartItem = \App\Models\Cart::where('user_id', $user->id)
-                        ->where('product_id', $productId)
-                        ->where('print_quantity', $print_quantity)
-                        ->where('urgency', $urgency)
-                        ->first();
-
-                    if ($existingCartItem) {
-                        $existingCartItem->quantity += $details['quantity'];
-                        $existingCartItem->save();
-                    } else {
-                        \App\Models\Cart::create([
-                            'user_id' => $user->id,
-                            'product_id' => $productId,
-                            'quantity' => $details['quantity'],
-                            'print_quantity' => $print_quantity,
-                            'urgency' => $urgency,
-                            'price' => $details['price'],
-                            'production_days' => $details['options']['production_days'] ?? 3,
-                            'delivery_days' => $details['options']['delivery_days'] ?? 1,
-                        ]);
-                    }
-                }
-            }
+            $this->syncCart($user);
 
             return redirect()->intended(route('dashboard'))->with('success', 'Email verified successfully! Welcome to your dashboard.');
         }
@@ -185,5 +157,71 @@ class AuthController extends Controller
         $request->session()->regenerateToken();
 
         return redirect('/');
+    }
+
+    private function syncCart($user)
+    {
+        $sessionCart = session()->get('cart', []);
+
+        // 1. Merge session cart into database
+        if (!empty($sessionCart)) {
+            foreach ($sessionCart as $id => $details) {
+                // Generate a hash of options to match correctly
+                $options = $details['options'] ?? [];
+                unset($options['print_quantity'], $options['urgency'], $options['production_days'], $options['delivery_days']);
+                
+                $existingCartItem = \App\Models\Cart::where('user_id', $user->id)
+                    ->where('product_id', $details['product_id'])
+                    ->where('print_quantity', $details['options']['print_quantity'] ?? 100)
+                    ->where('urgency', $details['options']['urgency'] ?? 'regular')
+                    ->where('options', json_encode($options))
+                    ->first();
+
+                if ($existingCartItem) {
+                    $existingCartItem->quantity += $details['quantity'];
+                    $existingCartItem->save();
+                } else {
+                    \App\Models\Cart::create([
+                        'user_id' => $user->id,
+                        'product_id' => $details['product_id'],
+                        'quantity' => $details['quantity'],
+                        'print_quantity' => $details['options']['print_quantity'] ?? 100,
+                        'urgency' => $details['options']['urgency'] ?? 'regular',
+                        'price' => $details['price'],
+                        'production_days' => $details['options']['production_days'] ?? 3,
+                        'delivery_days' => $details['options']['delivery_days'] ?? 1,
+                        'options' => $options
+                    ]);
+                }
+            }
+        }
+
+        // 2. Load ALL items from database back into session
+        $dbCartItems = \App\Models\Cart::where('user_id', $user->id)->with('product')->get();
+        $finalCart = [];
+
+        foreach ($dbCartItems as $item) {
+            $options = $item->options ?? [];
+            $optionsHash = !empty($options) ? '_' . md5(json_encode($options)) : '';
+            $cartId = $item->product_id . '_' . $item->print_quantity . '_' . $item->urgency . $optionsHash;
+
+            $finalCart[$cartId] = [
+                "product_id" => $item->product_id,
+                "name" => $item->product->name,
+                "quantity" => $item->quantity,
+                "price" => $item->price,
+                "original_price" => $item->price, // Simplified for now
+                "image" => $item->product->image,
+                "slug" => $item->product->slug,
+                "options" => array_merge([
+                    "print_quantity" => $item->print_quantity,
+                    "urgency" => $item->urgency,
+                    "production_days" => $item->production_days,
+                    "delivery_days" => $item->delivery_days
+                ], $options)
+            ];
+        }
+
+        session()->put('cart', $finalCart);
     }
 }
