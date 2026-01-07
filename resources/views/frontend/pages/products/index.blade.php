@@ -98,7 +98,7 @@
                                             <img alt="product" width="150" height="150"
                                                 src="assets/images/products/product-3.jpg" style="padding-top: 0px;">
 
-                                            <span>Circled Ultimate 3D Speaker</span>
+                                            <span>Business card Circled Ultimate 3D Speaker</span>
                                         </span>
                                     </span>
                                 </a>
@@ -113,7 +113,7 @@
                                             <img alt="product" width="150" height="150"
                                                 src="assets/images/products/product-4.jpg" style="padding-top: 0px;">
 
-                                            <span>Blue Backpack for the Young</span>
+                                            <span>Business card Blue Backpack for the Young</span>
                                         </span>
                                     </span>
                                 </a>
@@ -172,29 +172,35 @@
                                     <div class="toggle-header">
                                         <span class="toggle-label">
                                             Lamination (Coated Papers Only)
-                                            <span id="laminationStatus" class="toggle-status">✓</span>
                                         </span>
+
                                         <div class="custom-control custom-switch">
-                                            <input type="checkbox" class="custom-control-input" id="laminationToggle" checked>
+                                            <input type="checkbox" class="custom-control-input" id="laminationToggle"
+                                                checked>
                                             <label class="custom-control-label" for="laminationToggle"></label>
                                         </div>
                                     </div>
 
-                                    <div id="Sides" class="d-none">
-                                         <label for="material">Sides</label>
-                                        <select class="form-control">
-                                            <option>1 Sides</option>
-                                            <option>2 Sides</option>
+                                    <!-- SIDES -->
+                                    <div id="laminationSides" class="d-none">
+                                        <label for="lamination_side">Sides</label>
+                                        <select class="form-control" id="lamination_side" name="lamination_side">
+                                            <option value="1">1 Side</option>
+                                            <option value="2">2 Sides</option>
                                         </select>
                                     </div>
 
-                                    <div id="laminationOptions" class="mt-2 d-none">
-                                        <select class="form-control">
-                                            <option>SF Matte Lamination -</option>
-                                            <option>SF Gloss Lamination -</option>
+                                    <!-- LAMINATION TYPE -->
+                                    <div id="laminationOptions" class="d-none">
+                                        <label for="lamination_type">Lamination Type</label>
+                                        <select class="form-control" id="lamination_type" name="lamination_type">
+                                            <option value="sf-matte">SF Matte Lamination</option>
+                                            <option value="sf-gloss">SF Gloss Lamination</option>
                                         </select>
                                     </div>
                                 </div>
+
+
                                 <!-- Round Corner Toggle -->
                                 <div class="toggle-box">
                                     <div class="toggle-header">
@@ -281,17 +287,14 @@
                                         <input type="url" class="form-control"
                                             placeholder="https://example.com/your-design-link">
                                     </div>
-                                </div> 
-                            <div class="toggle-box clickable-box" id="shareSocialBox">
+                                </div>
+                                <div class="toggle-box clickable-box" id="shareSocialBox">
                                     <div class="toggle-header">
                                         <strong>Share Social Links</strong>
 
                                         <div class="custom-control custom-switch">
-                                            <input type="checkbox"
-                                                class="custom-control-input"
-                                                id="shareSocialToggle">
-                                            <label class="custom-control-label"
-                                                for="shareSocialToggle"></label>
+                                            <input type="checkbox" class="custom-control-input" id="shareSocialToggle">
+                                            <label class="custom-control-label" for="shareSocialToggle"></label>
                                         </div>
                                     </div>
 
@@ -357,7 +360,7 @@
                         <!-- LEFT SIDE -->
                         <div class="col-md-8">
                             <div class="left-box">
-                                <div class="row mb-4">
+                                <div class="row">
                                     <div class="col-md-6">
                                         <label class="label-title">Number of Designs:</label>
                                         <input type="number" class="form-control" value="1">
@@ -365,17 +368,23 @@
 
                                     <div class="col-md-6">
                                         <label class="label-title">Quantity:</label>
-                                        <select class="form-control">
-                                            <option>100</option>
-                                            <option>200</option>
-                                            <option>300</option>
-                                            <option>500</option>
-                                            <option>1000</option>
-                                        </select>
+
+                                        <div id="quantityWrapper">
+                                            <select class="form-control" id="quantityField">
+                                                <option value="100">100</option>
+                                                <option value="200">200</option>
+                                                <option value="300">300</option>
+                                                <option value="500">500</option>
+                                                <option value="1000">1000</option>
+                                            </select>
+                                        </div>
 
                                         <div class="mt-1 custom-control custom-checkbox">
                                             <input type="checkbox" class="custom-control-input" id="customQuantity">
                                             <label class="custom-control-label" for="customQuantity">Custom</label>
+                                            <small class="text-danger d-none" id="quantityError">
+                                                Valid Range: 100 – 1000
+                                            </small>
                                         </div>
                                     </div>
                                 </div>
@@ -393,43 +402,45 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr>
+                                            <tr data-urgency="regular" data-rate="95">
+
                                                 <td>
                                                     <div class="custom-control custom-radio">
-                                                        <input type="radio" id="regular" name="urgency"
-                                                            class="custom-control-input" checked>
-                                                        <label class="custom-control-label" for="regular"></label>
+                                                        <input type="radio" name="urgency" value="regular" checked>
+
+                                                        {{-- <label class="custom-control-label" for="regular"></label> --}}
                                                     </div>
                                                 </td>
                                                 <td>Regular</td>
-                                                <td>95.00</td>
+                                                <td>{{ format_price(95.00) }}</td>
                                                 <td>3 working day(s)</td>
                                                 <td>01</td>
                                             </tr>
-                                            <tr>
+                                            <tr data-urgency="flexible" data-rate="87.96">
                                                 <td>
                                                     <div class="custom-control custom-radio">
-                                                        <input type="radio" id="flexible" name="urgency"
-                                                            class="custom-control-input">
-                                                        <label class="custom-control-label" for="flexible"></label>
+                                                        <input type="radio" name="urgency" value="flexible">
+
+                                                        {{-- <label class="custom-control-label" for="flexible"></label> --}}
                                                     </div>
                                                 </td>
                                                 <td>Flexible</td>
-                                                <td>87.96</td>
+                                                <td>{{ format_price(87.96) }}</td>
                                                 <td>5 working day(s)</td>
                                                 <td>01</td>
                                             </tr>
 
-                                            <tr>
+                                            <tr data-urgency="urgent" data-rate="100.96">
+
                                                 <td>
                                                     <div class="custom-control custom-radio">
-                                                        <input type="radio" id="flexible" name="urgency"
-                                                            class="custom-control-input">
-                                                        <label class="custom-control-label" for="flexible"></label>
+                                                        <input type="radio" name="urgency" value="urgent">
+
+                                                        {{-- <label class="custom-control-label" for="flexible"></label> --}}
                                                     </div>
                                                 </td>
                                                 <td>Urgent</td>
-                                                <td>100.96</td>
+                                                <td>{{ format_price(100.96) }}</td>
                                                 <td>1 working day</td>
                                                 <td>01</td>
                                             </tr>
@@ -442,15 +453,22 @@
                         <!-- RIGHT SIDE -->
                         <div class="col-md-4">
                             <div class="right-box">
-                                <p class="mb-2"><strong>Before discount:</strong> <span class="float-right">82.61</span>
+                                <p><strong>Before discount:</strong>
+                                    <span class="float-right" id="beforeDiscount">82.61</span>
                                 </p>
-                                <p class="mb-2"><strong>Total discount:</strong> <span class="float-right">0.00</span>
+
+                                <p><strong>Total discount:</strong>
+                                    <span class="float-right" id="discount">0.00</span>
                                 </p>
-                                <p class="mb-3"><strong>Total tax (15.00%):</strong> <span class="float-right">12.39</span>
+
+                                <p><strong>Total tax (15.00%):</strong>
+                                    <span class="float-right" id="tax">12.39</span>
                                 </p>
-                                <div class="divider mb-3"></div>
-                                <p class="mb-3 total-price"><strong>Price:</strong> <span class="float-right">95.00</span>
+
+                                <p class="total-price"><strong>Price:</strong>
+                                    <span class="float-right" id="finalPrice">95.00</span>
                                 </p>
+
 
                                 <button class="btn btn-primary btn-block btn-lg">Add to cart</button>
                             </div>
@@ -467,13 +485,13 @@
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" id="product-tab-size" data-toggle="tab" href="#product-size-content" role="tab"
-                            aria-controls="product-size-content" aria-selected="true">Size Guide</a>
+                        <a class="nav-link" id="product-tab-size" data-toggle="tab" href="#product-size-content"
+                            role="tab" aria-controls="product-size-content" aria-selected="true">Size Guide</a>
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" id="product-tab-tags" data-toggle="tab" href="#product-tags-content" role="tab"
-                            aria-controls="product-tags-content" aria-selected="false">Additional
+                        <a class="nav-link" id="product-tab-tags" data-toggle="tab" href="#product-tags-content"
+                            role="tab" aria-controls="product-tags-content" aria-selected="false">Additional
                             Information</a>
                     </li>
 
@@ -544,7 +562,8 @@
                         </div><!-- End .product-desc-content -->
                     </div><!-- End .tab-pane -->
 
-                    <div class="tab-pane fade" id="product-size-content" role="tabpanel" aria-labelledby="product-tab-size">
+                    <div class="tab-pane fade" id="product-size-content" role="tabpanel"
+                        aria-labelledby="product-tab-size">
                         <div class="product-size-content">
                             <div class="accordion artwork-accordion" id="artworkAccordion">
 
@@ -553,7 +572,8 @@
                                     <div class="card-header" id="headingOne">
                                         <h2 class="mb-0">
                                             <button class="accordion-btn" type="button" data-toggle="collapse"
-                                                data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                                data-target="#collapseOne" aria-expanded="true"
+                                                aria-controls="collapseOne">
                                                 1. Add 3 mm of bleed
                                                 <span class="icon">−</span>
                                             </button>
@@ -678,7 +698,8 @@
                         }
                     </style>
 
-                    <div class="tab-pane fade" id="product-tags-content" role="tabpanel" aria-labelledby="product-tab-tags">
+                    <div class="tab-pane fade" id="product-tags-content" role="tabpanel"
+                        aria-labelledby="product-tab-tags">
                         <p>
                             Our free templates provide you with all the information you need to correctly prepare your
                             artwork files for printing. Simply download the template that matches your desired product
@@ -768,8 +789,10 @@
                     <div class="product-default">
                         <figure>
                             <a href="{{ route('products.index') }}">
-                                <img src="assets/images/products/product-1.jpg" width="280" height="280" alt="product">
-                                <img src="assets/images/products/product-1-2.jpg" width="280" height="280" alt="product">
+                                <img src="assets/images/products/product-1.jpg" width="280" height="280"
+                                    alt="product">
+                                <img src="assets/images/products/product-1-2.jpg" width="280" height="280"
+                                    alt="product">
                             </a>
                             <div class="label-group">
                                 <div class="product-label label-hot">HOT</div>
@@ -808,8 +831,10 @@
                     <div class="product-default">
                         <figure>
                             <a href="{{ route('products.index') }}">
-                                <img src="assets/images/products/product-3.jpg" width="280" height="280" alt="product">
-                                <img src="assets/images/products/product-3-2.jpg" width="280" height="280" alt="product">
+                                <img src="assets/images/products/product-3.jpg" width="280" height="280"
+                                    alt="product">
+                                <img src="assets/images/products/product-3-2.jpg" width="280" height="280"
+                                    alt="product">
                             </a>
                             <div class="label-group">
                                 <div class="product-label label-hot">HOT</div>
@@ -821,7 +846,7 @@
                                 <a href="category.html" class="product-category">Category</a>
                             </div>
                             <h3 class="product-title">
-                                <a href="{{ route('products.index') }}">Circled Ultimate 3D Speaker</a>
+                                <a href="{{ route('products.index') }}">Business card Circled Ultimate 3D Speaker</a>
                             </h3>
                             <div class="ratings-container">
                                 <div class="product-ratings">
@@ -848,8 +873,10 @@
                     <div class="product-default">
                         <figure>
                             <a href="{{ route('products.index') }}">
-                                <img src="assets/images/products/product-7.jpg" width="280" height="280" alt="product">
-                                <img src="assets/images/products/product-7-2.jpg" width="280" height="280" alt="product">
+                                <img src="assets/images/products/product-7.jpg" width="280" height="280"
+                                    alt="product">
+                                <img src="assets/images/products/product-7-2.jpg" width="280" height="280"
+                                    alt="product">
                             </a>
                             <div class="label-group">
                                 <div class="product-label label-hot">HOT</div>
@@ -888,8 +915,10 @@
                     <div class="product-default">
                         <figure>
                             <a href="{{ route('products.index') }}">
-                                <img src="assets/images/products/product-6.jpg" width="280" height="280" alt="product">
-                                <img src="assets/images/products/product-6-2.jpg" width="280" height="280" alt="product">
+                                <img src="assets/images/products/product-6.jpg" width="280" height="280"
+                                    alt="product">
+                                <img src="assets/images/products/product-6-2.jpg" width="280" height="280"
+                                    alt="product">
                             </a>
                             <div class="label-group">
                                 <div class="product-label label-hot">HOT</div>
@@ -928,8 +957,10 @@
                     <div class="product-default">
                         <figure>
                             <a href="{{ route('products.index') }}">
-                                <img src="assets/images/products/product-4.jpg" width="280" height="280" alt="product">
-                                <img src="assets/images/products/product-4-2.jpg" width="280" height="280" alt="product">
+                                <img src="assets/images/products/product-4.jpg" width="280" height="280"
+                                    alt="product">
+                                <img src="assets/images/products/product-4-2.jpg" width="280" height="280"
+                                    alt="product">
                             </a>
                             <div class="label-group">
                                 <div class="product-label label-hot">HOT</div>
@@ -966,460 +997,148 @@
                     </div>
                 </div><!-- End .products-slider -->
             </div><!-- End .products-section -->
-
-            <hr class="mt-0 m-b-5" />
-
-            <div class="product-widgets-container row pb-2">
-                <div class="col-lg-3 col-sm-6 pb-5 pb-md-0">
-                    <h4 class="section-sub-title">Featured Products</h4>
-                    <div class="product-default left-details product-widget">
-                        <figure>
-                            <a href="{{ route('products.index') }}">
-                                <img src="assets/images/products/small/product-1.jpg" width="74" height="74" alt="product">
-                                <img src="assets/images/products/small/product-1-2.jpg" width="74" height="74"
-                                    alt="product">
-                            </a>
-                        </figure>
-
-                        <div class="product-details">
-                            <h3 class="product-title"> <a href="{{ route('products.index') }}">Ultimate 3D Bluetooth
-                                    Speaker</a>
-                            </h3>
-
-                            <div class="ratings-container">
-                                <div class="product-ratings">
-                                    <span class="ratings" style="width:100%"></span><!-- End .ratings -->
-                                    <span class="tooltiptext tooltip-top"></span>
-                                </div><!-- End .product-ratings -->
-                            </div><!-- End .product-container -->
-
-                            <div class="price-box">
-                                <span class="product-price">$49.00</span>
-                            </div><!-- End .price-box -->
-                        </div><!-- End .product-details -->
-                    </div>
-
-                    <div class="product-default left-details product-widget">
-                        <figure>
-                            <a href="{{ route('products.index') }}">
-                                <img src="assets/images/products/small/product-2.jpg" width="74" height="74" alt="product">
-                                <img src="assets/images/products/small/product-2-2.jpg" width="74" height="74"
-                                    alt="product">
-                            </a>
-                        </figure>
-
-                        <div class="product-details">
-                            <h3 class="product-title"> <a href="{{ route('products.index') }}">Brown Women Casual
-                                    HandBag</a> </h3>
-
-                            <div class="ratings-container">
-                                <div class="product-ratings">
-                                    <span class="ratings" style="width:100%"></span><!-- End .ratings -->
-                                    <span class="tooltiptext tooltip-top">5.00</span>
-                                </div><!-- End .product-ratings -->
-                            </div><!-- End .product-container -->
-
-                            <div class="price-box">
-                                <span class="product-price">$49.00</span>
-                            </div><!-- End .price-box -->
-                        </div><!-- End .product-details -->
-                    </div>
-
-                    <div class="product-default left-details product-widget">
-                        <figure>
-                            <a href="{{ route('products.index') }}">
-                                <img src="assets/images/products/small/product-3.jpg" width="74" height="74" alt="product">
-                                <img src="assets/images/products/small/product-3-2.jpg" width="74" height="74"
-                                    alt="product">
-                            </a>
-                        </figure>
-
-                        <div class="product-details">
-                            <h3 class="product-title"> <a href="{{ route('products.index') }}">Circled Ultimate 3D
-                                    Speaker</a> </h3>
-
-                            <div class="ratings-container">
-                                <div class="product-ratings">
-                                    <span class="ratings" style="width:100%"></span><!-- End .ratings -->
-                                    <span class="tooltiptext tooltip-top"></span>
-                                </div><!-- End .product-ratings -->
-                            </div><!-- End .product-container -->
-
-                            <div class="price-box">
-                                <span class="product-price">$49.00</span>
-                            </div><!-- End .price-box -->
-                        </div><!-- End .product-details -->
-                    </div>
-                </div>
-
-                <div class="col-lg-3 col-sm-6 pb-5 pb-md-0">
-                    <h4 class="section-sub-title">Best Selling Products</h4>
-                    <div class="product-default left-details product-widget">
-                        <figure>
-                            <a href="{{ route('products.index') }}">
-                                <img src="assets/images/products/small/product-4.jpg" width="74" height="74" alt="product">
-                                <img src="assets/images/products/small/product-4-2.jpg" width="74" height="74"
-                                    alt="product">
-                            </a>
-                        </figure>
-
-                        <div class="product-details">
-                            <h3 class="product-title"> <a href="{{ route('products.index') }}">Blue Backpack for the
-                                    Young -
-                                    S</a>
-                            </h3>
-
-                            <div class="ratings-container">
-                                <div class="product-ratings">
-                                    <span class="ratings" style="width:100%"></span><!-- End .ratings -->
-                                    <span class="tooltiptext tooltip-top">5.00</span>
-                                </div><!-- End .product-ratings -->
-                            </div><!-- End .product-container -->
-
-                            <div class="price-box">
-                                <span class="product-price">$49.00</span>
-                            </div><!-- End .price-box -->
-                        </div><!-- End .product-details -->
-                    </div>
-
-                    <div class="product-default left-details product-widget">
-                        <figure>
-                            <a href="{{ route('products.index') }}">
-                                <img src="assets/images/products/small/product-5.jpg" width="74" height="74" alt="product">
-                                <img src="assets/images/products/small/product-5-2.jpg" width="74" height="74"
-                                    alt="product">
-                            </a>
-                        </figure>
-
-                        <div class="product-details">
-                            <h3 class="product-title"> <a href="{{ route('products.index') }}">Casual Spring Blue
-                                    Shoes</a>
-                            </h3>
-
-                            <div class="ratings-container">
-                                <div class="product-ratings">
-                                    <span class="ratings" style="width:100%"></span><!-- End .ratings -->
-                                    <span class="tooltiptext tooltip-top"></span>
-                                </div><!-- End .product-ratings -->
-                            </div><!-- End .product-container -->
-
-                            <div class="price-box">
-                                <span class="product-price">$49.00</span>
-                            </div><!-- End .price-box -->
-                        </div><!-- End .product-details -->
-                    </div>
-
-                    <div class="product-default left-details product-widget">
-                        <figure>
-                            <a href="{{ route('products.index') }}">
-                                <img src="assets/images/products/small/product-6.jpg" width="74" height="74" alt="product">
-                                <img src="assets/images/products/small/product-6-2.jpg" width="74" height="74"
-                                    alt="product">
-                            </a>
-                        </figure>
-
-                        <div class="product-details">
-                            <h3 class="product-title"> <a href="{{ route('products.index') }}">Men Black Gentle Belt</a>
-                            </h3>
-
-                            <div class="ratings-container">
-                                <div class="product-ratings">
-                                    <span class="ratings" style="width:100%"></span><!-- End .ratings -->
-                                    <span class="tooltiptext tooltip-top">5.00</span>
-                                </div><!-- End .product-ratings -->
-                            </div><!-- End .product-container -->
-
-                            <div class="price-box">
-                                <span class="product-price">$49.00</span>
-                            </div><!-- End .price-box -->
-                        </div><!-- End .product-details -->
-                    </div>
-                </div>
-
-                <div class="col-lg-3 col-sm-6 pb-5 pb-md-0">
-                    <h4 class="section-sub-title">Latest Products</h4>
-                    <div class="product-default left-details product-widget">
-                        <figure>
-                            <a href="{{ route('products.index') }}">
-                                <img src="assets/images/products/small/product-7.jpg" width="74" height="74" alt="product">
-                                <img src="assets/images/products/small/product-7-2.jpg" width="74" height="74"
-                                    alt="product">
-                            </a>
-                        </figure>
-
-                        <div class="product-details">
-                            <h3 class="product-title"> <a href="{{ route('products.index') }}">Men Black Sports Shoes</a>
-                            </h3>
-
-                            <div class="ratings-container">
-                                <div class="product-ratings">
-                                    <span class="ratings" style="width:100%"></span><!-- End .ratings -->
-                                    <span class="tooltiptext tooltip-top"></span>
-                                </div><!-- End .product-ratings -->
-                            </div><!-- End .product-container -->
-
-                            <div class="price-box">
-                                <span class="product-price">$49.00</span>
-                            </div><!-- End .price-box -->
-                        </div><!-- End .product-details -->
-                    </div>
-
-                    <div class="product-default left-details product-widget">
-                        <figure>
-                            <a href="{{ route('products.index') }}">
-                                <img src="assets/images/products/small/product-8.jpg" width="74" height="74" alt="product">
-                                <img src="assets/images/products/small/product-8-2.jpg" width="74" height="74"
-                                    alt="product">
-                            </a>
-                        </figure>
-
-                        <div class="product-details">
-                            <h3 class="product-title"> <a href="{{ route('products.index') }}">Brown-Black Men Casual
-                                    Glasses</a>
-                            </h3>
-
-                            <div class="ratings-container">
-                                <div class="product-ratings">
-                                    <span class="ratings" style="width:100%"></span><!-- End .ratings -->
-                                    <span class="tooltiptext tooltip-top">5.00</span>
-                                </div><!-- End .product-ratings -->
-                            </div><!-- End .product-container -->
-
-                            <div class="price-box">
-                                <span class="product-price">$49.00</span>
-                            </div><!-- End .price-box -->
-                        </div><!-- End .product-details -->
-                    </div>
-
-                    <div class="product-default left-details product-widget">
-                        <figure>
-                            <a href="{{ route('products.index') }}">
-                                <img src="assets/images/products/small/product-9.jpg" width="74" height="74" alt="product">
-                                <img src="assets/images/products/small/product-9-2.jpg" width="74" height="74"
-                                    alt="product">
-                            </a>
-                        </figure>
-
-                        <div class="product-details">
-                            <h3 class="product-title"> <a href="{{ route('products.index') }}">Black Men Casual
-                                    Glasses</a>
-                            </h3>
-
-                            <div class="ratings-container">
-                                <div class="product-ratings">
-                                    <span class="ratings" style="width:100%"></span><!-- End .ratings -->
-                                    <span class="tooltiptext tooltip-top"></span>
-                                </div><!-- End .product-ratings -->
-                            </div><!-- End .product-container -->
-
-                            <div class="price-box">
-                                <span class="product-price">$49.00</span>
-                            </div><!-- End .price-box -->
-                        </div><!-- End .product-details -->
-                    </div>
-                </div>
-
-                <div class="col-lg-3 col-sm-6 pb-5 pb-md-0">
-                    <h4 class="section-sub-title">Top Rated Products</h4>
-                    <div class="product-default left-details product-widget">
-                        <figure>
-                            <a href="{{ route('products.index') }}">
-                                <img src="assets/images/products/small/product-10.jpg" width="74" height="74" alt="product">
-                                <img src="assets/images/products/small/product-10-2.jpg" width="74" height="74"
-                                    alt="product">
-                            </a>
-                        </figure>
-
-                        <div class="product-details">
-                            <h3 class="product-title"> <a href="{{ route('products.index') }}">Basketball Sports Blue
-                                    Shoes</a> </h3>
-
-                            <div class="ratings-container">
-                                <div class="product-ratings">
-                                    <span class="ratings" style="width:100%"></span><!-- End .ratings -->
-                                    <span class="tooltiptext tooltip-top"></span>
-                                </div><!-- End .product-ratings -->
-                            </div><!-- End .product-container -->
-
-                            <div class="price-box">
-                                <span class="product-price">$49.00</span>
-                            </div><!-- End .price-box -->
-                        </div><!-- End .product-details -->
-                    </div>
-
-                    <div class="product-default left-details product-widget">
-                        <figure>
-                            <a href="{{ route('products.index') }}">
-                                <img src="assets/images/products/small/product-11.jpg" width="74" height="74" alt="product">
-                                <img src="assets/images/products/small/product-11-2.jpg" width="74" height="74"
-                                    alt="product">
-                            </a>
-                        </figure>
-
-                        <div class="product-details">
-                            <h3 class="product-title"> <a href="{{ route('products.index') }}">Men Sports Travel Bag</a>
-                            </h3>
-
-                            <div class="ratings-container">
-                                <div class="product-ratings">
-                                    <span class="ratings" style="width:100%"></span><!-- End .ratings -->
-                                    <span class="tooltiptext tooltip-top">5.00</span>
-                                </div><!-- End .product-ratings -->
-                            </div><!-- End .product-container -->
-
-                            <div class="price-box">
-                                <span class="product-price">$49.00</span>
-                            </div><!-- End .price-box -->
-                        </div><!-- End .product-details -->
-                    </div>
-
-                    <div class="product-default left-details product-widget">
-                        <figure>
-                            <a href="{{ route('products.index') }}">
-                                <img src="assets/images/products/small/product-12.jpg" width="74" height="74" alt="product">
-                                <img src="assets/images/products/small/product-12-2.jpg" width="74" height="74"
-                                    alt="product">
-                            </a>
-                        </figure>
-
-                        <div class="product-details">
-                            <h3 class="product-title"> <a href="{{ route('products.index') }}">Brown HandBag</a> </h3>
-
-                            <div class="ratings-container">
-                                <div class="product-ratings">
-                                    <span class="ratings" style="width:100%"></span><!-- End .ratings -->
-                                    <span class="tooltiptext tooltip-top"></span>
-                                </div><!-- End .product-ratings -->
-                            </div><!-- End .product-container -->
-
-                            <div class="price-box">
-                                <span class="product-price">$49.00</span>
-                            </div><!-- End .price-box -->
-                        </div><!-- End .product-details -->
-                    </div>
-                </div>
-            </div><!-- End .row -->
         </div>
-        <section class="mt-8 testimonial-section testimonial-bg bg-gray">
-                <div class="container">
-                    <div class="owl-carousel owl-theme owl-dots-simple mb-4 mb-lg-0 appear-animate" data-owl-options="{
-                'loop': false,
-                'dots': true,
-                'margin': 20,
-                'responsive': null
-            }" data-animation-name="fadeInRightShorter" data-animation-delay="200">
-                        <div class="testimonial testimonial-type1 blockquote-both inner-blockquote owner-center">
-                            <div class="testimonial-owner">
-                                <div>
-                                    <figure>
-                                        <img src="assets/images/elements/testimonial/client1.png" width="62" height="62"
-                                            alt="client">
-                                    </figure>
-                                    <blockquote class="text-gray">
-                                        <p>  We are extremely satisfied with the quality and professionalism of the service.
-                                            The team delivered exactly what we needed, on time and with great attention to detail.
-                                            Their support and communication throughout the process were excellent.
-                                            We highly recommend them for anyone looking for reliable and high-quality solutions.</p>
-                                    </blockquote>
-                                    <strong class="testimonial-title">Fazal Miran</strong>
-                                    <span>CEO</span>
-                                </div>
+        <section class="testimonial-section testimonial-bg bg-gray">
+            <div class="container">
+                <div class="owl-carousel owl-theme owl-dots-simple mb-4 mb-lg-0 appear-animate"
+                    data-owl-options="{
+                        'loop': false,
+                        'dots': true,
+                        'margin': 20,
+                        'responsive': null
+                    }"
+                    data-animation-name="fadeInRightShorter" data-animation-delay="200">
+                    <div class="testimonial testimonial-type1 blockquote-both inner-blockquote owner-center">
+                        <div class="testimonial-owner">
+                            <div>
+                                <figure>
+                                    <img src="assets/images/elements/testimonial/client1.png" width="62"
+                                        height="62" alt="client" style="border-radius: 50%;">
+                                </figure>
+                                <blockquote class="text-gray">
+                                    <p> We are extremely satisfied with the quality and professionalism of the service.
+                                        The team delivered exactly what we needed, on time and with great attention to
+                                        detail.
+                                        Their support and communication throughout the process were excellent.
+                                        We highly recommend them for anyone looking for reliable and high-quality solutions.
+                                    </p>
+                                </blockquote>
+                                <span class="testimonial-title">Fazal Miran</span>
+                                <span class="mt-1">CEO</span>
                             </div>
                         </div>
-                        <div class="testimonial testimonial-type1 blockquote-both inner-blockquote owner-center">
-                            <div class="testimonial-owner">
-                                <div>
-                                    <figure>
-                                        <img src="assets/images/elements/testimonial/client1.png" width="62" height="62"
-                                            alt="client">
-                                    </figure>
-                                    <blockquote class="text-gray">
-                                        <p>   Working with this company has been a great experience from start to finish.
-                                            The quality of work exceeded our expectations and the turnaround time was impressive.
-                                            They were responsive, professional, and truly understood our requirements.
-                                            We look forward to continuing our partnership in the future.</p>
-                                    </blockquote>
-                                    <strong class="testimonial-title">Fazal Miran</strong>
-                                    <span>CEO</span>
-                                </div>
+                    </div>
+                    <div class="testimonial testimonial-type1 blockquote-both inner-blockquote owner-center">
+                        <div class="testimonial-owner">
+                            <div>
+                                <figure>
+                                    <img src="assets/images/elements/testimonial/client1.png" width="62"
+                                        height="62" alt="client">
+                                </figure>
+                                <blockquote class="text-gray">
+                                    <p> Working with this company has been a great experience from start to finish.
+                                        The quality of work exceeded our expectations and the turnaround time was
+                                        impressive.
+                                        They were responsive, professional, and truly understood our requirements.
+                                        We look forward to continuing our partnership in the future.</p>
+                                </blockquote>
+                                <strong class="testimonial-title">Fazal Miran</strong>
+                                <span>CEO</span>
                             </div>
                         </div>
                     </div>
                 </div>
-            </section>
+            </div>
+        </section>
         <!-- End .container -->
     </main><!-- End .main -->
 
     @push('scripts')
-       <script>
-            function toggleSection(toggleId, optionsIds, statusId) {
+        <script>
+            function toggleSection(toggleId, optionIds, statusId = null) {
                 const toggle = document.getElementById(toggleId);
-                const status = document.getElementById(statusId);
 
-                // single id ko array bana do
-                if (!Array.isArray(optionsIds)) {
-                    optionsIds = [optionsIds];
+                // optionIds ko array bana do
+                if (!Array.isArray(optionIds)) {
+                    optionIds = [optionIds];
                 }
 
+                const status = statusId ? document.getElementById(statusId) : null;
+
                 function applyState() {
-                    optionsIds.forEach(id => {
+                    optionIds.forEach(id => {
                         const el = document.getElementById(id);
                         if (!el) return;
 
-                        if (toggle.checked) {
-                            el.classList.remove('d-none');
-                        } else {
+                        toggle.checked ?
+                            el.classList.remove('d-none') :
                             el.classList.add('d-none');
 
-                            // reset option boxes (agar hon)
+                        // option-box reset
+                        if (!toggle.checked) {
                             el.querySelectorAll('.option-box').forEach(box => {
                                 box.classList.remove('active');
                             });
                         }
                     });
 
-                    toggle.checked
-                        ? status.classList.add('active')
-                        : status.classList.remove('active');
+                    if (status) {
+                        toggle.checked ?
+                            status.classList.add('active') :
+                            status.classList.remove('active');
+                    }
                 }
 
-                // toggle change
                 toggle.addEventListener('change', applyState);
 
-                // page load par state apply
+                // 🔥 page load par bhi apply
                 applyState();
             }
-        </script>
-        <script>
-        toggleSection('roundToggle', 'roundOptions', 'roundStatus');
 
-        toggleSection(
-            'laminationToggle',
-            ['Sides', 'laminationOptions'],   // 🔥 2 inputs
-            'laminationStatus'
-        );
+            /* ======================
+               TOGGLE CALLS
+            ====================== */
 
-        toggleSection('dieToggle', 'dieOptions', 'dieStatus');
+            // Lamination → 2 dropdowns
+            toggleSection(
+                'laminationToggle',
+                ['laminationSides', 'laminationOptions']
+            );
 
-        // Option box click
-        document.querySelectorAll('.option-box').forEach(box => {
-            box.addEventListener('click', function () {
-                this.classList.toggle('active');
+            // Round Corners
+            toggleSection(
+                'roundToggle',
+                'roundOptions',
+                'roundStatus'
+            );
+
+            // Die Cutting
+            toggleSection(
+                'dieToggle',
+                'dieOptions',
+                'dieStatus'
+            );
+
+            // Option-box click (round corners)
+            document.querySelectorAll('.option-box').forEach(box => {
+                box.addEventListener('click', function() {
+                    this.classList.toggle('active');
+                });
             });
-        });
         </script>
+
         <script>
             const shareBox = document.getElementById('shareLinkBox');
             const shareToggle = document.getElementById('shareLinkToggle');
             const shareOptions = document.getElementById('shareLinkOptions');
 
             /* Toggle change */
-            shareToggle.addEventListener('change', function () {
+            shareToggle.addEventListener('change', function() {
                 shareOptions.classList.toggle('d-none', !this.checked);
             });
 
             /* Full box click (except input) */
-            shareBox.addEventListener('click', function (e) {
+            shareBox.addEventListener('click', function(e) {
                 if (
                     e.target.tagName !== 'INPUT' &&
                     e.target.tagName !== 'LABEL'
@@ -1429,30 +1148,122 @@
                 }
             });
         </script>
-       <script>
-const shareSocialBox = document.getElementById('shareSocialBox');
-const shareSocialToggle = document.getElementById('shareSocialToggle');
-const shareSocialOptions = document.getElementById('shareSocialOptions');
+        <script>
+            const shareSocialBox = document.getElementById('shareSocialBox');
+            const shareSocialToggle = document.getElementById('shareSocialToggle');
+            const shareSocialOptions = document.getElementById('shareSocialOptions');
 
-/* Toggle change */
-shareSocialToggle.addEventListener('change', function () {
-    shareSocialOptions.classList.toggle('d-none', !this.checked);
-});
+            /* Toggle change */
+            shareSocialToggle.addEventListener('change', function() {
+                shareSocialOptions.classList.toggle('d-none', !this.checked);
+            });
 
-/* Full box clickable (except icons) */
-shareSocialBox.addEventListener('click', function (e) {
-    if (
-        e.target.tagName !== 'A' &&
-        e.target.tagName !== 'I' &&
-        e.target.tagName !== 'INPUT' &&
-        e.target.tagName !== 'LABEL'
-    ) {
-        shareSocialToggle.checked = !shareSocialToggle.checked;
-        shareSocialToggle.dispatchEvent(new Event('change'));
-    }
-});
-</script>
+            /* Full box clickable (except icons) */
+            shareSocialBox.addEventListener('click', function(e) {
+                if (
+                    e.target.tagName !== 'A' &&
+                    e.target.tagName !== 'I' &&
+                    e.target.tagName !== 'INPUT' &&
+                    e.target.tagName !== 'LABEL'
+                ) {
+                    shareSocialToggle.checked = !shareSocialToggle.checked;
+                    shareSocialToggle.dispatchEvent(new Event('change'));
+                }
+            });
+        </script>
 
 
+        <script>
+            const checkbox = document.getElementById('customQuantity');
+            const wrapper = document.getElementById('quantityWrapper');
+            const error = document.getElementById('quantityError');
+
+            checkbox.addEventListener('change', function() {
+
+                // CUSTOM ON
+                if (this.checked) {
+                    wrapper.innerHTML = `
+                <input type="number"
+                       id="quantityField"
+                       class="form-control"
+                       placeholder="Enter quantity (100 - 1000)"
+                       min="100"
+                       max="1000">
+            `;
+
+                    document.getElementById('quantityField')
+                        .addEventListener('input', function() {
+                            const val = parseInt(this.value);
+                            if (val < 100 || val > 1000 || isNaN(val)) {
+                                error.classList.remove('d-none');
+                            } else {
+                                error.classList.add('d-none');
+                            }
+                        });
+
+                }
+                // CUSTOM OFF → ORIGINAL DROPDOWN BACK
+                else {
+                    wrapper.innerHTML = `
+                <select class="form-control" id="quantityField">
+                    <option value="100">100</option>
+                    <option value="200">200</option>
+                    <option value="300">300</option>
+                    <option value="500">500</option>
+                    <option value="1000">1000</option>
+                </select>
+            `;
+                    error.classList.add('d-none');
+                }
+            });
+        </script>
+
+        <script>
+            const TAX_RATE = 0.15;
+
+            function getQuantity() {
+                const field = document.getElementById('quantityField');
+                return parseInt(field.value) || 0;
+            }
+
+            function getUrgencyRate() {
+                const selected = document.querySelector('input[name="urgency"]:checked').value;
+                const row = document.querySelector(`tr[data-urgency="${selected}"]`);
+                return parseFloat(row.dataset.rate);
+            }
+
+            function calculatePrice() {
+                const qty = getQuantity();
+                if (qty < 100) return;
+
+                const ratePer100 = getUrgencyRate();
+                const basePrice = (qty / 100) * ratePer100;
+
+                const discount = 0; // future ready
+                const taxableAmount = basePrice - discount;
+                const tax = taxableAmount * TAX_RATE;
+                const finalPrice = taxableAmount + tax;
+
+                document.getElementById('beforeDiscount').innerText = basePrice.toFixed(2);
+                document.getElementById('discount').innerText = discount.toFixed(2);
+                document.getElementById('tax').innerText = tax.toFixed(2);
+                document.getElementById('finalPrice').innerText = finalPrice.toFixed(2);
+            }
+
+            // Quantity change
+            document.addEventListener('input', function(e) {
+                if (e.target.id === 'quantityField') {
+                    calculatePrice();
+                }
+            });
+
+            // Urgency change
+            document.querySelectorAll('input[name="urgency"]').forEach(radio => {
+                radio.addEventListener('change', calculatePrice);
+            });
+
+            // Initial calculation
+            calculatePrice();
+        </script>
     @endpush
 @endsection

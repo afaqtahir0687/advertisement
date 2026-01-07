@@ -5,16 +5,11 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-    <title>New Sign Advertising</title>
-
+    <title>{{ config('app.name') }}</title>
     <meta name="keywords" content="HTML5 Template" />
     <meta name="description" content="Porto - Bootstrap eCommerce Template">
     <meta name="author" content="SW-THEMES">
-
-    <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="assets/images/icons/favicon.png">
-
 
     <script>
         WebFontConfig = {
@@ -31,38 +26,236 @@
         })(document);
     </script>
 
-    <!-- Plugins CSS File -->
     <link rel="stylesheet" href="{{ asset('assets/css/bootstrap.min.css') }}">
-
-    <!-- Main CSS File -->
     <link rel="stylesheet" href="{{ asset('assets/css/demo4.min.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/vendor/fontawesome-free/css/all.min.css') }}">
+
+    <style>
+        .bounce-loader .bounce1,
+        .bounce-loader .bounce2,
+        .bounce-loader .bounce3 {
+            background-color: #e91d8e !important;
+        }
+
+        /* Premium Currency Switcher Styling */
+        .currency-dropdown-premium .currency-switcher {
+            display: flex;
+            align-items: center;
+            background: rgba(233, 29, 142, 0.05);
+            border: 1px solid rgba(233, 29, 142, 0.2);
+            padding: 4px 12px;
+            border-radius: 30px;
+            color: #333;
+            font-weight: 600;
+            font-size: 13px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05), inset 0 1px 0 rgba(255, 255, 255, 0.8);
+            text-decoration: none !important;
+        }
+
+        .currency-dropdown-premium .currency-switcher:hover {
+            background: rgba(233, 29, 142, 0.1);
+            border-color: rgba(233, 29, 142, 0.5);
+            transform: translateY(-1px);
+            box-shadow: 0 4px 8px rgba(233, 29, 142, 0.15);
+            color: #e91d8e;
+        }
+
+        .currency-dropdown-premium .currency-switcher i.flag,
+        .currency-dropdown-premium .header-menu i.flag {
+            display: none;
+        }
+
+        .curr-icon-circle {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 20px;
+            height: 20px;
+            background: #e91d8e;
+            color: white;
+            border-radius: 50%;
+            font-size: 10px;
+            font-weight: bold;
+            margin-right: 8px;
+            flex-shrink: 0;
+            box-shadow: 0 1px 3px rgba(233, 29, 142, 0.3);
+        }
+
+        .currency-dropdown-premium .header-menu ul li a:hover .curr-icon-circle {
+            transform: scale(1.1);
+        }
+
+        .header-icon {
+            position: relative;
+        }
+
+        .header-icon .badge-circle {
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            font-family: 'Open Sans', sans-serif;
+        }
+
+        .product-image-container {
+            position: relative;
+            display: inline-block;
+        }
+
+        .product-image-container .btn-remove {
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            z-index: 2;
+            background: #fff;
+            color: #e91d8e;
+            border-radius: 50%;
+            width: 22px;
+            height: 22px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            font-size: 14px;
+            line-height: 1;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .product-image-container .btn-remove:hover {
+            background: #e91d8e;
+            color: #fff;
+            transform: scale(1.1);
+        }
+
+        .currency-dropdown-premium .currency-switcher i.flag {
+            margin-right: 8px;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+            border-radius: 2px;
+        }
+
+        .currency-dropdown-premium .header-menu {
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            border: 1px solid #eee;
+            margin-top: 10px;
+        }
+
+        .currency-dropdown-premium .header-menu ul li a {
+            padding: 10px 15px;
+            display: flex;
+            align-items: center;
+            transition: all 0.2s;
+            color: #555;
+            font-weight: 500;
+        }
+
+        .currency-dropdown-premium .header-menu ul li a:hover {
+            background: #f8f9fa;
+            color: #e91d8e;
+            padding-left: 20px;
+        }
+    </style>
+    <style>
+        /* Custom Toast Notification Styles */
+        .custom-toast-container {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 10000;
+        }
+        .custom-toast {
+            background-color: #fff;
+            color: #333;
+            padding: 15px 20px;
+            margin-bottom: 10px;
+            border-radius: 4px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            display: flex;
+            align-items: center;
+            min-width: 300px;
+            opacity: 0;
+            transform: translateX(100%);
+            transition: all 0.4s ease;
+            border-left: 5px solid #ccc;
+        }
+        .custom-toast.show {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        .custom-toast.success {
+            border-left-color: #28a745;
+        }
+        .custom-toast.success i {
+            color: #28a745;
+        }
+        .custom-toast.error {
+            border-left-color: #dc3545;
+        }
+        .custom-toast.error i {
+            color: #dc3545;
+        }
+        .custom-toast.warning {
+            border-left-color: #ffc107;
+        }
+        .custom-toast.warning i {
+            color: #ffc107;
+        }
+        .custom-toast.info {
+            border-left-color: #17a2b8;
+        }
+        .custom-toast.info i {
+            color: #17a2b8;
+        }
+        .custom-toast-content {
+            flex-grow: 1;
+            margin-left: 10px;
+            font-size: 14px;
+            font-weight: 500;
+        }
+        .custom-toast-close {
+            cursor: pointer;
+            color: #999;
+            font-size: 18px;
+            line-height: 1;
+            margin-left: 10px;
+        }
+        .custom-toast-close:hover {
+            color: #333;
+        }
+    </style>
 </head>
 
 <body>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            setTimeout(function() {
+                document.body.classList.add('loaded');
+            }, 100);
+        });
+    </script>
     <div class="page-wrapper">
         <div class="top-notice bg-primary text-white">
             <div class="container text-center">
                 <h5 class="d-inline-block">Get Up to <b>40% OFF</b> Happy New Year</h5>
-                <a href="#" class="category">MEN</a>
-                <a href="#" class="category ml-2 mr-3">WOMEN</a>
+                <a href="#" class="category">Business</a>
+                <a href="#" class="category ml-2 mr-3">Cards</a>
                 <small>* Limited time only.</small>
                 <button title="Close (Esc)" type="button" class="mfp-close">×</button>
             </div>
-            <!-- End .container -->
         </div>
-        <!-- End .top-notice -->
 
         @include('frontend.layouts.header')
-        <!-- End .header -->
+
+        <div class="container mt-2">
+            {{-- Static alerts removed --}}
+        </div>
 
        @yield('content')
-        <!-- End .main -->
 
         @include('frontend.layouts.footer')
-        <!-- End .footer -->
     </div>
-    <!-- End .page-wrapper -->
 
     <div class="loading-overlay">
         <div class="bounce-loader">
@@ -73,7 +266,6 @@
     </div>
 
     <div class="mobile-menu-overlay"></div>
-    <!-- End .mobil-menu-overlay -->
 
     <div class="mobile-menu-container">
         <div class="mobile-menu-wrapper">
@@ -203,7 +395,6 @@
                     <li><a href="login.html" class="login-link">Log In</a></li>
                 </ul>
             </nav>
-            <!-- End .mobile-nav -->
 
             <form class="search-wrapper mb-2" action="#">
                 <input type="text" class="form-control mb-0" placeholder="Search..." required />
@@ -219,9 +410,7 @@
                 </a>
             </div>
         </div>
-        <!-- End .mobile-menu-wrapper -->
     </div>
-    <!-- End .mobile-menu-container -->
 
     <div class="sticky-navbar">
         <div class="sticky-info">
@@ -253,9 +442,13 @@
         </div>
     </div>
 
-    <!-- <div class="newsletter-popup mfp-hide bg-img" id="newsletter-popup-form" style="background: #f1f1f1 no-repeat center/cover url(assets/images/newsletter_popup_bg.jpg)">
+    {{-- <div class="newsletter-popup mfp-hide bg-img" id="newsletter-popup-form" style="background: #f1f1f1 no-repeat center/cover url(assets/images/newsletter_popup_bg.jpg)">
         <div class="newsletter-popup-content">
-            <img src="assets/images/logo.png" width="111" height="44" alt="Logo" class="logo-newsletter">
+            @if(config('app.logo'))
+                <img src="{{ asset('storage/' . config('app.logo')) }}" alt="{{ config('app.name') }}" width="111" height="44" class="logo-newsletter">
+            @else
+                <img src="{{ asset('assets/images/logo.png') }}" width="111" height="44" alt="Logo" class="logo-newsletter">
+            @endif
             <h2>Subscribe to newsletter</h2>
 
             <p>
@@ -281,20 +474,74 @@
         <button title="Close (Esc)" type="button" class="mfp-close">
 			×
 		</button>
-    </div> -->
+    </div> --}}
     <!-- End .newsletter-popup -->
 
     <a id="scroll-top" href="#top" title="Top" role="button"><i class="icon-angle-up"></i></a>
 
-    <!-- Plugins JS File -->
+    {{-- Custom Toast Container --}}
+    <div id="toast-container" class="custom-toast-container"></div>
+
     <script src="{{ asset('assets/js/jquery.min.js') }}"></script>
     <script src="{{ asset('assets/js/bootstrap.bundle.min.js') }}"></script>
     <script src="{{ asset('assets/js/optional/isotope.pkgd.min.js') }}"></script>
     <script src="{{ asset('assets/js/plugins.min.js') }}"></script>
     <script src="{{ asset('assets/js/jquery.appear.min.js') }}"></script>
-    <!-- Main JS File -->
     <script src="{{ asset('assets/js/main.min.js') }}"></script>
+    
+    <script>
+        function showToast(message, type) {
+            const container = document.getElementById('toast-container');
+            const toast = document.createElement('div');
+            
+            let iconClass = 'fa-info-circle';
+            if (type === 'success') iconClass = 'fa-check-circle';
+            if (type === 'error') iconClass = 'fa-exclamation-circle';
+
+            toast.className = `custom-toast ${type}`;
+            toast.innerHTML = `
+                <i class="fas ${iconClass} fa-lg"></i>
+                <div class="custom-toast-content">${message}</div>
+                <span class="custom-toast-close">&times;</span>
+            `;
+
+            container.appendChild(toast);
+
+            setTimeout(() => {
+                toast.classList.add('show');
+            }, 10);
+
+            const closeToast = () => {
+                toast.classList.remove('show');
+                setTimeout(() => {
+                    toast.remove();
+                }, 400); 
+            };
+
+            setTimeout(closeToast, 5000);
+
+            toast.querySelector('.custom-toast-close').addEventListener('click', closeToast);
+        }
+
+        @if(session('success'))
+            showToast("{{ session('success') }}", 'success');
+        @endif
+        @if(session('error'))
+            showToast("{{ session('error') }}", 'error');
+        @endif
+        @if(session('warning'))
+            showToast("{{ session('warning') }}", 'warning');
+        @endif
+        @if(session('status'))
+            showToast("{{ session('status') }}", 'success');
+        @endif
+        @if($errors->any())
+            @foreach($errors->all() as $error)
+                showToast("{{ $error }}", 'error');
+            @endforeach
+        @endif
+    </script>
+
     @stack('scripts')
 </body>
-
 </html>

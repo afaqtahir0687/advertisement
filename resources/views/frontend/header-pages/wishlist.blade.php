@@ -6,7 +6,7 @@
                 <nav aria-label="breadcrumb" class="breadcrumb-nav">
                     <div class="container">
                         <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="demo4.html">Home</a></li>
+                            <li class="breadcrumb-item"><a href="#">Home</a></li>
                             <li class="breadcrumb-item active" aria-current="page">
                                 Wishlist
                             </li>
@@ -20,106 +20,70 @@
 
         <div class="container">
             <div class="wishlist-title">
-                <h2 class="p-2">My wishlist on Porto Shop 4</h2>
+                <h2 class="p-2 pt-5 mt-2">My Wishlist: Favorite Printing Services & Products</h2>
             </div>
             <div class="wishlist-table-container">
                 <table class="table table-wishlist mb-0">
                     <thead>
                         <tr>
                             <th class="thumbnail-col"></th>
-                            <th class="product-col">Product</th>
-                            <th class="price-col">Price</th>
-                            <th class="status-col">Stock Status</th>
-                            <th class="action-col">Actions</th>
+                            <th class="product-col" style="font-weight: bold; font-size: 15px;">Product</th>
+                            <th class="price-col" style="font-weight: bold; font-size: 15px;">Price</th>
+                            <th class="status-col" style="font-weight: bold; font-size: 15px;">Stock Status</th>
+                            <th class="action-col" style="font-weight: bold; font-size: 15px;">Actions</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr class="product-row">
-                            <td>
-                                <figure class="product-image-container">
-                                    <a href="{{route('products.index')}}" class="product-image">
-                                        <img src="assets/images/products/product-4.jpg" alt="product">
+                        @forelse($products as $product)
+                            <tr class="product-row">
+                                <td>
+                                    <figure class="product-image-container">
+                                        <a href="{{ route('product.show', $product->slug) }}" class="product-image">
+                                            @if($product->image)
+                                                <img src="{{ asset('storage/' . $product->image) }}" alt="{{ $product->name }}">
+                                            @else
+                                                <img src="{{ asset('assets/images/products/product-1.jpg') }}" alt="{{ $product->name }}">
+                                            @endif
+                                        </a>
+                                        <a href="{{ route('wishlist.remove', $product->id) }}" class="btn-remove icon-cancel" title="Remove Product"></a>
+                                    </figure>
+                                </td>
+                                <td>
+                                    <h5 class="product-title">
+                                        <a href="{{ route('product.show', $product->slug) }}"
+                                            style="color: #e91d8e">{{ $product->name }}</a>
+                                    </h5>
+                                </td>
+                                <td class="price-box">
+                                    @if($product->discount_price)
+                                        {{ format_price($product->discount_price) }}
+                                    @else
+                                        {{ format_price($product->price) }}
+                                    @endif
+                                </td>
+                                <td>
+                                    <span
+                                        class="stock-status">{{ $product->status == 'active' ? 'In stock' : 'Out of stock' }}</span>
+                                </td>
+                                <td class="action">
+                                    <a href="{{ route('product.show', $product->slug) }}"
+                                        class="btn btn-quickview mt-1 mt-md-0" title="View Detail">
+                                        View Detail
                                     </a>
-
-                                    <a href="#" class="btn-remove icon-cancel" title="Remove Product"></a>
-                                </figure>
-                            </td>
-                            <td>
-                                <h5 class="product-title">
-                                    <a href="{{route('products.index')}}">Men Watch</a>
-                                </h5>
-                            </td>
-                            <td class="price-box">$17.90</td>
-                            <td>
-                                <span class="stock-status">In stock</span>
-                            </td>
-                            <td class="action">
-                                <a href="ajax/product-quick-view.html" class="btn btn-quickview mt-1 mt-md-0"
-                                    title="Quick View">Quick
-                                    View</a>
-                                <button class="btn btn-dark btn-add-cart product-type-simple btn-shop">
-                                    ADD TO CART
-                                </button>
-                            </td>
-                        </tr>
-
-                        <tr class="product-row">
-                            <td>
-                                <figure class="product-image-container">
-                                    <a href="{{route('products.index')}}" class="product-image">
-                                        <img src="assets/images/products/product-5.jpg" alt="product">
+                                    <a href="{{ route('cart.add', $product->id) }}"
+                                        class="btn btn-dark btn-add-cart btn-shop">
+                                        ADD TO CART
                                     </a>
-
-                                    <a href="#" class="btn-remove icon-cancel" title="Remove Product"></a>
-                                </figure>
-                            </td>
-                            <td>
-                                <h5 class="product-title">
-                                    <a href="{{route('products.index')}}">Men Cap</a>
-                                </h5>
-                            </td>
-                            <td class="price-box">$17.90</td>
-                            <td>
-                                <span class="stock-status">In stock</span>
-                            </td>
-                            <td class="action">
-                                <a href="ajax/product-quick-view.html" class="btn btn-quickview mt-1 mt-md-0"
-                                    title="Quick View">Quick
-                                    View</a>
-                                <a href="{{route('products.index')}}" class="btn btn-dark btn-add-cart btn-shop">
-                                    SELECT OPTION
-                                </a>
-                            </td>
-                        </tr>
-
-                        <tr class="product-row">
-                            <td>
-                                <figure class="product-image-container">
-                                    <a href="{{route('products.index')}}" class="product-image">
-                                        <img src="assets/images/products/product-6.jpg" alt="product">
-                                    </a>
-
-                                    <a href="#" class="btn-remove icon-cancel" title="Remove Product"></a>
-                                </figure>
-                            </td>
-                            <td>
-                                <h5 class="product-title">
-                                    <a href="{{route('products.index')}}">Men Black Gentle Belt</a>
-                                </h5>
-                            </td>
-                            <td class="price-box">$17.90</td>
-                            <td>
-                                <span class="stock-status">In stock</span>
-                            </td>
-                            <td class="action">
-                                <a href="ajax/product-quick-view.html" class="btn btn-quickview mt-1 mt-md-0"
-                                    title="Quick View">Quick
-                                    View</a>
-                                <a href="{{route('products.index')}}" class="btn btn-dark btn-add-cart btn-shop">
-                                    SELECT OPTION
-                                </a>
-                            </td>
-                        </tr>
+                                </td>
+                            </tr>
+                        @empty
+                            <tr>
+                                <td colspan="5" class="text-center p-5">
+                                    <h4 class="mb-3">Your wishlist is empty.</h4>
+                                    <a href="{{ route('home') }}" class="btn btn-dark btn-shop">Go Shopping</a>
+                                </td>
+                            </tr>
+                        @endforelse
                     </tbody>
                 </table>
             </div><!-- End .cart-table-container -->

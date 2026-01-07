@@ -2,7 +2,7 @@
     <div class="header-top">
         <div class="container">
             <div class="header-left d-none d-sm-block">
-                <p class="top-message text-uppercase">FREE Returns. Standard Shipping Orders $99+</p>
+                <p class="top-message text-uppercase">FREE Returns. Standard Shipping Orders {{ format_price(99) }}+</p>
             </div>
             <div class="header-right header-dropdowns ml-0 ml-sm-auto w-sm-100">
                 <div class="header-dropdown dropdown-expanded d-none d-lg-block">
@@ -32,13 +32,23 @@
                     </div>
                 </div>
 
-                <div class="header-dropdown mr-auto mr-sm-3 mr-md-0">
-                    <a href="#">USD</a>
+                <div class="header-dropdown mr-auto mr-sm-3 mr-md-0 currency-dropdown-premium">
+                    @php 
+                        $current = current_currency();
+                        $icon = '$';
+                        if($current == 'SAR') $icon = 'SR';
+                        if($current == 'PKR') $icon = 'Rs';
+                    @endphp
+                    <a href="#" class="currency-switcher">
+                        <span class="curr-icon-circle">{{ $icon }}</span>
+                        <span>{{ $current }}</span>
+                        <i class="fas fa-chevron-down ml-2" style="font-size: 10px;"></i>
+                    </a>
                     <div class="header-menu">
                         <ul>
-                            <li><a href="#">SAR</a></li>
-                            <li><a href="#">USD</a></li>
-                            <li><a href="#">PKR</a></li>
+                            <li><a href="{{ route('currency.switch', 'USD') }}"><span class="curr-icon-circle mr-2">$</span>USD</a></li>
+                            <li><a href="{{ route('currency.switch', 'SAR') }}"><span class="curr-icon-circle mr-2">SR</span>SAR</a></li>
+                            <li><a href="{{ route('currency.switch', 'PKR') }}"><span class="curr-icon-circle mr-2">Rs</span>PKR</a></li>
                         </ul>
                     </div>
                 </div>
@@ -61,7 +71,11 @@
                     <i class="fas fa-bars"></i>
                 </button>
                 <a href="{{route('home')}}" class="logo">
-                    <img src="{{ asset('assets/images/logo.png') }}" width="111" height="44" alt="Porto Logo">
+                    @if(config('app.logo'))
+                        <img src="{{ asset('storage/' . config('app.logo')) }}" width="111" height="44" alt="{{ config('app.name') }}">
+                    @else
+                        <img src="{{ asset('assets/images/logo.png') }}" width="111" height="44" alt="{{ config('app.name') }}">
+                    @endif
                 </a>
             </div>
 
@@ -75,22 +89,13 @@
                             <div class="select-custom">
                                 <select id="cat" name="cat">
                                     <option value="">All Categories</option>
-                                    <option value="4">Fashion</option>
-                                    <option value="12">- Women</option>
-                                    <option value="13">- Men</option>
-                                    <option value="66">- Jewellery</option>
-                                    <option value="67">- Kids Fashion</option>
-                                    <option value="5">Electronics</option>
-                                    <option value="21">- Smart TVs</option>
-                                    <option value="22">- Cameras</option>
-                                    <option value="63">- Games</option>
-                                    <option value="7">Home &amp; Garden</option>
-                                    <option value="11">Motors</option>
-                                    <option value="31">- Cars and Trucks</option>
-                                    <option value="32">- Motorcycles &amp; Powersports</option>
-                                    <option value="33">- Parts &amp; Accessories</option>
-                                    <option value="34">- Boats</option>
-                                    <option value="57">- Auto Tools &amp; Supplies</option>
+                                    <option value="4">Most Popular</option>
+                                    <option value="12">Markete Materials</option>
+                                    <option value="13">Formate Printing</option>
+                                    <option value="66">Packing & Box</option>
+                                    <option value="67">Promo Products</option>
+                                    <option value="5">Apparel & Wearables</option>
+                                    <option value="21">Event Brand</option>
                                 </select>
                             </div>
                             <button class="btn icon-magnifier p-0" title="search" type="submit"></button>
@@ -100,18 +105,21 @@
 
                 <div class="header-contact d-none d-lg-flex pl-4 pr-4">
                     <img alt="phone" src="{{ asset('assets/images/phone.png') }}" width="30" height="30" class="pb-1">
-                    <h6><span>Call us now</span><a href="tel:#" class="text-dark font1">+966 50 345 7554</a></h6>
+                    <h6><span>Call us now</span><a href="tel:#" class="text-dark font1">+966557834154</a></h6>
                 </div>
 
-                <a href="#" class="header-icon" title="login"><i class="icon-user-2"></i></a>
+                <a href="{{ auth()->check() ? route('dashboard') : route('login') }}" class="header-icon" title="login"><i class="icon-user-2"></i></a>
 
-                <a href="#" class="header-icon" title="wishlist"><i class="icon-wishlist-2"></i></a>
+                <a href="{{ auth()->check() ? route('wishlist.index') : route('login') }}" class="header-icon" title="wishlist">
+                    <i class="icon-wishlist-2"></i>
+                    <span class="wishlist-count badge-circle">{{ count(session('wishlist', [])) }}</span>
+                </a>
 
                 <div class="dropdown cart-dropdown">
                     <a href="#" title="Cart" class="dropdown-toggle dropdown-arrow cart-toggle" role="button"
                         data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-display="static">
                         <i class="minicart-icon"></i>
-                        <span class="cart-count badge-circle">3</span>
+                        <span class="cart-count badge-circle">{{ array_sum(array_column(session('cart', []), 'quantity')) }}</span>
                     </a>
 
                     <div class="cart-overlay"></div>
@@ -122,79 +130,59 @@
                         <div class="dropdownmenu-wrapper custom-scrollbar">
                             <div class="dropdown-cart-header">Shopping Cart</div>
                             <div class="dropdown-cart-products">
-                                <div class="product">
-                                    <div class="product-details">
-                                        <h4 class="product-title">
-                                            <a href="#">Ultimate 3D Bluetooth Speaker</a>
-                                        </h4>
+                                @if(session('cart') && count(session('cart')) > 0)
+                                    @foreach(session('cart') as $id => $details)
+                                        <div class="product">
+                                            <div class="product-details">
+                                                <h4 class="product-title">
+                                                    <a href="{{ route('product.show', $details['slug']) }}">{{ $details['name'] }}</a>
+                                                </h4>
 
-                                        <span class="cart-product-info">
-                                            <span class="cart-product-qty">1</span> × $99.00
-                                        </span>
+                                                <span class="cart-product-info">
+                                                    <span class="cart-product-qty">{{ $details['quantity'] }} Designs</span> × {{ format_price($details['price']) }}
+                                                </span>
+                                                @if(isset($details['options']['print_quantity']))
+                                                    <div class="product-specs mt-1">
+                                                        <span style="font-size: 11px; color: #777;">Print Quantity: {{ $details['options']['print_quantity'] }}</span>
+                                                    </div>
+                                                @endif
+                                            </div>
+
+                                            <figure class="product-image-container">
+                                                <a href="{{ route('product.show', $details['slug']) }}" class="product-image">
+                                                    @if($details['image'])
+                                                        <img src="{{ asset('storage/' . $details['image']) }}" alt="product"
+                                                            width="80" height="80">
+                                                    @else
+                                                        <img src="{{ asset('assets/images/products/product-1.jpg') }}" alt="product"
+                                                            width="80" height="80">
+                                                    @endif
+                                                </a>
+
+                                                <a href="{{ route('cart.remove', $id) }}" class="btn-remove icon-cancel" title="Remove Product"></a>
+                                            </figure>
+                                        </div>
+                                    @endforeach
+                                @else
+                                    <div class="product text-center">
+                                        <p class="p-3">Your cart is empty.</p>
                                     </div>
-
-                                    <figure class="product-image-container">
-                                        <a href="#" class="product-image">
-                                            <img src="{{ asset('assets/images/products/product-1.jpg') }}" alt="product"
-                                                width="80" height="80">
-                                        </a>
-
-                                        <a href="#" class="btn-remove" title="Remove Product"><span>×</span></a>
-                                    </figure>
-                                </div>
-
-                                <div class="product">
-                                    <div class="product-details">
-                                        <h4 class="product-title">
-                                            <a href="#">Brown Women Casual HandBag</a>
-                                        </h4>
-
-                                        <span class="cart-product-info">
-                                            <span class="cart-product-qty">1</span> × $35.00
-                                        </span>
-                                    </div>
-
-                                    <figure class="product-image-container">
-                                        <a href="#" class="product-image">
-                                            <img src="{{ asset('assets/images/products/product-2.jpg') }}" alt="product"
-                                                width="80" height="80">
-                                        </a>
-
-                                        <a href="#" class="btn-remove" title="Remove Product"><span>×</span></a>
-                                    </figure>
-                                </div>
-
-                                <div class="product">
-                                    <div class="product-details">
-                                        <h4 class="product-title">
-                                            <a href="#">Circled Ultimate 3D Speaker</a>
-                                        </h4>
-
-                                        <span class="cart-product-info">
-                                            <span class="cart-product-qty">1</span> × $35.00
-                                        </span>
-                                    </div>
-
-                                    <figure class="product-image-container">
-                                        <a href="#" class="product-image">
-                                            <img src="{{ asset('assets/images/products/product-3.jpg') }}" alt="product"
-                                                width="80" height="80">
-                                        </a>
-                                        <a href="#" class="btn-remove" title="Remove Product"><span>×</span></a>
-                                    </figure>
-                                </div>
+                                @endif
                             </div>
 
                             <div class="dropdown-cart-total">
                                 <span>SUBTOTAL:</span>
-
-                                <span class="cart-total-price float-right">$134.00</span>
+                                @php $total = 0 @endphp
+                                @foreach((array) session('cart') as $id => $details)
+                                    @php $total += $details['price'] * $details['quantity'] @endphp
+                                @endforeach
+                                <span class="cart-total-price float-right">{{ format_price($total ?: 134.00) }}</span>
                             </div>
 
                             <div class="dropdown-cart-action">
-                                <a href="#" class="btn btn-gray btn-block view-cart">View
+                                <a href="{{ route('cart.index') }}" class="btn btn-gray btn-block view-cart">View
                                     Cart</a>
-                                <a href="#" class="btn btn-dark btn-block">Checkout</a>
+                                <a href="{{ route('checkout.index') }}" class="btn btn-dark btn-block">Checkout</a>
                             </div>
                         </div>
                     </div>
@@ -571,3 +559,63 @@
         </div>
     </div>
 </header>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+
+        $(document).on('click', '.btn-remove', function(e) {
+            e.preventDefault();
+            var $this = $(this);
+            var url = $this.attr('href');
+            var $productContainer = $this.closest('.product');
+            var $row = $this.closest('tr');
+
+            $.ajax({
+                url: url,
+                type: 'GET', 
+                dataType: 'json',
+                success: function(response) {
+                    if(response.success) {
+
+                        if($productContainer.length) {
+                             $productContainer.fadeOut(300, function() { $(this).remove(); });
+                        }
+                        if($row.length) {
+                            $row.fadeOut(300, function() { $(this).remove(); });
+                        }
+
+                        $('.cart-count').text(response.cartCount);
+                        $('.cart-total-price').html(response.cartTotal);
+
+                        if($('#cart-subtotal').length) $('#cart-subtotal').html(response.subtotal);
+                        if($('#cart-discount').length) $('#cart-discount').html('-' + response.discount);
+                        if($('#cart-tax').length) $('#cart-tax').html(response.tax);
+                        if($('#cart-grand-total').length) $('#cart-grand-total').html(response.grandTotal);
+
+                        if(response.isEmpty) {
+                             setTimeout(function(){ 
+                                 
+                                 if($('.table-cart').length) {
+                                     $('.table-cart tbody').html('<tr><td colspan="5" class="text-center p-5"><h4>Your cart is empty.</h4><a href="/" class="btn btn-primary mt-2">Go Shopping</a></td></tr>');
+                                     $('.cart-summary').fadeOut(); 
+                                 }
+                                 
+                                 $('.dropdown-cart-products').html('<div class="product text-center"><p class="p-3">Your cart is empty.</p></div>');
+                                 $('.dropdown-cart-total').fadeOut();
+                                 $('.dropdown-cart-action').fadeOut();
+                             }, 500);
+                        }
+
+                        if(typeof showToast === 'function') {
+                            showToast("Product removed from cart successfully!", "success");
+                        }
+                    } else {
+                        window.location.href = url;
+                    }
+                },
+                error: function() {
+                    window.location.href = url;
+                }
+            });
+        });
+    });
+</script>
