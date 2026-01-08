@@ -5,7 +5,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>{{ config('app.name') }}</title>
+    {{-- <title>{{ config('app.name') }}</title> --}}
+    <title>Crelogics</title>
     <meta name="keywords" content="HTML5 Template" />
     <meta name="description" content="Porto - Bootstrap eCommerce Template">
     <meta name="author" content="SW-THEMES">
@@ -138,7 +139,7 @@
             border-radius: 12px;
             overflow: hidden;
             box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-            border: 1px solid #eee;
+            /* border: 1px solid #eee; */
             margin-top: 10px;
         }
 
@@ -488,12 +489,12 @@
     <script src="{{ asset('assets/js/plugins.min.js') }}"></script>
     <script src="{{ asset('assets/js/jquery.appear.min.js') }}"></script>
     <script src="{{ asset('assets/js/main.min.js') }}"></script>
-    
+
     <script>
         function showToast(message, type) {
             const container = document.getElementById('toast-container');
             const toast = document.createElement('div');
-            
+
             let iconClass = 'fa-info-circle';
             if (type === 'success') iconClass = 'fa-check-circle';
             if (type === 'error') iconClass = 'fa-exclamation-circle';
@@ -515,7 +516,7 @@
                 toast.classList.remove('show');
                 setTimeout(() => {
                     toast.remove();
-                }, 400); 
+                }, 400);
             };
 
             setTimeout(closeToast, 5000);
