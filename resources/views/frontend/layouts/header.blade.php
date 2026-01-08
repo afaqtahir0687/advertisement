@@ -227,7 +227,7 @@
                 <ul class="menu">
 
                     <li>
-                        <a href="{{ route('category.index') }}">Most Popular</a>
+                        <a href="javascript:void(0)">Most Popular</a>
                         <div class="megamenu megamenu-fixed-width megamenu-3cols">
                             <div class="row">
                                 <div class="col-lg-4">
@@ -283,7 +283,7 @@
                     </li>
 
                     <li>
-                        <a href="{{ route('category.index') }}">Markete Materials</a>
+                        <a href="javascript:void(0)">Markete Materials</a>
                         <div class="megamenu megamenu-fixed-width megamenu-3cols">
                             <div class="row">
                                 <div class="col-lg-4">
@@ -343,7 +343,7 @@
                     </li>
 
                     <li>
-                        <a href="{{ route('category.index') }}">Formate Printing</a>
+                        <a href="javascript:void(0)">Formate Printing</a>
                         <div class="megamenu megamenu-fixed-width megamenu-3cols">
                             <div class="row">
                                 <div class="col-lg-4">
@@ -398,7 +398,7 @@
                     </li>
 
                     <li>
-                        <a href="{{ route('category.index') }}">Packing & Box</a>
+                        <a href="javascript:void(0)">Packing & Box</a>
                         <div class="megamenu megamenu-fixed-width megamenu-3cols">
                             <div class="row">
                                 <div class="col-lg-4">
@@ -434,7 +434,7 @@
                     </li>
 
                     <li>
-                        <a href="#">Promo Products</a>
+                        <a href="javascript:void(0)">Promo Products</a>
                         <div class="megamenu megamenu-fixed-width megamenu-3cols">
                             <div class="row">
                                 <div class="col-lg-4">
@@ -493,7 +493,7 @@
                     </li>
 
                     <li>
-                        <a href="#">Apparel & Wearables</a>
+                        <a href="javascript:void(0)">Apparel & Wearables</a>
                         <div class="megamenu megamenu-fixed-width megamenu-3cols">
                             <div class="row">
                                 <div class="col-lg-4">
@@ -525,7 +525,7 @@
                     </li>
 
                     <li>
-                        <a href="#">Event Brand</a>
+                        <a href="javascript:void(0)">Event Brand</a>
                         <div class="megamenu megamenu-fixed-width megamenu-3cols">
                             <div class="row">
                                 <div class="col-lg-4">
