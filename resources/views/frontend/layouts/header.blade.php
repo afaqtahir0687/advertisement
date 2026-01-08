@@ -128,18 +128,6 @@
                     <form action="#" method="get">
                         <div class="header-search-wrapper">
                             <input type="search" class="form-control" name="q" id="q" placeholder="Search..." required>
-                            <div class="select-custom">
-                                <select id="cat" name="cat">
-                                    <option value="">All Categories</option>
-                                    <option value="4">Most Popular</option>
-                                    <option value="12">Markete Materials</option>
-                                    <option value="13">Formate Printing</option>
-                                    <option value="66">Packing & Box</option>
-                                    <option value="67">Promo Products</option>
-                                    <option value="5">Apparel & Wearables</option>
-                                    <option value="21">Event Brand</option>
-                                </select>
-                            </div>
                             <button class="btn icon-magnifier p-0" title="search" type="submit"></button>
                         </div>
                     </form>
@@ -237,37 +225,7 @@
         <div class="container">
             <nav class="main-nav w-100">
                 <ul class="menu">
-                    <li class="active">
-                        <a href="{{ route('category.index') }}">Categories</a>
-                        <div class="megamenu megamenu-fixed-width megamenu-3cols">
-                            <div class="row">
-                                <div class="col-lg-4">
-                                    <a href="#" class="nolink">Categories</a>
-                                    <ul class="submenu">
-                                        <li><a href="{{ route('category.index') }}">Categories</a></li>
-                                    </ul>
-                                </div>
 
-                                <div class="col-lg-4 p-0">
-                                    <div class="menu-banner">
-                                        <figure>
-                                            <img src="{{ asset('assets/images/menu-banner.jpg') }}" width="192"
-                                                height="313" alt="Menu banner">
-                                        </figure>
-                                        <div class="banner-content">
-                                            <h4>
-                                                <span class="">UP TO</span><br />
-                                                <b class="">50%</b>
-                                                <i>OFF</i>
-                                            </h4>
-                                            <a href="{{ route('category.index') }}" class="btn btn-sm btn-dark">SHOP
-                                                NOW</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </li>
                     <li>
                         <a href="{{ route('category.index') }}">Most Popular</a>
                         <div class="megamenu megamenu-fixed-width megamenu-3cols">
@@ -306,7 +264,7 @@
                                 <div class="col-lg-4 p-0">
                                     <div class="menu-banner">
                                         <figure>
-                                            <img src="{{ asset('assets/images/menu-banner.jpg') }}" width="192"
+                                            <img src="{{ asset('assets/images/home-menu-banner.jpeg') }}" width="192"
                                                 height="313" alt="Menu banner">
                                         </figure>
                                         <div class="banner-content">
@@ -366,7 +324,7 @@
                                 <div class="col-lg-4 p-0">
                                     <div class="menu-banner">
                                         <figure>
-                                            <img src="{{ asset('assets/images/menu-banner.jpg') }}" width="192"
+                                            <img src="{{ asset('assets/images/home-menu-banner.jpeg') }}" width="192"
                                                 height="313" alt="Menu banner">
                                         </figure>
                                         <div class="banner-content">
@@ -421,7 +379,7 @@
                                 <div class="col-lg-4 p-0">
                                     <div class="menu-banner">
                                         <figure>
-                                            <img src="{{ asset('assets/images/menu-banner.jpg') }}" width="192"
+                                            <img src="{{ asset('assets/images/home-menu-banner.jpeg') }}" width="192"
                                                 height="313" alt="Menu banner">
                                         </figure>
                                         <div class="banner-content">
@@ -457,7 +415,7 @@
                                 <div class="col-lg-4 p-0">
                                     <div class="menu-banner">
                                         <figure>
-                                            <img src="{{ asset('assets/images/menu-banner.jpg') }}" width="192"
+                                            <img src="{{ asset('assets/images/home-menu-banner.jpeg') }}" width="192"
                                                 height="313" alt="Menu banner">
                                         </figure>
                                         <div class="banner-content">
@@ -516,7 +474,7 @@
                                 <div class="col-lg-4 p-0">
                                     <div class="menu-banner">
                                         <figure>
-                                            <img src="{{ asset('assets/images/menu-banner.jpg') }}" width="192"
+                                            <img src="{{ asset('assets/images/home-menu-banner.jpeg') }}" width="192"
                                                 height="313" alt="Menu banner">
                                         </figure>
                                         <div class="banner-content">
@@ -548,7 +506,7 @@
                                 <div class="col-lg-4 p-0">
                                     <div class="menu-banner">
                                         <figure>
-                                            <img src="{{ asset('assets/images/menu-banner.jpg') }}" width="192"
+                                            <img src="{{ asset('assets/images/home-menu-banner.jpeg') }}" width="192"
                                                 height="313" alt="Menu banner">
                                         </figure>
                                         <div class="banner-content">
@@ -579,7 +537,7 @@
                                 <div class="col-lg-4 p-0">
                                     <div class="menu-banner">
                                         <figure>
-                                            <img src="{{ asset('assets/images/menu-banner.jpg') }}" width="192"
+                                            <img src="{{ asset('assets/images/home-menu-banner.jpeg') }}" width="192"
                                                 height="313" alt="Menu banner">
                                         </figure>
                                         <div class="banner-content">
