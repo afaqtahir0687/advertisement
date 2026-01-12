@@ -248,7 +248,7 @@
                                                 @endforeach
                                             </div>
                                         @endforeach
-                                        
+
                                         <div class="col-lg-4 p-0">
                                             <div class="menu-banner">
                                                 <figure>
