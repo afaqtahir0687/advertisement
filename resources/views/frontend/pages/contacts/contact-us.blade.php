@@ -1,4 +1,5 @@
 @extends('frontend.layouts.master')
+@section('title', 'Contact Us')
 @section('content')
 	<main class="main">
         <nav aria-label="breadcrumb" class="breadcrumb-nav">

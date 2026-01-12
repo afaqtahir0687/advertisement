@@ -1,4 +1,5 @@
 @extends('frontend.layouts.master')
+@section('title', 'Verify OTP')
 
 @section('content')
     <div class="page-header">

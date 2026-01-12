@@ -1,4 +1,5 @@
 @extends('frontend.layouts.master')
+@section('title', 'My Wishlist')
 @section('content')
     <main class="main">
         <div class="page-header">

@@ -1,4 +1,5 @@
 @extends('frontend.layouts.master')
+@section('title', 'Categories - Off Canvas')
 @section('content')
     <main class="main">
         <div class="category-banner-container bg-gray">

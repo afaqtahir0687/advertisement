@@ -1,4 +1,5 @@
 @extends('frontend.layouts.master')
+@section('title', 'Track Order')
 
 @section('content')
     <div class="page-header">

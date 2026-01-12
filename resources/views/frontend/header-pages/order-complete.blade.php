@@ -1,4 +1,5 @@
 @extends('frontend.layouts.master')
+@section('title', 'Order Complete')
 @section('content')
     <main class="main">
         <div class="container">

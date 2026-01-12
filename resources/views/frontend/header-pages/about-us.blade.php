@@ -1,4 +1,5 @@
 @extends('frontend.layouts.master')
+@section('title', 'About Us')
 @section('content')
     <main class="main about">
         <div class="page-header page-header-bg text-left"

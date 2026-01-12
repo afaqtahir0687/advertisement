@@ -225,335 +225,52 @@
         <div class="container">
             <nav class="main-nav w-100">
                 <ul class="menu">
-
-                    <li>
-                        <a href="javascript:void(0)">Most Popular</a>
-                        <div class="megamenu megamenu-fixed-width megamenu-3cols">
-                            <div class="row">
-                                <div class="col-lg-4">
-                                    <a href="#" class="nolink">Business Cards</a>
-                                    <ul class="submenu">
-                                        <li><a href="{{ route('category.index') }}">Business Cards</a></li>
-                                        <li><a href="#">Standard Cards</a></li>
-                                        <li><a href="#">Premium Cards</a></li>
-                                        <li><a href="#">Special Finishes</a></li>
-                                        <li><a href="#">NFC Cards</a></li>
-                                        <li><a href="#">Special offers</a></li>
-                                        <li><a href="#">Smooth finish</a></li>
-                                        <li><a href="#">Textured finish</a></li>
-                                        <li><a href="#">Specialty textured</a></li>
-                                        <li><a href="#">Holders & More</a></li>
-                                    </ul>
-                                </div>
-                                <div class="col-lg-4">
-                                    <a href="#" class="nolink">Letterheads</a>
-                                    <ul class="submenu">
-                                        <li><a href="#">Standard letterhead</a></li>
-                                        <li><a href="#">Textured Finish LH</a></li>
-                                        <li><a href="#">Smooth Finish LH</a></li>
-                                        <li><a href="#">Specialty Textured LH</a></li>
-                                        <li><a href="#">Special offers LH</a></li>
-                                        <li><a href="#">♻️Recycled LH</a></li>
-                                        <a href="#" class="nolink">NFC Business Cards</a>
-                                        <a href="#" class="nolink">Folders</a>
-                                        <li><a href="#">Standard</a></li>
-                                        <li><a href="#">Premium</a></li>
-                                        <li><a href="#">Special offers.</a></li>
-                                    </ul>
-                                </div>
-                                <div class="col-lg-4 p-0">
-                                    <div class="menu-banner">
-                                        <figure>
-                                            <img src="{{ asset('assets/images/home-menu-banner.jpeg') }}" width="192"
-                                                height="313" alt="Menu banner">
-                                        </figure>
-                                        <div class="banner-content">
-                                            <h4>
-                                                <span class="">UP TO</span><br />
-                                                <b class="">50%</b>
-                                                <i>OFF</i>
-                                            </h4>
-                                            <a href="{{ route('category.index') }}" class="btn btn-sm btn-dark">SHOP
-                                                NOW</a>
+                    @foreach($headerCategories as $category)
+                        <li>
+                            <a href="{{ route('category.index') }}?category={{ $category->slug }}">{{ $category->name }}</a>
+                            @if($category->subcategories->count() > 0)
+                                <div class="megamenu megamenu-fixed-width megamenu-3cols">
+                                    <div class="row">
+                                        {{-- Split subcategories into columns --}}
+                                        @foreach($category->subcategories->chunk(ceil($category->subcategories->count() / 2)) as $chunk)
+                                            <div class="col-lg-4">
+                                                @foreach($chunk as $subcategory)
+                                                    <a href="#" class="nolink">{{ $subcategory->name }}</a>
+                                                    <ul class="submenu">
+                                                        @foreach($subcategory->products as $product)
+                                                            <li><a href="{{ route('product.show', $product->slug) }}">{{ $product->name }}</a></li>
+                                                        @endforeach
+                                                        {{-- Link to view all if needed, or if no products --}}
+                                                        @if($subcategory->products->isEmpty())
+                                                            <li><a href="#">No products</a></li>
+                                                        @endif
+                                                    </ul>
+                                                @endforeach
+                                            </div>
+                                        @endforeach
+                                        
+                                        <div class="col-lg-4 p-0">
+                                            <div class="menu-banner">
+                                                <figure>
+                                                    <img src="{{ asset('assets/images/home-menu-banner.jpeg') }}" width="192"
+                                                        height="313" alt="Menu banner">
+                                                </figure>
+                                                <div class="banner-content">
+                                                    <h4>
+                                                        <span class="">UP TO</span><br />
+                                                        <b class="">50%</b>
+                                                        <i>OFF</i>
+                                                    </h4>
+                                                    <a href="{{ route('category.index') }}" class="btn btn-sm btn-dark">SHOP
+                                                        NOW</a>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                        </div>
-                    </li>
-
-                    <li>
-                        <a href="javascript:void(0)">Markete Materials</a>
-                        <div class="megamenu megamenu-fixed-width megamenu-3cols">
-                            <div class="row">
-                                <div class="col-lg-4">
-                                    <a href="#" class="nolink">Flyers</a>
-                                    <ul class="submenu">
-                                        <li><a href="#">Standard-</a></li>
-                                        <li><a href="#">Smooth finish-</a></li>
-                                        <li><a href="#">Special Finishes-</a></li>
-                                        <li><a href="#">Textured finish-</a></li>
-                                        <li><a href="#">Specialty textured-</a></li>
-                                        <li><a href="#">Special offers-</a></li>
-                                        <li><a href="#">♻️Recycled.</a></li>
-                                        <a href="#" class="nolink">Brochures</a>
-                                        <li><a href="#">Standard</a></li>
-                                        <li><a href="#">Premium</a></li>
-                                        <a href="#" class="nolink">Stickers/Labels</a>
-                                        <li><a href="#">Vinyl Labels</a></li>
-                                        <li><a href="#">Paper Lables</a></li>
-                                        <li><a href="#">Roll Lables</a></li>
-                                    </ul>
-                                </div>
-                                <div class="col-lg-4">
-                                    <a href="#" class="nolink">Letterheads</a>
-                                    <ul class="submenu">
-                                        <li><a href="#">Standard letterhead</a></li>
-                                        <li><a href="#">Textured Finish LH</a></li>
-                                        <li><a href="#">Smooth Finish LH</a></li>
-                                        <li><a href="#">Specialty Textured LH</a></li>
-                                        <li><a href="#">Special offers LH</a></li>
-                                        <li><a href="#">♻️Recycled LH</a></li>
-                                        <a href="#" class="nolink">NFC Business Cards</a>
-                                        <a href="#" class="nolink">Folders</a>
-                                        <li><a href="#">Standard</a></li>
-                                        <li><a href="#">Premium</a></li>
-                                        <li><a href="#">Special offers.</a></li>
-                                    </ul>
-                                </div>
-                                <div class="col-lg-4 p-0">
-                                    <div class="menu-banner">
-                                        <figure>
-                                            <img src="{{ asset('assets/images/home-menu-banner.jpeg') }}" width="192"
-                                                height="313" alt="Menu banner">
-                                        </figure>
-                                        <div class="banner-content">
-                                            <h4>
-                                                <span class="">UP TO</span><br />
-                                                <b class="">50%</b>
-                                                <i>OFF</i>
-                                            </h4>
-                                            <a href="{{ route('category.index') }}" class="btn btn-sm btn-dark">SHOP
-                                                NOW</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </li>
-
-                    <li>
-                        <a href="javascript:void(0)">Formate Printing</a>
-                        <div class="megamenu megamenu-fixed-width megamenu-3cols">
-                            <div class="row">
-                                <div class="col-lg-4">
-                                    <a href="#" class="nolink">Posters & Banners</a>
-                                    <ul class="submenu">
-                                        <li><a href="#">Posters</a></li>
-                                        <li><a href="#">3M Vinyl Graphics</a></li>
-                                        <li><a href="#">One Way Vision Film</a></li>
-                                        <li><a href="#">Flex Banners</a></li>
-                                        <li><a href="#">Backlit Prints</a></li>
-                                        <li><a href="#">Whiteboard Film</a></li>
-                                        <a href="#" class="nolink">Wallpapers</a>
-                                        <a href="#" class="nolink">Canvas Printing</a>
-                                        <li><a href="#">Canvas Prints</a></li>
-                                        <li><a href="#">Canvas With Frame</a></li>
-                                        <a href="#" class="nolink">Rollups</a>
-                                        <li><a href="#">Standard</a></li>
-                                        <li><a href="#">Premium</a></li>
-                                        <li><a href="#">X-Stand Banner</a></li>
-                                    </ul>
-                                </div>
-                                <div class="col-lg-4">
-                                    <a href="#" class="nolink">Popups</a>
-                                    <ul class="submenu">
-                                        <li><a href="#">Pop-Up Display Straight</a></li>
-                                        <li><a href="#">Pop-Up Display Curved</a></li>
-                                        <li><a href="#">Promotional Table</a></li>
-                                        <a href="#" class="nolink">Displays</a>
-                                        <li><a href="#">Acrylic Sign Holders</a></li>
-                                        <li><a href="#">Acrylic Name Plates & Desk Stands</a></li>
-                                    </ul>
-                                </div>
-                                <div class="col-lg-4 p-0">
-                                    <div class="menu-banner">
-                                        <figure>
-                                            <img src="{{ asset('assets/images/home-menu-banner.jpeg') }}" width="192"
-                                                height="313" alt="Menu banner">
-                                        </figure>
-                                        <div class="banner-content">
-                                            <h4>
-                                                <span class="">UP TO</span><br />
-                                                <b class="">50%</b>
-                                                <i>OFF</i>
-                                            </h4>
-                                            <a href="{{ route('category.index') }}" class="btn btn-sm btn-dark">SHOP
-                                                NOW</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </li>
-
-                    <li>
-                        <a href="javascript:void(0)">Packing & Box</a>
-                        <div class="megamenu megamenu-fixed-width megamenu-3cols">
-                            <div class="row">
-                                <div class="col-lg-4">
-                                    <ul class="submenu">
-                                        <li><a href="#">Fancy Boxes</a></li>
-                                        <li><a href="#">Corrugated Boxes</a></li>
-                                        <li><a href="#">Gift Box</a></li>
-                                        <li><a href="#">Fancy Gift Sets</a></li>
-                                        <li><a href="#">Cube Boxes</a></li>
-                                        <li><a href="#">Soft Boxes</a></li>
-                                    </ul>
-                                </div>
-                                <!-- <div class="col-lg-4 p-0"></div> -->
-                                <div class="col-lg-4 p-0">
-                                    <div class="menu-banner">
-                                        <figure>
-                                            <img src="{{ asset('assets/images/home-menu-banner.jpeg') }}" width="192"
-                                                height="313" alt="Menu banner">
-                                        </figure>
-                                        <div class="banner-content">
-                                            <h4>
-                                                <span class="">UP TO</span><br />
-                                                <b class="">50%</b>
-                                                <i>OFF</i>
-                                            </h4>
-                                            <a href="{{ route('category.index') }}" class="btn btn-sm btn-dark">SHOP
-                                                NOW</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </li>
-
-                    <li>
-                        <a href="javascript:void(0)">Promo Products</a>
-                        <div class="megamenu megamenu-fixed-width megamenu-3cols">
-                            <div class="row">
-                                <div class="col-lg-4">
-                                    <a href="#" class="nolink">Mouse Pads</a>
-                                    <ul class="submenu">
-                                        <li><a href="#">Sublimation</a>
-                                        </li>
-                                        <li><a href="">Leather</a>
-                                        </li>
-                                        <li><a href="">Wireless</a>
-                                        </li>
-                                        <a href="#" class="nolink">Mugs</a>
-                                        <li><a href="category-list.html">Water Bottles</a></li>
-                                        <li><a href="category-infinite-scroll.html">Travel Mugs & Tumblers</a>
-                                        </li>
-                                        <li><a href="#">Mugs</a></li>
-                                        <li><a href="#">Glassware</a></li>
-                                        <a href="#" class="nolink">Pillows</a>
-                                        <a href="#" class="nolink">Diaries/Agendas</a>
-                                        <a href="#" class="nolink">Pens</a>
-                                        <a href="#" class="nolink">USB Flash Drives</a>
-                                        <a href="#" class="nolink">Powerbanks</a>
-                                        <a href="#" class="nolink">Stress Balls</a>
-                                    </ul>
-                                </div>
-                                <div class="col-lg-4">
-                                    <ul class="submenu">
-                                        <li><a href="category-list.html">Balloons</a></li>
-                                        <li><a href="category-infinite-scroll.html">Ribbons</a>
-                                        </li>
-                                        <li><a href="#">Thermal Mugs and Bottles</a></li>
-                                        <li><a href="#">Tea Coaster</a></li>
-                                        <li><a href="#">Mobile Accessories</a></li>
-                                        <li><a href="#">Business Cards Cases</a></li>
-                                    </ul>
-                                </div>
-                                <div class="col-lg-4 p-0">
-                                    <div class="menu-banner">
-                                        <figure>
-                                            <img src="{{ asset('assets/images/home-menu-banner.jpeg') }}" width="192"
-                                                height="313" alt="Menu banner">
-                                        </figure>
-                                        <div class="banner-content">
-                                            <h4>
-                                                <span class="">UP TO</span><br />
-                                                <b class="">50%</b>
-                                                <i>OFF</i>
-                                            </h4>
-                                            <a href="{{ route('category.index') }}" class="btn btn-sm btn-dark">SHOP
-                                                NOW</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </li>
-
-                    <li>
-                        <a href="javascript:void(0)">Apparel & Wearables</a>
-                        <div class="megamenu megamenu-fixed-width megamenu-3cols">
-                            <div class="row">
-                                <div class="col-lg-4">
-                                    <a href="#" class="nolink">Safety Products</a>
-                                    <a href="#" class="nolink">Shirts</a>
-                                    <a href="#" class="nolink">Caps</a>
-                                    <a href="#" class="nolink">Badges</a>
-                                    <a href="#" class="nolink">Lanyard</a>
-                                </div>
-                                <div class="col-lg-4 p-0">
-                                    <div class="menu-banner">
-                                        <figure>
-                                            <img src="{{ asset('assets/images/home-menu-banner.jpeg') }}" width="192"
-                                                height="313" alt="Menu banner">
-                                        </figure>
-                                        <div class="banner-content">
-                                            <h4>
-                                                <span class="">UP TO</span><br />
-                                                <b class="">50%</b>
-                                                <i>OFF</i>
-                                            </h4>
-                                            <a href="{{ route('category.index') }}" class="btn btn-sm btn-dark">SHOP
-                                                NOW</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </li>
-
-                    <li>
-                        <a href="javascript:void(0)">Event Brand</a>
-                        <div class="megamenu megamenu-fixed-width megamenu-3cols">
-                            <div class="row">
-                                <div class="col-lg-4">
-                                    <a href="#" class="nolink">Photobooks</a>
-                                    <a href="#" class="nolink">Trophy Awards & Mementos</a>
-                                    <a href="#" class="nolink">Promotional Bags</a>
-                                    <a href="#" class="nolink">Exhibition & Events</a>
-                                </div>
-                                <div class="col-lg-4 p-0">
-                                    <div class="menu-banner">
-                                        <figure>
-                                            <img src="{{ asset('assets/images/home-menu-banner.jpeg') }}" width="192"
-                                                height="313" alt="Menu banner">
-                                        </figure>
-                                        <div class="banner-content">
-                                            <h4>
-                                                <span class="">UP TO</span><br />
-                                                <b class="">50%</b>
-                                                <i>OFF</i>
-                                            </h4>
-                                            <a href="{{ route('category.index') }}" class="btn btn-sm btn-dark">SHOP
-                                                NOW</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </li>
+                            @endif
+                        </li>
+                    @endforeach
                 </ul>
             </nav>
         </div>

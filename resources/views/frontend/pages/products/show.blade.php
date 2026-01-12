@@ -1,4 +1,5 @@
 @extends('frontend.layouts.master')
+@section('title', $product->name)
 @section('content')
     <style>
         .breadcrumb-item, .breadcrumb-item a {
@@ -7,8 +8,8 @@
         /* Magnific Popup Fade Effect */
         .mfp-fade.mfp-bg {
             opacity: 0;
-            -webkit-transition: all 0.15s ease-out; 
-            -moz-transition: all 0.15s ease-out; 
+            -webkit-transition: all 0.15s ease-out;
+            -moz-transition: all 0.15s ease-out;
             transition: all 0.15s ease-out;
         }
         .mfp-fade.mfp-bg.mfp-ready {
@@ -19,8 +20,8 @@
         }
         .mfp-fade.mfp-wrap .mfp-content {
             opacity: 0;
-            -webkit-transition: all 0.15s ease-out; 
-            -moz-transition: all 0.15s ease-out; 
+            -webkit-transition: all 0.15s ease-out;
+            -moz-transition: all 0.15s ease-out;
             transition: all 0.15s ease-out;
         }
         .mfp-fade.mfp-wrap.mfp-ready .mfp-content {
@@ -395,7 +396,7 @@
                                     <h5 class="text-dark font-weight-bold mb-1">Category</h5>
                                     <p class="text-muted mb-0">{{ $product->category->name ?? 'N/A' }}</p>
                                 </div>
-                                
+
                                 @if($product->subcategory)
                                 <div class="col-md-4 mb-3">
                                     <h5 class="text-dark font-weight-bold mb-1">Subcategory</h5>
@@ -494,7 +495,7 @@
     @push('scripts')
         <script>
             $(document).ready(function() {
-                
+
                 function toggleSection(toggleId, optionIds, statusId = null) {
                     const toggle = document.getElementById(toggleId);
                     if(!toggle) return;
@@ -563,8 +564,8 @@
                         $('#qtyError').show();
                         $('#addToCartBtn').prop('disabled', true);
                     } else if(val < 1) {
-                       
-                         $('#addToCartBtn').prop('disabled', false); 
+
+                         $('#addToCartBtn').prop('disabled', false);
                          $('#qtyError').hide();
                     } else {
                         $('#qtyError').hide();
@@ -601,24 +602,24 @@
                     let qty = parseInt($('#quantityField').val()) || 0;
                     let numDesigns = parseInt($('#num_designs').val()) || 1;
                     let urgency = $('input[name="urgency"]:checked').val();
-                    
-                    
+
+
                     let regularPrice = (qty / 100) * baseRate * numDesigns;
                     let flexiblePrice = (qty / 100) * flexRate * numDesigns;
                     let urgentPrice = (qty / 100) * urgentRate * numDesigns;
-                    
+
                     let extraProdDays = 0;
                     let extraDeliveryDays = 0;
 
                     if (qty >= 1000) {
                         extraProdDays = Math.floor(qty / 1000);
-                        extraDeliveryDays = Math.floor(qty / 2000); 
+                        extraDeliveryDays = Math.floor(qty / 2000);
                     }
-                    
+
                     let regProd = baseProdDays.regular + extraProdDays;
                     let flexProd = baseProdDays.flexible + extraProdDays;
                     let urgProd = baseProdDays.urgent + extraProdDays;
-                    
+
                     let delDays = baseDeliveryDays + extraDeliveryDays;
 
                     $('#price-regular').text(formatCurrency(regularPrice));
@@ -632,7 +633,7 @@
                     }
                     if (urgentRate > 0) {
                          $('#price-urgent').text(formatCurrency(urgentPrice));
-                         $('#days-production-urgent').text(urgProd + ' Days'); 
+                         $('#days-production-urgent').text(urgProd + ' Days');
                          $('#days-delivery-urgent').text(delDays + ' Day' + (delDays > 1 ? 's' : ''));
                     }
 
@@ -652,7 +653,7 @@
                 $(document).on('click', '#addToCartBtn', function(e) {
                     e.preventDefault();
                     let printQty = $('#quantityField').val();
-                    let numDesigns = $('#num_designs').val(); 
+                    let numDesigns = $('#num_designs').val();
                     let urgency = $('input[name="urgency"]:checked').val();
 
                     // Collect other options
@@ -688,7 +689,7 @@
 
                     let url = "{{ route('cart.add', ':id') }}";
                     url = url.replace(':id', {{ $product->id }});
-                    
+
                     $.ajax({
                         url: url,
                         type: 'GET',
@@ -697,7 +698,7 @@
                              if(typeof showToast === 'function') {
                                 showToast("Product added to cart successfully!", "success");
                             }
-                            
+
                             if(response.cartCount) {
                                 $('.cart-count').text(response.cartCount);
                             }

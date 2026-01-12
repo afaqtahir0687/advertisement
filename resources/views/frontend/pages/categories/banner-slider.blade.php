@@ -1,4 +1,5 @@
 @extends('frontend.layouts.master')
+@section('title', 'Categories - Banner Slider')
 @section('content')
     <main class="main">
         <div class="container">

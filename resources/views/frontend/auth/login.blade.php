@@ -1,4 +1,5 @@
 @extends('frontend.layouts.master')
+@section('title', 'Login')
 
 @section('content')
     <div class="page-header">

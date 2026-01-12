@@ -1,4 +1,5 @@
 @extends('frontend.layouts.master')
+@section('title', 'Register')
 @section('content')
     <div class="page-header">
         <div class="container d-flex flex-column align-items-center">

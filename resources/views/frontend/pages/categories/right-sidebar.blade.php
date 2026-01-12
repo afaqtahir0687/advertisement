@@ -1,4 +1,5 @@
 @extends('frontend.layouts.master')
+@section('title', 'Categories - Right Sidebar')
 @section('content')
     <main class="main">
         <div class="category-banner-container bg-gray">
