@@ -12,9 +12,9 @@ class ProductController extends Controller
         return view('frontend.pages.products.index');
     }
 
-    public function show($slug)
+    public function show($category_slug, $subcategory_slug, $product_slug)
     {
-        $product = \App\Models\Product::where('slug', $slug)->where('status', 'active')->firstOrFail();
+        $product = \App\Models\Product::where('slug', $product_slug)->where('status', 'active')->firstOrFail();
         $relatedProducts = \App\Models\Product::where('category_id', $product->category_id)
             ->where('id', '!=', $product->id)
             ->where('status', 'active')

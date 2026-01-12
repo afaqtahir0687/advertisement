@@ -1,5 +1,7 @@
 @extends('frontend.layouts.master')
-@section('title', 'Shopping Cart')
+@section('title', 'Shopping Cart - Checkout Your Order')
+@section('meta_description', 'Review your selected items in the shopping cart and proceed to checkout for high-quality printing and advertisement services.')
+@section('meta_keywords', 'shopping cart, checkout, printing order, Crelogics cart')
 @section('content')
     <main class="main">
         <div class="container">
@@ -35,7 +37,7 @@
                                         <tr class="product-row">
                                             <td>
                                                 <figure class="product-image-container">
-                                                    <a href="{{ route('product.show', $details['slug']) }}" class="product-image">
+                                                    <a href="{{ route('product.show', [$details['category_slug'] ?? 'uncategorized', $details['subcategory_slug'] ?? 'no-sub', $details['slug']]) }}" class="product-image">
                                                         @if($details['image'])
                                                             <img src="{{ asset('storage/' . $details['image']) }}" alt="product"
                                                                 width="80" height="80">
@@ -49,7 +51,7 @@
                                             </td>
                                             <td class="product-col">
                                                 <h5 class="product-title">
-                                                    <a href="{{ route('product.show', $details['slug']) }}" style="color: #e91d8e">{{ $details['name'] }}</a>
+                                                    <a href="{{ route('product.show', [$details['category_slug'] ?? 'uncategorized', $details['subcategory_slug'] ?? 'no-sub', $details['slug']]) }}" style="color: #e91d8e">{{ $details['name'] }}</a>
                                                 </h5>
                                                 @if(isset($details['options']['print_quantity']))
                                                     <div class="product-specs mt-1">

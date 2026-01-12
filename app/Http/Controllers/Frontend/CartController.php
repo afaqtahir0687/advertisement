@@ -10,7 +10,7 @@ class CartController extends Controller
 {
     public function add(Request $request, $id)
     {
-        $product = Product::findOrFail($id);
+        $product = Product::with(['category', 'subcategory'])->findOrFail($id);
         $cart = session()->get('cart', []);
 
         $designs_quantity = (int) $request->input('quantity', 1);
@@ -58,6 +58,8 @@ class CartController extends Controller
                 "original_price" => $unit_price,
                 "image" => $product->image,
                 "slug" => $product->slug,
+                "category_slug" => $product->category->slug,
+                "subcategory_slug" => $product->subcategory ? $product->subcategory->slug : 'no-sub',
                 "options" => array_merge([
                     "print_quantity" => $print_quantity,
                     "urgency" => $urgency,

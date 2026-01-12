@@ -1,5 +1,7 @@
 @extends('frontend.layouts.master')
-@section('title', 'Categories')
+@section('title', 'Browse Printing Categories')
+@section('meta_description', 'Browse through our extensive range of printing and advertisement categories. From business cards to large-scale banners, find exactly what your brand needs.')
+@section('meta_keywords', 'printing categories, business cards, flyers, banners, advertisement services, Crelogics categories')
 @section('content')
     <main class="main">
         <div class="category-banner-container bg-gray">
@@ -111,7 +113,7 @@
                             <div class="col-6 col-sm-4">
                                 <div class="product-default">
                                     <figure>
-                                        <a href="{{ route('product.show', $product->slug) }}">
+                                        <a href="{{ route('product.show', [$product->category->slug, $product->subcategory->slug ?? 'no-sub', $product->slug]) }}">
                                             @if($product->image)
                                                 <img src="{{ Storage::url($product->image) }}" width="280" height="280" alt="{{ $product->name }}" />
                                             @else
@@ -134,7 +136,7 @@
 
                                     <div class="product-details">
                                         <h3 class="product-title">
-                                            <a href="{{ route('product.show', $product->slug) }}">{{ $product->name }}</a>
+                                            <a href="{{ route('product.show', [$product->category->slug, $product->subcategory->slug ?? 'no-sub', $product->slug]) }}">{{ $product->name }}</a>
                                         </h3>
                                         <div class="price-box">
                                             @if($product->discount_price)
@@ -184,7 +186,7 @@
                                                     <div class="collapse" id="widget-category-{{ $category->id }}">
                                                         <ul class="cat-sublist">
                                                             @foreach($category->subcategories as $subcategory)
-                                                                <li><a href="{{ route('category.show', $subcategory->slug) }}">{{ $subcategory->name }}</a> <span class="products-count">({{ $subcategory->products->count() }})</span></li>
+                                                                <li><a href="{{ route('subcategory.show', [$category->slug, $subcategory->slug]) }}">{{ $subcategory->name }}</a> <span class="products-count">({{ $subcategory->products->count() }})</span></li>
                                                             @endforeach
                                                         </ul>
                                                     </div>

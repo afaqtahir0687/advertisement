@@ -1,6 +1,8 @@
 @extends('frontend.layouts.master')
 
 @section('title', $category->name)
+@section('meta_description', 'Explore our ' . $category->name . ' collection. High-quality professional printing services for ' . $category->name . ' and more at Crelogics.')
+@section('meta_keywords', $category->name . ', printing, advertisement, customized ' . $category->name . ', professional printing')
 
 @section('content')
     <main class="main">
@@ -96,7 +98,7 @@
                             <div class="row">
                                 @foreach($subcategories as $subcategory)
                                     <div class="col-6 col-md-4 col-lg-3 mb-3">
-                                        <a href="{{ route('category.show', $subcategory->slug) }}" class="subcategory-card">
+                                        <a href="{{ route('subcategory.show', [$category->slug, $subcategory->slug]) }}" class="subcategory-card">
                                             <div class="card h-100 text-center">
                                                 @if($subcategory->image)
                                                     <img src="{{ asset('storage/' . $subcategory->image) }}" class="card-img-top" alt="{{ $subcategory->name }}" style="height: 150px; object-fit: cover;">
@@ -132,7 +134,7 @@
                             <div class="col-6 col-sm-4">
                                 <div class="product-default">
                                         <figure>
-                                        <a href="{{ route('product.show', $product->slug) }}">
+                                        <a href="{{ route('product.show', [$category->slug, $product->subcategory ? $product->subcategory->slug : 'no-sub', $product->slug]) }}">
                                             @if($product->image)
                                                 <img src="{{ asset('storage/' . $product->image) }}" width="280" height="280" alt="{{ $product->name }}" />
                                             @else
@@ -159,7 +161,7 @@
                                             <a href="{{ route('category.show', $category->slug) }}" class="product-category">{{ $category->name }}</a>
                                         </div>
                                         <h3 class="product-title">
-                                            <a href="{{ route('product.show', $product->slug) }}">{{ $product->name }}</a>
+                                            <a href="{{ route('product.show', [$category->slug, $product->subcategory ? $product->subcategory->slug : 'no-sub', $product->slug]) }}">{{ $product->name }}</a>
                                         </h3>
                                         <div class="ratings-container">
                                             <div class="product-ratings">
@@ -175,7 +177,7 @@
                                         </div>
                                         <div class="product-action">
                                             <a href="#" class="btn-icon-wish" title="wishlist"><i class="icon-heart"></i></a>
-                                            <a href="{{ route('product.show', $product->slug) }}" class="btn-icon btn-add-cart"><i class="fa fa-arrow-right"></i><span>SELECT OPTIONS</span></a>
+                                            <a href="{{ route('product.show', [$category->slug, $product->subcategory ? $product->subcategory->slug : 'no-sub', $product->slug]) }}" class="btn-icon btn-add-cart"><i class="fa fa-arrow-right"></i><span>SELECT OPTIONS</span></a>
                                             <a href="#" class="btn-quickview" title="Quick View"><i class="fas fa-external-link-alt"></i></a>
                                         </div>
                                     </div>
@@ -220,7 +222,7 @@
                                                     <ul class="cat-sublist">
                                                         @foreach($cat->subcategories()->where('status', 'active')->get() as $subcat)
                                                             <li>
-                                                                <a href="#">
+                                                                <a href="{{ route('subcategory.show', [$cat->slug, $subcat->slug]) }}">
                                                                     {{ $subcat->name }} <span class="products-count">({{ $subcat->products()->count() }})</span>
                                                                 </a>
                                                             </li>

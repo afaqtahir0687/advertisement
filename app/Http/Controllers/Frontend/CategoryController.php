@@ -11,26 +11,22 @@ class CategoryController extends Controller
 {
     public function index()
     {
-        $products = Product::where('status', 'active')->latest()->paginate(12);
+        $products = Product::with(['category', 'subcategory'])->where('status', 'active')->latest()->paginate(12);
         $categories = Category::where('status', 'active')->latest()->get();
         return view('frontend.pages.categories.index', compact('products', 'categories'));
     }
 
-    public function show($slug)
+    public function show($category_slug, $subcategory_slug = null)
     {
-        $category = Category::where('slug', $slug)->where('status', 'active')->first();
-
-        if ($category) {
-
-            $subcategories = $category->subcategories()->where('status', 'active')->withCount('products')->get();
-
+        if ($subcategory_slug) {
+            // Looking for subcategory
+            $category = \App\Models\SubCategory::where('slug', $subcategory_slug)->where('status', 'active')->firstOrFail();
+            $subcategories = collect([]);
             $products = $category->getAllProducts();
         } else {
-
-            $category = \App\Models\SubCategory::where('slug', $slug)->where('status', 'active')->firstOrFail();
-
-            $subcategories = collect([]);
-
+            // Looking for main category
+            $category = Category::where('slug', $category_slug)->where('status', 'active')->firstOrFail();
+            $subcategories = $category->subcategories()->where('status', 'active')->withCount('products')->get();
             $products = $category->getAllProducts();
         }
 

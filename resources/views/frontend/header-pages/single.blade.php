@@ -1,5 +1,7 @@
 @extends('frontend.layouts.master')
-@section('title', 'Blog Post')
+@section('title', 'Blog Post Detail - Crelogics Insights')
+@section('meta_description', 'Read our latest blog post on professional printing and branding strategies. Expert advice for your business growth.')
+@section('meta_keywords', 'blog post, printing tips, advertisement strategy, branding article, Crelogics blog detail')
 @section('content')
     <main class="main">
         <nav aria-label="breadcrumb" class="breadcrumb-nav">

@@ -1,5 +1,7 @@
 @extends('frontend.layouts.master')
-@section('title', 'Home')
+@section('title', 'Professional Printing & Advertisement Services')
+@section('meta_description', 'Crelogics is your one-stop shop for professional printing, business cards, flyers, banners, and digital marketing services. Get high-quality results for your business needs.')
+@section('meta_keywords', 'printing services, business cards, flyers, banners, customized gifts, digital marketing, Saudi Arabia printing')
 @section('content')
 
     <div class="home-slider slide-animate owl-carousel owl-theme show-nav-hover nav-big mb-2 text-uppercase"
@@ -195,7 +197,7 @@
                     @foreach($featuredProducts as $product)
                         <div class="product-default appear-animate" data-animation-name="fadeInRightShorter">
                             <figure>
-                                <a href="{{ route('product.show', $product->slug) }}">
+                                <a href="{{ route('product.show', [$product->category->slug, $product->subcategory->slug ?? 'no-sub', $product->slug]) }}">
                                     <img src="{{ asset('storage/' . $product->image) }}" width="280" height="280"
                                         alt="{{ $product->name }}">
                                     @if($product->images && count($product->images) > 0)
@@ -224,7 +226,7 @@
                                     @endif
                                 </div>
                                 <h3 class="product-title">
-                                    <a href="{{ route('product.show', $product->slug) }}">{{ $product->name }}</a>
+                                    <a href="{{ route('product.show', [$product->category->slug, $product->subcategory->slug ?? 'no-sub', $product->slug]) }}">{{ $product->name }}</a>
                                 </h3>
                                 <div class="ratings-container">
                                     <div class="product-ratings">
@@ -242,7 +244,7 @@
                                 </div>
                                 <div class="product-action">
                                     <a href="{{ auth()->check() ? route('wishlist.add', $product->id) : route('login') }}" class="btn-icon-wish" title="wishlist"><i class="icon-heart"></i></a>
-                                    <a href="{{ route('product.show', $product->slug) }}" class="btn-icon btn-add-cart"><i class="fa fa-arrow-right"></i><span>SELECT OPTIONS</span></a>
+                                    <a href="{{ route('product.show', [$product->category->slug, $product->subcategory->slug ?? 'no-sub', $product->slug]) }}" class="btn-icon btn-add-cart"><i class="fa fa-arrow-right"></i><span>SELECT OPTIONS</span></a>
                                     <a href="javascript:void(0);" class="btn-quickview" title="Quick View"><i
                                             class="fas fa-external-link-alt"></i></a>
                                 </div>
@@ -516,7 +518,7 @@
                                     @endif
                                 </div>
                                 <h3 class="product-title">
-                                    <a href="{{ route('product.show', $product->slug) }}">{{ $product->name }}</a>
+                                    <a href="{{ route('product.show', [$product->category->slug, $product->subcategory->slug ?? 'no-sub', $product->slug]) }}">{{ $product->name }}</a>
                                 </h3>
                                 <div class="ratings-container">
                                     <div class="product-ratings">
@@ -534,7 +536,7 @@
                                 </div>
                                 <div class="product-action">
                                     <a href="{{ auth()->check() ? route('wishlist.add', $product->id) : route('login') }}" class="btn-icon-wish" title="wishlist"><i class="icon-heart"></i></a>
-                                    <a href="{{ route('product.show', $product->slug) }}" class="btn-icon btn-add-cart"><i class="fa fa-arrow-right"></i><span>SELECT OPTIONS</span></a>
+                                    <a href="{{ route('product.show', [$product->category->slug, $product->subcategory->slug ?? 'no-sub', $product->slug]) }}" class="btn-icon btn-add-cart"><i class="fa fa-arrow-right"></i><span>SELECT OPTIONS</span></a>
                                     <a href="javascript:void(0);" class="btn-quickview" title="Quick View"><i
                                             class="fas fa-external-link-alt"></i></a>
                                 </div>

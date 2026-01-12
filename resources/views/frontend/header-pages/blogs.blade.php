@@ -1,5 +1,7 @@
 @extends('frontend.layouts.master')
-@section('title', 'Blog')
+@section('title', 'Printing & Advertisement Blog - Industry Insights')
+@section('meta_description', 'Stay updated with the latest trends in printing, branding, and advertisement. Professional tips and insights from the Crelogics team.')
+@section('meta_keywords', 'printing blog, advertisement insights, branding tips, Crelogics articles, latest printing trends')
 @section('content')
     <main class="main">
         <nav aria-label="breadcrumb" class="breadcrumb-nav">

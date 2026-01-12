@@ -1,5 +1,7 @@
 @extends('frontend.layouts.master')
-@section('title', 'Checkout')
+@section('title', 'Checkout - Complete Your Printing Order')
+@section('meta_description', 'Securely checkout and finalize your order for business cards, flyers, and other professional printing products at Crelogics.')
+@section('meta_keywords', 'checkout, place order, printing services checkout, secure payment Crelogics')
 @section('content')
     <main class="main">
         <div class="container">

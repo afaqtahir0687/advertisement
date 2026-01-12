@@ -1,5 +1,7 @@
 @extends('frontend.layouts.master')
-@section('title', 'About Us')
+@section('title', 'About Our Company - Crelogics Printing')
+@section('meta_description', 'Learn about Crelogics, our mission, and our commitment to providing top-notch printing and advertisement services since 2015.')
+@section('meta_keywords', 'about us, printing company history, Crelogics story, Saudi Arabia printing experts')
 @section('content')
     <main class="main about">
         <div class="page-header page-header-bg text-left"

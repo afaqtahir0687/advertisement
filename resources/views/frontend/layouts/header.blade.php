@@ -165,7 +165,7 @@
                                         <div class="product">
                                             <div class="product-details">
                                                 <h4 class="product-title">
-                                                    <a href="{{ route('product.show', $details['slug']) }}">{{ $details['name'] }}</a>
+                                                    <a href="{{ route('product.show', [$details['category_slug'] ?? 'uncategorized', $details['subcategory_slug'] ?? 'no-sub', $details['slug']]) }}">{{ $details['name'] }}</a>
                                                 </h4>
 
                                                 <span class="cart-product-info">
@@ -179,7 +179,7 @@
                                             </div>
 
                                             <figure class="product-image-container">
-                                                <a href="{{ route('product.show', $details['slug']) }}" class="product-image">
+                                                <a href="{{ route('product.show', [$details['category_slug'] ?? 'uncategorized', $details['subcategory_slug'] ?? 'no-sub', $details['slug']]) }}" class="product-image">
                                                     @if($details['image'])
                                                         <img src="{{ asset('storage/' . $details['image']) }}" alt="product"
                                                             width="80" height="80">
@@ -227,7 +227,7 @@
                 <ul class="menu">
                     @foreach($headerCategories as $category)
                         <li>
-                            <a href="{{ route('category.index') }}?category={{ $category->slug }}">{{ $category->name }}</a>
+                            <a href="{{ route('category.show', $category->slug) }}">{{ $category->name }}</a>
                             @if($category->subcategories->count() > 0)
                                 <div class="megamenu megamenu-fixed-width megamenu-3cols">
                                     <div class="row">
@@ -235,10 +235,10 @@
                                         @foreach($category->subcategories->chunk(ceil($category->subcategories->count() / 2)) as $chunk)
                                             <div class="col-lg-4">
                                                 @foreach($chunk as $subcategory)
-                                                    <a href="#" class="nolink">{{ $subcategory->name }}</a>
+                                                    <a href="{{ route('subcategory.show', [$category->slug, $subcategory->slug]) }}">{{ $subcategory->name }}</a>
                                                     <ul class="submenu">
                                                         @foreach($subcategory->products as $product)
-                                                            <li><a href="{{ route('product.show', $product->slug) }}">{{ $product->name }}</a></li>
+                                                            <li><a href="{{ route('product.show', [$category->slug, $subcategory->slug, $product->slug]) }}">{{ $product->name }}</a></li>
                                                         @endforeach
                                                         {{-- Link to view all if needed, or if no products --}}
                                                         @if($subcategory->products->isEmpty())

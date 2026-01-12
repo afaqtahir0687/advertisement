@@ -1,5 +1,7 @@
 @extends('frontend.layouts.master')
-@section('title', 'Contact Us')
+@section('title', 'Contact Us - Crelogics Printing & Advertisement')
+@section('meta_description', 'Have questions about our printing or advertisement services? Contact Crelogics today for professional support and customized solutions.')
+@section('meta_keywords', 'contact us, printing customer support, advertisement help, Crelogics contact, Saudi Arabia printing support')
 @section('content')
 	<main class="main">
         <nav aria-label="breadcrumb" class="breadcrumb-nav">

@@ -1,5 +1,7 @@
 @extends('frontend.layouts.master')
 @section('title', $product->name)
+@section('meta_description', \Illuminate\Support\Str::limit(strip_tags($product->description), 160))
+@section('meta_keywords', $product->name . ', ' . ($product->category ? $product->category->name . ', ' : '') . 'printing, customized products, Crelogics')
 @section('content')
     <style>
         .breadcrumb-item, .breadcrumb-item a {
@@ -38,9 +40,13 @@
                     <li class="breadcrumb-item"><a href="{{ route('home') }}"><i class="icon-home"></i></a></li>
 
                     @if($product->subcategory)
-                        @foreach($product->subcategory->getFullPath() as $cat)
-                            <li class="breadcrumb-item"><a href="{{ route('category.show', $cat->slug) }}">{{ $cat->name }}</a></li>
-                        @endforeach
+                        @php
+                            $path = $product->subcategory->getFullPath();
+                            $cat = $path->first();
+                            $sub = $path->last();
+                        @endphp
+                        <li class="breadcrumb-item"><a href="{{ route('category.show', $cat->slug) }}">{{ $cat->name }}</a></li>
+                        <li class="breadcrumb-item"><a href="{{ route('subcategory.show', [$cat->slug, $sub->slug]) }}">{{ $sub->name }}</a></li>
                     @elseif($product->category)
                         @foreach($product->category->getFullPath() as $cat)
                             <li class="breadcrumb-item"><a href="{{ route('category.show', $cat->slug) }}">{{ $cat->name }}</a></li>
@@ -472,7 +478,7 @@
                     @foreach($relatedProducts as $related)
                     <div class="product-default">
                         <figure>
-                            <a href="{{ route('product.show', $related->slug) }}">
+                            <a href="{{ route('product.show', [$related->category->slug, $related->subcategory ? $related->subcategory->slug : 'no-sub', $related->slug]) }}">
                                 <img src="{{ Storage::url($related->image) }}" width="280" height="280" alt="{{ $related->name }}">
                                 @if($related->images && count($related->images) > 0)
                                     <img src="{{ Storage::url($related->images[0]) }}" width="280" height="280" alt="{{ $related->name }}">
@@ -480,7 +486,7 @@
                             </a>
                         </figure>
                         <div class="product-details">
-                            <h3 class="product-title"><a href="{{ route('product.show', $related->slug) }}">{{ $related->name }}</a></h3>
+                            <h3 class="product-title"><a href="{{ route('product.show', [$related->category->slug, $related->subcategory ? $related->subcategory->slug : 'no-sub', $related->slug]) }}">{{ $related->name }}</a></h3>
                             <div class="price-box">
                                 <span class="product-price">{{ format_price($related->price) }}</span>
                             </div>

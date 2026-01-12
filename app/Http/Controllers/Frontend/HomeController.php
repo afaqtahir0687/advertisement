@@ -11,8 +11,8 @@ class HomeController extends Controller
     {
         $sliders = \App\Models\Slider::where('status', 'active')->get();
         $conceptBanners = \App\Models\Banner::where('position', 'concept_to_delivery')->where('status', 'active')->get();
-        $featuredProducts = \App\Models\Product::with('category')->where('is_featured', true)->where('status', 'active')->latest()->take(10)->get();
-        $newArrivals = \App\Models\Product::with('category')->where('is_new_arrival', true)->where('status', 'active')->latest()->take(10)->get();
+        $featuredProducts = \App\Models\Product::with(['category', 'subcategory'])->where('is_featured', true)->where('status', 'active')->latest()->take(10)->get();
+        $newArrivals = \App\Models\Product::with(['category', 'subcategory'])->where('is_new_arrival', true)->where('status', 'active')->latest()->take(10)->get();
         $categories = \App\Models\Category::where('status', 'active')->withCount('products')->get();
         
         return view('frontend.index', compact('sliders', 'conceptBanners', 'featuredProducts', 'newArrivals', 'categories'));
@@ -32,7 +32,7 @@ class HomeController extends Controller
     public function wishlist()
     {
         $wishlistIds = array_keys(session()->get('wishlist', []));
-        $products = \App\Models\Product::whereIn('id', $wishlistIds)->where('status', 'active')->latest()->get();
+        $products = \App\Models\Product::with(['category', 'subcategory'])->whereIn('id', $wishlistIds)->where('status', 'active')->latest()->get();
         return view('frontend.header-pages.wishlist', compact('products'));
     }
     public function cart()

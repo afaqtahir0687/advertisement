@@ -1,5 +1,7 @@
 @extends('frontend.layouts.master')
-@section('title', 'My Wishlist')
+@section('title', 'My Wishlist - Crelogics')
+@section('meta_description', 'View and manage your favorite items in your wishlist. Save the printing products you love for later at Crelogics.')
+@section('meta_keywords', 'wishlist, save for later, printing products, Crelogics favorites')
 @section('content')
     <main class="main">
         <div class="page-header">
@@ -39,7 +41,7 @@
                             <tr class="product-row">
                                 <td>
                                     <figure class="product-image-container">
-                                        <a href="{{ route('product.show', $product->slug) }}" class="product-image">
+                                        <a href="{{ route('product.show', [$product->category->slug, $product->subcategory->slug ?? 'no-sub', $product->slug]) }}" class="product-image">
                                             @if($product->image)
                                                 <img src="{{ asset('storage/' . $product->image) }}" alt="{{ $product->name }}">
                                             @else
@@ -51,7 +53,7 @@
                                 </td>
                                 <td>
                                     <h5 class="product-title">
-                                        <a href="{{ route('product.show', $product->slug) }}"
+                                        <a href="{{ route('product.show', [$product->category->slug, $product->subcategory->slug ?? 'no-sub', $product->slug]) }}"
                                             style="color: #e91d8e">{{ $product->name }}</a>
                                     </h5>
                                 </td>
@@ -67,7 +69,7 @@
                                         class="stock-status">{{ $product->status == 'active' ? 'In stock' : 'Out of stock' }}</span>
                                 </td>
                                 <td class="action">
-                                    <a href="{{ route('product.show', $product->slug) }}"
+                                    <a href="{{ route('product.show', [$product->category->slug, $product->subcategory->slug ?? 'no-sub', $product->slug]) }}"
                                         class="btn btn-quickview mt-1 mt-md-0" title="View Detail">
                                         View Detail
                                     </a>

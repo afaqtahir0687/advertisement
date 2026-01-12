@@ -7,8 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     {{-- <title>{{ config('app.name') }}</title> --}}
     <title>@yield('title', 'Home') - {{ config('app.name', 'Crelogics') }}</title>
-    <meta name="keywords" content="HTML5 Template" />
-    <meta name="description" content="Porto - Bootstrap eCommerce Template">
+    <meta name="keywords" content="@yield('meta_keywords', 'printing services, advertisements, business cards, flyers, banners, social media marketing')" />
+    <meta name="description" content="@yield('meta_description', 'Crelogics provides high-quality printing and advertisement services including business cards, flyers, banners, and digital marketing solutions.')">
     <meta name="author" content="SW-THEMES">
     <link rel="icon" type="image/x-icon" href="assets/images/icons/favicon.png">
 

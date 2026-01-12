@@ -48,17 +48,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/track-order', [HomeController::class, 'trackOrder'])->name('track.order');
 });
 
-// Public Routes (Restored)
-Route::get('/categories', [CategoryController::class, 'index'])->name('category.index');
-Route::get('/category/{slug}', [CategoryController::class, 'show'])->name('category.show');
-Route::get('/categories/banner-slider', [CategoryController::class, 'bannerBoxSlider'])->name('category.bannerBoxSlider');
-Route::get('/categories/banner-box-image', [CategoryController::class, 'bannerBoxImg'])->name('category.bannerBoxImg');
-Route::get('/categories/right-sidebar', [CategoryController::class, 'rightSidebar'])->name('category.rightSidebar');
-Route::get('/categories/off-canvas', [CategoryController::class, 'offCanvas'])->name('category.offCanvas');
-
-Route::get('/products', [ProductController::class, 'index'])->name('products.index');
-Route::get('/product/{slug}', [ProductController::class, 'show'])->name('product.show');
-
+// Public Pages
 Route::get('/about-us', [HomeController::class, 'aboutUs'])->name('about.index');
 Route::get('/blogs', [HomeController::class, 'blogs'])->name('blogs.index');
 Route::get('/single', [HomeController::class, 'single'])->name('single.index');
@@ -66,6 +56,17 @@ Route::get('/contact-us', [HomeController::class, 'contactUs'])->name('contact.i
 
 // Currency Switching
 Route::get('currency-switch/{currency}', [App\Http\Controllers\Frontend\CurrencyController::class, 'switch'])->name('currency.switch');
+
+// Original generic indices
+Route::get('/categories', [CategoryController::class, 'index'])->name('category.index');
+Route::get('/products', [ProductController::class, 'index'])->name('products.index');
+
+// Hierarchical Product and Category Routes (Matching Zeejprint)
+// These must be last to avoid catching other static routes
+Route::get('/{category_slug}', [CategoryController::class, 'show'])->name('category.show');
+Route::get('/{category_slug}/{subcategory_slug}', [CategoryController::class, 'show'])->name('subcategory.show');
+Route::get('/{category_slug}/{subcategory_slug}/{product_slug}', [ProductController::class, 'show'])->name('product.show');
+
 
 
 
