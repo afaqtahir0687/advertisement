@@ -39,7 +39,7 @@
         }
 
         /* Premium Currency Switcher Styling */
-        .currency-dropdown-premium .currency-switcher {
+        /* .currency-dropdown-premium .currency-switcher {
             display: flex;
             align-items: center;
             background: rgba(233, 29, 142, 0.05);
@@ -60,7 +60,7 @@
             transform: translateY(-1px);
             box-shadow: 0 4px 8px rgba(233, 29, 142, 0.15);
             color: #e91d8e;
-        }
+        } */
 
         .currency-dropdown-premium .currency-switcher i.flag,
         .currency-dropdown-premium .header-menu i.flag {

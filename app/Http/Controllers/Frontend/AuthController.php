@@ -29,6 +29,7 @@ class AuthController extends Controller
         if (Auth::attempt($credentials, $request->filled('remember'))) {
             $user = Auth::user();
             $this->syncCart($user);
+            $this->syncWishlist($user);
             $request->session()->regenerate();
 
             return redirect()->intended(route('dashboard'));
@@ -121,6 +122,7 @@ class AuthController extends Controller
             session()->forget('otp_user_id');
 
             $this->syncCart($user);
+            $this->syncWishlist($user);
 
             return redirect()->intended(route('dashboard'))->with('success', 'Email verified successfully! Welcome to your dashboard.');
         }
@@ -223,5 +225,36 @@ class AuthController extends Controller
         }
 
         session()->put('cart', $finalCart);
+    }
+
+    private function syncWishlist($user)
+    {
+        $sessionWishlist = session()->get('wishlist', []);
+
+        // 1. Merge session wishlist into database
+        if (!empty($sessionWishlist)) {
+            foreach ($sessionWishlist as $id => $details) {
+                \App\Models\Wishlist::updateOrCreate([
+                    'user_id' => $user->id,
+                    'product_id' => $id
+                ]);
+            }
+        }
+
+        // 2. Load ALL items from database back into session
+        $dbWishlistItems = \App\Models\Wishlist::where('user_id', $user->id)->with('product')->get();
+        $finalWishlist = [];
+
+        foreach ($dbWishlistItems as $item) {
+            $finalWishlist[$item->product_id] = [
+                "product_id" => $item->product_id,
+                "name" => $item->product->name,
+                "price" => $item->product->discount_price ?: $item->product->price,
+                "image" => $item->product->image,
+                "slug" => $item->product->slug
+            ];
+        }
+
+        session()->put('wishlist', $finalWishlist);
     }
 }
