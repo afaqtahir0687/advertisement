@@ -59,7 +59,9 @@ class HomeController extends Controller
         $tax = $after_discount * 0.15; // 15% VAT
         $grand_total = $after_discount + $tax;
 
-        return view('frontend.header-pages.checkout', compact('cart', 'user', 'subtotal', 'total_discount', 'tax', 'grand_total'));
+        $countries = \App\Models\Country::all();
+
+        return view('frontend.header-pages.checkout', compact('cart', 'user', 'subtotal', 'total_discount', 'tax', 'grand_total', 'countries'));
     }
     public function orderComplete()
     {

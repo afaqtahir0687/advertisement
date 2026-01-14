@@ -5,6 +5,7 @@ use App\Http\Controllers\Frontend\HomeController;
 use App\Http\Controllers\Frontend\AuthController;
 use App\Http\Controllers\Frontend\DashboardController;
 use App\Http\Controllers\Frontend\ProductController;
+use App\Http\Controllers\Frontend\OrderController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -44,6 +45,7 @@ Route::middleware('auth')->group(function () {
 
     // Checkout & Orders
     Route::get('/checkout', [HomeController::class, 'checkout'])->name('checkout.index');
+    Route::post('/checkout', [OrderController::class, 'store'])->name('order.store');
     Route::get('/order-complete', [HomeController::class, 'orderComplete'])->name('order.complete');
     Route::get('/track-order', [HomeController::class, 'trackOrder'])->name('track.order');
 });
@@ -60,6 +62,10 @@ Route::get('currency-switch/{currency}', [App\Http\Controllers\Frontend\Currency
 // Original generic indices
 Route::get('/categories', [CategoryController::class, 'index'])->name('category.index');
 Route::get('/products', [ProductController::class, 'index'])->name('products.index');
+
+// Location Routes
+Route::get('/get-states/{countryId}', [App\Http\Controllers\Frontend\LocationController::class, 'getStates'])->name('get.states');
+Route::get('/get-cities/{stateId}', [App\Http\Controllers\Frontend\LocationController::class, 'getCities'])->name('get.cities');
 
 // Hierarchical Product and Category Routes (Matching Zeejprint)
 // These must be last to avoid catching other static routes
