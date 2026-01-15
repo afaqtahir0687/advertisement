@@ -65,12 +65,13 @@
                             $firstLetter = strtoupper(substr($name, 0, 1));
                         @endphp
                         <a href="#" class="currency-switcher">
-                            @if(Auth::user()->image)
-                                <img src="{{ asset('storage/' . Auth::user()->image) }}" alt="User" style="width: 20px; height: 20px; border-radius: 50%; margin-right: 8px; object-fit: cover; box-shadow: 0 1px 3px rgba(233, 29, 142, 0.3);">
+                            @if(Auth::user()->profile_image)
+                                <img src="{{ Auth::user()->profile_image }}" alt="User" style="width: 20px; height: 20px; border-radius: 50%; margin-right: 8px; object-fit: cover; box-shadow: 0 1px 3px rgba(233, 29, 142, 0.3);">
                             @else
                                 <span class="curr-icon-circle">{{ $firstLetter }}</span>
                             @endif
                             <span>{{ $name }}</span>
+
                             <i class="fas fa-chevron-down ml-2" style="font-size: 10px;"></i>
                         </a>
                         <div class="header-menu">

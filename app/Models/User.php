@@ -64,4 +64,15 @@ class User extends Authenticatable
     {
         return trim("{$this->first_name} {$this->last_name}") ?: $this->attributes['name'] ?? 'Guest';
     }
+
+    /**
+     * Get the user's profile image URL.
+     */
+    public function getProfileImageAttribute()
+    {
+        if ($this->image && file_exists(public_path('assets/images/users_image/' . $this->image))) {
+            return asset('assets/images/users_image/' . $this->image);
+        }
+        return null;
+    }
 }
