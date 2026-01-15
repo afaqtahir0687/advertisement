@@ -14,12 +14,13 @@ class RouteServiceProvider extends ServiceProvider
     {
         parent::boot();
 
+        // Admin routes
+        Route::middleware('web')
+            ->group(base_path('routes/admin.php'));
+
         // Frontend routes
         Route::middleware('web')
             ->group(base_path('routes/web.php'));
 
-        // Admin routes
-        Route::middleware('web')
-            ->group(base_path('routes/admin.php'));
     }
 }
