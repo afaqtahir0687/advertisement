@@ -239,7 +239,7 @@
                                                     <a href="{{ route('subcategory.show', [$category->slug, $subcategory->slug]) }}">{{ $subcategory->name }}</a>
                                                     <ul class="submenu">
                                                         @foreach($subcategory->products as $product)
-                                                            <li><a href="{{ route('product.show', [$category->slug, $subcategory->slug, $product->slug]) }}">{{ $product->name }}</a></li>
+                                                            <li><a href="{{ route('product.show', [$category->slug, $subcategory->slug ?? 'no-sub', $product->slug]) }}">{{ $product->name }}</a></li>
                                                         @endforeach
                                                         {{-- Link to view all if needed, or if no products --}}
                                                         @if($subcategory->products->isEmpty())

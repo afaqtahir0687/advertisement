@@ -489,7 +489,7 @@
                     @foreach($newArrivals as $product)
                         <div class="product-default appear-animate" data-animation-name="fadeInRightShorter">
                             <figure>
-                                <a href="{{ route('product.show', $product->slug) }}">
+                                <a href="{{ route('product.show', [$product->category->slug, $product->subcategory->slug ?? 'no-sub', $product->slug]) }}">
                                     <img src="{{ asset('storage/' . $product->image) }}" width="220" height="220"
                                         alt="{{ $product->name }}">
                                     @if($product->images && count($product->images) > 0)
