@@ -13,6 +13,16 @@ class DashboardController extends Controller
      */
     public function index()
     {
-        return view('admin.dashboard');
+        $data = [
+            'categoriesCount' => \App\Models\Category::count(),
+            'subcategoriesCount' => \App\Models\SubCategory::count(),
+            'productsCount' => \App\Models\Product::count(),
+            'ordersCount' => \App\Models\Order::count(),
+            'usersCount' => \App\Models\User::count(),
+            'cartsCount' => \App\Models\Cart::count(),
+            'recentOrders' => \App\Models\Order::latest()->take(5)->get(),
+        ];
+
+        return view('admin.dashboard', $data);
     }
 }
