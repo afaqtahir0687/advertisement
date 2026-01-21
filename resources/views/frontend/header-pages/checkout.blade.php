@@ -17,13 +17,15 @@
                 </li>
             </ul>
 
-            <div class="row">
-                <div class="col-lg-7">
-                    <ul class="checkout-steps">
-                        <li>
-                            <h2 class="step-title">Billing Details</h2>
+            <form action="{{ route('order.store') }}" method="POST" id="checkout-form">
+                @csrf
+                <input type="hidden" name="payment_method" id="payment_method" value="card">
 
-                            <form action="#" id="checkout-form">
+                <div class="row">
+                    <div class="col-lg-7">
+                        <ul class="checkout-steps">
+                            <li>
+                                <h2 class="step-title">Billing Details</h2>
                                 <div class="row">
                                     <div class="col-md-6">
                                         <div class="form-group">
@@ -93,7 +95,9 @@
                                     <label class="order-comments">Order notes (optional)</label>
                                     <textarea class="form-control" name="notes" placeholder="Notes about your order, e.g. special notes for delivery." rows="5"></textarea>
                                 </div>
-                            </form>
+                            </li>
+                        </ul>
+                    </div>
 
 @push('scripts')
                             <script>
@@ -141,21 +145,34 @@
                                 });
 
                                 function switchTab(tabId) {
-                                    // Remove active class from all buttons
+                                    // Update active button state
                                     $('.payment-tab-btn').removeClass('active');
-                                    // Add active class to clicked button
-                                    $(event.currentTarget).addClass('active');
+                                    $('.payment-tab-btn').each(function() {
+                                        if ($(this).attr('onclick').includes("'" + tabId + "'")) {
+                                            $(this).addClass('active');
+                                        }
+                                    });
 
-                                    // Hide all tab contents
+                                    // Update hidden payment method field
+                                    $('#payment_method').val(tabId);
+
+                                    // Hide all tab contents and disable their required fields
                                     $('.tab-content').removeClass('active');
-                                    // Show selected tab content
-                                    $('#' + tabId + '-tab').addClass('active');
+                                    $('.tab-content').find('input, select').prop('required', false);
+
+                                    // Show selected tab content and enable its required fields
+                                    var activeTab = $('#' + tabId + '-tab');
+                                    activeTab.addClass('active');
+                                    
+                                    // Only re-enable required for fields that originally had it
+                                    activeTab.find('input, select').each(function() {
+                                        if ($(this).attr('data-required') !== 'false') {
+                                            $(this).prop('required', true);
+                                        }
+                                    });
                                 }
                             </script>
                             @endpush
-                        </li>
-                    </ul>
-                </div>
 
                 <div class="col-lg-5">
                         <style>
@@ -295,7 +312,7 @@
                                 <div class="payment-options-header">
                                     <h4 class="m-0">Payment Options</h4>
                                     <div class="payment-methods-logos d-flex flex-wrap justify-content-end">
-                                        <img src="https://upload.wikimedia.org/wikipedia/commons/d/d1/Mada_Logo.svg" alt="mada" onerror="this.src='https://via.placeholder.com/40x24?text=mada'">
+                                        <img src="https://upload.wikimedia.org/wikipedia/commons/d/d1/Mada_Logo.svg" alt="mada">
                                         <img src="https://upload.wikimedia.org/wikipedia/commons/2/2a/Mastercard-logo.svg" alt="mastercard">
                                         <img src="https://upload.wikimedia.org/wikipedia/commons/5/5e/Visa_Inc._logo.svg" alt="visa">
                                         <img src="https://upload.wikimedia.org/wikipedia/commons/b/b5/PayPal.svg" alt="paypal" style="height: 20px;">
@@ -346,7 +363,7 @@
                                     </div>
                                 </div>
 
-                                <button type="submit" form="checkout-form" class="btn-place-order" onclick="window.location.href='{{ route('order.complete') }}'; return false;">
+                                <button type="submit" class="btn-place-order">
                                     Place Order
                                 </button>
                             </div>
@@ -354,7 +371,7 @@
 
                     </div>
                 </div>
-            </div>
+            </form>
         </div>
 
         <div class="mb-6"></div>
