@@ -84,7 +84,7 @@
                 </div>
             </div>
         </div>
-
+{{--
         <div class="row">
             <!-- Recent Orders -->
             <div class="col-xl-12 col-lg-12">
@@ -138,7 +138,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> --}}
 
         <!-- Content Row -->
 
@@ -180,7 +180,7 @@
             </div>
         </div>
 
-        <div class="row">
+        {{-- <div class="row">
             <!-- Recent Orders -->
             <div class="col-xl-12 col-lg-12">
                 <div class="card shadow mb-4">
@@ -233,7 +233,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> --}}
 
     </div>
 @endsection
