@@ -142,6 +142,9 @@
                                             $('#city').html('<option value="">Select a city</option>');
                                         }
                                     });
+                                    
+                                    // Initialize payment tab
+                                    switchTab('card');
                                 });
 
                                 function switchTab(tabId) {

@@ -1,3 +1,4 @@
+<?php
 namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
@@ -73,7 +74,7 @@ class OrderController extends Controller
             foreach ($cart as $id => $details) {
                 OrderItem::create([
                     'order_id' => $order->id,
-                    'product_id' => $id,
+                    'product_id' => $details['product_id'],
                     'product_name' => $details['name'],
                     'quantity' => $details['quantity'],
                     'price' => $details['price'],
