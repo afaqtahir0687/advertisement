@@ -14,74 +14,82 @@
 
             <!-- Categories Card -->
             <div class="col-xl-3 col-md-6 mb-4">
-                <div class="card border-left-primary shadow h-100 py-2">
-                    <div class="card-body">
-                        <div class="row no-gutters align-items-center">
-                            <div class="col mr-2">
-                                <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                                    Total Categories</div>
-                                <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $categoriesCount }}</div>
-                            </div>
-                            <div class="col-auto">
-                                <i class="fas fa-list fa-2x text-gray-300"></i>
+                <a href="{{ route('admin.categories.index') }}" class="text-decoration-none">
+                    <div class="card border-left-primary shadow h-100 py-2">
+                        <div class="card-body">
+                            <div class="row no-gutters align-items-center">
+                                <div class="col mr-2">
+                                    <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                                        Total Categories</div>
+                                    <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $categoriesCount }}</div>
+                                </div>
+                                <div class="col-auto">
+                                    <i class="fas fa-list fa-2x text-gray-300"></i>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
+                </a>
             </div>
 
             <!-- Subcategories Card -->
             <div class="col-xl-3 col-md-6 mb-4">
-                <div class="card border-left-success shadow h-100 py-2">
-                    <div class="card-body">
-                        <div class="row no-gutters align-items-center">
-                            <div class="col mr-2">
-                                <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
-                                    Total Subcategories</div>
-                                <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $subcategoriesCount }}</div>
-                            </div>
-                            <div class="col-auto">
-                                <i class="fas fa-sitemap fa-2x text-gray-300"></i>
+                <a href="{{ route('admin.subcategories.index') }}" class="text-decoration-none">
+                    <div class="card border-left-success shadow h-100 py-2">
+                        <div class="card-body">
+                            <div class="row no-gutters align-items-center">
+                                <div class="col mr-2">
+                                    <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
+                                        Total Subcategories</div>
+                                    <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $subcategoriesCount }}</div>
+                                </div>
+                                <div class="col-auto">
+                                    <i class="fas fa-sitemap fa-2x text-gray-300"></i>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
+                </a>
             </div>
 
             <!-- Products Card -->
             <div class="col-xl-3 col-md-6 mb-4">
-                <div class="card border-left-info shadow h-100 py-2">
-                    <div class="card-body">
-                        <div class="row no-gutters align-items-center">
-                            <div class="col mr-2">
-                                <div class="text-xs font-weight-bold text-info text-uppercase mb-1">
-                                    Total Products</div>
-                                <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $productsCount }}</div>
-                            </div>
-                            <div class="col-auto">
-                                <i class="fas fa-box fa-2x text-gray-300"></i>
+                <a href="{{ route('admin.products.index') }}" class="text-decoration-none">
+                    <div class="card border-left-info shadow h-100 py-2">
+                        <div class="card-body">
+                            <div class="row no-gutters align-items-center">
+                                <div class="col mr-2">
+                                    <div class="text-xs font-weight-bold text-info text-uppercase mb-1">
+                                        Total Products</div>
+                                    <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $productsCount }}</div>
+                                </div>
+                                <div class="col-auto">
+                                    <i class="fas fa-box fa-2x text-gray-300"></i>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
+                </a>
             </div>
 
             <!-- Users Card -->
             <div class="col-xl-3 col-md-6 mb-4">
-                <div class="card border-left-warning shadow h-100 py-2">
-                    <div class="card-body">
-                        <div class="row no-gutters align-items-center">
-                            <div class="col mr-2">
-                                <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
-                                    Total Users</div>
-                                <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $usersCount }}</div>
-                            </div>
-                            <div class="col-auto">
-                                <i class="fas fa-users fa-2x text-gray-300"></i>
+                <a href="{{ route('admin.users.index') }}" class="text-decoration-none">
+                    <div class="card border-left-warning shadow h-100 py-2">
+                        <div class="card-body">
+                            <div class="row no-gutters align-items-center">
+                                <div class="col mr-2">
+                                    <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
+                                        Total Users</div>
+                                    <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $usersCount }}</div>
+                                </div>
+                                <div class="col-auto">
+                                    <i class="fas fa-users fa-2x text-gray-300"></i>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
+                </a>
             </div>
         </div>
 {{--
@@ -145,38 +153,42 @@
         <div class="row">
             <!-- Orders Card -->
             <div class="col-xl-3 col-md-6 mb-4">
-                <div class="card border-left-danger shadow h-100 py-2">
-                    <div class="card-body">
-                        <div class="row no-gutters align-items-center">
-                            <div class="col mr-2">
-                                <div class="text-xs font-weight-bold text-danger text-uppercase mb-1">
-                                    Total Orders</div>
-                                <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $ordersCount }}</div>
-                            </div>
-                            <div class="col-auto">
-                                <i class="fas fa-shopping-cart fa-2x text-gray-300"></i>
+                <a href="{{ route('admin.orders.index') }}" class="text-decoration-none">
+                    <div class="card border-left-danger shadow h-100 py-2">
+                        <div class="card-body">
+                            <div class="row no-gutters align-items-center">
+                                <div class="col mr-2">
+                                    <div class="text-xs font-weight-bold text-danger text-uppercase mb-1">
+                                        Total Orders</div>
+                                    <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $ordersCount }}</div>
+                                </div>
+                                <div class="col-auto">
+                                    <i class="fas fa-shopping-cart fa-2x text-gray-300"></i>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
+                </a>
             </div>
 
             <!-- Active Carts Card -->
             <div class="col-xl-3 col-md-6 mb-4">
-                <div class="card border-left-secondary shadow h-100 py-2">
-                    <div class="card-body">
-                        <div class="row no-gutters align-items-center">
-                            <div class="col mr-2">
-                                <div class="text-xs font-weight-bold text-secondary text-uppercase mb-1">
-                                    Active Carts</div>
-                                <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $cartsCount }}</div>
-                            </div>
-                            <div class="col-auto">
-                                <i class="fas fa-shopping-basket fa-2x text-gray-300"></i>
+                <a href="{{ route('admin.carts.index') }}" class="text-decoration-none">
+                    <div class="card border-left-secondary shadow h-100 py-2">
+                        <div class="card-body">
+                            <div class="row no-gutters align-items-center">
+                                <div class="col mr-2">
+                                    <div class="text-xs font-weight-bold text-secondary text-uppercase mb-1">
+                                        Active Carts</div>
+                                    <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $cartsCount }}</div>
+                                </div>
+                                <div class="col-auto">
+                                    <i class="fas fa-shopping-basket fa-2x text-gray-300"></i>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
+                </a>
             </div>
         </div>
 

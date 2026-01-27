@@ -70,6 +70,13 @@
         </a>
     </li>
 
+    <li class="nav-item {{ request()->routeIs('admin.orders.*') ? 'active' : '' }}">
+        <a class="nav-link" href="{{ route('admin.orders.index') }}">
+            <i class="fas fa-fw fa-shopping-bag"></i>
+            <span>Orders</span>
+        </a>
+    </li>
+
     <li class="nav-item {{ request()->routeIs('admin.carts.index') ? 'active' : '' }}">
         <a class="nav-link" href="{{ route('admin.carts.index') }}">
             <i class="fas fa-fw fa-shopping-cart"></i>
