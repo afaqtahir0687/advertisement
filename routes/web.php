@@ -48,6 +48,7 @@ Route::middleware('auth')->group(function () {
     Route::post('/checkout', [OrderController::class, 'store'])->name('order.store');
     Route::get('/order-complete', [HomeController::class, 'orderComplete'])->name('order.complete');
     Route::get('/track-order', [HomeController::class, 'trackOrder'])->name('track.order');
+    Route::post('/track-order', [HomeController::class, 'trackOrder'])->name('track.order.post');
 });
 
 // Public Pages

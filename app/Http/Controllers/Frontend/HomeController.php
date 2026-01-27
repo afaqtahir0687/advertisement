@@ -72,8 +72,25 @@ class HomeController extends Controller
         return view('frontend.pages.contacts.contact-us');
     }
 
-    public function trackOrder()
+    public function trackOrder(Request $request)
     {
-        return view('frontend.pages.track-order');
+        $order = null;
+        if ($request->isMethod('post')) {
+            $request->validate([
+                'order_number' => 'required|string',
+                'email' => 'required|email',
+            ]);
+
+            $order = \App\Models\Order::with('items')
+                ->where('order_number', $request->order_number)
+                ->where('email', $request->email)
+                ->first();
+
+            if (!$order) {
+                return redirect()->back()->withInput()->with('error', 'Order not found with provided details.');
+            }
+        }
+
+        return view('frontend.pages.track-order', compact('order'));
     }
 }

@@ -30,6 +30,15 @@
                     </div>
                 @endif
 
+                @if(session('error'))
+                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                        {{ session('error') }}
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                @endif
+
                 @if($errors->any())
                     <div class="alert alert-danger alert-dismissible fade show" role="alert">
                         <ul class="mb-0">
@@ -50,7 +59,7 @@
                             <p class="text-center">Enter your order details to check the status</p>
                         </div>
 
-                        <form method="POST" action="{{ route('track.order') }}">
+                        <form method="POST" action="{{ route('track.order.post') }}">
                             @csrf
                             <div class="form-group">
                                 <label for="order_number">
@@ -116,17 +125,48 @@
                                     <tr>
                                         <th>Products</th>
                                         <th>Order Date</th>
+                                        <th>Status</th>
+                                        <th>Total</th>
                                         <th>Shipped To</th>
                                         <th>Order Number</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <td colspan="4" class="text-center py-4">
-                                            <i class="icon-info-circle mr-2"></i>
-                                            Enter your order details to track
-                                        </td>
-                                    </tr>
+                                    @if($order)
+                                        <tr>
+                                            <td>
+                                                <ul class="list-unstyled mb-0">
+                                                    @foreach($order->items as $item)
+                                                        <li>{{ $item->product_name }} x {{ $item->quantity }}</li>
+                                                    @endforeach
+                                                </ul>
+                                            </td>
+                                            <td>{{ $order->created_at->format('d M Y') }}</td>
+                                            <td>
+                                                @php
+                                                    $badgeClass = 'secondary';
+                                                    if($order->order_status == 'completed') $badgeClass = 'success';
+                                                    if($order->order_status == 'pending') $badgeClass = 'warning';
+                                                    if($order->order_status == 'processing') $badgeClass = 'info';
+                                                    if($order->order_status == 'cancelled') $badgeClass = 'danger';
+                                                @endphp
+                                                <span class="badge badge-{{ $badgeClass }}">{{ ucfirst($order->order_status) }}</span>
+                                            </td>
+                                            <td>{{ format_price($order->grand_total) }}</td>
+                                            <td>
+                                                {{ $order->first_name }} {{ $order->last_name }}<br>
+                                                {{ $order->address }}, {{ $order->zip_code }}
+                                            </td>
+                                            <td>{{ $order->order_number }}</td>
+                                        </tr>
+                                    @else
+                                        <tr>
+                                            <td colspan="6" class="text-center py-4">
+                                                <i class="icon-info-circle mr-2"></i>
+                                                Enter your order details to track
+                                            </td>
+                                        </tr>
+                                    @endif
                                 </tbody>
                             </table>
                         </div>
