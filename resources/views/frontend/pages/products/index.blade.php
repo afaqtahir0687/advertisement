@@ -471,7 +471,7 @@
                                 </p>
 
 
-                                <button class="btn btn-primary btn-block btn-lg">Add to cart</button>
+                                <!-- <button class="btn btn-primary btn-block btn-lg">Add to cart</button> -->
                             </div>
                         </div>
                     </div>
@@ -817,7 +817,7 @@
                                 <del class="old-price">$59.00</del>
                                 <span class="product-price">$49.00</span>
                             </div><!-- End .price-box -->
-                            <div class="product-action">
+                            <!-- <div class="product-action">
                                 <a href="wishlist.html" title="Wishlist" class="btn-icon-wish"><i
                                         class="icon-heart"></i></a>
                                 <a href="{{ route('products.index') }}" class="btn-icon btn-add-cart"><i
@@ -825,7 +825,7 @@
                                         OPTIONS</span></a>
                                 <a href="ajax/product-quick-view.html" class="btn-quickview" title="Quick View"><i
                                         class="fas fa-external-link-alt"></i></a>
-                            </div>
+                            </div> -->
                         </div><!-- End .product-details -->
                     </div>
 
@@ -859,7 +859,7 @@
                                 <del class="old-price">$59.00</del>
                                 <span class="product-price">$49.00</span>
                             </div><!-- End .price-box -->
-                            <div class="product-action">
+                            <!-- <div class="product-action">
                                 <a href="wishlist.html" title="Wishlist" class="btn-icon-wish"><i
                                         class="icon-heart"></i></a>
                                 <a href="{{ route('products.index') }}" class="btn-icon btn-add-cart"><i
@@ -867,7 +867,7 @@
                                         OPTIONS</span></a>
                                 <a href="ajax/product-quick-view.html" class="btn-quickview" title="Quick View"><i
                                         class="fas fa-external-link-alt"></i></a>
-                            </div>
+                            </div> -->
                         </div><!-- End .product-details -->
                     </div>
 
@@ -901,7 +901,7 @@
                                 <del class="old-price">$59.00</del>
                                 <span class="product-price">$49.00</span>
                             </div><!-- End .price-box -->
-                            <div class="product-action">
+                            <!-- <div class="product-action">
                                 <a href="wishlist.html" title="Wishlist" class="btn-icon-wish"><i
                                         class="icon-heart"></i></a>
                                 <a href="{{ route('products.index') }}" class="btn-icon btn-add-cart"><i
@@ -909,7 +909,7 @@
                                         OPTIONS</span></a>
                                 <a href="ajax/product-quick-view.html" class="btn-quickview" title="Quick View"><i
                                         class="fas fa-external-link-alt"></i></a>
-                            </div>
+                            </div> -->
                         </div><!-- End .product-details -->
                     </div>
 
@@ -943,7 +943,7 @@
                                 <del class="old-price">$59.00</del>
                                 <span class="product-price">$49.00</span>
                             </div><!-- End .price-box -->
-                            <div class="product-action">
+                            <!-- <div class="product-action">
                                 <a href="wishlist.html" title="Wishlist" class="btn-icon-wish"><i
                                         class="icon-heart"></i></a>
                                 <a href="{{ route('products.index') }}" class="btn-icon btn-add-cart"><i
@@ -951,7 +951,7 @@
                                         OPTIONS</span></a>
                                 <a href="ajax/product-quick-view.html" class="btn-quickview" title="Quick View"><i
                                         class="fas fa-external-link-alt"></i></a>
-                            </div>
+                            </div> -->
                         </div><!-- End .product-details -->
                     </div>
 
@@ -985,7 +985,7 @@
                                 <del class="old-price">$59.00</del>
                                 <span class="product-price">$49.00</span>
                             </div><!-- End .price-box -->
-                            <div class="product-action">
+                            <!-- <div class="product-action">
                                 <a href="wishlist.html" title="Wishlist" class="btn-icon-wish"><i
                                         class="icon-heart"></i></a>
                                 <a href="{{ route('products.index') }}" class="btn-icon btn-add-cart"><i
@@ -993,7 +993,7 @@
                                         OPTIONS</span></a>
                                 <a href="ajax/product-quick-view.html" class="btn-quickview" title="Quick View"><i
                                         class="fas fa-external-link-alt"></i></a>
-                            </div>
+                            </div> -->
                         </div><!-- End .product-details -->
                     </div>
                 </div><!-- End .products-slider -->

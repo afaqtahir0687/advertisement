@@ -286,13 +286,13 @@
                                 <span class="product-price">{{ format_price(150.00) }}</span>
                             </div>
                             <!-- End .price-box -->
-                            <div class="product-action">
+                            <!-- <div class="product-action">
                                 <a href="#" class="btn-icon-wish" title="wishlist"><i class="icon-heart"></i></a>
                                 <a href="#" class="btn-icon btn-add-cart"><i class="fa fa-arrow-right"></i><span>SELECT
                                         OPTIONS</span></a>
                                 <a href="ajax/product-quick-view.html" class="btn-quickview" title="Quick View"><i
                                         class="fas fa-external-link-alt"></i></a>
-                            </div>
+                            </div> -->
                         </div>
                     </div>
                     <div class="product-default appear-animate" data-animation-name="fadeInRightShorter">
@@ -329,13 +329,13 @@
                                 <span class="product-price">{{ format_price(150.00) }}</span>
                             </div>
                             <!-- End .price-box -->
-                            <div class="product-action">
+                            <!-- <div class="product-action">
                                 <a href="#" class="btn-icon-wish" title="wishlist"><i class="icon-heart"></i></a>
                                 <a href="#" class="btn-icon btn-add-cart"><i class="fa fa-arrow-right"></i><span>SELECT
                                         OPTIONS</span></a>
                                 <a href="ajax/product-quick-view.html" class="btn-quickview" title="Quick View"><i
                                         class="fas fa-external-link-alt"></i></a>
-                            </div>
+                            </div> -->
                         </div>
                     </div>
                     <div class="product-default appear-animate" data-animation-name="fadeInRightShorter">
@@ -368,13 +368,13 @@
                                 <span class="product-price">{{ format_price(149.00) }}</span>
                             </div>
                             <!-- End .price-box -->
-                            <div class="product-action">
+                            <!-- <div class="product-action">
                                 <a href="#" class="btn-icon-wish" title="wishlist"><i class="icon-heart"></i></a>
                                 <a href="#" class="btn-icon btn-add-cart product-type-simple"><i
                                         class="icon-shopping-cart"></i><span>ADD TO CART</span></a>
                                 <a href="#" class="btn-quickview" title="Quick View"><i
                                         class="fas fa-external-link-alt"></i></a>
-                            </div>
+                            </div> -->
                         </div>
                     </div>
                     <div class="product-default appear-animate" data-animation-name="fadeInRightShorter">
@@ -411,13 +411,13 @@
                                 <span class="product-price">{{ format_price(149.00) }}</span>
                             </div>
                             <!-- End .price-box -->
-                            <div class="product-action">
+                            <!-- <div class="product-action">
                                 <a href="#" class="btn-icon-wish" title="wishlist"><i class="icon-heart"></i></a>
                                 <a href="#" class="btn-icon btn-add-cart product-type-simple"><i
                                         class="icon-shopping-cart"></i><span>ADD TO CART</span></a>
                                 <a href="#" class="btn-quickview" title="Quick View"><i
                                         class="fas fa-external-link-alt"></i></a>
-                            </div>
+                            </div> -->
                         </div>
                     </div>
                     <div class="product-default appear-animate" data-animation-name="fadeInRightShorter">
@@ -454,13 +454,13 @@
                                 <span class="product-price">{{ format_price(49.00) }}</span>
                             </div>
 
-                            <div class="product-action">
+                            <!-- <div class="product-action">
                                 <a href="#" class="btn-icon-wish" title="wishlist"><i class="icon-heart"></i></a>
                                 <a href="#" class="btn-icon btn-add-cart product-type-simple"><i
                                         class="icon-shopping-cart"></i><span>ADD TO CART</span></a>
                                 <a href="ajax/product-quick-view.html" class="btn-quickview" title="Quick View"><i
                                         class="fas fa-external-link-alt"></i></a>
-                            </div>
+                            </div> -->
                         </div>
                     </div>
                 @endif
@@ -577,13 +577,13 @@
                                 <span class="product-price">{{ format_price(149.00) }}</span>
                             </div>
                             <!-- End .price-box -->
-                            <div class="product-action">
+                            <!-- <div class="product-action">
                                 <a href="#" class="btn-icon-wish" title="wishlist"><i class="icon-heart"></i></a>
                                 <a href="#" class="btn-icon btn-add-cart product-type-simple"><i
                                         class="icon-shopping-cart"></i><span>ADD TO CART</span></a>
                                 <a href="ajax/product-quick-view.html" class="btn-quickview" title="Quick View"><i
                                         class="fas fa-external-link-alt"></i></a>
-                            </div>
+                            </div> -->
                         </div>
                     </div>
                     <div class="product-default appear-animate" data-animation-name="fadeInRightShorter">
@@ -619,13 +619,13 @@
                                 <span class="product-price">{{ format_price(149.00) }}</span>
                             </div>
                             <!-- End .price-box -->
-                            <div class="product-action">
+                            <!-- <div class="product-action">
                                 <a href="#" class="btn-icon-wish" title="wishlist"><i class="icon-heart"></i></a>
                                 <a href="#" class="btn-icon btn-add-cart product-type-simple"><i
                                         class="icon-shopping-cart"></i><span>ADD TO CART</span></a>
                                 <a href="#" class="btn-quickview" title="Quick View"><i
                                         class="fas fa-external-link-alt"></i></a>
-                            </div>
+                            </div> -->
                         </div>
                     </div>
                     <div class="product-default appear-animate" data-animation-name="fadeInRightShorter">
@@ -661,13 +661,13 @@
                                 <span class="product-price">{{ format_price(149.00) }}</span>
                             </div>
                             <!-- End .price-box -->
-                            <div class="product-action">
+                            <!-- <div class="product-action">
                                 <a href="#" class="btn-icon-wish" title="wishlist"><i class="icon-heart"></i></a>
                                 <a href="#" class="btn-icon btn-add-cart product-type-simple"><i
                                         class="icon-shopping-cart"></i><span>ADD TO CART</span></a>
                                 <a href="#" class="btn-quickview" title="Quick View"><i
                                         class="fas fa-external-link-alt"></i></a>
-                            </div>
+                            </div> -->
                         </div>
                     </div>
                     <div class="product-default appear-animate" data-animation-name="fadeInRightShorter">
@@ -703,13 +703,13 @@
                                 <span class="product-price">{{ format_price(149.00) }}</span>
                             </div>
                             <!-- End .price-box -->
-                            <div class="product-action">
+                            <!-- <div class="product-action">
                                 <a href="#" class="btn-icon-wish" title="wishlist"><i class="icon-heart"></i></a>
                                 <a href="#" class="btn-icon btn-add-cart"><i class="fa fa-arrow-right"></i><span>SELECT
                                         OPTIONS</span></a>
                                 <a href="#" class="btn-quickview" title="Quick View"><i
                                         class="fas fa-external-link-alt"></i></a>
-                            </div>
+                            </div> -->
                         </div>
                     </div>
                     <div class="product-default appear-animate" data-animation-name="fadeInRightShorter">
@@ -745,13 +745,13 @@
                                 <span class="product-price">{{ format_price(149.00) }}</span>
                             </div>
                             <!-- End .price-box -->
-                            <div class="product-action">
+                            <!-- <div class="product-action">
                                 <a href="#" class="btn-icon-wish" title="wishlist"><i class="icon-heart"></i></a>
                                 <a href="#" class="btn-icon btn-add-cart product-type-simple"><i
                                         class="icon-shopping-cart"></i><span>ADD TO CART</span></a>
                                 <a href="#" class="btn-quickview" title="Quick View"><i
                                         class="fas fa-external-link-alt"></i></a>
-                            </div>
+                            </div> -->
                         </div>
                     </div>
                     <div class="product-default appear-animate" data-animation-name="fadeInRightShorter">
@@ -787,13 +787,13 @@
                                 <span class="product-price">{{ format_price(49.00) }}</span>
                             </div>
                             <!-- End .price-box -->
-                            <div class="product-action">
+                            <!-- <div class="product-action">
                                 <a href="#" class="btn-icon-wish" title="wishlist"><i class="icon-heart"></i></a>
                                 <a href="#" class="btn-icon btn-add-cart"><i class="fa fa-arrow-right"></i><span>SELECT
                                         OPTIONS</span></a>
                                 <a href="ajax/product-quick-view.html" class="btn-quickview" title="Quick View"><i
                                         class="fas fa-external-link-alt"></i></a>
-                            </div>
+                            </div> -->
                         </div>
                     </div>
                 @endif
