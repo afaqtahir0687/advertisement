@@ -24,16 +24,9 @@
 
         <div class="about-section">
             <div class="container">
-                <h2 class="subtitle">OUR STORY</h2>
-                <p>Founded in 2015, our company has been committed to delivering high-quality products and exceptional
-                    customer service to clients worldwide. With a passion for innovation and excellence, we specialize in
-                    offering a wide range of fashion, lifestyle, and technology products that cater to diverse customer
-                    needs. Our team of dedicated professionals works tirelessly to ensure every product meets the highest
-                    standards of quality, style, and sustainability.</p>
-
-                <p>At our core, we believe in building lasting relationships with our customers by providing transparent,
-                    reliable, and personalized service. We continuously strive to improve our offerings, embrace
-                    cutting-edge trends, and adapt to the evolving market to bring the best experience to our clients.</p>
+                <h2 class="subtitle">About Crelogics</h2>
+                <p>We are also fortunate to have one of the region's leading web-to-print portals. It has become one of the largest e-commerce websites in the printing industry. Crelogics offers a wide range of products. Over 225 products are available to B2B customers and individuals as well.</p>
+                <p>We are a team of dedicated members, including a group of experts who advise and support our customers. We are not only best known for business cards and flyers but so much more. Apart from bestselling products, our premium products are top-rated among our customers. We aim to provide you with high-quality products at a reasonable cost in the fastest time frame.</p>
 
                 <p class="lead">“Our mission is to make quality and style accessible to everyone, while maintaining
                     integrity, trust, and a customer-first approach in everything we do.”</p>

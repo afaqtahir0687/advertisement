@@ -483,6 +483,41 @@
     {{-- Custom Toast Container --}}
     <div id="toast-container" class="custom-toast-container"></div>
 
+    {{-- WhatsApp Floating Button --}}
+    <style>
+        .whatsapp-float {
+            position: fixed;
+            width: 60px;
+            height: 60px;
+            bottom: 40px;
+            right: 40px;
+            background-color: #25d366;
+            color: #FFF;
+            border-radius: 50px;
+            text-align: center;
+            font-size: 30px;
+            box-shadow: 2px 2px 3px #999;
+            z-index: 10000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .whatsapp-float:hover {
+            background-color: #20ba5a;
+            color: #FFF;
+            transform: scale(1.1);
+        }
+
+        .my-float {
+            margin-top: 16px;
+        }
+    </style>
+    <a href="https://wa.me/966557834154" class="whatsapp-float" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
     <script src="{{ asset('assets/js/jquery.min.js') }}"></script>
     <script src="{{ asset('assets/js/bootstrap.bundle.min.js') }}"></script>
     <script src="{{ asset('assets/js/optional/isotope.pkgd.min.js') }}"></script>

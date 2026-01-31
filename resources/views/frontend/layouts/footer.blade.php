@@ -42,7 +42,7 @@
                                     <li><a href="#">Advanced Search</a></li>
                                     <li><a href="#">My Account</a></li>
                                     <li><a href="#">Careers</a></li>
-                                    <li><a href="#">About Us</a></li>
+                                    <li><a href="{{ route('about.index') }}">About Us</a></li>
                                     <li><a href="#">Corporate Sales</a></li>
                                     <li><a href="#">Privacy</a></li>
                                 </ul>
