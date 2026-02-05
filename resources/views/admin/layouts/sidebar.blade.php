@@ -31,17 +31,17 @@
     </li>
 
 
-    <!-- <li class="nav-item">
+    <li class="nav-item {{ request()->routeIs('admin.services.*') ? 'active' : '' }}">
         <a class="nav-link" href="{{ route('admin.services.index') }}">
             <i class="fas fa-fw fa-concierge-bell"></i>
             <span>Services</span></a>
-    </li> -->
+    </li>
 
-    <!-- <li class="nav-item">
+    <li class="nav-item {{ request()->routeIs('admin.banners.*') ? 'active' : '' }}">
         <a class="nav-link" href="{{ route('admin.banners.index') }}">
             <i class="fas fa-fw fa-ad"></i>
             <span>Banners</span></a>
-    </li> -->
+    </li>
 
     <hr class="sidebar-divider">
 

@@ -14,8 +14,9 @@ class HomeController extends Controller
         $featuredProducts = \App\Models\Product::with(['category', 'subcategory'])->where('is_featured', true)->where('status', 'active')->latest()->take(10)->get();
         $newArrivals = \App\Models\Product::with(['category', 'subcategory'])->where('is_new_arrival', true)->where('status', 'active')->latest()->take(10)->get();
         $categories = \App\Models\Category::where('status', 'active')->withCount('products')->get();
+        $services = \App\Models\Service::where('status', 'active')->get();
         
-        return view('frontend.index', compact('sliders', 'conceptBanners', 'featuredProducts', 'newArrivals', 'categories'));
+        return view('frontend.index', compact('sliders', 'conceptBanners', 'featuredProducts', 'newArrivals', 'categories', 'services'));
     }
     public function aboutUs()
     {

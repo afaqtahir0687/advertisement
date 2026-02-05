@@ -25,8 +25,16 @@
                     <input type="text" name="link" class="form-control" value="{{ $banner->link }}">
                 </div>
                 <div class="form-group">
+                    <label>Button Text</label>
+                    <input type="text" name="button_text" class="form-control" value="{{ $banner->button_text }}">
+                </div>
+                <div class="form-group">
                     <label>Position</label>
-                    <input type="text" name="position" class="form-control" value="{{ $banner->position }}">
+                    <select name="position" class="form-control">
+                        <option value="concept_to_delivery" {{ $banner->position == 'concept_to_delivery' ? 'selected' : '' }}>Concept to Delivery (Homepage)</option>
+                        <option value="home_top" {{ $banner->position == 'home_top' ? 'selected' : '' }}>Home Top</option>
+                        <option value="sidebar" {{ $banner->position == 'sidebar' ? 'selected' : '' }}>Sidebar</option>
+                    </select>
                 </div>
                 <div class="form-group">
                     <label>Status</label>

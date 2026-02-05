@@ -30,6 +30,7 @@ class BannerController extends Controller
         $banner = new Banner();
         $banner->title = $request->title;
         $banner->link = $request->link;
+        $banner->button_text = $request->button_text;
         $banner->position = $request->position;
         $banner->status = $request->status;
         
@@ -55,6 +56,7 @@ class BannerController extends Controller
 
         $banner->title = $request->title;
         $banner->link = $request->link;
+        $banner->button_text = $request->button_text;
         $banner->position = $request->position;
         $banner->status = $request->status;
 

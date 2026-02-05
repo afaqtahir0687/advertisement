@@ -13,6 +13,7 @@ class Banner extends Model
         'image',
         'title',
         'link',
+        'button_text',
         'position',
         'status',
     ];

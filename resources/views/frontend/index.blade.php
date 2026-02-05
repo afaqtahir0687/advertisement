@@ -99,87 +99,135 @@
                                 }
                             }
                         }">
-            <div class="info-box info-box-icon-left">
-                <i class="icon-shipping"></i>
+            @if(isset($services) && $services->count() > 0)
+                @foreach($services as $service)
+                    <div class="info-box info-box-icon-left">
+                        <i class="{{ $service->icon ?? 'icon-shipping' }}"></i>
 
-                <div class="info-box-content">
-                    <h4>FREE SHIPPING &amp; RETURN</h4>
-                    <p class="text-body">Free shipping on all orders over {{ format_price(99) }}.</p>
+                        <div class="info-box-content">
+                            <h4>{{ $service->title }}</h4>
+                            <p class="text-body">{{ $service->description }}</p>
+                        </div>
+                    </div>
+                @endforeach
+            @else
+                <div class="info-box info-box-icon-left">
+                    <i class="icon-shipping"></i>
+
+                    <div class="info-box-content">
+                        <h4>FREE SHIPPING &amp; RETURN</h4>
+                        <p class="text-body">Free shipping on all orders over {{ format_price(99) }}.</p>
+                    </div>
                 </div>
-            </div>
 
-            <div class="info-box info-box-icon-left" style="align-items: center;">
-                <span class="info-box-icon"
-                    style="width: 50px; min-width: 50px; height: 50px; display: flex; align-items: center; justify-content: center;">
-                    
-                    <img src="{{ asset('assets/images/demoes/demo4/banners/rial.jpg') }}"
-                        alt="Money Back"
-                        style="width: 40px; height: 40px; object-fit: contain; display: block;">
-                </span>
+                <div class="info-box info-box-icon-left" style="align-items: center;">
+                    <span class="info-box-icon"
+                        style="width: 50px; min-width: 50px; height: 50px; display: flex; align-items: center; justify-content: center;">
+                        
+                        <img src="{{ asset('assets/images/demoes/demo4/banners/rial.jpg') }}"
+                            alt="Money Back"
+                            style="width: 40px; height: 40px; object-fit: contain; display: block;">
+                    </span>
 
-                <div class="info-box-content" style="padding-left: 12px;">
-                    <h4>MONEY BACK GUARANTEE</h4>
-                    <p class="text-body">100% money back guarantee</p>
+                    <div class="info-box-content" style="padding-left: 12px;">
+                        <h4>MONEY BACK GUARANTEE</h4>
+                        <p class="text-body">100% money back guarantee</p>
+                    </div>
                 </div>
-            </div>
 
+                <div class="info-box info-box-icon-left">
+                    <i class="icon-support"></i>
 
-
-            <div class="info-box info-box-icon-left">
-                <i class="icon-support"></i>
-
-                <div class="info-box-content">
-                    <h4>ONLINE SUPPORT 24/7</h4>
-                    <p class="text-body">Lorem ipsum dolor sit amet.</p>
+                    <div class="info-box-content">
+                        <h4>ONLINE SUPPORT 24/7</h4>
+                        <p class="text-body">Lorem ipsum dolor sit amet.</p>
+                    </div>
                 </div>
-            </div>
+            @endif
         </div>
 
         <div class="banners-container mb-2">
             <div class="banners-slider owl-carousel owl-theme" data-owl-options="{
-                                'dots': false
-                            }">
-                <div class="banner banner1 banner-sm-vw d-flex align-items-center appear-animate"
-                    style="background-color: #ccc;" data-animation-name="fadeInLeftShorter" data-animation-delay="500">
-                    <figure class="w-100">
-                        <img src="{{ asset('assets/images/demoes/demo4/banners/banner-1.jpg') }}" alt="banner" width="380"
-                            height="175" />
-                    </figure>
-                    <div class="banner-layer">
-                        <h3 class="m-b-2">Credit Terms</h3>
-                        <a href="{{ route('category.index') }}" class="btn btn-sm btn-dark">Check Credit</a>
-                    </div>
-                </div>
-
-                <div class="banner banner2 banner-sm-vw text-uppercase d-flex align-items-center appear-animate"
-                    data-animation-name="fadeInUpShorter" data-animation-delay="200">
-                    <figure class="w-100">
-                        <img src="{{ asset('assets/images/demoes/demo4/banners/banner-2.jpg') }}"
-                            style="background-color: #ccc;" alt="banner" width="380" height="175" />
-                    </figure>
-                    <div class="banner-layer text-center">
-                        <div class="row align-items-lg-center">
-                            <div class="col-lg-7 text-lg-right">
-                                <h3>Design Services</h3>
+                                 'dots': false
+                             }">
+                @if(isset($conceptBanners) && $conceptBanners->count() > 0)
+                    @foreach($conceptBanners as $index => $banner)
+                        @php
+                            $animationName = 'fadeInUpShorter';
+                            $animationDelay = '200';
+                            if ($index == 0) {
+                                $animationName = 'fadeInLeftShorter';
+                                $animationDelay = '500';
+                            } elseif ($index == 2) {
+                                $animationName = 'fadeInRightShorter';
+                                $animationDelay = '500';
+                            }
+                        @endphp
+                        <div class="banner banner{{ $index + 1 }} banner-sm-vw d-flex align-items-center appear-animate"
+                            style="background-color: #ccc;" data-animation-name="{{ $animationName }}" data-animation-delay="{{ $animationDelay }}">
+                            <figure class="w-100">
+                                <img src="{{ asset('storage/' . $banner->image) }}" alt="{{ $banner->title }}" width="380" height="175" />
+                            </figure>
+                            <div class="banner-layer {{ $index == 1 ? 'text-center' : ($index == 2 ? 'text-right' : '') }}">
+                                @if($index == 1)
+                                    <div class="row align-items-lg-center text-uppercase">
+                                        <div class="col-lg-7 text-lg-right">
+                                            <h3>{{ $banner->title }}</h3>
+                                        </div>
+                                        <div class="col-lg-5 text-lg-left px-0 px-xl-3">
+                                            <a href="{{ $banner->link ?? route('category.index') }}" class="btn btn-sm btn-dark">{{ $banner->button_text ?? 'Order Now' }}</a>
+                                        </div>
+                                    </div>
+                                @else
+                                    <h3 class="m-b-2">{{ $banner->title }}</h3>
+                                    <a href="{{ $banner->link ?? route('category.index') }}" class="btn btn-sm btn-dark">{{ $banner->button_text ?? 'Check Credit' }}</a>
+                                @endif
                             </div>
-                            <div class="col-lg-5 text-lg-left px-0 px-xl-3">
-                                <a href="{{ route('category.index') }}" class="btn btn-sm btn-dark">Order Now</a>
+                        </div>
+                    @endforeach
+                @else
+                    <div class="banner banner1 banner-sm-vw d-flex align-items-center appear-animate"
+                        style="background-color: #ccc;" data-animation-name="fadeInLeftShorter" data-animation-delay="500">
+                        <figure class="w-100">
+                            <img src="{{ asset('assets/images/demoes/demo4/banners/banner-1.jpg') }}" alt="banner" width="380"
+                                height="175" />
+                        </figure>
+                        <div class="banner-layer">
+                            <h3 class="m-b-2">Credit Terms</h3>
+                            <a href="{{ route('category.index') }}" class="btn btn-sm btn-dark">Check Credit</a>
+                        </div>
+                    </div>
+
+                    <div class="banner banner2 banner-sm-vw text-uppercase d-flex align-items-center appear-animate"
+                        data-animation-name="fadeInUpShorter" data-animation-delay="200">
+                        <figure class="w-100">
+                            <img src="{{ asset('assets/images/demoes/demo4/banners/banner-2.jpg') }}"
+                                style="background-color: #ccc;" alt="banner" width="380" height="175" />
+                        </figure>
+                        <div class="banner-layer text-center">
+                            <div class="row align-items-lg-center">
+                                <div class="col-lg-7 text-lg-right">
+                                    <h3>Design Services</h3>
+                                </div>
+                                <div class="col-lg-5 text-lg-left px-0 px-xl-3">
+                                    <a href="{{ route('category.index') }}" class="btn btn-sm btn-dark">Order Now</a>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
 
-                <div class="banner banner3 banner-sm-vw d-flex align-items-center appear-animate"
-                    style="background-color: #ccc;" data-animation-name="fadeInRightShorter" data-animation-delay="500">
-                    <figure class="w-100">
-                        <img src="{{ asset('assets/images/demoes/demo4/banners/banner-3.jpg') }}" alt="banner" width="380"
-                            height="175" />
-                    </figure>
-                    <div class="banner-layer text-right">
-                        <h3 class="m-b-2">Express Delivery</h3>
-                        <a href="{{ route('category.index') }}" class="btn btn-sm btn-dark">See Produts</a>
+                    <div class="banner banner3 banner-sm-vw d-flex align-items-center appear-animate"
+                        style="background-color: #ccc;" data-animation-name="fadeInRightShorter" data-animation-delay="500">
+                        <figure class="w-100">
+                            <img src="{{ asset('assets/images/demoes/demo4/banners/banner-3.jpg') }}" alt="banner" width="380"
+                                height="175" />
+                        </figure>
+                        <div class="banner-layer text-right">
+                            <h3 class="m-b-2">Express Delivery</h3>
+                            <a href="{{ route('category.index') }}" class="btn btn-sm btn-dark">See Produts</a>
+                        </div>
                     </div>
-                </div>
+                @endif
             </div>
         </div>
     </div>

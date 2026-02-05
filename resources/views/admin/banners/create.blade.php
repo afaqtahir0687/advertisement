@@ -21,8 +21,16 @@
                     <input type="text" name="link" class="form-control">
                 </div>
                 <div class="form-group">
+                    <label>Button Text</label>
+                    <input type="text" name="button_text" class="form-control">
+                </div>
+                <div class="form-group">
                     <label>Position</label>
-                    <input type="text" name="position" class="form-control" placeholder="e.g., home_top, sidebar">
+                    <select name="position" class="form-control">
+                        <option value="concept_to_delivery">Concept to Delivery (Homepage)</option>
+                        <option value="home_top">Home Top</option>
+                        <option value="sidebar">Sidebar</option>
+                    </select>
                 </div>
                 <div class="form-group">
                     <label>Status</label>
