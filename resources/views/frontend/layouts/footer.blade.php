@@ -11,11 +11,11 @@
                                 Riyadh KSA
                             </li>
                             <li>
-                                <span class="contact-info-label">Phone:</span><a href="tel:">+966557834154</a>
+                                <span class="contact-info-label">Phone:</span><a href="tel:+966557834154">+966557834154</a>
                             </li>
                             <li>
                                 <span class="contact-info-label">Email:</span> <a
-                                    href="mailto:sale@crelogices.com">sale@crelogices.com</a>
+                                    href="#">sale@crelogices.com</a>
                             </li>
                             <li>
                                 <span class="contact-info-label">Working Days/Hours:</span> Saturday - Thursday / 9:00

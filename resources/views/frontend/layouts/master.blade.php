@@ -514,7 +514,7 @@
             margin-top: 16px;
         }
     </style>
-    <a href="https://wa.me/966557834154" class="whatsapp-float" target="_blank">
+    <a href="https://wa.me/966557834154?text=Hello%20Crelogics,%20I%20am%20interested%20in%20your%20services." class="whatsapp-float" target="_blank">
         <i class="fab fa-whatsapp"></i>
     </a>
 
