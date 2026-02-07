@@ -28,7 +28,7 @@
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
         }
         .header {
-            background-color: #2d3748;
+            background-color: #ffffff;
             padding: 30px;
             text-align: center;
         }
@@ -146,7 +146,7 @@
     <div class="wrapper">
         <div class="content">
             <div class="header">
-                <h1>{{ config('app.name') }}</h1>
+                <img src="http://adv.crelogics.com/assets/images/logo.png" alt="{{ config('app.name') }}" style="max-width: 150px;">
             </div>
             <div class="body">
                 <div class="greeting">Hi {{ $order->first_name }},</div>

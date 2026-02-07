@@ -103,11 +103,7 @@
     <div class="wrapper">
         <div class="content">
             <div class="header">
-                @if(config('app.logo'))
-                    <img src="{{ asset('storage/' . config('app.logo')) }}" alt="{{ config('app.name') }}">
-                @else
-                    <img src="{{ asset('assets/images/logo.png') }}" alt="{{ config('app.name') }}">
-                @endif
+                <img src="http://adv.crelogics.com/assets/images/logo.png" alt="{{ config('app.name') }}">
             </div>
             <div class="body">
                 <div class="greeting">Hello {{ $first_name }}!</div>
