@@ -181,8 +181,9 @@
                             </div>
 
                             <div class="form-group">
-                                <button type="submit" class="btn btn-custom-primary btn-block">
-                                    Sign In
+                                <button type="submit" class="btn btn-custom-primary btn-block" id="login-btn">
+                                    <span class="spinner-border spinner-border-sm d-none" role="status" aria-hidden="true" id="login-spinner"></span>
+                                    <span class="btn-text">Sign In</span>
                                 </button>
                             </div>
 
@@ -198,4 +199,25 @@
             </div>
         </div>
     </div>
+
+    @push('scripts')
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const loginForm = document.querySelector('.login-card form');
+            const loginBtn = document.getElementById('login-btn');
+            const loginSpinner = document.getElementById('login-spinner');
+            const btnText = loginBtn ? loginBtn.querySelector('.btn-text') : null;
+
+            if (loginForm && loginBtn) {
+                loginForm.addEventListener('submit', function() {
+                    if (this.checkValidity()) {
+                        loginBtn.disabled = true;
+                        if (loginSpinner) loginSpinner.classList.remove('d-none');
+                        if (btnText) btnText.textContent = 'Signing In...';
+                    }
+                });
+            }
+        });
+    </script>
+    @endpush
 @endsection

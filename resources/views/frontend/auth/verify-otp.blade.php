@@ -151,8 +151,9 @@
                             </div>
 
                             <div class="form-group">
-                                <button type="submit" class="btn btn-custom-primary btn-block">
-                                    Verify OTP
+                                <button type="submit" class="btn btn-custom-primary btn-block" id="verify-btn">
+                                    <span class="spinner-border spinner-border-sm d-none" role="status" aria-hidden="true" id="verify-spinner"></span>
+                                    <span class="btn-text">Verify OTP</span>
                                 </button>
                             </div>
                         </form>
@@ -186,6 +187,22 @@
             if(otpInput) {
                 otpInput.addEventListener('input', function() {
                     this.value = this.value.replace(/[^0-9]/g, '');
+                });
+            }
+
+            // Verify Button Loader
+            const verifyForm = document.querySelector('.otp-card form');
+            const verifyBtn = document.getElementById('verify-btn');
+            const verifySpinner = document.getElementById('verify-spinner');
+            const btnText = verifyBtn ? verifyBtn.querySelector('.btn-text') : null;
+
+            if (verifyForm && verifyBtn) {
+                verifyForm.addEventListener('submit', function() {
+                    if (this.checkValidity()) {
+                        verifyBtn.disabled = true;
+                        if (verifySpinner) verifySpinner.classList.remove('d-none');
+                        if (btnText) btnText.textContent = 'Verifying...';
+                    }
                 });
             }
         });

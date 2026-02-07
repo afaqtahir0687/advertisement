@@ -62,7 +62,7 @@ class AuthController extends Controller
             'regex:/[a-z]/',      // at least one lowercase letter
             'regex:/[A-Z]/',      // at least one uppercase letter
             'regex:/[0-9]/',      // at least one digit
-            'regex:/[@$!%*#?&]/', // at least one special character
+            'regex:/[!@#$%^&*(),.?":{}|<>]/', // at least one special character
         ],
     ]);
 

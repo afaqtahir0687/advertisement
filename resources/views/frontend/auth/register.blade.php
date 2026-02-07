@@ -332,8 +332,9 @@
                             </div>
 
                             <div class="form-group mt-5">
-                                <button type="submit" class="btn btn-custom-primary btn-block">
-                                    Create Account
+                                <button type="submit" class="btn btn-custom-primary btn-block" id="register-btn">
+                                    <span class="spinner-border spinner-border-sm d-none" role="status" aria-hidden="true" id="register-spinner"></span>
+                                    <span class="btn-text">Create Account</span>
                                 </button>
                             </div>
 
@@ -428,7 +429,23 @@
                     updateRequirement(reqSpecial, /[!@#$%^&*(),.?":{}|<>]/.test(value));
                 });
             }
-        });
+
+        // Register Button Loader
+        const registerForm = document.querySelector('.register-card form');
+        const registerBtn = document.getElementById('register-btn');
+        const registerSpinner = document.getElementById('register-spinner');
+        const btnText = registerBtn ? registerBtn.querySelector('.btn-text') : null;
+
+        if (registerForm && registerBtn) {
+            registerForm.addEventListener('submit', function(e) {
+                if (this.checkValidity()) {
+                    registerBtn.disabled = true;
+                    registerSpinner.classList.remove('d-none');
+                    if (btnText) btnText.textContent = 'Creating Account...';
+                }
+            });
+        }
+    });
     </script>
     @endpush
 @endsection
