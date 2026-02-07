@@ -13,7 +13,7 @@ class ProductController extends Controller
 {
     public function index()
     {
-        $products = Product::with('category')->latest()->get();
+        $products = Product::with('category')->orderBy('id', 'desc')->get();
         return view('admin.products.index', compact('products'));
     }
 

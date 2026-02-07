@@ -10,7 +10,7 @@ class CartController extends Controller
 {
     public function index()
     {
-        $carts = Cart::with(['user', 'product'])->latest()->get();
+        $carts = Cart::with(['user', 'product'])->orderBy('id', 'desc')->get();
         return view('admin.carts.index', compact('carts'));
     }
 }
