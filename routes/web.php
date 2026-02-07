@@ -71,9 +71,22 @@ Route::get('/get-cities/{stateId}', [App\Http\Controllers\Frontend\LocationContr
 
 // Hierarchical Product and Category Routes (Matching Zeejprint)
 // These must be last to avoid catching other static routes
+Route::get('/test-email', function () {
+    try {
+        \Illuminate\Support\Facades\Mail::raw('This is a test email from the server.', function ($message) {
+            $message->to('afaqtahir0687@gmail.com')
+                    ->subject('Server Email Test');
+        });
+        return 'Email sent successfully via SMTP!';
+    } catch (\Exception $e) {
+        return 'Error sending email: ' . $e->getMessage();
+    }
+});
+
 Route::get('/{category_slug}', [CategoryController::class, 'show'])->name('category.show');
 Route::get('/{category_slug}/{subcategory_slug}', [CategoryController::class, 'show'])->name('subcategory.show');
 Route::get('/{category_slug}/{subcategory_slug}/{product_slug}', [ProductController::class, 'show'])->name('product.show');
+
 
 
 

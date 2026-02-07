@@ -23,6 +23,7 @@ class OrderPlaced extends Mailable implements ShouldQueue
     public function __construct(Order $order)
     {
         $this->order = $order;
+        $this->onConnection('sync');
     }
 
     /**

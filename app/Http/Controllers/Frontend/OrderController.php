@@ -87,12 +87,20 @@ class OrderController extends Controller
             DB::commit();
             session()->forget('cart');
 
+
             // Send Order Confirmation Email
             try {
-                Mail::to($order->email)->send(new OrderPlaced($order));
+                $order->load('items'); // Ensure items are loaded
+                \Log::info('Attempting to send order email for order: ' . $order->order_number . ' to: ' . $order->email);
+                if (empty($order->email)) {
+                    \Log::error('Order email is empty for order: ' . $order->order_number);
+                } else {
+                    Mail::to($order->email)->send(new OrderPlaced($order));
+                    \Log::info('Order email sent successfully for order: ' . $order->order_number);
+                }
             } catch (\Exception $e) {
                 // Log error but don't fail the order if email fails
-                \Log::error('Order email failed: ' . $e->getMessage());
+                \Log::error('Order email failed: ' . $e->getMessage() . ' Trace: ' . $e->getTraceAsString());
             }
             
             return redirect()->route('order.complete')->with('success', 'Order placed successfully!');

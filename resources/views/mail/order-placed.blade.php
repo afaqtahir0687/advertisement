@@ -153,14 +153,14 @@
                 <div class="message">
                     Thank you for your order! We've received it and are getting it ready to ship.
                 </div>
-                
+
                 <div class="order-details">
                     <span class="order-number">Order #{{ $order->order_number }}</span>
                     <span class="tracking-number">Tracking Number: <strong>{{ $order->order_number }}</strong></span>
                 </div>
 
                 <div class="btn-container">
-                    <a href="{{ route('track.order', ['order_number' => $order->order_number]) }}" class="btn">Track Your Order</a>
+                    <a href="{{ route('track.order', ['order_number' => $order->order_number]) }}" class="btn" style="color: white">Track Your Order</a>
                 </div>
 
                 <table class="table">
