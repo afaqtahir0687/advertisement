@@ -68,6 +68,7 @@ Route::get('/products', [ProductController::class, 'index'])->name('products.ind
 Route::get('/get-states/{countryId}', [App\Http\Controllers\Frontend\LocationController::class, 'getStates'])->name('get.states');
 Route::get('/get-cities/{stateId}', [App\Http\Controllers\Frontend\LocationController::class, 'getCities'])->name('get.cities');
 
+
 // Hierarchical Product and Category Routes (Matching Zeejprint)
 // These must be last to avoid catching other static routes
 Route::get('/{category_slug}', [CategoryController::class, 'show'])->name('category.show');

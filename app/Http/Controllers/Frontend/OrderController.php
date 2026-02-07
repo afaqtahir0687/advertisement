@@ -7,6 +7,8 @@ use App\Models\OrderItem;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\OrderPlaced;
 
 class OrderController extends Controller
 {
@@ -84,6 +86,14 @@ class OrderController extends Controller
 
             DB::commit();
             session()->forget('cart');
+
+            // Send Order Confirmation Email
+            try {
+                Mail::to($order->email)->send(new OrderPlaced($order));
+            } catch (\Exception $e) {
+                // Log error but don't fail the order if email fails
+                \Log::error('Order email failed: ' . $e->getMessage());
+            }
             
             return redirect()->route('order.complete')->with('success', 'Order placed successfully!');
         } catch (\Exception $e) {
