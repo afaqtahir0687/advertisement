@@ -165,7 +165,15 @@
                                                 <td>{{ $order->created_at->format('M d, Y') }}</td>
                                                 <td>{{ $order->order_status }}</td>
                                                 <td>{{ $order->grand_total }}</td>
-                                                <td><a href="#" class="btn btn-dark">View</a></td>
+                                                <td class="d-flex align-items-center">
+                                                    <a href="#" class="btn btn-dark mr-2">View</a>
+                                                    @if ($order->order_status === 'pending')
+                                                        <form action="{{ route('order.cancel', $order->id) }}" method="POST" onsubmit="return confirm('Are you sure you want to cancel this order?')">
+                                                            @csrf
+                                                            <button type="submit" class="btn btn-danger">Cancel</button>
+                                                        </form>
+                                                    @endif
+                                                </td>
                                             </tr>
                                         @empty
                                             <tr>

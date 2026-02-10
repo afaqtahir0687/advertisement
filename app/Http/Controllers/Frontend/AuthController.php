@@ -9,6 +9,8 @@ use Illuminate\Support\Facades\Hash;
 use App\Models\User;
 use App\Notifications\RegistrationOTP;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\WelcomeEmail;
 
 class AuthController extends Controller
 {
@@ -132,6 +134,13 @@ class AuthController extends Controller
 
             $this->syncCart($user);
             $this->syncWishlist($user);
+
+            // Send Welcome Email
+            try {
+                Mail::to($user->email)->send(new WelcomeEmail($user));
+            } catch (\Exception $e) {
+                \Log::error("Failed to send welcome email to {$user->email}: " . $e->getMessage());
+            }
 
             return redirect()->intended(route('dashboard'))->with('success', 'Email verified successfully! Welcome to your dashboard.');
         }

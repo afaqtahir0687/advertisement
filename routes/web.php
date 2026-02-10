@@ -49,6 +49,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/order-complete', [HomeController::class, 'orderComplete'])->name('order.complete');
     Route::get('/track-order', [HomeController::class, 'trackOrder'])->name('track.order');
     Route::post('/track-order', [HomeController::class, 'trackOrder'])->name('track.order.post');
+    Route::post('/order/{id}/cancel', [OrderController::class, 'cancel'])->name('order.cancel');
 });
 
 // Public Pages

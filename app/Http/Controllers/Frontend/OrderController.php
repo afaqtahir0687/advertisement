@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\OrderPlaced;
+use App\Mail\OrderStatusUpdated;
 
 class OrderController extends Controller
 {
@@ -108,5 +109,26 @@ class OrderController extends Controller
             DB::rollBack();
             return redirect()->back()->with('error', 'Something went wrong while placing your order. ' . $e->getMessage());
         }
+    }
+    public function cancel($id)
+    {
+        $order = Order::where('user_id', auth()->id())->findOrFail($id);
+
+        if ($order->order_status !== 'pending') {
+            return redirect()->back()->with('error', 'Only pending orders can be cancelled.');
+        }
+
+        $order->update([
+            'order_status' => 'cancelled'
+        ]);
+
+        // Send Email Notification
+        try {
+            Mail::to($order->email)->send(new OrderStatusUpdated($order, 'cancelled'));
+        } catch (\Exception $e) {
+            \Log::error("Failed to send order cancellation email for order #{$order->order_number}: " . $e->getMessage());
+        }
+
+        return redirect()->back()->with('success', 'Order cancelled successfully.');
     }
 }
